@@ -1,0 +1,144 @@
+"""Tests for select entity."""
+
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from homeassistant.components.select import (
+    ATTR_OPTION,
+    ATTR_OPTIONS,
+    SERVICE_SELECT_OPTION,
+)
+from homeassistant.components.select import DOMAIN as SELECT_DOMAIN
+from homeassistant.const import ATTR_ENTITY_ID, ATTR_FRIENDLY_NAME
+from homeconnect_websocket.message import Action, Message
+
+from . import setup_config_entry
+from .const import MOCK_CONFIG_DATA
+
+if TYPE_CHECKING:
+    from homeassistant.core import HomeAssistant
+    from homeconnect_websocket.testutils import MockAppliance
+
+
+async def test_setup(
+    hass: HomeAssistant,
+    mock_appliance: MockAppliance,
+    patch_entity_description: None,  # noqa: ARG001
+) -> None:
+    """Test setting up entity."""
+    assert await setup_config_entry(hass, MOCK_CONFIG_DATA, mock_appliance)
+
+    state = hass.states.get("select.fake_brand_homeappliance_select")
+    assert state
+    assert state.name == "Fake_brand HomeAppliance Select"
+    assert state.attributes[ATTR_FRIENDLY_NAME] == "Fake_brand HomeAppliance Select"
+    assert state.attributes[ATTR_OPTIONS] == ["Option1", "Option2", "Option3"]
+
+    state = hass.states.get("select.fake_brand_homeappliance_selectedprogram")
+    assert state
+    assert state.name == "Fake_brand HomeAppliance SelectedProgram"
+    assert state.attributes[ATTR_FRIENDLY_NAME] == "Fake_brand HomeAppliance SelectedProgram"
+    assert state.attributes[ATTR_OPTIONS] == ["program1", "program2"]
+
+
+async def test_update(
+    hass: HomeAssistant,
+    mock_appliance: MockAppliance,
+    patch_entity_description: None,  # noqa: ARG001
+) -> None:
+    """Test updating entity."""
+    entity_id = "select.fake_brand_homeappliance_select"
+    assert await setup_config_entry(hass, MOCK_CONFIG_DATA, mock_appliance)
+
+    await mock_appliance.entities["Test.Select"].update({"value": 0})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.state == "Option1"
+
+    await mock_appliance.entities["Test.Select"].update({"value": 1})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.state == "Option2"
+
+
+async def test_select(
+    hass: HomeAssistant,
+    mock_appliance: MockAppliance,
+    patch_entity_description: None,  # noqa: ARG001
+) -> None:
+    """Test selecting an option."""
+    entity_id = "select.fake_brand_homeappliance_select"
+    assert await setup_config_entry(hass, MOCK_CONFIG_DATA, mock_appliance)
+
+    await hass.services.async_call(
+        SELECT_DOMAIN,
+        SERVICE_SELECT_OPTION,
+        {
+            ATTR_ENTITY_ID: entity_id,
+            ATTR_OPTION: "Option3",
+        },
+        blocking=True,
+    )
+
+    mock_appliance.session.send_sync.assert_awaited_once_with(
+        Message(
+            resource="/ro/values",
+            action=Action.POST,
+            data={"uid": 203, "value": 2},
+        )
+    )
+
+
+async def test_update_program(
+    hass: HomeAssistant,
+    mock_appliance: MockAppliance,
+    patch_entity_description: None,  # noqa: ARG001
+) -> None:
+    """Test updating program select entity."""
+    entity_id = "select.fake_brand_homeappliance_selectedprogram"
+    assert await setup_config_entry(hass, MOCK_CONFIG_DATA, mock_appliance)
+    await mock_appliance.entities["Test.SelectedProgram"].update({"value": 500})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.state == "program1"
+
+    await mock_appliance.entities["Test.SelectedProgram"].update({"value": 501})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.state == "program2"
+
+
+async def test_select_program(
+    hass: HomeAssistant,
+    mock_appliance: MockAppliance,
+    patch_entity_description: None,  # noqa: ARG001
+) -> None:
+    """Test selecting an program."""
+    entity_id = "select.fake_brand_homeappliance_selectedprogram"
+    assert await setup_config_entry(hass, MOCK_CONFIG_DATA, mock_appliance)
+
+    await hass.services.async_call(
+        SELECT_DOMAIN,
+        SERVICE_SELECT_OPTION,
+        {
+            ATTR_ENTITY_ID: entity_id,
+            ATTR_OPTION: "program2",
+        },
+        blocking=True,
+    )
+
+    mock_appliance.session.send_sync.assert_awaited_once_with(
+        Message(
+            resource="/ro/selectedProgram",
+            action=Action.POST,
+            data={
+                "program": 501,
+                "options": [],
+            },
+        )
+    )

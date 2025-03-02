@@ -1,0 +1,230 @@
+{
+  "config": {
+    "step": {
+      "upload": {
+        "title": "Add new Home Connect Appliances",
+        "description": "Upload your Profile file",
+        "data": {
+          "file": "Profile file"
+        }
+      },
+      "device_select": {
+        "title": "Select your Appliance",
+        "description": "Select the Appliance you want to setup"
+      },
+      "host": {
+        "title": "Enter Hostname",
+        "description": "Try manually entering your Appliance Hostname or IP-Address",
+        "data": {
+          "host": "Host / IP-Address"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Connection to Appliance failed",
+      "already_configured": "This Appliance is already configured"
+    },
+    "abort": {
+      "auth_failed": "Authentication failed",
+      "reauth_successful": "Re-authentication successful",
+      "invalid_profile_file": "Config File invalid",
+      "appliance_not_in_profile_file": "Profile File dose not contain profile for this Appliance",
+      "all_setup": "All Appliances in this Profile File are already setup"
+    }
+  },
+  "entity": {
+    "switch": {
+      "switch_power_state": {
+        "name": "Power"
+      },
+      "switch_hygiene_plus": {
+        "name": "Hygiene Plus"
+      },
+      "switch_intensiv_zone": {
+        "name": "Intensiv Zone"
+      },
+      "switch_vario_speed_plus": {
+        "name": "VariospeedPlus"
+      },
+      "switch_silence_on_demand": {
+        "name": "Silence On Demand"
+      },
+      "switch_brilliance_dry": {
+        "name": "Brilliance Dry"
+      },
+      "switch_extra_dry": {
+        "name": "Extra Dry"
+      },
+      "switch_speed_on_demand": {
+        "name": "Speed On Demand"
+      },
+      "switch_info_light": {
+        "name": "Info Light"
+      }
+    },
+    "binary_sensor": {
+      "connection": {
+        "name": "Connection"
+      },
+      "binary_sensor_door_state": {
+        "name": "Door"
+      },
+      "binary_sensor_eco_dry_active": {
+        "name": "EcoDry Active"
+      },
+      "binary_sensor_aqua_stop": {
+        "name": "AquaStop Occurred"
+      },
+      "binary_sensor_low_water_pressure": {
+        "name": "Low Water Pressure"
+      }
+    },
+    "sensor": {
+      "sensor_remaining_program_time": {
+        "name": "Remaining Program Time"
+      },
+      "sensor_program_progress": {
+        "name": "Program Progress"
+      },
+      "sensor_operation_state": {
+        "name": "Operation State"
+      },
+      "sensor_program_phase": {
+        "name": "Program phase"
+      },
+      "sensor_active_program": {
+        "name": "Active Program",
+        "state": {
+          "intensiv70": "Intensiv 70",
+          "auto2": "Auto 2",
+          "eco50": "Eco 50",
+          "quick45": "Quick 45",
+          "prerinse": "PreRinse",
+          "quick65": "Quick 65",
+          "machinecare": "MachineCare",
+          "001": "Favorite 1"
+        }
+      },
+      "sensor_rinse_aid": {
+        "name": "Rinse Aid",
+        "state": {
+          "empty": "Empty",
+          "nearly_empty": "Nearly Empty",
+          "full": "Full"
+        }
+      },
+      "sensor_salt": {
+        "name": "Salt",
+        "state": {
+          "empty": "Empty",
+          "nearly_empty": "Nearly Empty",
+          "full": "Full"
+        }
+      },
+      "sensor_start_in": {
+        "name": "Start in"
+      },
+      "sensor_count_started": {
+        "name": "Start count"
+      },
+      "sensor_end_trigger": {
+        "name": "Program End Condition",
+        "state": {
+          "programfinished": "Finished",
+          "programabortedbyuser": "Aborted by User",
+          "programabortedbyappliance": "Aborted by Appliance",
+          "programabortedbyappliancecriticalerror": "Critical Error"
+        }
+      },
+      "sensor_interval_time_off": {
+        "name": "Interval Off"
+      },
+      "sensor_interval_time_on": {
+        "name": "Interval On"
+      },
+      "sensor_delayed_shutoff_time": {
+        "name": "Delayed Shutoff"
+      }
+    },
+    "select": {
+      "select_drying_assistant_all_programs": {
+        "name": "Drying Assistant All Programs",
+        "state": {
+          "off": "Off",
+          "allprograms": "All Programs",
+          "ecoasdefault": "Eco 50"
+        }
+      },
+      "select_hot_water": {
+        "name": "Water Temperature",
+        "state": {
+          "coldwater": "Cold Water",
+          "hotwater": "Hot Water"
+        }
+      },
+      "select_rinse_aid": {
+        "name": "Rinse Aid"
+      },
+      "select_sound_level_signal": {
+        "name": "Sound Level Signal",
+        "state": {
+          "high": "High",
+          "low": "Low",
+          "medium": "Medium",
+          "off": "Off"
+        }
+      },
+      "select_water_hardness": {
+        "name": "Water Hardness"
+      },
+      "select_remote_control_level": {
+        "name": "Remote Control",
+        "state": {
+          "monitoring": "Off",
+          "manualremotestart": "Manual Remote Start",
+          "permanentremotestart": "Permanent Remote Start"
+        }
+      },
+      "select_program": {
+        "name": "Selected Program",
+        "state": {
+          "intensiv70": "Intensiv 70",
+          "auto2": "Auto 2",
+          "eco50": "Eco 50",
+          "quick45": "Quick 45",
+          "prerinse": "PreRinse",
+          "quick65": "Quick 65",
+          "machinecare": "MachineCare",
+          "001": "Favorite 1"
+        }
+      },
+      "select_start_in": {
+        "name": "Start in"
+      },
+      "select_sensitivity_turbidity": {
+        "name": "Turbidity Sensor Sensitivity",
+        "state": {
+          "standard": "Standard",
+          "sensitive": "Sensitive",
+          "verysensitive": "Very Sensitive"
+        }
+      },
+      "select_eco_as_default": {
+        "name": "Default Program",
+        "state": {
+          "lastprogram": "Last Program",
+          "ecoasdefault": "Eco 50"
+        }
+      }
+    },
+    "button": {
+      "button_abort_program": {
+        "name": "Abort"
+      },
+      "button_start_program": {
+        "name": "Start"
+      }
+    },
+    "number": {}
+  }
+}
