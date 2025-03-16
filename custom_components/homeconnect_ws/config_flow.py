@@ -30,7 +30,12 @@ from homeassistant.helpers.selector import (
     SelectSelector,
     SelectSelectorConfig,
 )
-from homeconnect_websocket import DeviceDescription, hc_socket, parse_device_description
+from homeconnect_websocket import (
+    DeviceDescription,
+    ParserError,
+    hc_socket,
+    parse_device_description,
+)
 
 from .const import CONF_AES_IV, CONF_FILE, CONF_PSK, DOMAIN
 
@@ -121,6 +126,11 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                     self._process_profile_file, user_input[CONF_FILE]
                 )
                 _LOGGER.debug("Found %s Appliances in Profile file", len(self.appliances))
+            except ParserError as exc:
+                return self.async_abort(
+                    reason="profile_file_parser_error",
+                    description_placeholders={"error": exc.args[0]},
+                )
             except (KeyError, ValueError):
                 return self.async_abort(reason="invalid_profile_file")
 
@@ -203,7 +213,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
         """Handle Host setting."""
         if user_input is not None:
             self.data[CONF_HOST] = user_input[CONF_HOST]
-            _LOGGER.debug("User set to Host: %s", self.data[CONF_HOST])
+            _LOGGER.debug("User set Host to: %s", self.data[CONF_HOST])
             return await self.async_step_test_connection()
 
         schema = self.add_suggested_values_to_schema(

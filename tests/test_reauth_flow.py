@@ -16,6 +16,7 @@ from custom_components.homeconnect_ws.const import (
     DOMAIN,
 )
 from homeassistant.data_entry_flow import FlowResultType
+from homeconnect_websocket import ParserError
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from .const import (
@@ -263,7 +264,7 @@ async def test_reauth_invalid_config_parser(
     )
     mock_config.add_to_hass(hass)
 
-    mock_process_profile_file.side_effect = KeyError()
+    mock_process_profile_file.side_effect = ParserError("Test Error")
 
     result = await mock_config.start_reauth_flow(hass)
     result = await hass.config_entries.flow.async_configure(
@@ -273,21 +274,8 @@ async def test_reauth_invalid_config_parser(
         },
     )
     assert result["type"] is FlowResultType.ABORT
-    assert result["reason"] == "invalid_profile_file"
-    mock_setup_entry.assert_not_awaited()
-
-    mock_process_profile_file.side_effect = ValueError()
-
-    result = await mock_config.start_reauth_flow(hass)
-    result = await hass.config_entries.flow.async_configure(
-        result["flow_id"],
-        user_input={
-            CONF_FILE: UPLOADED_FILE,
-        },
-    )
-
-    assert result["type"] is FlowResultType.ABORT
-    assert result["reason"] == "invalid_profile_file"
+    assert result["reason"] == "profile_file_parser_error"
+    assert result["description_placeholders"] == {"error": "Test Error"}
     mock_setup_entry.assert_not_awaited()
 
 
