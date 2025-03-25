@@ -1,4 +1,4 @@
-"""Select entities."""  # noqa: A005
+"""Select entities."""
 
 from __future__ import annotations
 

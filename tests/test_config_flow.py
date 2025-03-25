@@ -19,6 +19,7 @@ from homeassistant.config_entries import SOURCE_USER
 from homeassistant.const import CONF_DESCRIPTION, CONF_DEVICE, CONF_HOST, CONF_NAME
 from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.helpers.selector import SelectOptionDict
+from homeconnect_websocket import ParserError
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from .const import (
@@ -462,7 +463,7 @@ async def test_user_invalid_config_parser(
     mock_setup_entry: AsyncMock,
 ) -> None:
     """Test a config flow with error in config parser."""
-    mock_process_profile_file.side_effect = KeyError()
+    mock_process_profile_file.side_effect = ParserError("Test Error")
 
     result = await hass.config_entries.flow.async_init(DOMAIN, context={"source": SOURCE_USER})
     result = await hass.config_entries.flow.async_configure(
@@ -472,21 +473,8 @@ async def test_user_invalid_config_parser(
         },
     )
     assert result["type"] is FlowResultType.ABORT
-    assert result["reason"] == "invalid_profile_file"
-    mock_setup_entry.assert_not_awaited()
-
-    mock_process_profile_file.side_effect = ValueError()
-
-    result = await hass.config_entries.flow.async_init(DOMAIN, context={"source": SOURCE_USER})
-    result = await hass.config_entries.flow.async_configure(
-        result["flow_id"],
-        user_input={
-            CONF_FILE: UPLOADED_FILE,
-        },
-    )
-
-    assert result["type"] is FlowResultType.ABORT
-    assert result["reason"] == "invalid_profile_file"
+    assert result["reason"] == "profile_file_parser_error"
+    assert result["description_placeholders"] == {"error": "Test Error"}
     mock_setup_entry.assert_not_awaited()
 
 
