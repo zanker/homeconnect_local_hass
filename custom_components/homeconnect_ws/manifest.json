@@ -13,9 +13,9 @@
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/chris-mc1/homeconnect_local_hass/issues",
   "requirements": [
-    "homeconnect-websocket==1.2.3"
+    "homeconnect-websocket==1.2.4b2"
   ],
-  "version": "1.0.1b2",
+  "version": "1.0.2b1",
   "zeroconf": [
     "_homeconnect._tcp.local."
   ]
