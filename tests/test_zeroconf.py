@@ -11,11 +11,12 @@ from custom_components.homeconnect_ws import config_flow
 from custom_components.homeconnect_ws.const import (
     CONF_AES_IV,
     CONF_FILE,
+    CONF_MANUAL_HOST,
     CONF_PSK,
     DOMAIN,
 )
 from homeassistant.config_entries import SOURCE_ZEROCONF
-from homeassistant.const import CONF_DESCRIPTION, CONF_HOST, CONF_NAME
+from homeassistant.const import CONF_DESCRIPTION, CONF_DEVICE_ID, CONF_HOST, CONF_NAME
 from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.helpers.service_info.zeroconf import ZeroconfServiceInfo
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -140,6 +141,36 @@ async def test_zeroconf_update_host(
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "already_configured"
     assert mock_config.data[CONF_HOST] == f"test_brand-test_tls-{MOCK_TLS_DEVICE_ID}.local."
+    mock_setup_entry.assert_not_awaited()
+
+
+async def test_zeroconf_update_manual_host(
+    hass: HomeAssistant,
+    mock_setup_entry: AsyncMock,
+) -> None:
+    """Test updating host from zeroconf discovery when manual host is set."""
+    mock_config = MockConfigEntry(
+        domain=DOMAIN,
+        data={
+            CONF_DESCRIPTION: "description",
+            CONF_HOST: "1.2.3.4",
+            CONF_PSK: "PSK_KEY",
+            CONF_AES_IV: "AES_IV",
+            CONF_DEVICE_ID: "Test_Device_ID",
+            CONF_NAME: "Fake_Brand HomeAppliance",
+            CONF_MANUAL_HOST: True,
+        },
+        unique_id=MOCK_TLS_DEVICE_ID,
+    )
+    mock_config.add_to_hass(hass)
+
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN, context={"source": SOURCE_ZEROCONF}, data=MOCK_ZEROCONF_DATA
+    )
+
+    assert result["type"] is FlowResultType.ABORT
+    assert result["reason"] == "already_configured"
+    assert mock_config.data[CONF_HOST] == "1.2.3.4"
     mock_setup_entry.assert_not_awaited()
 
 

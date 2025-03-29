@@ -37,7 +37,7 @@ from homeconnect_websocket import (
     parse_device_description,
 )
 
-from .const import CONF_AES_IV, CONF_FILE, CONF_PSK, DOMAIN
+from .const import CONF_AES_IV, CONF_FILE, CONF_MANUAL_HOST, CONF_PSK, DOMAIN
 
 if TYPE_CHECKING:
     from homeassistant.config_entries import ConfigFlowResult
@@ -212,6 +212,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_host(self, user_input: dict[str, Any] | None = None) -> FlowResult:
         """Handle Host setting."""
         if user_input is not None:
+            self.data[CONF_MANUAL_HOST] = True
             self.data[CONF_HOST] = user_input[CONF_HOST]
             _LOGGER.debug("User set Host to: %s", self.data[CONF_HOST])
             return await self.async_step_test_connection()
@@ -272,7 +273,13 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                 discovery_info.host,
             )
             await self.async_set_unique_id(discovery_info.properties["id"])
-            self._abort_if_unique_id_configured(updates={CONF_HOST: discovery_info.hostname})
+            updates = None
+            config_entry = self.hass.config_entries.async_entry_for_domain_unique_id(
+                self.handler, self.unique_id
+            )
+            if config_entry and not config_entry.data.get(CONF_MANUAL_HOST, False):
+                updates = {CONF_HOST: discovery_info.hostname}
+            self._abort_if_unique_id_configured(updates=updates)
             self.data[CONF_HOST] = discovery_info.hostname
             self.data[CONF_NAME] = (
                 f"{discovery_info.properties['brand']} {discovery_info.properties['type']}"

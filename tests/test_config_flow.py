@@ -12,6 +12,7 @@ from custom_components.homeconnect_ws import config_flow
 from custom_components.homeconnect_ws.const import (
     CONF_AES_IV,
     CONF_FILE,
+    CONF_MANUAL_HOST,
     CONF_PSK,
     DOMAIN,
 )
@@ -297,6 +298,7 @@ async def test_user_set_host(
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["data"][CONF_HOST] == "5.6.7.8"
+    assert result["data"][CONF_MANUAL_HOST] is True
 
     mock_hc_socket.assert_called_once_with(
         "5.6.7.8",
