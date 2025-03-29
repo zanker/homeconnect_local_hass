@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 from aiohttp import ClientConnectionError, ClientConnectorSSLError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DESCRIPTION, CONF_DEVICE_ID, CONF_HOST
-from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
+from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryError, ConfigEntryNotReady
 from homeassistant.helpers.device_registry import (
     CONNECTION_NETWORK_MAC,
     DeviceInfo,
@@ -41,6 +41,7 @@ async def async_setup_entry(
     config_entry: HCConfigEntry,
 ) -> bool:
     """Set up this integration using config entry."""
+    _LOGGER.debug("Setting up %s", config_entry.data[CONF_DESCRIPTION]["info"].get("vib"))
     appliance = HomeAppliance(
         description=config_entry.data[CONF_DESCRIPTION],
         host=config_entry.data[CONF_HOST],
@@ -60,6 +61,11 @@ async def async_setup_entry(
         msg = f"Can't connect to {config_entry.data[CONF_HOST]}"
         raise ConfigEntryNotReady(msg) from ex
 
+    _LOGGER.debug("Connected to %s", config_entry.data[CONF_DESCRIPTION]["info"].get("vib"))
+    if not appliance.info:
+        msg = "Appliance has no device info"
+        raise ConfigEntryError(msg)
+
     device_info = DeviceInfo(
         connections={(CONNECTION_NETWORK_MAC, format_mac(appliance.info["mac"]))},
         hw_version=appliance.info["hwVersion"],
@@ -77,6 +83,7 @@ async def async_setup_entry(
 
 async def async_unload_entry(hass: HomeAssistant, entry: HCConfigEntry) -> bool:
     """Unload a config entry."""
+    _LOGGER.debug("Unloading %s", entry.data[CONF_DESCRIPTION]["info"].get("vib"))
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     if unload_ok:
         await entry.runtime_data.appliance.close()

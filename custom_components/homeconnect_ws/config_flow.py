@@ -93,6 +93,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                         "info": appliance_info,
                         "description": appliance_description,
                     }
+                    _LOGGER.debug("Found Appliance %s", appliance_info["vib"])
         return appliances
 
     def _set_encryption_keys(self, appliance_info: dict) -> None:
@@ -114,7 +115,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
         """Handle a flow initialized by the user."""
-        _LOGGER.debug("Config flow initialized by the user")
+        _LOGGER.debug("Config flow initialized by user")
         return await self.async_step_upload()
 
     async def async_step_upload(self, user_input: dict[str, Any] | None = None) -> FlowResult:
@@ -167,6 +168,8 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                             label=appliance_name,
                         )
                     )
+                else:
+                    _LOGGER.debug("Found Setup Appliance %s", appliance_info["info"]["vib"])
         except KeyError:
             return self.async_abort(reason="invalid_profile_file")
         if len(appliance_options) == 0:
