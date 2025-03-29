@@ -82,7 +82,7 @@ async def test_zeroconf_init(
     )
 
     tls_socket.assert_called_once_with(
-        f"test_brand-test_tls-{MOCK_TLS_DEVICE_ID}.local.",
+        "127.0.0.2",
         MOCK_TLS_DEVICE_INFO["key"],
     )
     tls_socket.return_value.connect.assert_awaited_once()
@@ -93,7 +93,7 @@ async def test_zeroconf_init(
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["title"] == "Test_Brand Test_TLS"
     assert result["data"][CONF_DESCRIPTION] == MOCK_TLS_DEVICE_DESCRIPTION
-    assert result["data"][CONF_HOST] == f"test_brand-test_tls-{MOCK_TLS_DEVICE_ID}.local."
+    assert result["data"][CONF_HOST] == "127.0.0.2"
     assert result["data"][CONF_PSK] == MOCK_TLS_DEVICE_INFO["key"]
     assert CONF_AES_IV not in result["data"]
     assert result["data"][CONF_NAME] == "Test_Brand Test_TLS"
@@ -140,7 +140,7 @@ async def test_zeroconf_update_host(
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "already_configured"
-    assert mock_config.data[CONF_HOST] == f"test_brand-test_tls-{MOCK_TLS_DEVICE_ID}.local."
+    assert mock_config.data[CONF_HOST] == "127.0.0.2"
     mock_setup_entry.assert_not_awaited()
 
 

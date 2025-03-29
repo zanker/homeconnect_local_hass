@@ -278,9 +278,9 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                 self.handler, self.unique_id
             )
             if config_entry and not config_entry.data.get(CONF_MANUAL_HOST, False):
-                updates = {CONF_HOST: discovery_info.hostname}
+                updates = {CONF_HOST: str(discovery_info.ip_address)}
             self._abort_if_unique_id_configured(updates=updates)
-            self.data[CONF_HOST] = discovery_info.hostname
+            self.data[CONF_HOST] = str(discovery_info.ip_address)
             self.data[CONF_NAME] = (
                 f"{discovery_info.properties['brand']} {discovery_info.properties['type']}"
             )
