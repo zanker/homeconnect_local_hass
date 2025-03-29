@@ -60,6 +60,9 @@ async def async_setup_entry(
         await appliance.close()
         msg = f"Can't connect to {config_entry.data[CONF_HOST]}"
         raise ConfigEntryNotReady(msg) from ex
+    except Exception:
+        await appliance.close()
+        raise
 
     _LOGGER.debug("Connected to %s", config_entry.data[CONF_DESCRIPTION]["info"].get("vib"))
     if not appliance.info:
