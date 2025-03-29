@@ -41,7 +41,7 @@ async def test_load_unload_entry(
     assert entry.state is ConfigEntryState.LOADED
 
     appliance_mock.assert_called_once_with(
-        description="description",
+        description=DEVICE_DESCRIPTION,
         host="1.2.3.4",
         app_name="Homeassistant",
         app_id="Test_Device_ID",

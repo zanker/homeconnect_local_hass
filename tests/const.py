@@ -23,15 +23,6 @@ from homeconnect_websocket.entities import (
     OptionDescription,
 )
 
-MOCK_CONFIG_DATA = {
-    CONF_DESCRIPTION: "description",
-    CONF_HOST: "1.2.3.4",
-    CONF_PSK: "PSK_KEY",
-    CONF_AES_IV: "AES_IV",
-    CONF_DEVICE_ID: "Test_Device_ID",
-    CONF_NAME: "Fake_Brand HomeAppliance",
-}
-
 MOCK_APPLIANCE_INFO = {
     "brand": "Fake_Brand",
     "type": "HomeAppliance",
@@ -43,6 +34,7 @@ MOCK_APPLIANCE_INFO = {
     "mac": "78-43-F2-23-C8-D7",
     "serialNumber": "Fake_serialNumber",
 }
+
 MOCK_TLS_DEVICE_ID = "010203040506070809"
 MOCK_TLS_DEVICE_DESCRIPTION = "MOCK_TLS_DEVICE_DESCRIPTION"
 MOCK_TLS_DEVICE_INFO = {
@@ -288,3 +280,12 @@ DEVICE_DESCRIPTION = DeviceDescription(
     ),
     info=MOCK_APPLIANCE_INFO,
 )
+
+MOCK_CONFIG_DATA = {
+    CONF_DESCRIPTION: DEVICE_DESCRIPTION,
+    CONF_HOST: "1.2.3.4",
+    CONF_PSK: "PSK_KEY",
+    CONF_AES_IV: "AES_IV",
+    CONF_DEVICE_ID: "Test_Device_ID",
+    CONF_NAME: "Fake_Brand HomeAppliance",
+}
