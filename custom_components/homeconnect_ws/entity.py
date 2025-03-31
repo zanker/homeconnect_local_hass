@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
     from homeconnect_websocket.entities import Entity as HcEntity
 
-    from .entity_description import HCEntityDescription
+    from .entity_description import ExtraAttributeDict, HCEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -24,6 +24,7 @@ class HCEntity(Entity):
     _attr_has_entity_name = True
     _entity: HcEntity | None = None
     _entities: list[HcEntity]
+    _extra_attributes: list[ExtraAttributeDict]
 
     def __init__(
         self,
@@ -39,12 +40,17 @@ class HCEntity(Entity):
         self._attr_translation_key = entity_description.key
 
         self._entities = []
+        self._extra_attributes = []
         if entity_description.entity:
             self._entity = self._appliance.entities[entity_description.entity]
             self._entities.append(self._appliance.entities[entity_description.entity])
         if entity_description.entities:
             for entity_name in entity_description.entities:
                 self._entities.append(self._appliance.entities[entity_name])
+        if entity_description.extra_attributes:
+            for extra_attribute in entity_description.extra_attributes:
+                if extra_attribute["entity"] in self._appliance.entities:
+                    self._extra_attributes.append(extra_attribute)
 
     async def async_added_to_hass(self) -> None:
         for entity in self._entities:
@@ -68,16 +74,14 @@ class HCEntity(Entity):
 
     @property
     def extra_state_attributes(self) -> dict:
-        if self.entity_description.extra_attributes:
-            extra_state_attributes = {}
-            for description in self.entity_description.extra_attributes:
-                entity = self._appliance.entities[description["entity"]]
-                if "value_fn" in description:
-                    extra_state_attributes[description["name"]] = description["value_fn"](entity)
-                else:
-                    extra_state_attributes[description["name"]] = entity.value
-            return extra_state_attributes
-        return None
+        extra_state_attributes = {}
+        for description in self._extra_attributes:
+            entity = self._appliance.entities[description["entity"]]
+            if "value_fn" in description:
+                extra_state_attributes[description["name"]] = description["value_fn"](entity)
+            else:
+                extra_state_attributes[description["name"]] = entity.value
+        return extra_state_attributes
 
     async def callback(self, _: HcEntity) -> None:
         self.async_write_ha_state()
