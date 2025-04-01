@@ -41,7 +41,7 @@ async def async_setup_entry(
     config_entry: HCConfigEntry,
 ) -> bool:
     """Set up this integration using config entry."""
-    _LOGGER.debug("Setting up %s", config_entry.data[CONF_DESCRIPTION]["info"].get("vib"))
+    _LOGGER.debug("Setting up %s", config_entry.data[CONF_DESCRIPTION]["info"].get("model"))
     appliance = HomeAppliance(
         description=config_entry.data[CONF_DESCRIPTION],
         host=config_entry.data[CONF_HOST],
