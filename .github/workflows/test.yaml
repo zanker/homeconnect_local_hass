@@ -14,10 +14,10 @@ jobs:
       matrix:
         ha-version:
           [
-            "homeassistant==2024.12",
-            "homeassistant==2025.1",
-            "homeassistant==2025.2",
-            "homeassistant==2025.3",
+            "homeassistant==2024.12.*",
+            "homeassistant==2025.1.*",
+            "homeassistant==2025.2.*",
+            "homeassistant==2025.4.*",
           ]
         experimental: [false]
         include:
@@ -31,6 +31,6 @@ jobs:
       - run: |
           sudo pip install uv
           sudo uv sync --no-install-project --prerelease=allow --no-dev --group test
-          sudo uv pip install --prerelease=allow homeassistant>=${{ matrix.ha-version }} pytest-homeassistant-custom-component
+          sudo uv pip install --prerelease=allow ${{ matrix.ha-version }} pytest-homeassistant-custom-component
       - run: |
           sudo uv run pytest tests/
