@@ -19,3 +19,4 @@ PLATFORMS: Final = [
 CONF_PSK: Final = "psk"
 CONF_AES_IV: Final = "aes_iv"
 CONF_FILE: Final = "file"
+CONF_MANUAL_HOST: Final = "manual_host"
