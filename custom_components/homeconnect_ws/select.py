@@ -128,7 +128,7 @@ class HCStartIn(HCSelect):
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
         self._options = []
-        for t in range(self._entity.min, self._entity.max, 900):
+        for t in range(int(self._entity.min), int(self._entity.max), 900):
             self._options.append(f"{int(t / 3600)}:{int((t % 3600) / 60):02}")
 
     @property
