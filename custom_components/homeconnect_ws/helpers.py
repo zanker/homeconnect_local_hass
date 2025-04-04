@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
     from homeconnect_websocket import HomeAppliance
 
-    from .entity_description import HCEntityDescription
+    from .entity_descriptions import HCEntityDescription
 
 
 def get_entities_available(

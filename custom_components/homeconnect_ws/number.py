@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
     from . import HCConfigEntry
-    from .entity_description import HCNumberEntityDescription
+    from .entity_descriptions import HCNumberEntityDescription
 
 PARALLEL_UPDATES = 0
 

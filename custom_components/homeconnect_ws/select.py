@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket.entities import SelectedProgram
 
     from . import HCConfigEntry
-    from .entity_description import HCSelectEntityDescription
+    from .entity_descriptions import HCSelectEntityDescription
 
 PARALLEL_UPDATES = 0
 

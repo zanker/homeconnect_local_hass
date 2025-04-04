@@ -6,7 +6,7 @@ from custom_components.homeconnect_ws.const import (
     CONF_AES_IV,
     CONF_PSK,
 )
-from custom_components.homeconnect_ws.entity_description import (
+from custom_components.homeconnect_ws.entity_descriptions import (
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
     HCNumberEntityDescription,

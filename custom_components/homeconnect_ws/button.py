@@ -10,7 +10,6 @@ from .entity import HCEntity
 from .entity_description import (
     ABORT_PROGRAM_DESCRIPTION,
     START_PROGRAM_DESCRIPTION,
-    HCButtonEntityDescription,
 )
 
 if TYPE_CHECKING:
@@ -19,6 +18,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket.entities import ActiveProgram, Command
 
     from . import HCConfigEntry
+    from .entity_descriptions import HCButtonEntityDescription
 
 PARALLEL_UPDATES = 0
 

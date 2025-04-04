@@ -10,7 +10,6 @@ from .entity import HCEntity
 from .entity_description import (
     POWER_SWITCH_DESCRIPTION,
     SWITCH_DESCRIPTIONS,
-    HCSwitchEntityDescription,
 )
 from .helpers import get_entities_available
 
@@ -21,6 +20,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
     from . import HCConfigEntry
+    from .entity_descriptions import HCSwitchEntityDescription
 
 PARALLEL_UPDATES = 0
 

@@ -10,7 +10,6 @@ from .entity import HCEntity
 from .entity_description import (
     BINARY_SENSOR_DESCRIPTIONS,
     CONNECTION_SENSOR_DESCRIPTIONS,
-    HCBinarySensorEntityDescription,
 )
 from .helpers import get_entities_available
 
@@ -21,6 +20,7 @@ if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
     from . import HCConfigEntry
+    from .entity_descriptions import HCBinarySensorEntityDescription
 
 PARALLEL_UPDATES = 0
 
