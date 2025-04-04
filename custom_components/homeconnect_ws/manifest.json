@@ -19,7 +19,7 @@
   "requirements": [
     "homeconnect-websocket==1.2.6"
   ],
-  "version": "1.0.2b3",
+  "version": "1.0.3",
   "zeroconf": [
     "_homeconnect._tcp.local."
   ]
