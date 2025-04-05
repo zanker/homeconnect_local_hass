@@ -14,7 +14,6 @@ from homeassistant.const import (
     STATE_ON,
     STATE_UNKNOWN,
 )
-from homeconnect_websocket.entities import Access, EntityDescription
 from homeconnect_websocket.message import Action, Message
 
 from . import setup_config_entry

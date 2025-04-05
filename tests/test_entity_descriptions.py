@@ -36,7 +36,8 @@ POWER_SWITCH = {
 }
 
 
-async def test_power_switch(mock_homeconnect_appliance: MockApplianceType):
+async def test_power_switch(mock_homeconnect_appliance: MockApplianceType) -> None:
+    """Test dynamic Power switch."""
     device_description = POWER_SWITCH.copy()
 
     # On/Off Switch
