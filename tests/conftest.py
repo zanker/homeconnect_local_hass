@@ -27,6 +27,8 @@ from .const import (
     MOCK_TLS_DEVICE_INFO,
 )
 
+pytest_plugins = ["homeconnect_websocket.testutils"]
+
 
 @pytest.fixture(autouse=True)
 def auto_enable_custom_integrations(enable_custom_integrations: None) -> None:  # noqa: ARG001

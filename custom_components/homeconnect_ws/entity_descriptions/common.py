@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
 )
@@ -21,6 +23,45 @@ from .descriptions_definitions import (
     HCSwitchEntityDescription,
     _EntityDescriptionsType,
 )
+
+if TYPE_CHECKING:
+    from homeconnect_websocket import HomeAppliance
+
+
+POWER_SWITCH_VALUE_MAPINGS = (
+    ("On", "MainsOff"),
+    ("Standby", "MainsOff"),
+    ("On", "Off"),
+    ("On", "Standby"),
+    ("Standby", "Off"),
+)
+
+
+def generate_power_switch(appliance: HomeAppliance) -> HCSwitchEntityDescription | None:
+    """Get Power switch description."""
+    if entity := appliance.entities.get("BSH.Common.Setting.PowerState"):
+        settable_states = tuple(entity.enum.values())
+        if entity.min and entity.max:
+            # has min/max
+            settable_states = set()
+            for key, value in entity.enum.items():
+                if int(key) >= entity.min and int(key) <= entity.max:
+                    settable_states.add(value)
+        else:
+            settable_states = set(entity.enum.values())
+
+        if len(settable_states) == 2:
+            # only two power states
+            for mapping in POWER_SWITCH_VALUE_MAPINGS:
+                if settable_states == set(mapping):
+                    return HCSwitchEntityDescription(
+                        key="switch_power_state",
+                        entity="BSH.Common.Setting.PowerState",
+                        device_class=SwitchDeviceClass.SWITCH,
+                        value_mapping=mapping,
+                    )
+    return None
+
 
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
     "abort_button": [
@@ -158,4 +199,5 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="BSH.Common.Option.StartInRelative",
         )
     ],
+    "switch": [generate_power_switch],
 }
