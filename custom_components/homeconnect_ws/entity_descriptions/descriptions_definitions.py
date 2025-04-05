@@ -107,7 +107,6 @@ class EntityDescriptions(TypedDict):
     ]
     event_sensor: list[HCSensorEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]
     number: list[HCNumberEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]
-    power_switch: list[HCSwitchEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]
     program: list[HCSelectEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]
     select: list[HCSelectEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]
     sensor: list[HCSensorEntityDescription | Callable[[HomeAppliance], HCEntityDescription]]

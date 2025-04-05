@@ -27,9 +27,7 @@ async def async_setup_entry(
     async_add_entites: AddEntitiesCallback,
 ) -> None:
     """Set up switch platform."""
-    entities = create_entities(
-        {"switch": HCSwitch, "power_switch": HCPowerSwitch}, config_entry.runtime_data
-    )
+    entities = create_entities({"switch": HCSwitch}, config_entry.runtime_data)
     async_add_entites(entities)
 
 
@@ -68,24 +66,3 @@ class HCSwitch(HCEntity, SwitchEntity):
             await self._entity.set_value(self._value_mapping[1])
         else:
             await self._entity.set_value(False)
-
-
-STANDBY_ENUM_VALUE = 3
-
-
-class HCPowerSwitch(HCSwitch):
-    """Power switch Entity."""
-
-    entity_description: HCSwitchEntityDescription
-
-    def __init__(
-        self,
-        entity_description: HCSwitchEntityDescription,
-        appliance: HomeAppliance,
-        device_info: DeviceInfo,
-    ) -> None:
-        super().__init__(entity_description, appliance, device_info)
-        if STANDBY_ENUM_VALUE in self._entity.enum:
-            self._value_mapping = ("On", "Standby")
-        else:
-            self._value_mapping = ("On", "Off")
