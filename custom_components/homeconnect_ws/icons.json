@@ -38,7 +38,8 @@
                 "state": {
                     "on": "mdi:water-remove-outline"
                 }
-            }
+            },
+            "binary_sensor_bean_container_empty": {}
         },
         "sensor": {
             "sensor_remaining_program_time": {
