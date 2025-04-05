@@ -78,6 +78,9 @@
       },
       "binary_sensor_low_water_pressure": {
         "name": "Low Water Pressure"
+      },
+      "binary_sensor_bean_container_empty": {
+        "name": "Bean Container Empty"
       }
     },
     "sensor": {
@@ -119,6 +122,15 @@
         "state": {
           "empty": "Empty",
           "nearly_empty": "Nearly Empty",
+          "full": "Full"
+        }
+      },
+      "sensor_water_tank": {
+        "name": "Water Tank",
+        "state": {
+          "empty": "Empty",
+          "nearly_empty": "Nearly Empty",
+          "not_inserted": "Not Inserted",
           "full": "Full"
         }
       },

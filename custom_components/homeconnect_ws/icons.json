@@ -38,7 +38,8 @@
                 "state": {
                     "on": "mdi:water-remove-outline"
                 }
-            }
+            },
+            "binary_sensor_bean_container_empty": {}
         },
         "sensor": {
             "sensor_remaining_program_time": {
@@ -54,6 +55,14 @@
             "sensor_active_program": {},
             "sensor_rinse_aid": {},
             "sensor_salt": {},
+            "sensor_water_tank": {
+                "default": "mdi:water",
+                "state": {
+                    "empty": "mdi:water-alert",
+                    "nearly_empty": "mdi:water-alert",
+                    "not_inserted": "mdi:water-remove"
+                }
+            },
             "sensor_start_in": {},
             "sensor_count_started": {},
             "sensor_end_trigger": {},
