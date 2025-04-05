@@ -4,7 +4,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from .common import ENTITY_DESCRIPTIONS
+from custom_components.homeconnect_ws.helpers import merge_dicts
+
+from .common import COMMON_ENTITY_DESCRIPTIONS
+from .cooking import COOKING_ENTITY_DESCRIPTIONS
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
@@ -14,11 +17,27 @@ from .descriptions_definitions import (
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
 )
+from .dishcare import DISHCARE_ENTITY_DESCRIPTIONS
+from .refrigeration import REFRIGERATION_ENTITY_DESCRIPTIONS
 
 if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
     from .descriptions_definitions import EntityDescriptions
+
+ALL_ENTITY_DESCRIPTIONS: dict[str, list[HCEntityDescription]] | None = None
+
+
+def get_all_entity_description() -> dict[str, list[HCEntityDescription]]:
+    global ALL_ENTITY_DESCRIPTIONS  # noqa: PLW0603
+    if ALL_ENTITY_DESCRIPTIONS is None:
+        ALL_ENTITY_DESCRIPTIONS = merge_dicts(
+            COMMON_ENTITY_DESCRIPTIONS,
+            COOKING_ENTITY_DESCRIPTIONS,
+            DISHCARE_ENTITY_DESCRIPTIONS,
+            REFRIGERATION_ENTITY_DESCRIPTIONS,
+        )
+    return ALL_ENTITY_DESCRIPTIONS
 
 
 def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
@@ -37,7 +56,7 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
         "start_in": [],
         "switch": [],
     }
-    for description_type, descriptions in ENTITY_DESCRIPTIONS.items():
+    for description_type, descriptions in get_all_entity_description().items():
         for description in descriptions:
             all_subscribed_entities = []
             if description.entity:

@@ -25,3 +25,15 @@ def create_entities(
                     )
                 )
     return entities
+
+
+def merge_dicts(*args: dict[str, list]) -> dict[str, list]:
+    """Merge multiple dictionaries of type dict[str, list]."""
+    out_dict: dict[str, list] = {}
+    for in_dict in args:
+        for key, value in in_dict.items():
+            if key not in out_dict:
+                out_dict[key] = value
+            else:
+                out_dict[key].extend(value)
+    return out_dict
