@@ -105,13 +105,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ],
-    "power_switch": [
-        HCSwitchEntityDescription(
-            key="switch_power_state",
-            entity="BSH.Common.Setting.PowerState",
-            device_class=SwitchDeviceClass.SWITCH,
-        )
-    ],
     "program": [
         HCSelectEntityDescription(
             key="select_program",

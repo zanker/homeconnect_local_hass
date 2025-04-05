@@ -49,7 +49,6 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
         "binary_sensor": [],
         "event_sensor": [],
         "number": [],
-        "power_switch": [],
         "program": [],
         "select": [],
         "sensor": [],

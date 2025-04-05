@@ -108,11 +108,6 @@ ENTITY_DESCRIPTIONS = {
         ),
     ],
     "number": [HCNumberEntityDescription(key="Test.Number", name="Number", entity="Test.Number")],
-    "power_switch": [
-        HCSwitchEntityDescription(
-            key="Test.PowerState", name="PowerState", entity="Test.PowerState"
-        )
-    ],
     "program": [
         HCSelectEntityDescription(
             key="Test.SelectedProgram", name="SelectedProgram", entity="Test.SelectedProgram"
