@@ -59,15 +59,17 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
     }
     for description_type, descriptions in get_all_entity_description().items():
         for description in descriptions:
-            if callable(description) and (dynamic_description := description(appliance)):
-                available_entities[description_type].append(dynamic_description)
-            all_subscribed_entities = []
-            if description.entity:
-                all_subscribed_entities.append(description.entity)
-            if description.entities:
-                all_subscribed_entities.extend(description.entities)
-            if set(all_subscribed_entities).intersection(appliance.entities):
-                available_entities[description_type].append(description)
+            if callable(description):
+                if dynamic_description := description(appliance):
+                    available_entities[description_type].append(dynamic_description)
+            else:
+                all_subscribed_entities = []
+                if description.entity:
+                    all_subscribed_entities.append(description.entity)
+                if description.entities:
+                    all_subscribed_entities.extend(description.entities)
+                if set(all_subscribed_entities).intersection(appliance.entities):
+                    available_entities[description_type].append(description)
     return available_entities
 
 
