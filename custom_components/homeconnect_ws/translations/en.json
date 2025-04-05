@@ -122,6 +122,15 @@
           "full": "Full"
         }
       },
+      "sensor_water_tank": {
+        "name": "Water Tank",
+        "state": {
+          "empty": "Empty",
+          "nearly_empty": "Nearly Empty",
+          "not_inserted": "Not Inserted",
+          "full": "Full"
+        }
+      },
       "sensor_start_in": {
         "name": "Start in"
       },

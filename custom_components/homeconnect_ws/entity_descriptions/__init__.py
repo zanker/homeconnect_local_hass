@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from custom_components.homeconnect_ws.helpers import merge_dicts
 
 from .common import COMMON_ENTITY_DESCRIPTIONS
+from .consumer_products import CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS
 from .cooking import COOKING_ENTITY_DESCRIPTIONS
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
@@ -34,6 +35,7 @@ def get_all_entity_description() -> _EntityDescriptionsType:
     if ALL_ENTITY_DESCRIPTIONS is None:
         ALL_ENTITY_DESCRIPTIONS = merge_dicts(
             COMMON_ENTITY_DESCRIPTIONS,
+            CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS,
             COOKING_ENTITY_DESCRIPTIONS,
             DISHCARE_ENTITY_DESCRIPTIONS,
             REFRIGERATION_ENTITY_DESCRIPTIONS,
