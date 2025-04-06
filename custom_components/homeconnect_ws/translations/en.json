@@ -310,6 +310,19 @@
           "85percent": "85%",
           "90percent": "90%"
         }
+      },
+      "select_hot_water_temperature": {
+        "name": "Hot water temperature",
+        "state": {
+          "60c": "60 °C",
+          "70c": "70 °C",
+          "75c": "75 °C",
+          "80c": "80 °C",
+          "85c": "85 °C",
+          "90c": "90 °C",
+          "95c": "95 °C",
+          "97c": "97 °C"
+        }
       }
     },
     "button": {

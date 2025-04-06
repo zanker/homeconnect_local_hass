@@ -74,6 +74,12 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_hot_water_temperature",
+            entity="ConsumerProducts.CoffeeMaker.Option.HotWaterTemperature",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
