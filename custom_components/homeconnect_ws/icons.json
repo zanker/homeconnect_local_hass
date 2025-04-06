@@ -111,6 +111,9 @@
             "select_eco_as_default": {},
             "select_power_state": {
                 "default": "mdi:power"
+            },
+            "select_coffee_temperature": {
+                "default": "mdi:thermometer"
             }
         },
         "button": {
