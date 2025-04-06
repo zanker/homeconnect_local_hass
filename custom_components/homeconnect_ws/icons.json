@@ -107,7 +107,10 @@
             "select_sensitivity_turbidity": {
                 "default": "mdi:water-opacity"
             },
-            "select_eco_as_default": {}
+            "select_eco_as_default": {},
+            "select_power_state": {
+                "default": "mdi:power"
+            }
         },
         "button": {
             "button_abort_program": {
