@@ -134,6 +134,14 @@
           "full": "Full"
         }
       },
+      "sensor_drip_tray": {
+        "name": "Drip tray",
+        "state": {
+          "ok": "Ok",
+          "not_inserted": "Not Inserted",
+          "full": "Full"
+        }
+      },
       "sensor_start_in": {
         "name": "Start in"
       },
@@ -246,16 +254,16 @@
           "on": "On",
           "standby": "Standby"
         }
+      }
+    },
+    "button": {
+      "button_abort_program": {
+        "name": "Abort"
       },
-      "button": {
-        "button_abort_program": {
-          "name": "Abort"
-        },
-        "button_start_program": {
-          "name": "Start"
-        }
-      },
-      "number": {}
-    }
+      "button_start_program": {
+        "name": "Start"
+      }
+    },
+    "number": {}
   }
 }
