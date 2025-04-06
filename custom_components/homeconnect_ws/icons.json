@@ -114,7 +114,8 @@
             },
             "select_coffee_temperature": {
                 "default": "mdi:thermometer"
-            }
+            },
+            "select_bean_amount": {}
         },
         "button": {
             "button_abort_program": {
