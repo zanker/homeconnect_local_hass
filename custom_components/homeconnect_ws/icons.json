@@ -63,6 +63,7 @@
                     "not_inserted": "mdi:water-remove"
                 }
             },
+            "sensor_drip_tray": {},
             "sensor_start_in": {},
             "sensor_count_started": {},
             "sensor_end_trigger": {},

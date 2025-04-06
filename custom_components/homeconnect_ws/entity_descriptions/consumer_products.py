@@ -35,6 +35,15 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             ],
             device_class=SensorDeviceClass.ENUM,
             options=["empty", "nearly_empty", "not_inserted", "full"],
-        )
+        ),
+        HCSensorEntityDescription(
+            key="sensor_drip_tray",
+            entities=[
+                "ConsumerProducts.CoffeeMaker.Event.DripTrayFull",
+                "ConsumerProducts.CoffeeMaker.Event.DripTrayNotInserted",
+            ],
+            device_class=SensorDeviceClass.ENUM,
+            options=["full", "not_inserted", "ok"],
+        ),
     ],
 }
