@@ -61,6 +61,9 @@
       },
       "switch_info_light": {
         "name": "Info Light"
+      },
+      "switch_multiple_beverages": {
+        "name": "Multiple Beverages"
       }
     },
     "binary_sensor": {

@@ -6,11 +6,13 @@ from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.switch import SwitchDeviceClass
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
+    HCSwitchEntityDescription,
 )
 
 if TYPE_CHECKING:
@@ -71,6 +73,13 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="ConsumerProducts.CoffeeMaker.Option.CoffeeMilkRatio",
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
+        ),
+    ],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_multiple_beverages",
+            entity="ConsumerProducts.CoffeeMaker.Option.MultipleBeverages",
+            device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
 }
