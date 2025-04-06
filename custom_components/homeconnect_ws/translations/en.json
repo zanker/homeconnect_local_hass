@@ -278,6 +278,15 @@
           "tripleshotplus": "Triple Shot Plus",
           "coffeeground": "Coffee Ground"
         }
+      },
+      "select_beverage_size": {
+        "name": "Beverage size",
+        "state": {
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large",
+          "verylarge": "Very large"
+        }
       }
     },
     "button": {
