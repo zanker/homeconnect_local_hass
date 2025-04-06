@@ -21,7 +21,8 @@
             "switch_info_light": {},
             "switch_brilliance_dry": {
                 "default": "mdi:shimmer"
-            }
+            },
+            "switch_multiple_beverages": {}
         },
         "binary_sensor": {
             "connection": {},
