@@ -9,6 +9,7 @@ from homeassistant.components.sensor import SensorDeviceClass
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCSelectEntityDescription,
     HCSensorEntityDescription,
 )
 
@@ -45,5 +46,13 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             options=["full", "not_inserted", "ok"],
         ),
+    ],
+    "select": [
+        HCSelectEntityDescription(
+            key="select_coffee_temperature",
+            entity="ConsumerProducts.CoffeeMaker.Option.CoffeeTemperature",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        )
     ],
 }

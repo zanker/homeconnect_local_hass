@@ -254,6 +254,18 @@
           "on": "On",
           "standby": "Standby"
         }
+      },
+      "select_coffee_temperature": {
+        "default": "mdi:thermometer",
+        "state": {
+          "88c": "88 °C",
+          "90c": "90 °C",
+          "92c": "92 °C",
+          "94c": "94 °C",
+          "95c": "95 °C",
+          "96c": "96 °C",
+          "98c": "98 °C"
+        }
       }
     },
     "button": {
