@@ -237,16 +237,25 @@
           "lastprogram": "Last Program",
           "ecoasdefault": "Eco 50"
         }
-      }
-    },
-    "button": {
-      "button_abort_program": {
-        "name": "Abort"
       },
-      "button_start_program": {
-        "name": "Start"
-      }
-    },
-    "number": {}
+      "select_power_state": {
+        "name": "Power state",
+        "state": {
+          "mainsoff": "Mains off",
+          "off": "Off",
+          "on": "On",
+          "standby": "Standby"
+        }
+      },
+      "button": {
+        "button_abort_program": {
+          "name": "Abort"
+        },
+        "button_start_program": {
+          "name": "Start"
+        }
+      },
+      "number": {}
+    }
   }
 }
