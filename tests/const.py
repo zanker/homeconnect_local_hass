@@ -113,7 +113,22 @@ ENTITY_DESCRIPTIONS = {
             key="Test.SelectedProgram", name="SelectedProgram", entity="Test.SelectedProgram"
         )
     ],
-    "select": [HCSelectEntityDescription(key="Test.Select", name="Select", entity="Test.Select")],
+    "select": [
+        HCSelectEntityDescription(key="Test.Select", name="Select", entity="Test.Select"),
+        HCSelectEntityDescription(
+            key="Test.Select.Translated",
+            name="Select.Translated",
+            entity="Test.Select",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="Test.Select.Options",
+            name="Select.Options",
+            entity="Test.Select",
+            has_state_translation=True,
+            options=["option2"],
+        ),
+    ],
     "sensor": [
         HCSensorEntityDescription(key="Test.Sensor", name="Sensor", entity="Test.Sensor"),
         HCSensorEntityDescription(

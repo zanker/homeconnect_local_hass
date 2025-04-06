@@ -49,25 +49,36 @@ class HCSelect(HCEntity, SelectEntity):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        if self._entity.enum:
+
+        self._rev_options = {}
+        if entity_description.options:
+            self._attr_options = entity_description.options
+        elif self._entity.enum:
             self._attr_options = []
             if self.entity_description.has_state_translation:
-                self._rev_options = {}
                 for value in self._entity.enum.values():
                     self._attr_options.append(str(value).lower())
-                    self._rev_options[str(value).lower()] = value
             else:
                 for value in self._entity.enum.values():
                     self._attr_options.append(str(value))
 
+        if self.entity_description.has_state_translation and self._entity.enum:
+            for value in self._entity.enum.values():
+                self._rev_options[str(value).lower()] = value
+
     @property
     def current_option(self) -> str:
         if self.entity_description.has_state_translation:
-            return str(self._entity.value).lower()
-        return str(self._entity.value)
+            value = str(self._entity.value).lower()
+            if value in self._attr_options:
+                return value
+        value = str(self._entity.value)
+        if value in self._attr_options:
+            return value
+        return None
 
     async def async_select_option(self, option: str) -> None:
-        if self.entity_description.has_state_translation:
+        if self._rev_options:
             option = self._rev_options[option]
         await self._entity.set_value(option)
 
