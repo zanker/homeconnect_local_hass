@@ -124,7 +124,8 @@
             "select_coffee_temperature": {
                 "default": "mdi:thermometer"
             },
-            "select_bean_amount": {}
+            "select_bean_amount": {},
+            "select_beverage_size": {}
         },
         "button": {
             "button_abort_program": {
