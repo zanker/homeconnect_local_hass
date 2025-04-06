@@ -256,7 +256,7 @@
         }
       },
       "select_coffee_temperature": {
-        "default": "mdi:thermometer",
+        "name": "Coffee temperature",
         "state": {
           "88c": "88 °C",
           "90c": "90 °C",
@@ -265,6 +265,27 @@
           "95c": "95 °C",
           "96c": "96 °C",
           "98c": "98 °C"
+        }
+      },
+      "select_bean_amount": {
+        "name": "Bean Amount",
+        "state": {
+          "verymild": "Very Mild",
+          "mild": "Mild",
+          "mildplus": "Mild Plus",
+          "normal": "Normal",
+          "normalplus": "Normal Plus",
+          "strong": "Strong",
+          "strongplus": "Strong Plus",
+          "verystrong": "Very Strong",
+          "verystrongplus": "Very Strong Plus",
+          "extrastrong": "Extra Strong",
+          "doubleshot": "Double Shot",
+          "doubleshotplus": "Double Shot Plus",
+          "doubleshotplusplus": "Double Shot Plus Plus",
+          "tripleshot": "Triple Shot",
+          "tripleshotplus": "Triple Shot Plus",
+          "coffeeground": "Coffee Ground"
         }
       }
     },

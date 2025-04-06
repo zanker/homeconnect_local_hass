@@ -53,6 +53,12 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="ConsumerProducts.CoffeeMaker.Option.CoffeeTemperature",
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
-        )
+        ),
+        HCSelectEntityDescription(
+            key="select_bean_amount",
+            entity="ConsumerProducts.CoffeeMaker.Option.BeanAmount",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
 }
