@@ -66,5 +66,11 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_coffee_milk_ratio",
+            entity="ConsumerProducts.CoffeeMaker.Option.CoffeeMilkRatio",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
 }

@@ -287,6 +287,26 @@
           "large": "Large",
           "verylarge": "Very large"
         }
+      },
+      "select_coffee_milk_ratio": {
+        "name": "Coffee Milk ratio",
+        "state": {
+          "10percent": "10%",
+          "20percent": "20%",
+          "25percent": "25%",
+          "30percent": "30%",
+          "40percent": "40%",
+          "50percent": "50%",
+          "55percent": "55%",
+          "60percent": "60%",
+          "65percent": "65%",
+          "67percent": "67%",
+          "70percent": "70%",
+          "75percent": "75%",
+          "80percent": "80%",
+          "85percent": "85%",
+          "90percent": "90%"
+        }
       }
     },
     "button": {

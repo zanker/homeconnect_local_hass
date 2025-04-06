@@ -116,7 +116,8 @@
                 "default": "mdi:thermometer"
             },
             "select_bean_amount": {},
-            "select_beverage_size": {}
+            "select_beverage_size": {},
+            "select_coffee_milk_ratio": {}
         },
         "button": {
             "button_abort_program": {
