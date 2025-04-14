@@ -341,6 +341,10 @@
         "name": "Start"
       }
     },
-    "number": {}
+    "number": {
+      "number_fill_quantity": {
+        "name": "Fill quantity"
+      }
+    }
   }
 }
