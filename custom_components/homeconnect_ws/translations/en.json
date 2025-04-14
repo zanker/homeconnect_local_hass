@@ -340,6 +340,17 @@
           "intense": "Intense",
           "intenseplus": "Intense Plus"
         }
+      },
+      "select_coarsness": {
+        "name": "Coarsness",
+        "state": {
+          "coarsness1": "Coarsness 1",
+          "coarsness2": "Coarsness 2",
+          "coarsness3": "Coarsness 3",
+          "coarsness4": "Coarsness 4",
+          "coarsness5": "Coarsness 5",
+          "coarsness6": "Coarsness 6"
+        }
       }
     },
     "button": {
