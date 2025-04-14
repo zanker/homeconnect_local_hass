@@ -118,7 +118,10 @@
             },
             "select_bean_amount": {},
             "select_beverage_size": {},
-            "select_coffee_milk_ratio": {}
+            "select_coffee_milk_ratio": {},
+            "select_hot_water_temperature": {
+                "default": "mdi:water-thermometer-outline"
+            }
         },
         "button": {
             "button_abort_program": {

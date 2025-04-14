@@ -80,6 +80,12 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_flow_rate",
+            entity="ConsumerProducts.CoffeeMaker.Option.FlowRate",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
