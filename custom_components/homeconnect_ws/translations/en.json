@@ -332,6 +332,14 @@
           "95c": "95 °C",
           "97c": "97 °C"
         }
+      },
+      "select_flow_rate": {
+        "name": "Flow rate",
+        "state": {
+          "normal": "Normal",
+          "intense": "Intense",
+          "intenseplus": "Intense Plus"
+        }
       }
     },
     "button": {
