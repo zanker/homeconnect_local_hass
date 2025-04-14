@@ -140,6 +140,8 @@
                 "default": "mdi:play"
             }
         },
-        "number": {}
+        "number": {
+            "number_fill_quantity": {}
+        }
     }
 }

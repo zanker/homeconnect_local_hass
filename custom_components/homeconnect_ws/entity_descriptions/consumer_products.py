@@ -5,11 +5,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
+from homeassistant.const import UnitOfVolume
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
@@ -93,5 +96,14 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="ConsumerProducts.CoffeeMaker.Option.MultipleBeverages",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+    ],
+    "number": [
+        HCNumberEntityDescription(
+            key="number_fill_quantity",
+            entity="ConsumerProducts.CoffeeMaker.Option.FillQuantity",
+            device_class=NumberDeviceClass.VOLUME,
+            native_unit_of_measurement=UnitOfVolume.MILLILITERS,
+            mode=NumberMode.BOX,
+        )
     ],
 }
