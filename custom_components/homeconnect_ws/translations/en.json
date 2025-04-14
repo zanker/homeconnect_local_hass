@@ -364,6 +364,13 @@
           "balanced": "Balanced",
           "distinctive": "Distinctive"
         }
+      },
+      "select_bean_container": {
+        "name": "Bean container",
+        "state": {
+          "right": "Right",
+          "left": "Left"
+        }
       }
     },
     "button": {
