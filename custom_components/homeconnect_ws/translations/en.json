@@ -371,6 +371,13 @@
           "right": "Right",
           "left": "Left"
         }
+      },
+      "select_shot_count": {
+        "name": "Shot count",
+        "state": {
+          "double": "Double",
+          "triple": "Triple"
+        }
       }
     },
     "button": {

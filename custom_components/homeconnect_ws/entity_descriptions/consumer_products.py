@@ -113,6 +113,12 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_shot_count",
+            entity="ConsumerProducts.CoffeeMaker.Option.Shot.Count",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
