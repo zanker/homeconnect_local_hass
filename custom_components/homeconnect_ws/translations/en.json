@@ -342,6 +342,20 @@
           "coarsness5": "Coarsness 5",
           "coarsness6": "Coarsness 6"
         }
+      },
+      "select_coffee_strength": {
+        "name": "Coffee strength",
+        "state": {
+          "strength1": "Strength 1",
+          "strength2": "Strength 2",
+          "strength3": "Strength 3",
+          "strength4": "Strength 4",
+          "strength5": "Strength 5",
+          "strength6": "Strength 6",
+          "strength7": "Strength 7",
+          "strength8": "Strength 8",
+          "strength9": "Strength 9"
+        }
       }
     },
     "button": {
