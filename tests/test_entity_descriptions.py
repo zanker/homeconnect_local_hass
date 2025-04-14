@@ -3,14 +3,21 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+from unittest.mock import Mock
 
-from custom_components.homeconnect_ws.entity_descriptions import HCSwitchEntityDescription
+from custom_components.homeconnect_ws import entity_descriptions
+from custom_components.homeconnect_ws.entity_descriptions import (
+    HCBinarySensorEntityDescription,
+    HCSensorEntityDescription,
+    HCSwitchEntityDescription,
+)
 from custom_components.homeconnect_ws.entity_descriptions.common import generate_power_switch
 from custom_components.homeconnect_ws.helpers import merge_dicts
 from homeassistant.components.switch import SwitchDeviceClass
 
 if TYPE_CHECKING:
-    from homeconnect_websocket.testutils import MockApplianceType
+    import pytest
+    from homeconnect_websocket.testutils import MockAppliance, MockApplianceType
 
 
 def test_merge_dicts() -> None:
@@ -19,6 +26,56 @@ def test_merge_dicts() -> None:
     dict2 = {"b": [5, 6], "c": [7, 8]}
     out_dict = merge_dicts(dict1, dict2)
     assert out_dict == {"a": [1, 2], "b": [3, 4, 5, 6], "c": [7, 8]}
+
+
+MOCK_ENTITY_DESCRIPTIONS = {
+    "binary_sensor": [
+        HCBinarySensorEntityDescription(key="binary_sensor_available", entity="Test.BinarySensor"),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_not_available", entity="Test.BinarySensor2"
+        ),
+    ],
+    "event_sensor": [
+        HCSensorEntityDescription(
+            key="sensor_event_available",
+            entities=[
+                "Test.Event1",
+                "Test.Event2",
+            ],
+        ),
+        HCSensorEntityDescription(
+            key="sensor_event_not_available",
+            entities=[
+                "Test.Event1",
+                "Test.Event3",
+            ],
+        ),
+    ],
+}
+
+
+def test_get_available_entities(
+    mock_appliance: MockAppliance, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Test get_available_entities."""
+    monkeypatch.setattr(
+        entity_descriptions,
+        "get_all_entity_description",
+        Mock(return_value=MOCK_ENTITY_DESCRIPTIONS),
+    )
+    entities = entity_descriptions.get_available_entities(mock_appliance)
+    assert entities["binary_sensor"] == [
+        HCBinarySensorEntityDescription(key="binary_sensor_available", entity="Test.BinarySensor")
+    ]
+    assert entities["event_sensor"] == [
+        HCSensorEntityDescription(
+            key="sensor_event_available",
+            entities=[
+                "Test.Event1",
+                "Test.Event2",
+            ],
+        )
+    ]
 
 
 POWER_SWITCH = {
