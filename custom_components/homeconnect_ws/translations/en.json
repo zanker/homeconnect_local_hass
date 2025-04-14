@@ -356,6 +356,14 @@
           "strength8": "Strength 8",
           "strength9": "Strength 9"
         }
+      },
+      "select_aroma_select": {
+        "name": "Aroma select",
+        "state": {
+          "fine": "Fine",
+          "balanced": "Balanced",
+          "distinctive": "Distinctive"
+        }
       }
     },
     "button": {

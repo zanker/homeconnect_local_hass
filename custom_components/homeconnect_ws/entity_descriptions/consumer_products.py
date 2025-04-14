@@ -101,6 +101,12 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_aroma_select",
+            entity="ConsumerProducts.CoffeeMaker.Option.AromaSelect",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
