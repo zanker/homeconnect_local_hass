@@ -378,6 +378,14 @@
           "double": "Double",
           "triple": "Triple"
         }
+      },
+      "select_cups": {
+        "name": "Cups",
+        "state": {
+          "two": "Two",
+          "four": "Four",
+          "six": "Six"
+        }
       }
     },
     "button": {
