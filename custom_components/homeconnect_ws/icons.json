@@ -22,7 +22,10 @@
             "switch_brilliance_dry": {
                 "default": "mdi:shimmer"
             },
-            "switch_multiple_beverages": {}
+            "switch_multiple_beverages": {},
+            "switch_half_load": {
+                "default": "mdi:fraction-one-half"
+            }
         },
         "binary_sensor": {
             "connection": {},
