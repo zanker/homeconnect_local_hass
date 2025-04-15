@@ -24,6 +24,7 @@ from .const import (
     MOCK_AES_DEVICE_INFO,
     MOCK_TLS_DEVICE_DESCRIPTION,
     MOCK_TLS_DEVICE_ID,
+    MOCK_TLS_DEVICE_ID_2,
     MOCK_TLS_DEVICE_INFO,
 )
 
@@ -98,6 +99,10 @@ def mock_process_profile_file() -> Generator[MagicMock]:
         MOCK_AES_DEVICE_ID: {
             "info": MOCK_AES_DEVICE_INFO,
             "description": MOCK_AES_DEVICE_DESCRIPTION,
+        },
+        MOCK_TLS_DEVICE_ID_2: {
+            "info": MOCK_TLS_DEVICE_INFO,
+            "description": MOCK_TLS_DEVICE_DESCRIPTION,
         },
     }
     with patch(
