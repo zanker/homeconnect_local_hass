@@ -14,12 +14,12 @@ if TYPE_CHECKING:
     from homeassistant.helpers.device_registry import DeviceInfo
     from homeassistant.helpers.entity_platform import AddEntitiesCallback
     from homeconnect_websocket import HomeAppliance
+    from homeconnect_websocket.entities import Entity as HcEntity
     from homeconnect_websocket.entities import Option as Program_Option
     from homeconnect_websocket.entities import SelectedProgram
 
     from . import HCConfigEntry
     from .entity_descriptions.descriptions_definitions import HCSelectEntityDescription
-
 PARALLEL_UPDATES = 0
 
 
@@ -116,13 +116,7 @@ class HCStartIn(HCSelect):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        self._options = []
-        for t in range(int(self._entity.min), int(self._entity.max), 900):
-            self._options.append(f"{int(t / 3600)}:{int((t % 3600) / 60):02}")
-
-    @property
-    def options(self) -> list[str] | None:
-        return self._options
+        self._set_options()
 
     @property
     def current_option(self) -> str:
@@ -133,3 +127,13 @@ class HCStartIn(HCSelect):
         parts = option.split(":")
         delay = int(parts[0]) * 3600 + int(parts[1]) * 60
         await self._entity.set_value(delay)
+
+    def _set_options(self) -> None:
+        self._attr_options = []
+        if self._entity.min and self._entity.max:
+            for t in range(int(self._entity.min), int(self._entity.max), 900):
+                self._options.append(f"{int(t / 3600)}:{int((t % 3600) / 60):02}")
+
+    async def callback(self, entity: HcEntity) -> None:
+        self._set_options()
+        await super().callback(entity)
