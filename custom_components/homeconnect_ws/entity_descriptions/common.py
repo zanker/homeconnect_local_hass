@@ -125,6 +125,12 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_off={"Off", "Confirmed"},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_remote_start_allowed",
+            entity="BSH.Common.Status.RemoteControlStartAllowed",
+            entity_registry_enabled_default=False,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "program": [
         HCSelectEntityDescription(

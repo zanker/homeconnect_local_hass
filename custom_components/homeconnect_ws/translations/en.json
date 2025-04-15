@@ -87,6 +87,9 @@
       },
       "binary_sensor_bean_container_empty": {
         "name": "Bean Container Empty"
+      },
+      "binary_remote_start_allowed": {
+        "name": "Remote start allowed"
       }
     },
     "sensor": {
