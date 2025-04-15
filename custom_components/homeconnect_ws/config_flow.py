@@ -37,9 +37,12 @@ from homeconnect_websocket import (
     parse_device_description,
 )
 
+from . import HC_KEY
 from .const import CONF_AES_IV, CONF_FILE, CONF_MANUAL_HOST, CONF_PSK, DOMAIN
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from homeassistant.config_entries import ConfigFlowResult
     from homeassistant.data_entry_flow import FlowResult
     from homeassistant.helpers.service_info.zeroconf import ZeroconfServiceInfo
@@ -53,11 +56,48 @@ CONFIG_FILE_SCHEMA = vol.Schema(
         vol.Required(CONF_FILE): FileSelector(config=FileSelectorConfig(accept=".zip")),
     }
 )
+CONFIG_FILE_SCHEMA_JSON = vol.Schema(
+    {
+        vol.Required(CONF_FILE): FileSelector(config=FileSelectorConfig(accept=".zip,.json")),
+    }
+)
 CONFIG_HOST_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_HOST): cv.string,
     }
 )
+
+
+def process_zip_file(config_path: Path) -> dict[str, dict[str, dict | DeviceDescription]]:
+    """Process uploaded zip file."""
+    profile_file = ZipFile(config_path)
+
+    appliances = {}
+    re_info = re.compile(".*.json$")
+    infolist = profile_file.infolist()
+    for file in infolist:
+        if re_info.match(file.filename):
+            appliance_info = json.load(profile_file.open(file))
+
+            description_file_name = appliance_info["deviceDescriptionFileName"]
+            feature_file_name = appliance_info["featureMappingFileName"]
+            description_file = profile_file.open(description_file_name).read()
+            feature_file = profile_file.open(feature_file_name).read()
+
+            appliance_description = parse_device_description(description_file, feature_file)
+            appliances[appliance_info["haId"]] = {
+                "info": appliance_info,
+                "description": appliance_description,
+            }
+            _LOGGER.debug("Found Appliance %s", appliance_info["vib"])
+    return appliances
+
+
+def process_json_file(config_path: Path) -> dict[str, dict[str, dict | DeviceDescription]]:
+    """Process uploaded json file."""
+    with config_path.open() as file:
+        entry_data = json.load(file)
+    return {"config_entry": entry_data["data"]["entry_data"]}
 
 
 class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
@@ -74,27 +114,12 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
         self, uploaded_file_id: str
     ) -> dict[str, dict[str, dict | DeviceDescription]]:
         with process_uploaded_file(self.hass, uploaded_file_id) as config_path:
-            profile_file = ZipFile(config_path)
-
-            appliances = {}
-            re_info = re.compile(".*.json$")
-            infolist = profile_file.infolist()
-            for file in infolist:
-                if re_info.match(file.filename):
-                    appliance_info = json.load(profile_file.open(file))
-
-                    description_file_name = appliance_info["deviceDescriptionFileName"]
-                    feature_file_name = appliance_info["featureMappingFileName"]
-                    description_file = profile_file.open(description_file_name).read()
-                    feature_file = profile_file.open(feature_file_name).read()
-
-                    appliance_description = parse_device_description(description_file, feature_file)
-                    appliances[appliance_info["haId"]] = {
-                        "info": appliance_info,
-                        "description": appliance_description,
-                    }
-                    _LOGGER.debug("Found Appliance %s", appliance_info["vib"])
-        return appliances
+            if config_path.suffix == ".zip":
+                return process_zip_file(config_path)
+            if config_path.suffix == ".json":
+                return process_json_file(config_path)
+            msg = "Unexpected profile file suffix: %s"
+            raise ValueError(msg, config_path.name)
 
     def _set_encryption_keys(self, appliance_info: dict) -> None:
         self.data[CONF_MODE] = appliance_info["connectionType"]
@@ -127,6 +152,9 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                     self._process_profile_file, user_input[CONF_FILE]
                 )
                 _LOGGER.debug("Found %s Appliances in Profile file", len(self.appliances))
+                if "config_entry" in self.appliances:
+                    _LOGGER.debug("Setting up form config entry")
+                    self.data = self.appliances["config_entry"]
             except ParserError as exc:
                 return self.async_abort(
                     reason="profile_file_parser_error",
@@ -136,13 +164,18 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                 return self.async_abort(reason="invalid_profile_file")
 
             if not self.errors:
+                if "config_entry" in self.appliances:
+                    return await self.async_step_test_connection()
+
                 if self.unique_id:
                     return await self.async_step_set_data()
                 return await self.async_step_device_select()
 
-        return self.async_show_form(
-            step_id="upload", data_schema=CONFIG_FILE_SCHEMA, errors=self.errors
-        )
+        if (global_config := self.hass.data.get(HC_KEY)) and global_config.setup_from_dump:
+            scheam = CONFIG_FILE_SCHEMA_JSON
+        else:
+            scheam = CONFIG_FILE_SCHEMA
+        return self.async_show_form(step_id="upload", data_schema=scheam, errors=self.errors)
 
     async def async_step_device_select(
         self, user_input: dict[str, Any] | None = None
