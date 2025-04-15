@@ -207,6 +207,12 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_registry_enabled_default=False,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_power_state",
+            entity="BSH.Common.Setting.PowerState",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "start_button": [
         HCButtonEntityDescription(
