@@ -43,7 +43,13 @@
                     "on": "mdi:water-remove-outline"
                 }
             },
-            "binary_sensor_bean_container_empty": {}
+            "binary_sensor_bean_container_empty": {},
+            "binary_remote_start_allowed": {
+                "state": {
+                    "on": "mdi:remote",
+                    "off": "mdi:remote-off"
+                }
+            }
         },
         "sensor": {
             "sensor_remaining_program_time": {
