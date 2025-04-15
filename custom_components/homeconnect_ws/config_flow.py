@@ -152,7 +152,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
             await self.async_set_unique_id(user_input[CONF_DEVICE])
             return await self.async_step_set_data()
 
-        appliance_options = []
+        appliance_options: list[SelectOptionDict] = []
         try:
             for appliance_id, appliance_info in self.appliances.items():
                 if not self.hass.config_entries.async_entry_for_domain_unique_id(
@@ -175,6 +175,10 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
         if len(appliance_options) == 0:
             _LOGGER.debug("No Appliances left to setup")
             return self.async_abort(reason="all_setup")
+        if len(appliance_options) == 1:
+            _LOGGER.debug("Only one Appliances left to setup")
+            await self.async_set_unique_id(appliance_options[0]["value"])
+            return await self.async_step_set_data()
         _LOGGER.debug("Found %s Appliances not setup", len(appliance_options))
         schema = vol.Schema(
             {
