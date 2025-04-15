@@ -6,6 +6,7 @@ import logging
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
+import voluptuous as vol
 from aiohttp import ClientConnectionError, ClientConnectorSSLError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DESCRIPTION, CONF_DEVICE_ID, CONF_HOST
@@ -15,17 +16,24 @@ from homeassistant.helpers.device_registry import (
     DeviceInfo,
     format_mac,
 )
+from homeassistant.util.hass_dict import HassKey
 from homeconnect_websocket import HomeAppliance
 
-from .const import CONF_AES_IV, CONF_PSK, DOMAIN, PLATFORMS
+from .const import CONF_AES_IV, CONF_PSK, CONF_SETUP_FROM_DUMP, DOMAIN, PLATFORMS
 from .entity_descriptions import get_available_entities
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
+    from homeassistant.helpers.typing import ConfigType
 
     from .entity_descriptions.descriptions_definitions import HCEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
+
+CONFIG_SCHEMA = vol.Schema(
+    {DOMAIN: {vol.Optional(CONF_SETUP_FROM_DUMP, default=False): vol.Boolean()}},
+    extra=vol.ALLOW_EXTRA,
+)
 
 
 @dataclass
@@ -37,7 +45,24 @@ class HCData:
     available_entity_descriptions: dict[str, list[HCEntityDescription]]
 
 
+@dataclass
+class HCConfig:
+    """Dataclass for hass.data."""
+
+    setup_from_dump: bool = False
+
+
 type HCConfigEntry = ConfigEntry[HCData]
+
+HC_KEY: HassKey[HCConfig] = HassKey(DOMAIN)
+
+
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """Set up integration global config."""
+    hass.data.setdefault(DOMAIN, HCConfig())
+    if DOMAIN in config:
+        hass.data[HC_KEY].setup_from_dump = config[DOMAIN].get(CONF_SETUP_FROM_DUMP, False)
+    return True
 
 
 async def async_setup_entry(
