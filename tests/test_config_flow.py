@@ -30,6 +30,7 @@ from .const import (
     MOCK_CONFIG_DATA,
     MOCK_TLS_DEVICE_DESCRIPTION,
     MOCK_TLS_DEVICE_ID,
+    MOCK_TLS_DEVICE_ID_2,
     MOCK_TLS_DEVICE_INFO,
 )
 
@@ -76,6 +77,10 @@ async def test_user_init(
         SelectOptionDict(
             value=MOCK_AES_DEVICE_ID,
             label="Test_Brand Test_AES (Test_vib)",
+        ),
+        SelectOptionDict(
+            value=MOCK_TLS_DEVICE_ID_2,
+            label="Test_Brand Test_TLS (Test_vib)",
         ),
     ]
 
@@ -221,8 +226,59 @@ async def test_user_select_device(
             value=MOCK_AES_DEVICE_ID,
             label="Test_Brand Test_AES (Test_vib)",
         ),
+        SelectOptionDict(
+            value=MOCK_TLS_DEVICE_ID_2,
+            label="Test_Brand Test_TLS (Test_vib)",
+        ),
     ]
     hass.config_entries.flow.async_abort(result["flow_id"])
+
+
+async def test_user_select_device_one(
+    hass: HomeAssistant,
+    mock_process_profile_file: MagicMock,  # noqa: ARG001
+    mock_setup_entry: AsyncMock,  # noqa: ARG001
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test select device when only one device left to setup."""
+    hc_socket = Mock()
+    aes_socket = Mock(return_value=AsyncMock())
+    hc_socket.AesSocket = aes_socket
+    monkeypatch.setattr(config_flow, "hc_socket", hc_socket)
+
+    mock_config = MockConfigEntry(
+        domain=DOMAIN,
+        data=MOCK_CONFIG_DATA,
+        unique_id=MOCK_TLS_DEVICE_ID,
+    )
+    mock_config.add_to_hass(hass)
+    mock_config = MockConfigEntry(
+        domain=DOMAIN,
+        data=MOCK_CONFIG_DATA,
+        unique_id=MOCK_TLS_DEVICE_ID_2,
+    )
+    mock_config.add_to_hass(hass)
+
+    result = await hass.config_entries.flow.async_init(DOMAIN, context={"source": SOURCE_USER})
+
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "upload"
+    assert not result["errors"]
+
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"],
+        user_input={
+            CONF_FILE: UPLOADED_FILE,
+        },
+    )
+
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert result["title"] == "Test_Brand Test_AES"
+    assert result["data"][CONF_DESCRIPTION] == MOCK_AES_DEVICE_DESCRIPTION
+    assert result["data"][CONF_HOST] == "101112131415161718"
+    assert result["data"][CONF_PSK] == MOCK_AES_DEVICE_INFO["key"]
+    assert result["data"][CONF_AES_IV] == MOCK_AES_DEVICE_INFO["iv"]
+    assert result["data"][CONF_NAME] == "Test_Brand Test_AES"
 
 
 async def test_user_set_host(
@@ -579,6 +635,12 @@ async def test_user_select_all_setup(
         domain=DOMAIN,
         data=MOCK_CONFIG_DATA,
         unique_id=MOCK_TLS_DEVICE_ID,
+    )
+    mock_config.add_to_hass(hass)
+    mock_config = MockConfigEntry(
+        domain=DOMAIN,
+        data=MOCK_CONFIG_DATA,
+        unique_id=MOCK_TLS_DEVICE_ID_2,
     )
     mock_config.add_to_hass(hass)
     mock_config = MockConfigEntry(
