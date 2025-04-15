@@ -23,7 +23,7 @@ from .entity_descriptions import get_available_entities
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
-    from .entity_descriptions.descriptions_definitions import EntityDescriptions
+    from .entity_descriptions.descriptions_definitions import HCEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class HCData:
 
     appliance: HomeAppliance
     device_info: DeviceInfo
-    available_entity_descriptions: EntityDescriptions
+    available_entity_descriptions: dict[str, list[HCEntityDescription]]
 
 
 type HCConfigEntry = ConfigEntry[HCData]
