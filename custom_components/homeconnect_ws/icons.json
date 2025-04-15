@@ -21,6 +21,10 @@
             "switch_info_light": {},
             "switch_brilliance_dry": {
                 "default": "mdi:shimmer"
+            },
+            "switch_multiple_beverages": {},
+            "switch_half_load": {
+                "default": "mdi:fraction-one-half"
             }
         },
         "binary_sensor": {
@@ -39,7 +43,13 @@
                     "on": "mdi:water-remove-outline"
                 }
             },
-            "binary_sensor_bean_container_empty": {}
+            "binary_sensor_bean_container_empty": {},
+            "binary_remote_start_allowed": {
+                "state": {
+                    "on": "mdi:remote",
+                    "off": "mdi:remote-off"
+                }
+            }
         },
         "sensor": {
             "sensor_remaining_program_time": {
@@ -63,6 +73,7 @@
                     "not_inserted": "mdi:water-remove"
                 }
             },
+            "sensor_drip_tray": {},
             "sensor_start_in": {},
             "sensor_count_started": {},
             "sensor_end_trigger": {},
@@ -107,7 +118,19 @@
             "select_sensitivity_turbidity": {
                 "default": "mdi:water-opacity"
             },
-            "select_eco_as_default": {}
+            "select_eco_as_default": {},
+            "select_power_state": {
+                "default": "mdi:power"
+            },
+            "select_coffee_temperature": {
+                "default": "mdi:thermometer"
+            },
+            "select_bean_amount": {},
+            "select_beverage_size": {},
+            "select_coffee_milk_ratio": {},
+            "select_hot_water_temperature": {
+                "default": "mdi:water-thermometer-outline"
+            }
         },
         "button": {
             "button_abort_program": {
@@ -117,6 +140,8 @@
                 "default": "mdi:play"
             }
         },
-        "number": {}
+        "number": {
+            "number_fill_quantity": {}
+        }
     }
 }

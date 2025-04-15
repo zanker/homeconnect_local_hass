@@ -147,5 +147,10 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
         ),
+        HCSwitchEntityDescription(
+            key="switch_half_load",
+            entity="Dishcare.Dishwasher.Option.HalfLoad",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }

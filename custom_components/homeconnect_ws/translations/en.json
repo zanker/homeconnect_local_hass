@@ -61,6 +61,12 @@
       },
       "switch_info_light": {
         "name": "Info Light"
+      },
+      "switch_multiple_beverages": {
+        "name": "Multiple Beverages"
+      },
+      "switch_half_load": {
+        "name": "Half load"
       }
     },
     "binary_sensor": {
@@ -81,6 +87,9 @@
       },
       "binary_sensor_bean_container_empty": {
         "name": "Bean Container Empty"
+      },
+      "binary_remote_start_allowed": {
+        "name": "Remote start allowed"
       }
     },
     "sensor": {
@@ -130,6 +139,14 @@
         "state": {
           "empty": "Empty",
           "nearly_empty": "Nearly Empty",
+          "not_inserted": "Not Inserted",
+          "full": "Full"
+        }
+      },
+      "sensor_drip_tray": {
+        "name": "Drip tray",
+        "state": {
+          "ok": "Ok",
           "not_inserted": "Not Inserted",
           "full": "Full"
         }
@@ -228,6 +245,153 @@
           "lastprogram": "Last Program",
           "ecoasdefault": "Eco 50"
         }
+      },
+      "select_power_state": {
+        "name": "Power state",
+        "state": {
+          "mainsoff": "Mains off",
+          "off": "Off",
+          "on": "On",
+          "standby": "Standby"
+        }
+      },
+      "select_coffee_temperature": {
+        "name": "Coffee temperature",
+        "state": {
+          "88c": "88 °C",
+          "90c": "90 °C",
+          "92c": "92 °C",
+          "94c": "94 °C",
+          "95c": "95 °C",
+          "96c": "96 °C",
+          "98c": "98 °C"
+        }
+      },
+      "select_bean_amount": {
+        "name": "Bean Amount",
+        "state": {
+          "verymild": "Very Mild",
+          "mild": "Mild",
+          "mildplus": "Mild Plus",
+          "normal": "Normal",
+          "normalplus": "Normal Plus",
+          "strong": "Strong",
+          "strongplus": "Strong Plus",
+          "verystrong": "Very Strong",
+          "verystrongplus": "Very Strong Plus",
+          "extrastrong": "Extra Strong",
+          "doubleshot": "Double Shot",
+          "doubleshotplus": "Double Shot Plus",
+          "doubleshotplusplus": "Double Shot Plus Plus",
+          "tripleshot": "Triple Shot",
+          "tripleshotplus": "Triple Shot Plus",
+          "coffeeground": "Coffee Ground"
+        }
+      },
+      "select_beverage_size": {
+        "name": "Beverage size",
+        "state": {
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large",
+          "verylarge": "Very large"
+        }
+      },
+      "select_coffee_milk_ratio": {
+        "name": "Coffee Milk ratio",
+        "state": {
+          "10percent": "10%",
+          "20percent": "20%",
+          "25percent": "25%",
+          "30percent": "30%",
+          "40percent": "40%",
+          "50percent": "50%",
+          "55percent": "55%",
+          "60percent": "60%",
+          "65percent": "65%",
+          "67percent": "67%",
+          "70percent": "70%",
+          "75percent": "75%",
+          "80percent": "80%",
+          "85percent": "85%",
+          "90percent": "90%"
+        }
+      },
+      "select_hot_water_temperature": {
+        "name": "Hot water temperature",
+        "state": {
+          "60c": "60 °C",
+          "70c": "70 °C",
+          "75c": "75 °C",
+          "80c": "80 °C",
+          "85c": "85 °C",
+          "90c": "90 °C",
+          "95c": "95 °C",
+          "97c": "97 °C"
+        }
+      },
+      "select_flow_rate": {
+        "name": "Flow rate",
+        "state": {
+          "normal": "Normal",
+          "intense": "Intense",
+          "intenseplus": "Intense Plus"
+        }
+      },
+      "select_coarsness": {
+        "name": "Coarsness",
+        "state": {
+          "coarsness1": "Coarsness 1",
+          "coarsness2": "Coarsness 2",
+          "coarsness3": "Coarsness 3",
+          "coarsness4": "Coarsness 4",
+          "coarsness5": "Coarsness 5",
+          "coarsness6": "Coarsness 6"
+        }
+      },
+      "select_coffee_strength": {
+        "name": "Coffee strength",
+        "state": {
+          "strength1": "Strength 1",
+          "strength2": "Strength 2",
+          "strength3": "Strength 3",
+          "strength4": "Strength 4",
+          "strength5": "Strength 5",
+          "strength6": "Strength 6",
+          "strength7": "Strength 7",
+          "strength8": "Strength 8",
+          "strength9": "Strength 9"
+        }
+      },
+      "select_aroma_select": {
+        "name": "Aroma select",
+        "state": {
+          "fine": "Fine",
+          "balanced": "Balanced",
+          "distinctive": "Distinctive"
+        }
+      },
+      "select_bean_container": {
+        "name": "Bean container",
+        "state": {
+          "right": "Right",
+          "left": "Left"
+        }
+      },
+      "select_shot_count": {
+        "name": "Shot count",
+        "state": {
+          "double": "Double",
+          "triple": "Triple"
+        }
+      },
+      "select_cups": {
+        "name": "Cups",
+        "state": {
+          "two": "Two",
+          "four": "Four",
+          "six": "Six"
+        }
       }
     },
     "button": {
@@ -238,6 +402,10 @@
         "name": "Start"
       }
     },
-    "number": {}
+    "number": {
+      "number_fill_quantity": {
+        "name": "Fill quantity"
+      }
+    }
   }
 }

@@ -17,7 +17,6 @@ from homeassistant.const import PERCENTAGE, EntityCategory, UnitOfTime
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
-    HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
@@ -40,7 +39,6 @@ POWER_SWITCH_VALUE_MAPINGS = (
 def generate_power_switch(appliance: HomeAppliance) -> HCSwitchEntityDescription | None:
     """Get Power switch description."""
     if entity := appliance.entities.get("BSH.Common.Setting.PowerState"):
-        settable_states = tuple(entity.enum.values())
         if entity.min and entity.max:
             # has min/max
             settable_states = set()
@@ -60,6 +58,29 @@ def generate_power_switch(appliance: HomeAppliance) -> HCSwitchEntityDescription
                         device_class=SwitchDeviceClass.SWITCH,
                         value_mapping=mapping,
                     )
+    return None
+
+
+def generate_power_select(appliance: HomeAppliance) -> HCSelectEntityDescription | None:
+    """Get Power switch description."""
+    if entity := appliance.entities.get("BSH.Common.Setting.PowerState"):
+        if entity.min and entity.max:
+            # has min/max
+            settable_states = []
+            for key, value in entity.enum.items():
+                if int(key) >= entity.min and int(key) <= entity.max:
+                    settable_states.append(str(value).lower())
+        else:
+            settable_states = [str(value).lower() for value in entity.enum.values()]
+
+        return HCSelectEntityDescription(
+            key="select_power_state",
+            entity="BSH.Common.Setting.PowerState",
+            options=settable_states,
+            has_state_translation=True,
+            # more then two power states
+            entity_registry_enabled_default=len(settable_states) > 2,
+        )
     return None
 
 
@@ -104,6 +125,12 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_off={"Off", "Confirmed"},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_remote_start_allowed",
+            entity="BSH.Common.Status.RemoteControlStartAllowed",
+            entity_registry_enabled_default=False,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "program": [
         HCSelectEntityDescription(
@@ -120,6 +147,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_registry_enabled_default=False,
             has_state_translation=True,
         ),
+        generate_power_select,
     ],
     "sensor": [
         HCSensorEntityDescription(
@@ -187,7 +215,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
         )
     ],
     "start_in": [
-        HCNumberEntityDescription(
+        HCSelectEntityDescription(
             key="select_start_in",
             entity="BSH.Common.Option.StartInRelative",
         )
