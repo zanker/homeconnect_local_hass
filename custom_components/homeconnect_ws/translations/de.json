@@ -90,12 +90,12 @@
         "sensor_program_progress": {
           "name": "Programmfortschritt"
         },
-		"sensor_water_forecast": {
+	"sensor_water_forecast": {
           "name": "Wasservorhersage"
-		},
-		"sensor_energy_forecast": {
-		  "name": "Energieprognose"
-		},
+	},
+	"sensor_energy_forecast": {
+	  "name": "Energieprognose"
+	},
         "sensor_operation_state": {
           "name": "Betriebszustand"
         },
