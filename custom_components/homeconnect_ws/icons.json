@@ -58,6 +58,12 @@
             "sensor_program_progress": {
                 "default": "mdi:progress-check"
             },
+            "sensor_water_forecast": {
+                "default": "mdi:water"
+            },
+            "sensor_energy_forecast": {
+                "default": "mdi:lightning-bolt"
+            },
             "sensor_operation_state": {},
             "sensor_program_phase": {
                 "default": "mdi:progress-check"

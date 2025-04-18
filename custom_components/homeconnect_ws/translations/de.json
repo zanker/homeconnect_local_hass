@@ -51,22 +51,16 @@
         "name": "Silence On Demand"
       },
       "switch_brilliance_dry": {
-        "name": "Glanztrocknen"
+        "name": "Glanz Trocknen"
       },
       "switch_extra_dry": {
-        "name": "Extratrocken"
+        "name": "Extra Trocken"
       },
       "switch_speed_on_demand": {
         "name": "Speed On Demand"
       },
       "switch_info_light": {
         "name": "Info-Licht"
-      },
-      "switch_multiple_beverages": {
-        "name": "Mehrere Getränke"
-      },
-      "switch_half_load": {
-        "name": "Halbe Beladung"
       }
     },
     "binary_sensor": {
@@ -87,9 +81,6 @@
       },
       "binary_sensor_bean_container_empty": {
         "name": "Bohnenbehälter Leer"
-      },
-      "binary_remote_start_allowed": {
-        "name": "Fernstart erlaubt"
       }
     },
     "sensor": {
@@ -143,14 +134,6 @@
           "full": "Voll"
         }
       },
-      "sensor_drip_tray": {
-        "name": "Tropfschale",
-        "state": {
-          "ok": "Ok",
-          "not_inserted": "Nicht eingesetzt",
-          "full": "Voll"
-        }
-      },
       "sensor_start_in": {
         "name": "Start in"
       },
@@ -174,15 +157,6 @@
       },
       "sensor_delayed_shutoff_time": {
         "name": "Verzögerte Abschaltung"
-      },
-      "sensor_power_state": {
-        "name": "Energiestatus",
-        "state": {
-          "mainsoff": "Netz Aus",
-          "off": "Aus",
-          "on": "An",
-          "standby": "Standby"
-        }
       }
     },
     "select": {
@@ -254,153 +228,6 @@
           "lastprogram": "Letztes Programm",
           "ecoasdefault": "Eco 50"
         }
-      },
-      "select_power_state": {
-        "name": "Energiestatus",
-        "state": {
-          "mainsoff": "Netz Aus",
-          "off": "Aus",
-          "on": "An",
-          "standby": "Standby"
-        }
-      },
-      "select_coffee_temperature": {
-        "name": "Kaffeetemperatur",
-        "state": {
-          "88c": "88 °C",
-          "90c": "90 °C",
-          "92c": "92 °C",
-          "94c": "94 °C",
-          "95c": "95 °C",
-          "96c": "96 °C",
-          "98c": "98 °C"
-        }
-      },
-      "select_bean_amount": {
-        "name": "Bohnenmenge",
-        "state": {
-          "verymild": "Sehr Mild",
-          "mild": "Mild",
-          "mildplus": "Mild Plus",
-          "normal": "Normal",
-          "normalplus": "Normal Plus",
-          "strong": "Stark",
-          "strongplus": "Stark Plus",
-          "verystrong": "Sehr Stark",
-          "verystrongplus": "Sehr Stark Plus",
-          "extrastrong": "Extra Stark",
-          "doubleshot": "Double Shot",
-          "doubleshotplus": "Double Shot Plus",
-          "doubleshotplusplus": "Double Shot Plus Plus",
-          "tripleshot": "Triple Shot",
-          "tripleshotplus": "Triple Shot Plus",
-          "coffeeground": "Gemahlener Kaffee"
-        }
-      },
-      "select_beverage_size": {
-        "name": "Getränkegröße",
-        "state": {
-          "small": "Klein",
-          "medium": "Mittel",
-          "large": "Groß",
-          "verylarge": "Sehr groß"
-        }
-      },
-      "select_coffee_milk_ratio": {
-        "name": "Kaffee-Milch-Verhältnis",
-        "state": {
-          "10percent": "10%",
-          "20percent": "20%",
-          "25percent": "25%",
-          "30percent": "30%",
-          "40percent": "40%",
-          "50percent": "50%",
-          "55percent": "55%",
-          "60percent": "60%",
-          "65percent": "65%",
-          "67percent": "67%",
-          "70percent": "70%",
-          "75percent": "75%",
-          "80percent": "80%",
-          "85percent": "85%",
-          "90percent": "90%"
-        }
-      },
-      "select_hot_water_temperature": {
-        "name": "Heißwassertemperatur",
-        "state": {
-          "60c": "60 °C",
-          "70c": "70 °C",
-          "75c": "75 °C",
-          "80c": "80 °C",
-          "85c": "85 °C",
-          "90c": "90 °C",
-          "95c": "95 °C",
-          "97c": "97 °C"
-        }
-      },
-      "select_flow_rate": {
-        "name": "Flussrate",
-        "state": {
-          "normal": "Normal",
-          "intense": "Intensiv",
-          "intenseplus": "Intensiv Plus"
-        }
-      },
-      "select_coarsness": {
-        "name": "Mahlgrad",
-        "state": {
-          "coarsness1": "Mahlgrad 1",
-          "coarsness2": "Mahlgrad 2",
-          "coarsness3": "Mahlgrad 3",
-          "coarsness4": "Mahlgrad 4",
-          "coarsness5": "Mahlgrad 5",
-          "coarsness6": "Mahlgrad 6"
-        }
-      },
-      "select_coffee_strength": {
-        "name": "Kaffeestärke",
-        "state": {
-          "strength1": "Stärke 1",
-          "strength2": "Stärke 2",
-          "strength3": "Stärke 3",
-          "strength4": "Stärke 4",
-          "strength5": "Stärke 5",
-          "strength6": "Stärke 6",
-          "strength7": "Stärke 7",
-          "strength8": "Stärke 8",
-          "strength9": "Stärke 9"
-        }
-      },
-      "select_aroma_select": {
-        "name": "Aromawahl",
-        "state": {
-          "fine": "Fein",
-          "balanced": "Ausgewogen",
-          "distinctive": "Markant"
-        }
-      },
-      "select_bean_container": {
-        "name": "Bohnenbehälter",
-        "state": {
-          "right": "Rechts",
-          "left": "Links"
-        }
-      },
-      "select_shot_count": {
-        "name": "Anzahl Shots",
-        "state": {
-          "double": "Doppelt",
-          "triple": "Dreifach"
-        }
-      },
-      "select_cups": {
-        "name": "Tassen",
-        "state": {
-          "two": "Zwei",
-          "four": "Vier",
-          "six": "Sechs"
-        }
       }
     },
     "button": {
@@ -411,10 +238,6 @@
         "name": "Start"
       }
     },
-    "number": {
-      "number_fill_quantity": {
-        "name": "Füllmenge"
-      }
-    }
+    "number": {}
   }
 }
