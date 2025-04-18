@@ -99,6 +99,12 @@
       "sensor_program_progress": {
         "name": "Program Progress"
       },
+      "sensor_water_forecast": {
+        "name": "Water Forecast"
+      },
+      "sensor_energy_forecast": {
+        "name": "Energy Forecast"
+      },
       "sensor_operation_state": {
         "name": "Operation State"
       },

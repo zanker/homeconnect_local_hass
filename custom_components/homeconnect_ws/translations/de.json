@@ -1,244 +1,249 @@
 {
-    "config": {
-      "step": {
-        "upload": {
-          "title": "Neues Home Connect Geräte hinzufügen",
-          "description": "Laden Sie Ihre Profildatei hoch",
-          "data": {
-            "file": "Profildatei"
-          }
-        },
-        "device_select": {
-          "title": "Gerät auswählen",
-          "description": "Wählen Sie das Gerät aus, das Sie einrichten möchten"
-        },
-        "host": {
-          "title": "Hostnamen eingeben",
-          "description": "Versuchen Sie, den Hostnamen oder die IP-Adresse Ihres Geräts manuell einzugeben",
-          "data": {
-            "host": "Host / IP-Adresse"
-          }
+  "config": {
+    "step": {
+      "upload": {
+        "title": "Neues Home Connect Geräte hinzufügen",
+        "description": "Laden Sie Ihre Profildatei hoch",
+        "data": {
+          "file": "Profildatei"
         }
       },
-      "error": {
-        "cannot_connect": "Verbindung zum Gerät fehlgeschlagen",
-        "already_configured": "Dieses Gerät ist bereits konfiguriert"
+      "device_select": {
+        "title": "Gerät auswählen",
+        "description": "Wählen Sie das Gerät aus, das Sie einrichten möchten"
       },
-      "abort": {
-        "auth_failed": "Authentifizierung fehlgeschlagen",
-        "reauth_successful": "Erneute Authentifizierung war erfolgreich",
-        "invalid_profile_file": "Profildatei ist ungültig",
-        "profile_file_parser_error": "Profildatei ist ungültig: {error}",
-        "appliance_not_in_profile_file": "Profildatei enthält kein Profil für dieses Gerät",
-        "all_setup": "Alle Geräte in dieser Profildatei sind bereits eingerichtet"
+      "host": {
+        "title": "Hostnamen eingeben",
+        "description": "Versuchen Sie, den Hostnamen oder die IP-Adresse Ihres Geräts manuell einzugeben",
+        "data": {
+          "host": "Host / IP-Adresse"
+        }
       }
     },
-    "entity": {
-      "switch": {
-        "switch_power_state": {
-          "name": "Einschalter"
-        },
-        "switch_hygiene_plus": {
-          "name": "Hygiene Plus"
-        },
-        "switch_intensiv_zone": {
-          "name": "Intensiv Zone"
-        },
-        "switch_vario_speed_plus": {
-          "name": "Variospeed Plus"
-        },
-        "switch_silence_on_demand": {
-          "name": "Silence On Demand"
-        },
-        "switch_brilliance_dry": {
-          "name": "Glanz Trocknen"
-        },
-        "switch_extra_dry": {
-          "name": "Extra Trocken"
-        },
-        "switch_speed_on_demand": {
-          "name": "Speed On Demand"
-        },
-        "switch_info_light": {
-          "name": "Info-Licht"
-        }
-      },
-      "binary_sensor": {
-        "connection": {
-          "name": "Verbindung"
-        },
-        "binary_sensor_door_state": {
-          "name": "Tür"
-        },
-        "binary_sensor_eco_dry_active": {
-          "name": "EcoDry Aktiv"
-        },
-        "binary_sensor_aqua_stop": {
-          "name": "AquaStop Aufgetreten"
-        },
-        "binary_sensor_low_water_pressure": {
-          "name": "Niedriger Wasserdruck"
-        },
-        "binary_sensor_bean_container_empty": {
-          "name": "Bohnenbehälter Leer"
-        }
-      },
-      "sensor": {
-        "sensor_remaining_program_time": {
-          "name": "Verbleibende Programmlaufzeit"
-        },
-        "sensor_program_progress": {
-          "name": "Programmfortschritt"
-        },
-        "sensor_operation_state": {
-          "name": "Betriebszustand"
-        },
-        "sensor_program_phase": {
-          "name": "Programmphase"
-        },
-        "sensor_active_program": {
-          "name": "Aktives Programm",
-          "state": {
-            "intensiv70": "Intensiv 70",
-            "auto2": "Auto 2",
-            "eco50": "Eco 50",
-            "quick45": "Schnell 45",
-            "prerinse": "Vorspülen",
-            "quick65": "Schnell 65",
-            "machinecare": "Maschinenpflege",
-            "001": "Favorit 1"
-          }
-        },
-        "sensor_rinse_aid": {
-          "name": "Klarspüler",
-          "state": {
-            "empty": "Leer",
-            "nearly_empty": "Fast Leer",
-            "full": "Voll"
-          }
-        },
-        "sensor_salt": {
-          "name": "Salz",
-          "state": {
-            "empty": "Leer",
-            "nearly_empty": "Fast Leer",
-            "full": "Voll"
-          }
-        },
-        "sensor_water_tank": {
-          "name": "Wassertank",
-          "state": {
-            "empty": "Leer",
-            "nearly_empty": "Fast Leer",
-            "not_inserted": "Entfernt",
-            "full": "Voll"
-          }
-        },
-        "sensor_start_in": {
-          "name": "Start in"
-        },
-        "sensor_count_started": {
-          "name": "Startanzahl"
-        },
-        "sensor_end_trigger": {
-          "name": "Programmende-Bedingung",
-          "state": {
-            "programfinished": "Beendet",
-            "programabortedbyuser": "Vom Benutzer Abgebrochen",
-            "programabortedbyappliance": "Vom Gerät Abgebrochen",
-            "programabortedbyappliancecriticalerror": "Kritischer Fehler"
-          }
-        },
-        "sensor_interval_time_off": {
-          "name": "Intervall Aus"
-        },
-        "sensor_interval_time_on": {
-          "name": "Intervall An"
-        },
-        "sensor_delayed_shutoff_time": {
-          "name": "Verzögerte Abschaltung"
-        }
-      },
-      "select": {
-        "select_drying_assistant_all_programs": {
-          "name": "Trocknungsassistent Alle Programme",
-          "state": {
-            "off": "Aus",
-            "allprograms": "Alle Programme",
-            "ecoasdefault": "Eco 50"
-          }
-        },
-        "select_hot_water": {
-          "name": "Wassertemperatur",
-          "state": {
-            "coldwater": "Kaltwasser",
-            "hotwater": "Warmwasser"
-          }
-        },
-        "select_rinse_aid": {
-          "name": "Klarspüler"
-        },
-        "select_sound_level_signal": {
-          "name": "Signaltonlautstärke",
-          "state": {
-            "high": "Hoch",
-            "low": "Niedrig",
-            "medium": "Mittel",
-            "off": "Aus"
-          }
-        },
-        "select_water_hardness": {
-          "name": "Wasserhärte"
-        },
-        "select_remote_control_level": {
-          "name": "Fernbedienung",
-          "state": {
-            "monitoring": "Aus",
-            "manualremotestart": "Manueller Fernstart",
-            "permanentremotestart": "Permanenter Fernstart"
-          }
-        },
-        "select_program": {
-          "name": "Ausgewähltes Programm",
-          "state": {
-            "intensiv70": "Intensiv 70",
-            "auto2": "Auto 2",
-            "eco50": "Eco 50",
-            "quick45": "Schnell 45",
-            "prerinse": "Vorspülen",
-            "quick65": "Schnell 65",
-            "machinecare": "Maschinenpflege",
-            "001": "Favorit 1"
-          }
-        },
-        "select_start_in": {
-          "name": "Start in"
-        },
-        "select_sensitivity_turbidity": {
-          "name": "Trübungssensor-Empfindlichkeit",
-          "state": {
-            "standard": "Standard",
-            "sensitive": "Empfindlich",
-            "verysensitive": "Sehr Empfindlich"
-          }
-        },
-        "select_eco_as_default": {
-          "name": "Standardprogramm",
-          "state": {
-            "lastprogram": "Letztes Programm",
-            "ecoasdefault": "Eco 50"
-          }
-        }
-      },
-      "button": {
-        "button_abort_program": {
-          "name": "Abbrechen"
-        },
-        "button_start_program": {
-          "name": "Start"
-        }
-      },
-      "number": {}
+    "error": {
+      "cannot_connect": "Verbindung zum Gerät fehlgeschlagen",
+      "already_configured": "Dieses Gerät ist bereits konfiguriert"
+    },
+    "abort": {
+      "auth_failed": "Authentifizierung fehlgeschlagen",
+      "reauth_successful": "Erneute Authentifizierung war erfolgreich",
+      "invalid_profile_file": "Profildatei ist ungültig",
+      "profile_file_parser_error": "Profildatei ist ungültig: {error}",
+      "appliance_not_in_profile_file": "Profildatei enthält kein Profil für dieses Gerät",
+      "all_setup": "Alle Geräte in dieser Profildatei sind bereits eingerichtet"
     }
+  },
+  "entity": {
+    "switch": {
+      "switch_power_state": {
+        "name": "Einschalter"
+      },
+      "switch_hygiene_plus": {
+        "name": "Hygiene Plus"
+      },
+      "switch_intensiv_zone": {
+        "name": "Intensiv Zone"
+      },
+      "switch_vario_speed_plus": {
+        "name": "Variospeed Plus"
+      },
+      "switch_silence_on_demand": {
+        "name": "Silence On Demand"
+      },
+      "switch_brilliance_dry": {
+        "name": "Glanz Trocknen"
+      },
+      "switch_extra_dry": {
+        "name": "Extra Trocken"
+      },
+      "switch_speed_on_demand": {
+        "name": "Speed On Demand"
+      },
+      "switch_info_light": {
+        "name": "Info-Licht"
+      }
+    },
+    "binary_sensor": {
+      "connection": {
+        "name": "Verbindung"
+      },
+      "binary_sensor_door_state": {
+        "name": "Tür"
+      },
+      "binary_sensor_eco_dry_active": {
+        "name": "EcoDry Aktiv"
+      },
+      "binary_sensor_aqua_stop": {
+        "name": "AquaStop Aufgetreten"
+      },
+      "binary_sensor_low_water_pressure": {
+        "name": "Niedriger Wasserdruck"
+      },
+      "binary_sensor_bean_container_empty": {
+        "name": "Bohnenbehälter Leer"
+      }
+    },
+    "sensor": {
+      "sensor_remaining_program_time": {
+        "name": "Verbleibende Programmlaufzeit"
+      },
+      "sensor_program_progress": {
+        "name": "Programmfortschritt"
+      },
+      "sensor_water_forecast": {
+        "name": "Wasservorhersage"
+      },
+      "sensor_energy_forecast": {
+        "name": "Energieprognose"
+      },
+      "sensor_operation_state": {
+        "name": "Betriebszustand"
+      },
+      "sensor_program_phase": {
+        "name": "Programmphase"
+      },
+      "sensor_active_program": {
+        "name": "Aktives Programm",
+        "state": {
+          "intensiv70": "Intensiv 70",
+          "auto2": "Auto 2",
+          "eco50": "Eco 50",
+          "quick45": "Schnell 45",
+          "prerinse": "Vorspülen",
+          "quick65": "Schnell 65",
+          "machinecare": "Maschinenpflege",
+          "001": "Favorit 1"
+        }
+      },
+      "sensor_rinse_aid": {
+        "name": "Klarspüler",
+        "state": {
+          "empty": "Leer",
+          "nearly_empty": "Fast Leer",
+          "full": "Voll"
+        }
+      },
+      "sensor_salt": {
+        "name": "Salz",
+        "state": {
+          "empty": "Leer",
+          "nearly_empty": "Fast Leer",
+          "full": "Voll"
+        }
+      },
+      "sensor_water_tank": {
+        "name": "Wassertank",
+        "state": {
+          "empty": "Leer",
+          "nearly_empty": "Fast Leer",
+          "not_inserted": "Entfernt",
+          "full": "Voll"
+        }
+      },
+      "sensor_start_in": {
+        "name": "Start in"
+      },
+      "sensor_count_started": {
+        "name": "Startanzahl"
+      },
+      "sensor_end_trigger": {
+        "name": "Programmende-Bedingung",
+        "state": {
+          "programfinished": "Beendet",
+          "programabortedbyuser": "Vom Benutzer Abgebrochen",
+          "programabortedbyappliance": "Vom Gerät Abgebrochen",
+          "programabortedbyappliancecriticalerror": "Kritischer Fehler"
+        }
+      },
+      "sensor_interval_time_off": {
+        "name": "Intervall Aus"
+      },
+      "sensor_interval_time_on": {
+        "name": "Intervall An"
+      },
+      "sensor_delayed_shutoff_time": {
+        "name": "Verzögerte Abschaltung"
+      }
+    },
+    "select": {
+      "select_drying_assistant_all_programs": {
+        "name": "Trocknungsassistent Alle Programme",
+        "state": {
+          "off": "Aus",
+          "allprograms": "Alle Programme",
+          "ecoasdefault": "Eco 50"
+        }
+      },
+      "select_hot_water": {
+        "name": "Wassertemperatur",
+        "state": {
+          "coldwater": "Kaltwasser",
+          "hotwater": "Warmwasser"
+        }
+      },
+      "select_rinse_aid": {
+        "name": "Klarspüler"
+      },
+      "select_sound_level_signal": {
+        "name": "Signaltonlautstärke",
+        "state": {
+          "high": "Hoch",
+          "low": "Niedrig",
+          "medium": "Mittel",
+          "off": "Aus"
+        }
+      },
+      "select_water_hardness": {
+        "name": "Wasserhärte"
+      },
+      "select_remote_control_level": {
+        "name": "Fernbedienung",
+        "state": {
+          "monitoring": "Aus",
+          "manualremotestart": "Manueller Fernstart",
+          "permanentremotestart": "Permanenter Fernstart"
+        }
+      },
+      "select_program": {
+        "name": "Ausgewähltes Programm",
+        "state": {
+          "intensiv70": "Intensiv 70",
+          "auto2": "Auto 2",
+          "eco50": "Eco 50",
+          "quick45": "Schnell 45",
+          "prerinse": "Vorspülen",
+          "quick65": "Schnell 65",
+          "machinecare": "Maschinenpflege",
+          "001": "Favorit 1"
+        }
+      },
+      "select_start_in": {
+        "name": "Start in"
+      },
+      "select_sensitivity_turbidity": {
+        "name": "Trübungssensor-Empfindlichkeit",
+        "state": {
+          "standard": "Standard",
+          "sensitive": "Empfindlich",
+          "verysensitive": "Sehr Empfindlich"
+        }
+      },
+      "select_eco_as_default": {
+        "name": "Standardprogramm",
+        "state": {
+          "lastprogram": "Letztes Programm",
+          "ecoasdefault": "Eco 50"
+        }
+      }
+    },
+    "button": {
+      "button_abort_program": {
+        "name": "Abbrechen"
+      },
+      "button_start_program": {
+        "name": "Start"
+      }
+    },
+    "number": {}
   }
-  
+}
