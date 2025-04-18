@@ -172,11 +172,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             key="sensor_water_forecast",
             entity="BSH.Common.Option.WaterForecast",
             native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCSensorEntityDescription(
             key="sensor_energy_forecast",
             entity="BSH.Common.Option.EnergyForecast",
             native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCSensorEntityDescription(
             key="sensor_operation_state",
