@@ -198,6 +198,14 @@
           "locked": "Locked",
           "ajar": "Ajar"
         }
+      },
+      "sensor_laundry_reload": {
+        "name": "Laundry reload",
+        "state": {
+          "impossible": "Impossible",
+          "possiblepauseprogram": "Possible Pause Program",
+          "possibleopendoor": "Possible Open Door"
+        }
       }
     },
     "select": {
