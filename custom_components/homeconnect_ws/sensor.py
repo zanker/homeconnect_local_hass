@@ -56,6 +56,8 @@ class HCSensor(HCEntity, SensorEntity):
 
     @property
     def native_value(self) -> int | float | str:
+        if self._entity.value is None:
+            return None
         if self._entity.enum and self.entity_description.has_state_translation:
             return str(self._entity.value).lower()
         return self._entity.value
