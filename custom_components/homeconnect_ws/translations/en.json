@@ -189,6 +189,15 @@
           "on": "On",
           "standby": "Standby"
         }
+      },
+      "sensor_door_state": {
+        "name": "Door",
+        "state": {
+          "open": "Open",
+          "closed": "Closed",
+          "locked": "Locked",
+          "ajar": "Ajar"
+        }
       }
     },
     "select": {

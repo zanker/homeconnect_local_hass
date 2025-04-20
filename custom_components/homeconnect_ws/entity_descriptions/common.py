@@ -84,6 +84,19 @@ def generate_power_select(appliance: HomeAppliance) -> HCSelectEntityDescription
     return None
 
 
+def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription | None:
+    """Get Door sensor description."""
+    entity = appliance.entities.get("BSH.Common.Setting.PowerState")
+    if entity and len(entity.enum) > 2:
+        return HCSensorEntityDescription(
+            key="sensor_door_state",
+            entity="BSH.Common.Status.DoorState",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        )
+    return None
+
+
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
     "abort_button": [
         HCButtonEntityDescription(
@@ -104,8 +117,8 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             key="binary_sensor_door_state",
             entity="BSH.Common.Status.DoorState",
             device_class=BinarySensorDeviceClass.DOOR,
-            value_on={"Open"},
-            value_off={"Closed"},
+            value_on={"Open", "Ajar"},
+            value_off={"Closed", "Locked"},
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_aqua_stop",
@@ -225,6 +238,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        generate_door_state,
     ],
     "start_button": [
         HCButtonEntityDescription(

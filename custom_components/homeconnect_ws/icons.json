@@ -100,6 +100,15 @@
                     "on": "mdi:power-on",
                     "standby": "mdi:power-standby"
                 }
+            },
+            "sensor_door_state": {
+                "default": "mdi:door",
+                "state": {
+                    "open": "mdi:door-open",
+                    "closed": "mdi:door-closed",
+                    "locked": "mdi:door-closed-lock",
+                    "ajar": "mdi:door-open"
+                }
             }
         },
         "select": {
