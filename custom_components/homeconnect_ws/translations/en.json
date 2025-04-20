@@ -90,6 +90,13 @@
       },
       "binary_remote_start_allowed": {
         "name": "Remote start allowed"
+      },
+      "binary_sensor_refresher_level": {
+        "name": "Refresher fill level",
+        "state": {
+          "on": "Poor",
+          "off": "Filled"
+        }
       }
     },
     "sensor": {
