@@ -434,6 +434,15 @@
           "four": "Four",
           "six": "Six"
         }
+      },
+      "select_auto_power_off": {
+        "name": "Auto Power off",
+        "state": {
+          "off": "Off",
+          "15min": "15 min",
+          "30min": "30 min",
+          "60min": "60 min"
+        }
       }
     },
     "button": {

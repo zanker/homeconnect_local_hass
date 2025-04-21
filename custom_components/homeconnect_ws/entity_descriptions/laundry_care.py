@@ -4,10 +4,15 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import EntityCategory
-from .descriptions_definitions import HCSensorEntityDescription, HCBinarySensorEntityDescription
+
+from .descriptions_definitions import (
+    HCBinarySensorEntityDescription,
+    HCSelectEntityDescription,
+    HCSensorEntityDescription,
+)
 
 if TYPE_CHECKING:
     from .descriptions_definitions import _EntityDescriptionsType
@@ -29,6 +34,14 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=BinarySensorDeviceClass.PROBLEM,
             value_on=("Poor"),
             value_off=("Filled"),
+        ),
+    ],
+    "select": [
+        HCSelectEntityDescription(
+            key="select_auto_power_off",
+            entity="LaundryCare.Common.Setting.AutoPowerOff",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
         ),
     ],
 }
