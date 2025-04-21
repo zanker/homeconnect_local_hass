@@ -5,15 +5,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.number import NumberDeviceClass, NumberMode
+from homeassistant.components.number import NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
-from homeassistant.const import EntityCategory
-from homeassistant.const import PERCENTAGE
+from homeassistant.components.switch import SwitchDeviceClass
+from homeassistant.const import PERCENTAGE, EntityCategory
+
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
+    HCSwitchEntityDescription,
 )
 
 if TYPE_CHECKING:
@@ -51,6 +53,24 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.CONFIG,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_brightness",
+            entity="LaundryCare.Common.Setting.BrightnessLevel",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_door_light_ring_mode",
+            entity="LaundryCare.Common.Setting.DoorLightRing.ActiveMode",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_door_light_ring_brightness",
+            entity="LaundryCare.Common.Setting.DoorLightRing.BrightnessLevel",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(
@@ -59,6 +79,20 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.CONFIG,
             mode=NumberMode.AUTO,
-        )
+        ),
+        HCNumberEntityDescription(
+            key="number_door_light_ring_brightness",
+            entity="LaundryCare.Common.Setting.DoorLightRing.Brightness",
+            native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
+    ],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_door_light_ring",
+            entity="LaundryCare.Common.Setting.DoorLightRing.Active",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }

@@ -70,6 +70,9 @@
       },
       "switch_child_lock": {
         "name": "Child lock"
+      },
+      "switch_door_light_ring": {
+        "name": "Door Ring light"
       }
     },
     "binary_sensor": {
@@ -452,6 +455,23 @@
           "high": "High",
           "veryhigh": "Very High"
         }
+      },
+      "select_door_light_ring_mode": {
+        "name": "Door Ring light mode",
+        "state": {
+          "off": "Off",
+          "on": "On",
+          "auto": "Auto"
+        }
+      },
+      "select_door_light_ring_brightness": {
+        "name": "Door Ring light brightness Level",
+        "state": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "veryhigh": "Very High"
+        }
       }
     },
     "button": {
@@ -468,6 +488,9 @@
       },
       "number_laundry_brightness": {
         "name": "Brightness"
+      },
+      "number_door_light_ring_brightness": {
+        "name": "Door Ring light brightness"
       }
     }
   }
