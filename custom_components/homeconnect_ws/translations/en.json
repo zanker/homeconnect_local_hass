@@ -67,6 +67,9 @@
       },
       "switch_half_load": {
         "name": "Half load"
+      },
+      "switch_child_lock": {
+        "name": "Child lock"
       }
     },
     "binary_sensor": {

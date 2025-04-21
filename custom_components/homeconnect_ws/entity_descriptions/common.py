@@ -252,5 +252,12 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="BSH.Common.Option.StartInRelative",
         )
     ],
-    "switch": [generate_power_switch],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_child_lock",
+            entity="BSH.Common.Setting.ChildLock",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        generate_power_switch,
+    ],
 }

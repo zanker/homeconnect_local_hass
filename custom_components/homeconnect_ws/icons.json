@@ -25,6 +25,12 @@
             "switch_multiple_beverages": {},
             "switch_half_load": {
                 "default": "mdi:fraction-one-half"
+            },
+            "switch_child_lock": {
+                "default": "mdi:lock",
+                "state": {
+                    "off": "mdi:lock-open"
+                }
             }
         },
         "binary_sensor": {
