@@ -443,6 +443,15 @@
           "30min": "30 min",
           "60min": "60 min"
         }
+      },
+      "select_laundry_brightness": {
+        "name": "Brightness Level",
+        "state": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "veryhigh": "Very High"
+        }
       }
     },
     "button": {
@@ -456,6 +465,9 @@
     "number": {
       "number_fill_quantity": {
         "name": "Fill quantity"
+      },
+      "number_laundry_brightness": {
+        "name": "Brightness"
       }
     }
   }

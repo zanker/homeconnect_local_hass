@@ -5,11 +5,13 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import EntityCategory
-
+from homeassistant.const import PERCENTAGE
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
 )
@@ -43,5 +45,20 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.CONFIG,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_brightness",
+            entity="LaundryCare.Common.Setting.BrightnessLevel",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+    ],
+    "number": [
+        HCNumberEntityDescription(
+            key="number_laundry_brightness",
+            entity="LaundryCare.Common.Setting.Brightness",
+            native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        )
     ],
 }
