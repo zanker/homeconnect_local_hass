@@ -94,5 +94,10 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Common.Setting.DoorLightRing.Active",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_drum_light",
+            entity="LaundryCare.Common.Setting.DrumLight.Active",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }

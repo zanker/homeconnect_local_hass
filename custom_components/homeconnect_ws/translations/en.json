@@ -73,6 +73,9 @@
       },
       "switch_door_light_ring": {
         "name": "Door Ring light"
+      },
+      "switch_drum_light": {
+        "name": "Drum light"
       }
     },
     "binary_sensor": {
