@@ -326,6 +326,17 @@
       },
       "sensor_count_completed": {
         "name": "Completed count"
+      },
+      "sensor_flex_start": {
+        "name": "Flex start",
+        "state": {
+          "disabled": "Disabled",
+          "enabled": "Enabled",
+          "pending": "Pending",
+          "scheduled": "Scheduled",
+          "started": "Started",
+          "finished": "Finished"
+        }
       }
     },
     "select": {

@@ -247,6 +247,12 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_flex_start",
+            entity="BSH.Common.Status.FlexStart",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
         generate_door_state,
     ],
     "start_button": [
