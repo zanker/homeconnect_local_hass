@@ -94,6 +94,21 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Dryer.Option.WrinkleGuard",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_cupboard_dry_fine_adjust",
+            entity="LaundryCare.Dryer.Setting.CupboardDryFineAdjust",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_laundry_cupboard_dry_plus_fine_adjust",
+            entity="LaundryCare.Dryer.Setting.CupboardDryPlusFineAdjust",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_laundry_iron_dry_fine_adjust",
+            entity="LaundryCare.Dryer.Setting.IronDryFineAdjust",
+            has_state_translation=True,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(

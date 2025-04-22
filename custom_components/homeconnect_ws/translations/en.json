@@ -531,6 +531,33 @@
           "min120": "120 min",
           "min180": "180 min"
         }
+      },
+      "select_laundry_cupboard_dry_fine_adjust": {
+        "name": "Cupboard dry fine adjust",
+        "state": {
+          "off": "Off",
+          "plus1": "Plus 1",
+          "plus2": "Plus 2",
+          "plus3": "Plus 3"
+        }
+      },
+      "select_laundry_cupboard_dry_plus_fine_adjust": {
+        "name": "Cupboard dry plus fine adjust",
+        "state": {
+          "off": "Off",
+          "plus1": "Plus 1",
+          "plus2": "Plus 2",
+          "plus3": "Plus 3"
+        }
+      },
+      "select_laundry_iron_dry_fine_adjust": {
+        "name": "Iron dry fine adjust",
+        "state": {
+          "off": "Off",
+          "plus1": "Plus 1",
+          "plus2": "Plus 2",
+          "plus3": "Plus 3"
+        }
       }
     },
     "button": {
