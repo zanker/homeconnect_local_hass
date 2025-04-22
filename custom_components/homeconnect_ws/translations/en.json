@@ -91,6 +91,9 @@
       },
       "switch_laundry_silent_mode": {
         "name": "Silent mode"
+      },
+      "switch_laundry_speed_perfect": {
+        "name": "Speed perfect"
       }
     },
     "binary_sensor": {
