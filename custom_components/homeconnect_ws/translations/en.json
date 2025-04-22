@@ -337,6 +337,26 @@
           "started": "Started",
           "finished": "Finished"
         }
+      },
+      "sensor_dryer_process_phase": {
+        "name": "Process Phase",
+        "state": {
+          "steamactive": "Steam active",
+          "progstarted": "Program started",
+          "drying": "Drying",
+          "irondryreached": "Iron dry reached",
+          "cupboarddryreached": "Cupboard dry reached",
+          "cubboarddryplusreached": "Cubboard dry plus reached",
+          "cooling": "Cooling",
+          "finishedanticrease": "Finished anti crease",
+          "heatexchangercleaning": "Heat Exchanger cleaning",
+          "slightlydampreached": "Slightly damp reached",
+          "extradryreached": "Extra dry reached",
+          "quickcare": "Quick Care",
+          "depthcarephase1": "Depth Care Phase 1",
+          "depthcarephase2": "Depth Care Phase 2",
+          "spare": "Spare"
+        }
       }
     },
     "select": {
