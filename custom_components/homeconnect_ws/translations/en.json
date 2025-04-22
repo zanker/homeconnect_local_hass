@@ -161,6 +161,9 @@
       },
       "binary_sensor_door_alarm_fridge": {
         "name": "Door alarm Fridge"
+      },
+      "binary_sensor_temperature_alarm_freezer": {
+        "name": "Temperature alarm Freezer"
       }
     },
     "sensor": {
