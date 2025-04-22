@@ -128,6 +128,11 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Dryer.Setting.SpinSpeedBeforeDrying",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_drying_target",
+            entity="LaundryCare.Dryer.Option.DryingTarget",
+            has_state_translation=True,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(

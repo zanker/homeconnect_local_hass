@@ -658,6 +658,16 @@
           "rpm1600": "1600 rpm",
           "auto": "Auto"
         }
+      },
+      "select_laundry_drying_target": {
+        "name": "Drying target",
+        "state": {
+          "irondry": "Iron dry",
+          "gentledry": "Gentle dry",
+          "cupboarddry": "Cupboard dry",
+          "cupboarddryplus": "Cupboard dry plus",
+          "extradry": "Extra dry"
+        }
       }
     },
     "button": {
