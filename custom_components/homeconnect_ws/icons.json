@@ -25,6 +25,12 @@
             "switch_multiple_beverages": {},
             "switch_half_load": {
                 "default": "mdi:fraction-one-half"
+            },
+            "switch_child_lock": {
+                "default": "mdi:lock",
+                "state": {
+                    "off": "mdi:lock-open"
+                }
             }
         },
         "binary_sensor": {
@@ -99,6 +105,15 @@
                     "off": "mdi:power-off",
                     "on": "mdi:power-on",
                     "standby": "mdi:power-standby"
+                }
+            },
+            "sensor_door_state": {
+                "default": "mdi:door",
+                "state": {
+                    "open": "mdi:door-open",
+                    "closed": "mdi:door-closed",
+                    "locked": "mdi:door-closed-lock",
+                    "ajar": "mdi:door-open"
                 }
             }
         },

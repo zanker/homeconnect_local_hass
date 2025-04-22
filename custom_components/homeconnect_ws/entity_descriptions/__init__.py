@@ -20,6 +20,7 @@ from .descriptions_definitions import (
     _EntityDescriptionsType,
 )
 from .dishcare import DISHCARE_ENTITY_DESCRIPTIONS
+from .laundry_care import LAUNDRY_ENTITY_DESCRIPTIONS
 from .refrigeration import REFRIGERATION_ENTITY_DESCRIPTIONS
 
 if TYPE_CHECKING:
@@ -38,6 +39,7 @@ def get_all_entity_description() -> _EntityDescriptionsType:
             CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS,
             COOKING_ENTITY_DESCRIPTIONS,
             DISHCARE_ENTITY_DESCRIPTIONS,
+            LAUNDRY_ENTITY_DESCRIPTIONS,
             REFRIGERATION_ENTITY_DESCRIPTIONS,
         )
     return ALL_ENTITY_DESCRIPTIONS

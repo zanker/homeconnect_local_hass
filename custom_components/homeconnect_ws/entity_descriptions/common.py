@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
 )
+from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorStateClass,
@@ -17,6 +18,7 @@ from homeassistant.const import PERCENTAGE, EntityCategory, UnitOfTime
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
+    HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
@@ -84,6 +86,19 @@ def generate_power_select(appliance: HomeAppliance) -> HCSelectEntityDescription
     return None
 
 
+def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription | None:
+    """Get Door sensor description."""
+    entity = appliance.entities.get("BSH.Common.Setting.PowerState")
+    if entity and len(entity.enum) > 2:
+        return HCSensorEntityDescription(
+            key="sensor_door_state",
+            entity="BSH.Common.Status.DoorState",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        )
+    return None
+
+
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
     "abort_button": [
         HCButtonEntityDescription(
@@ -104,8 +119,8 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             key="binary_sensor_door_state",
             entity="BSH.Common.Status.DoorState",
             device_class=BinarySensorDeviceClass.DOOR,
-            value_on={"Open"},
-            value_off={"Closed"},
+            value_on={"Open", "Ajar"},
+            value_off={"Closed", "Locked"},
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_aqua_stop",
@@ -212,6 +227,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             ],
         ),
         HCSensorEntityDescription(
+            key="sensor_count_completed",
+            entity="BSH.Common.Status.Program.All.Count.Completed",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+            state_class=SensorStateClass.TOTAL_INCREASING,
+        ),
+        HCSensorEntityDescription(
             key="sensor_end_trigger",
             entity="BSH.Common.Status.ProgramRunDetail.EndTrigger",
             device_class=SensorDeviceClass.ENUM,
@@ -225,6 +247,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_flex_start",
+            entity="BSH.Common.Status.FlexStart",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
+        generate_door_state,
     ],
     "start_button": [
         HCButtonEntityDescription(
@@ -238,5 +267,21 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="BSH.Common.Option.StartInRelative",
         )
     ],
-    "switch": [generate_power_switch],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_child_lock",
+            entity="BSH.Common.Setting.ChildLock",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        generate_power_switch,
+    ],
+    "number": [
+        HCNumberEntityDescription(
+            key="number_duration",
+            entity="BSH.Common.Option.Duration",
+            device_class=NumberDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+        ),
+    ],
 }
