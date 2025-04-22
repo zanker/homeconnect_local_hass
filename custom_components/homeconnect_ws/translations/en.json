@@ -100,6 +100,12 @@
       },
       "switch_laundry_hygiene": {
         "name": "Hygiene"
+      },
+      "switch_super_freezer": {
+        "name": "Super mode Freezer"
+      },
+      "switch_super_refrigerator": {
+        "name": "Super mode Fridge"
       }
     },
     "binary_sensor": {

@@ -5,12 +5,14 @@ from __future__ import annotations
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.switch import SwitchDeviceClass
 from homeassistant.const import UnitOfTemperature
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCNumberEntityDescription,
     HCSensorEntityDescription,
+    HCSwitchEntityDescription,
     _EntityDescriptionsType,
 )
 
@@ -69,6 +71,18 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=NumberDeviceClass.TEMPERATURE,
             mode=NumberMode.AUTO,
             step=1,
+        ),
+    ],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_super_freezer",
+            entity="Refrigeration.FridgeFreezer.Setting.SuperModeFreezer",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_super_refrigerator",
+            entity="Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator",
+            device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
 }
