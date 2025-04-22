@@ -54,12 +54,6 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             has_state_translation=True,
         ),
         HCSelectEntityDescription(
-            key="select_laundry_brightness",
-            entity="LaundryCare.Common.Setting.BrightnessLevel",
-            entity_category=EntityCategory.CONFIG,
-            has_state_translation=True,
-        ),
-        HCSelectEntityDescription(
             key="select_door_light_ring_mode",
             entity="LaundryCare.Common.Setting.DoorLightRing.ActiveMode",
             entity_category=EntityCategory.CONFIG,
@@ -68,6 +62,24 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
         HCSelectEntityDescription(
             key="select_door_light_ring_brightness",
             entity="LaundryCare.Common.Setting.DoorLightRing.BrightnessLevel",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_laundry_end_signal_volume",
+            entity="LaundryCare.Common.Setting.EndSignalVolume",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_laundry_key_signal_volume",
+            entity="LaundryCare.Common.Setting.KeySignalVolume",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_laundry_sound_volume",
+            entity="LaundryCare.Common.Setting.Sound.Volume",
             entity_category=EntityCategory.CONFIG,
             has_state_translation=True,
         ),
@@ -98,6 +110,18 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             key="switch_drum_light",
             entity="LaundryCare.Common.Setting.DrumLight.Active",
             device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_end_signal",
+            entity="LaundryCare.Common.Setting.EndSignal",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_sound_mute",
+            entity="LaundryCare.Common.Setting.Sound.Mute",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
         ),
     ],
 }
