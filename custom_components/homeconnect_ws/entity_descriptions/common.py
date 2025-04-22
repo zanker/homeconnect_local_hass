@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
 )
-from homeassistant.components.number import NumberMode, NumberDeviceClass
+from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorStateClass,
@@ -225,6 +225,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
                     "value_fn": lambda entity: entity.value["end"],
                 },
             ],
+        ),
+        HCSensorEntityDescription(
+            key="sensor_count_completed",
+            entity="BSH.Common.Status.Program.All.Count.Completed",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+            state_class=SensorStateClass.TOTAL_INCREASING,
         ),
         HCSensorEntityDescription(
             key="sensor_end_trigger",

@@ -323,6 +323,9 @@
           "soakfinished": "Soak finished",
           "anyphase": "Any Phase"
         }
+      },
+      "sensor_count_completed": {
+        "name": "Completed count"
       }
     },
     "select": {
