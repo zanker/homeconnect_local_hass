@@ -674,6 +674,14 @@
           "cupboarddryplus": "Cupboard dry plus",
           "extradry": "Extra dry"
         }
+      },
+      "select_laundry_refresher": {
+        "name": "Drying target",
+        "state": {
+          "shirt1": "Shirt 1",
+          "shirt5": "Shirt 5",
+          "business": "Business"
+        }
       }
     },
     "button": {

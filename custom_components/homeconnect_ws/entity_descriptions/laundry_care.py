@@ -133,6 +133,11 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Dryer.Option.DryingTarget",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_refresher",
+            entity="LaundryCare.Dryer.Option.Refresher",
+            has_state_translation=True,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(
