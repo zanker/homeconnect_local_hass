@@ -750,6 +750,12 @@
       },
       "number_laundry_spin_class": {
         "name": "Spin class"
+      },
+      "number_setpoint_freezer": {
+        "name": "Temperature Freezer"
+      },
+      "number_setpoint_refrigerator": {
+        "name": "Temperature Fridge"
       }
     }
   }
