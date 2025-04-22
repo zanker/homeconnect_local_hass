@@ -29,6 +29,12 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_laundry_process_phase",
+            entity="LaundryCare.Common.Option.ProcessPhase",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "binary_sensor": [
         HCBinarySensorEntityDescription(
