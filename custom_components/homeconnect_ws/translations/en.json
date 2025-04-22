@@ -109,6 +109,9 @@
       },
       "switch_refrigerator_eco": {
         "name": "Eco mode"
+      },
+      "switch_refrigerator_vacation": {
+        "name": "Vacation mode"
       }
     },
     "binary_sensor": {

@@ -89,5 +89,10 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="Refrigeration.FridgeFreezer.Setting.EcoMode",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_vacation",
+            entity="Refrigeration.FridgeFreezer.Setting.VacationMode",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }
