@@ -195,5 +195,10 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Common.Option.SpeedPerfect",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_gentle",
+            entity="LaundryCare.Dryer.Option.Gentle",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }

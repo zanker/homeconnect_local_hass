@@ -94,6 +94,9 @@
       },
       "switch_laundry_speed_perfect": {
         "name": "Speed perfect"
+      },
+      "switch_laundry_gentle": {
+        "name": "Gentle"
       }
     },
     "binary_sensor": {
