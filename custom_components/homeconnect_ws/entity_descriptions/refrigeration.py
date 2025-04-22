@@ -6,7 +6,7 @@ from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
-from homeassistant.const import UnitOfTemperature
+from homeassistant.const import EntityCategory, UnitOfTemperature
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
@@ -45,6 +45,22 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=BinarySensorDeviceClass.DOOR,
             value_on={"Open"},
             value_off={"Closed"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_door_alarm_freezer",
+            entity="Refrigeration.FridgeFreezer.Event.DoorAlarmFreezer",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_door_alarm_fridge",
+            entity="Refrigeration.FridgeFreezer.Event.DoorAlarmRefrigerator",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
         ),
     ],
     "sensor": [

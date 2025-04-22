@@ -155,6 +155,12 @@
       },
       "binary_sensor_fridge_door_state": {
         "name": "Fridge Door"
+      },
+      "binary_sensor_door_alarm_freezer": {
+        "name": "Door alarm Freezer"
+      },
+      "binary_sensor_door_alarm_fridge": {
+        "name": "Door alarm Fridge"
       }
     },
     "sensor": {
