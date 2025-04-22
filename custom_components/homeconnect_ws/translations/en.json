@@ -88,6 +88,9 @@
       },
       "switch_laundry_wrinkle_guard": {
         "name": "Wrinkle guard"
+      },
+      "switch_laundry_silent_mode": {
+        "name": "Silent mode"
       }
     },
     "binary_sensor": {

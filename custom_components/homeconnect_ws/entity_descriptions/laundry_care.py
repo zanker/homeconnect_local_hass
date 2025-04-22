@@ -180,5 +180,10 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_silent_mode",
+            entity="LaundryCare.Common.Option.SilentMode",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }
