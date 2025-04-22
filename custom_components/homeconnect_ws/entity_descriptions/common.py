@@ -88,7 +88,7 @@ def generate_power_select(appliance: HomeAppliance) -> HCSelectEntityDescription
 
 def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription | None:
     """Get Door sensor description."""
-    entity = appliance.entities.get("BSH.Common.Setting.PowerState")
+    entity = appliance.entities.get("BSH.Common.Status.DoorState")
     if entity and len(entity.enum) > 2:
         return HCSensorEntityDescription(
             key="sensor_door_state",
