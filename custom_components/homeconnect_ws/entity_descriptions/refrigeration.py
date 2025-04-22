@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.const import UnitOfTemperature
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCSensorEntityDescription,
     _EntityDescriptionsType,
 )
 
@@ -40,5 +43,12 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_off={"Closed"},
         ),
     ],
-    "sensor": [],
+    "sensor": [
+        HCSensorEntityDescription(
+            key="sensor_temperature_ambient",
+            entity="Refrigeration.FridgeFreezer.Status.TemperatureAmbient",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        )
+    ],
 }

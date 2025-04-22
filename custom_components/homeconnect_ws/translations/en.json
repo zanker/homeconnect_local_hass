@@ -362,6 +362,9 @@
           "depthcarephase1": "Depth Care Phase 1",
           "depthcarephase2": "Depth Care Phase 2",
           "spare": "Spare"
+        },
+        "sensor_temperature_ambient": {
+          "name": "Ambient Temperature"
         }
       }
     },
