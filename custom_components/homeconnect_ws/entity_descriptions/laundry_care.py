@@ -39,6 +39,14 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_on=("Poor"),
             value_off=("Filled"),
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_condensate_container_full",
+            entity="LaundryCare.Dryer.Event.CondensateContainerFull",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
     ],
     "select": [
         HCSelectEntityDescription(

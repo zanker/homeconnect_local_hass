@@ -118,6 +118,13 @@
           "on": "Poor",
           "off": "Filled"
         }
+      },
+      "binary_sensor_condensate_container_full": {
+        "name": "Condensate Container",
+        "state": {
+          "on": "Full",
+          "off": "Ok"
+        }
       }
     },
     "sensor": {
