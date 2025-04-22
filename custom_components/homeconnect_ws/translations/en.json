@@ -97,6 +97,9 @@
       },
       "switch_laundry_gentle": {
         "name": "Gentle"
+      },
+      "switch_laundry_hygiene": {
+        "name": "Hygiene"
       }
     },
     "binary_sensor": {
