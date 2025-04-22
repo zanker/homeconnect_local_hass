@@ -82,6 +82,9 @@
       },
       "switch_laundry_sound_mute": {
         "name": "Sound mute"
+      },
+      "switch_laundry_time_light": {
+        "name": "Time light"
       }
     },
     "binary_sensor": {

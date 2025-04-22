@@ -129,5 +129,11 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_time_light",
+            entity="LaundryCare.Common.Setting.TimeLight.Active",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
 }
