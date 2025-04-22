@@ -558,6 +558,23 @@
           "plus2": "Plus 2",
           "plus3": "Plus 3"
         }
+      },
+      "select_laundry_spin_speed_before_drying": {
+        "name": "Spin speed before Drying",
+        "state": {
+          "off": "Off",
+          "rpm400": "400 rpm",
+          "rpm600": "600 rpm",
+          "rpm700": "700 rpm",
+          "rpm800": "800 rpm",
+          "rpm900": "900 rpm",
+          "rpm1000": "1000 rpm",
+          "rpm1200": "1200 rpm",
+          "rpm1400": "1400 rpm",
+          "rpm1500": "1500 rpm",
+          "rpm1600": "1600 rpm",
+          "auto": "Auto"
+        }
       }
     },
     "button": {
