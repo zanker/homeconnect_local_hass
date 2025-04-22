@@ -137,6 +137,12 @@
           "on": "Full",
           "off": "Ok"
         }
+      },
+      "binary_sensor_freezer_door_state": {
+        "name": "Freezer Door"
+      },
+      "binary_sensor_fridge_door_state": {
+        "name": "Fridge Door"
       }
     },
     "sensor": {
