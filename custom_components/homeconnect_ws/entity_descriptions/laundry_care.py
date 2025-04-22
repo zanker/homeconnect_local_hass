@@ -8,7 +8,7 @@ from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
-from homeassistant.const import PERCENTAGE, EntityCategory
+from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCategory
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
@@ -152,6 +152,12 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="LaundryCare.Common.Setting.DoorLightRing.Brightness",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
+        HCNumberEntityDescription(
+            key="number_laundry_spin_class",
+            entity="LaundryCare.Dryer.Option.SpinClass",
+            native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             mode=NumberMode.AUTO,
         ),
     ],

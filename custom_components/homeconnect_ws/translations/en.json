@@ -704,6 +704,9 @@
       },
       "number_duration": {
         "name": "Duration"
+      },
+      "number_laundry_spin_class": {
+        "name": "Spin class"
       }
     }
   }
