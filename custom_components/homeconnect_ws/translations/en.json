@@ -106,6 +106,9 @@
       },
       "switch_super_refrigerator": {
         "name": "Super mode Fridge"
+      },
+      "switch_refrigerator_eco": {
+        "name": "Eco mode"
       }
     },
     "binary_sensor": {
