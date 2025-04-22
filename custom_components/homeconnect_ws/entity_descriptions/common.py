@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
 )
+from homeassistant.components.number import NumberMode, NumberDeviceClass
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorStateClass,
@@ -17,6 +18,7 @@ from homeassistant.const import PERCENTAGE, EntityCategory, UnitOfTime
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
+    HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
@@ -259,5 +261,14 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SwitchDeviceClass.SWITCH,
         ),
         generate_power_switch,
+    ],
+    "number": [
+        HCNumberEntityDescription(
+            key="number_duration",
+            entity="BSH.Common.Option.Duration",
+            device_class=NumberDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+        ),
     ],
 }

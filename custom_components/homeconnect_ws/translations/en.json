@@ -671,6 +671,9 @@
       },
       "number_door_light_ring_brightness": {
         "name": "Door Ring light brightness"
+      },
+      "number_duration": {
+        "name": "Duration"
       }
     }
   }
