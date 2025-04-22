@@ -83,6 +83,12 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.CONFIG,
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_power_rating",
+            entity="LaundryCare.Common.Setting.SupplyPower.PowerRating",
+            entity_category=EntityCategory.CONFIG,
+            has_state_translation=False,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(

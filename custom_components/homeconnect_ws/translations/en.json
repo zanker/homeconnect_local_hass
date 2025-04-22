@@ -511,6 +511,9 @@
           "volume3": "Volume 3",
           "volume4": "Volume 4"
         }
+      },
+      "select_laundry_power_rating": {
+        "name": "Supply power rating"
       }
     },
     "button": {
