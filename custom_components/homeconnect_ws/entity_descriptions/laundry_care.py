@@ -89,6 +89,11 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_category=EntityCategory.CONFIG,
             has_state_translation=False,
         ),
+        HCSelectEntityDescription(
+            key="select_laundry_wrinkle_guard",
+            entity="LaundryCare.Dryer.Option.WrinkleGuard",
+            has_state_translation=True,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(
@@ -132,6 +137,12 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
         HCSwitchEntityDescription(
             key="switch_laundry_time_light",
             entity="LaundryCare.Common.Setting.TimeLight.Active",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_wrinkle_guard",
+            entity="LaundryCare.Common.Setting.WrinkleGuard",
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),

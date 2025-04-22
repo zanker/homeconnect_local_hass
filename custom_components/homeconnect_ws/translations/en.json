@@ -85,6 +85,9 @@
       },
       "switch_laundry_time_light": {
         "name": "Time light"
+      },
+      "switch_laundry_wrinkle_guard": {
+        "name": "Wrinkle guard"
       }
     },
     "binary_sensor": {
@@ -517,6 +520,17 @@
       },
       "select_laundry_power_rating": {
         "name": "Supply power rating"
+      },
+      "select_laundry_wrinkle_guard": {
+        "name": "Wrinkle guard",
+        "state": {
+          "off": "Off",
+          "min30": "30 min",
+          "min60": "60 min",
+          "min90": "90 min",
+          "min120": "120 min",
+          "min180": "180 min"
+        }
       }
     },
     "button": {
