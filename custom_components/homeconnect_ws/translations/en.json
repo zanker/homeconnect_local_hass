@@ -112,6 +112,12 @@
       },
       "switch_refrigerator_vacation": {
         "name": "Vacation mode"
+      },
+      "switch_laundry_idos1_active": {
+        "name": "i-DOS Liquid Detergent (Container 1)"
+      },
+      "switch_laundry_idos2_active": {
+        "name": "i-DOS Liquid Detergent (Container 2)"
       }
     },
     "binary_sensor": {
@@ -387,6 +393,24 @@
       },
       "sensor_temperature_ambient": {
         "name": "Ambient Temperature"
+      },
+      "sensor_laundry_spin_speed": {
+        "name": "Spin Speed",
+        "state": {
+          "off": "Off",
+          "rpm400": "400 rpm",
+          "rpm600": "600 rpm",
+          "rpm700": "700 rpm",
+          "rpm800": "800 rpm",
+          "rpm900": "900 rpm",
+          "rpm1000": "1000 rpm",
+          "rpm1200": "1200 rpm",
+          "rpm1400": "1400 rpm",
+          "rpm1500": "1500 rpm",
+          "rpm1600": "1600 rpm",
+          "rinsehold": "Rinse Hold",
+          "auto": "Auto"
+        }
       }
     },
     "select": {
@@ -777,6 +801,12 @@
       },
       "number_setpoint_refrigerator": {
         "name": "Temperature Fridge"
+      },
+      "number_idos1_base_level": {
+        "name": " i-DOS dosing volume: detergent"
+      },
+      "number_idos2_base_level": {
+        "name": " i-DOS dosing volume: detergent or softener"
       }
     }
   }

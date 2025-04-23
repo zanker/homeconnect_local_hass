@@ -41,6 +41,12 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_laundry_spin_speed",
+            entity="LaundryCare.Washer.Option.SpinSpeed",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
     ],
     "binary_sensor": [
         HCBinarySensorEntityDescription(
@@ -166,6 +172,18 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             mode=NumberMode.AUTO,
         ),
+        HCNumberEntityDescription(
+            key="number_idos1_base_level",
+            entity="LaundryCare.Washer.Setting.IDos1BaseLevel",
+            entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
+        HCNumberEntityDescription(
+            key="number_idos2_base_level",
+            entity="LaundryCare.Washer.Setting.IDos2BaseLevel",
+            entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
@@ -225,6 +243,16 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
         HCSwitchEntityDescription(
             key="switch_laundry_hygiene",
             entity="LaundryCare.Dryer.Option.Hygiene",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_idos1_active",
+            entity="LaundryCare.Washer.Option.IDos1Active",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_laundry_idos2_active",
+            entity="LaundryCare.Washer.Option.IDos2Active",
             device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
