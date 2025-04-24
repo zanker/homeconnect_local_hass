@@ -164,11 +164,7 @@
         }
       },
       "binary_sensor_maintenance_reminder": {
-        "name": "Care Cycle Recommended",
-        "state": {
-          "on": "Yes",
-          "off": "No"
-        }
+        "name": "Care Cycle Recommended"
       },
       "binary_sensor_program_aborted": {
         "name": "Program Aborted"
