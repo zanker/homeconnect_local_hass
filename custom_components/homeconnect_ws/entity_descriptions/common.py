@@ -253,6 +253,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
         ),
+        HCSensorEntityDescription(
+            key="sensor_estimated_remaining_program_time",
+            entity="BSH.Common.Option.EstimatedTotalProgramTime",
+            device_class=SensorDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            suggested_unit_of_measurement=UnitOfTime.HOURS,
+        ),
         generate_door_state,
     ],
     "start_button": [
