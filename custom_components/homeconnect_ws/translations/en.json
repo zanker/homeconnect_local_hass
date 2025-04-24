@@ -170,6 +170,12 @@
           "off": "No"
         }
       },
+      "binary_sensor_program_aborted": {
+        "name": "Program Aborted"
+      },
+      "binary_sensor.foam_detection": {
+        "name": "Foam Detection"
+      },
       "binary_sensor_freezer_door_state": {
         "name": "Freezer Door"
       },

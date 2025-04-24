@@ -146,6 +146,14 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_registry_enabled_default=False,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_program_aborted",
+            entity="BSH.Common.Event.ProgramAborted",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
     ],
     "program": [
         HCSelectEntityDescription(
