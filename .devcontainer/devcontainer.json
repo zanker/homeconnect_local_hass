@@ -41,6 +41,10 @@
         }
     },
     "remoteUser": "root",
+    "runArgs": [
+        "--env-file",
+        "./devcontainer.env"
+    ],
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {}
     }
