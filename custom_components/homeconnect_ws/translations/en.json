@@ -156,6 +156,20 @@
           "off": "Ok"
         }
       },
+      "binary_sensor_lint_filter_full": {
+        "name": "Lint Filter",
+        "state": {
+          "on": "Full",
+          "off": "Ok"
+        }
+      },
+      "binary_sensor_maintenance_reminder": {
+        "name": "Care Cycle Recommended",
+        "state": {
+          "on": "Yes",
+          "off": "No"
+        }
+      },
       "binary_sensor_freezer_door_state": {
         "name": "Freezer Door"
       },
