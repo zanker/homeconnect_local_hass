@@ -803,10 +803,10 @@
         "name": "Temperature Fridge"
       },
       "number_idos1_base_level": {
-        "name": " i-DOS dosing volume: detergent"
+        "name": "i-DOS dosing volume: detergent"
       },
       "number_idos2_base_level": {
-        "name": " i-DOS dosing volume: detergent or softener"
+        "name": "i-DOS dosing volume: detergent or softener"
       }
     }
   }
