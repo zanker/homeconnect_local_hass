@@ -40,5 +40,8 @@
             }
         }
     },
-    "remoteUser": "root"
+    "remoteUser": "root",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    }
 }
