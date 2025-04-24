@@ -8,7 +8,7 @@ from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
-from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCategory
+from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCategory, UnitOfVolume
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
@@ -176,12 +176,14 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             key="number_idos1_base_level",
             entity="LaundryCare.Washer.Setting.IDos1BaseLevel",
             entity_category=EntityCategory.CONFIG,
+            native_unit_of_measurement=UnitOfVolume.MILLILITERS,
             mode=NumberMode.AUTO,
         ),
         HCNumberEntityDescription(
             key="number_idos2_base_level",
             entity="LaundryCare.Washer.Setting.IDos2BaseLevel",
             entity_category=EntityCategory.CONFIG,
+            native_unit_of_measurement=UnitOfVolume.MILLILITERS,
             mode=NumberMode.AUTO,
         ),
     ],
