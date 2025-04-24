@@ -31,6 +31,12 @@
                 "state": {
                     "off": "mdi:lock-open"
                 }
+            },
+            "switch_laundry_idos1_active": {
+                "default": "mdi:office-building-cog"
+            },
+            "switch_laundry_idos2_active": {
+                "default": "mdi:office-building-cog"
             }
         },
         "binary_sensor": {
@@ -115,6 +121,9 @@
                     "locked": "mdi:door-closed-lock",
                     "ajar": "mdi:door-open"
                 }
+            },
+            "sensor_laundry_spin_speed": {
+                "default": "mdi:office-building-cog"
             }
         },
         "select": {
@@ -171,7 +180,13 @@
             }
         },
         "number": {
-            "number_fill_quantity": {}
+            "number_fill_quantity": {},
+            "number_idos1_base_level": {
+                "default": "mdi:tune"
+            },
+            "number_idos2_base_level": {
+                "default": "mdi:tune"
+            }
         }
     }
 }
