@@ -156,6 +156,22 @@
           "off": "Ok"
         }
       },
+      "binary_sensor_lint_filter_full": {
+        "name": "Lint Filter",
+        "state": {
+          "on": "Full",
+          "off": "Ok"
+        }
+      },
+      "binary_sensor_maintenance_reminder": {
+        "name": "Care Cycle Recommended"
+      },
+      "binary_sensor_program_aborted": {
+        "name": "Program Aborted"
+      },
+      "binary_sensor_foam_detection": {
+        "name": "Foam Detection"
+      },
       "binary_sensor_freezer_door_state": {
         "name": "Freezer Door"
       },
@@ -411,6 +427,9 @@
           "rinsehold": "Rinse Hold",
           "auto": "Auto"
         }
+      },
+      "sensor_estimated_remaining_program_time": {
+        "name": "Estimated total program time"
       }
     },
     "select": {

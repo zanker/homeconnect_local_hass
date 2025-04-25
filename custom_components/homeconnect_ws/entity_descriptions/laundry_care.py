@@ -65,6 +65,30 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_lint_filter_full",
+            entity="LaundryCare.Dryer.Event.LintFilterFull",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_maintenance_reminder",
+            entity="LaundryCare.Dryer.Event.Maintenance.Remind",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_foam_detection",
+            entity="LaundryCare.Common.Event.FoamDetection",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
     ],
     "select": [
         HCSelectEntityDescription(
