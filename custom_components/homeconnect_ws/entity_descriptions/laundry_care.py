@@ -82,7 +82,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             value_off={"Off"},
         ),
         HCBinarySensorEntityDescription(
-            key="binary_sensor.foam_detection",
+            key="binary_sensor_foam_detection",
             entity="LaundryCare.Common.Event.FoamDetection",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
