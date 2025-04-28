@@ -840,6 +840,9 @@
       },
       "number_idos2_base_level": {
         "name": "i-DOS dosing volume: detergent or softener"
+      },
+      "number_oven_setpoint_temperature": {
+        "name": "Setpoint Temperature"
       }
     }
   }

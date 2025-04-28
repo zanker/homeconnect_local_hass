@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from typing import TYPE_CHECKING
 
+from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import UnitOfTemperature, UnitOfTime
 
@@ -12,6 +13,7 @@ from custom_components.homeconnect_ws.helpers import get_groups_from_regex
 
 from .descriptions_definitions import (
     EntityDescriptions,
+    HCNumberEntityDescription,
     HCSensorEntityDescription,
     _EntityDescriptionsDefinitionsType,
 )
@@ -85,4 +87,13 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         ),
     ],
     "dynamic": [generate_oven_status],
+    "number": [
+        HCNumberEntityDescription(
+            key="number_oven_setpoint_temperature",
+            entity="Cooking.Oven.Option.SetpointTemperature",
+            device_class=NumberDeviceClass.TEMPERATURE,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+            mode=NumberMode.AUTO,
+        ),
+    ],
 }
