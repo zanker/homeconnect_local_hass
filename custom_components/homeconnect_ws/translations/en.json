@@ -899,6 +899,9 @@
       },
       "number_oven_setpoint_temperature": {
         "name": "Setpoint Temperature"
+      },
+      "number_oven_display_brightness": {
+        "name": "Display brightness"
       }
     }
   }

@@ -103,6 +103,12 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             mode=NumberMode.AUTO,
         ),
+        HCNumberEntityDescription(
+            key="number_oven_display_brightness",
+            entity="Cooking.Oven.Setting.DisplayBrightness",
+            entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
     ],
     "select": [
         HCSelectEntityDescription(
