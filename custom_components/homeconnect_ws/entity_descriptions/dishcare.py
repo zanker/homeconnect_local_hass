@@ -13,10 +13,10 @@ from .descriptions_definitions import (
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
-    _EntityDescriptionsType,
+    _EntityDescriptionsDefinitionsType,
 )
 
-DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
+DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "binary_sensor": [
         HCBinarySensorEntityDescription(
             key="binary_sensor_eco_dry_active",

@@ -16,13 +16,14 @@ from homeassistant.components.switch import SwitchDeviceClass
 from homeassistant.const import PERCENTAGE, EntityCategory, UnitOfTime
 
 from .descriptions_definitions import (
+    EntityDescriptions,
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
     HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
-    _EntityDescriptionsType,
+    _EntityDescriptionsDefinitionsType,
 )
 
 if TYPE_CHECKING:
@@ -38,8 +39,9 @@ POWER_SWITCH_VALUE_MAPINGS = (
 )
 
 
-def generate_power_switch(appliance: HomeAppliance) -> HCSwitchEntityDescription | None:
+def generate_power_switch(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Power switch description."""
+    entity_descriptions = EntityDescriptions()
     if entity := appliance.entities.get("BSH.Common.Setting.PowerState"):
         if entity.min and entity.max:
             # has min/max
@@ -54,36 +56,26 @@ def generate_power_switch(appliance: HomeAppliance) -> HCSwitchEntityDescription
             # only two power states
             for mapping in POWER_SWITCH_VALUE_MAPINGS:
                 if settable_states == set(mapping):
-                    return HCSwitchEntityDescription(
-                        key="switch_power_state",
-                        entity="BSH.Common.Setting.PowerState",
-                        device_class=SwitchDeviceClass.SWITCH,
-                        value_mapping=mapping,
-                    )
-    return None
+                    entity_descriptions["switch"] = [
+                        HCSwitchEntityDescription(
+                            key="switch_power_state",
+                            entity="BSH.Common.Setting.PowerState",
+                            device_class=SwitchDeviceClass.SWITCH,
+                            value_mapping=mapping,
+                        )
+                    ]
 
-
-def generate_power_select(appliance: HomeAppliance) -> HCSelectEntityDescription | None:
-    """Get Power switch description."""
-    if entity := appliance.entities.get("BSH.Common.Setting.PowerState"):
-        if entity.min and entity.max:
-            # has min/max
-            settable_states = []
-            for key, value in entity.enum.items():
-                if int(key) >= entity.min and int(key) <= entity.max:
-                    settable_states.append(str(value).lower())
-        else:
-            settable_states = [str(value).lower() for value in entity.enum.values()]
-
-        return HCSelectEntityDescription(
-            key="select_power_state",
-            entity="BSH.Common.Setting.PowerState",
-            options=settable_states,
-            has_state_translation=True,
-            # more then two power states
-            entity_registry_enabled_default=len(settable_states) > 2,
-        )
-    return None
+        entity_descriptions["select"] = [
+            HCSelectEntityDescription(
+                key="select_power_state",
+                entity="BSH.Common.Setting.PowerState",
+                options=[value.lower() for value in settable_states],
+                has_state_translation=True,
+                # more then two power states
+                entity_registry_enabled_default=len(settable_states) > 2,
+            )
+        ]
+    return entity_descriptions
 
 
 def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription | None:
@@ -99,7 +91,7 @@ def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription |
     return None
 
 
-COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
+COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "abort_button": [
         HCButtonEntityDescription(
             key="button_abort_program",
@@ -170,7 +162,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity_registry_enabled_default=False,
             has_state_translation=True,
         ),
-        generate_power_select,
     ],
     "sensor": [
         HCSensorEntityDescription(
@@ -288,7 +279,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             entity="BSH.Common.Setting.ChildLock",
             device_class=SwitchDeviceClass.SWITCH,
         ),
-        generate_power_switch,
     ],
     "number": [
         HCNumberEntityDescription(
@@ -299,4 +289,5 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             mode=NumberMode.AUTO,
         ),
     ],
+    "dynamic": [generate_power_switch],
 }

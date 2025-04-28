@@ -19,9 +19,9 @@ from .descriptions_definitions import (
 )
 
 if TYPE_CHECKING:
-    from .descriptions_definitions import _EntityDescriptionsType
+    from .descriptions_definitions import _EntityDescriptionsDefinitionsType
 
-LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
+LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "sensor": [
         HCSensorEntityDescription(
             key="sensor_laundry_reload",

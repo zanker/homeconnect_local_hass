@@ -10,6 +10,7 @@ from .common import COMMON_ENTITY_DESCRIPTIONS
 from .consumer_products import CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS
 from .cooking import COOKING_ENTITY_DESCRIPTIONS
 from .descriptions_definitions import (
+    EntityDescriptions,
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
     HCEntityDescription,
@@ -17,6 +18,7 @@ from .descriptions_definitions import (
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
+    _EntityDescriptionsDefinitionsType,
     _EntityDescriptionsType,
 )
 from .dishcare import DISHCARE_ENTITY_DESCRIPTIONS
@@ -26,12 +28,11 @@ from .refrigeration import REFRIGERATION_ENTITY_DESCRIPTIONS
 if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
-    from .descriptions_definitions import EntityDescriptions
 
-ALL_ENTITY_DESCRIPTIONS: _EntityDescriptionsType | None = None
+ALL_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType | None = None
 
 
-def get_all_entity_description() -> _EntityDescriptionsType:
+def get_all_entity_description() -> _EntityDescriptionsDefinitionsType:
     global ALL_ENTITY_DESCRIPTIONS  # noqa: PLW0603
     if ALL_ENTITY_DESCRIPTIONS is None:
         ALL_ENTITY_DESCRIPTIONS = merge_dicts(
@@ -62,6 +63,13 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
     }
     appliance_entities = set(appliance.entities)
     for description_type, descriptions in get_all_entity_description().items():
+        # dynamic descriptions
+        if description_type == "dynamic":
+            for descriptions_fn in descriptions:
+                dynamic_descriptions: _EntityDescriptionsType = descriptions_fn(appliance)
+                for key, value in dynamic_descriptions.items():
+                    available_entities[key].extend(value)
+            continue
         for description in descriptions:
             if callable(description):
                 if dynamic_description := description(appliance):
@@ -78,6 +86,7 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
 
 
 __all__ = [
+    "EntityDescriptions",
     "HCBinarySensorEntityDescription",
     "HCButtonEntityDescription",
     "HCEntityDescription",
@@ -85,5 +94,6 @@ __all__ = [
     "HCSelectEntityDescription",
     "HCSensorEntityDescription",
     "HCSwitchEntityDescription",
+    "_EntityDescriptionsType",
     "get_available_entities",
 ]

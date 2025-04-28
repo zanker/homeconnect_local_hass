@@ -103,7 +103,7 @@ async def test_power_switch(mock_homeconnect_appliance: MockApplianceType) -> No
     appliance = await mock_homeconnect_appliance(description=device_description)
     switch_description = generate_power_switch(appliance)
 
-    assert switch_description == HCSwitchEntityDescription(
+    assert switch_description["switch"][0] == HCSwitchEntityDescription(
         key="switch_power_state",
         entity="BSH.Common.Setting.PowerState",
         device_class=SwitchDeviceClass.SWITCH,
@@ -116,14 +116,14 @@ async def test_power_switch(mock_homeconnect_appliance: MockApplianceType) -> No
     appliance = await mock_homeconnect_appliance(description=device_description)
     switch_description = generate_power_switch(appliance)
 
-    assert switch_description is None
+    assert "switch" not in switch_description
 
     # On/MainsOff Switch
     device_description["setting"][0]["enumeration"] = {"0": "MainsOff", "2": "On"}
     appliance = await mock_homeconnect_appliance(description=device_description)
     switch_description = generate_power_switch(appliance)
 
-    assert switch_description == HCSwitchEntityDescription(
+    assert switch_description["switch"][0] == HCSwitchEntityDescription(
         key="switch_power_state",
         entity="BSH.Common.Setting.PowerState",
         device_class=SwitchDeviceClass.SWITCH,
@@ -135,7 +135,7 @@ async def test_power_switch(mock_homeconnect_appliance: MockApplianceType) -> No
     appliance = await mock_homeconnect_appliance(description=device_description)
     switch_description = generate_power_switch(appliance)
 
-    assert switch_description == HCSwitchEntityDescription(
+    assert switch_description["switch"][0] == HCSwitchEntityDescription(
         key="switch_power_state",
         entity="BSH.Common.Setting.PowerState",
         device_class=SwitchDeviceClass.SWITCH,

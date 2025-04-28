@@ -40,7 +40,8 @@ class HCEntity(Entity):
         self.entity_description = entity_description
         self._attr_unique_id = f"{appliance.info['deviceID']}-{entity_description.key}"
         self._attr_device_info: DeviceInfo = device_info
-        self._attr_translation_key = entity_description.key
+        if entity_description.translation_key is None:
+            self._attr_translation_key = entity_description.key
 
         self._entities = []
         self._extra_attributes = []
