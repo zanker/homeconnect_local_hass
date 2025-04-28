@@ -80,7 +80,9 @@ class HCEventSensor(HCEntity, SensorEntity):
     def native_value(self) -> str:
         if self.entity_description.options:
             for entity, value in zip(self._entities, self.entity_description.options, strict=False):
-                if (entity.enum and entity.value in {"Present", "Confirmed"}) or bool(entity.value):
+                if (entity.enum is not None and entity.value in {"Present", "Confirmed"}) or (
+                    entity.enum is None and bool(entity.value)
+                ):
                     return value
         return self.entity_description.options[-1]
 
