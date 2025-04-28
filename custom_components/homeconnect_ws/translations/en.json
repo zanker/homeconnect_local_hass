@@ -459,6 +459,9 @@
       },
       "sensor_heatup_progress": {
         "name": "Heatup progress"
+      },
+      "sensor_wifi_signal_strength": {
+        "name": "WiFi Signal strength"
       }
     },
     "select": {
