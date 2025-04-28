@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.switch import SwitchDeviceClass
 from homeassistant.const import UnitOfTemperature, UnitOfTime
 
 from custom_components.homeconnect_ws.helpers import get_groups_from_regex
@@ -16,6 +17,7 @@ from .descriptions_definitions import (
     HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
+    HCSwitchEntityDescription,
     _EntityDescriptionsDefinitionsType,
 )
 
@@ -107,6 +109,13 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="select_oven_used_heating_mode",
             entity="Cooking.Oven.Option.UsedHeatingMode",
             has_state_translation=True,
+        ),
+    ],
+    "switch": [
+        HCSwitchEntityDescription(
+            key="switch_oven_fast_pre_heat",
+            entity="Cooking.Oven.Option.FastPreHeat",
+            device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
 }
