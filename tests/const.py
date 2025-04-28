@@ -185,6 +185,18 @@ DEVICE_DESCRIPTION = DeviceDescription(
             available=True,
             access=Access.READ_WRITE,
         ),
+        EntityDescription(
+            uid=104,
+            name="Test.RegEx.001.Sensor",
+            available=True,
+            access=Access.READ,
+        ),
+        EntityDescription(
+            uid=105,
+            name="Test.RegEx.002.Sensor",
+            available=True,
+            access=Access.READ,
+        ),
     ],
     setting=[
         EntityDescription(
@@ -220,6 +232,18 @@ DEVICE_DESCRIPTION = DeviceDescription(
             min=0,
             max=20,
             stepSize=2,
+            available=True,
+            access=Access.READ_WRITE,
+        ),
+        EntityDescription(
+            uid=104,
+            name="Test.RegEx.001.Switch",
+            available=True,
+            access=Access.READ_WRITE,
+        ),
+        EntityDescription(
+            uid=105,
+            name="Test.RegEx.002.Switch",
             available=True,
             access=Access.READ_WRITE,
         ),
