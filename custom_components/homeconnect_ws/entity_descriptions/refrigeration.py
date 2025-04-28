@@ -13,10 +13,10 @@ from .descriptions_definitions import (
     HCNumberEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
-    _EntityDescriptionsType,
+    _EntityDescriptionsDefinitionsType,
 )
 
-REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
+REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "binary_sensor": [
         HCBinarySensorEntityDescription(
             key="binary_sensor_freezer_door_state",

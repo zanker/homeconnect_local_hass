@@ -22,7 +22,7 @@ from .descriptions_definitions import (
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
-    _EntityDescriptionsType,
+    _EntityDescriptionsDefinitionsType,
 )
 
 if TYPE_CHECKING:
@@ -99,7 +99,7 @@ def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription |
     return None
 
 
-COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
+COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "abort_button": [
         HCButtonEntityDescription(
             key="button_abort_program",

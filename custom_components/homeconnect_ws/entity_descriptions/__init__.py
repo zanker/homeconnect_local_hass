@@ -10,6 +10,7 @@ from .common import COMMON_ENTITY_DESCRIPTIONS
 from .consumer_products import CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS
 from .cooking import COOKING_ENTITY_DESCRIPTIONS
 from .descriptions_definitions import (
+    EntityDescriptions,
     HCBinarySensorEntityDescription,
     HCButtonEntityDescription,
     HCEntityDescription,
@@ -17,6 +18,7 @@ from .descriptions_definitions import (
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
+    _EntityDescriptionsDefinitionsType,
     _EntityDescriptionsType,
 )
 from .dishcare import DISHCARE_ENTITY_DESCRIPTIONS
@@ -26,12 +28,11 @@ from .refrigeration import REFRIGERATION_ENTITY_DESCRIPTIONS
 if TYPE_CHECKING:
     from homeconnect_websocket import HomeAppliance
 
-    from .descriptions_definitions import EntityDescriptions
 
-ALL_ENTITY_DESCRIPTIONS: _EntityDescriptionsType | None = None
+ALL_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType | None = None
 
 
-def get_all_entity_description() -> _EntityDescriptionsType:
+def get_all_entity_description() -> _EntityDescriptionsDefinitionsType:
     global ALL_ENTITY_DESCRIPTIONS  # noqa: PLW0603
     if ALL_ENTITY_DESCRIPTIONS is None:
         ALL_ENTITY_DESCRIPTIONS = merge_dicts(
@@ -78,6 +79,7 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
 
 
 __all__ = [
+    "EntityDescriptions",
     "HCBinarySensorEntityDescription",
     "HCButtonEntityDescription",
     "HCEntityDescription",
@@ -85,5 +87,6 @@ __all__ = [
     "HCSelectEntityDescription",
     "HCSensorEntityDescription",
     "HCSwitchEntityDescription",
+    "_EntityDescriptionsType",
     "get_available_entities",
 ]

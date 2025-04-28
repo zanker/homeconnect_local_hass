@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
     from homeassistant.helpers.typing import ConfigType
 
-    from .entity_descriptions.descriptions_definitions import HCEntityDescription
+    from .entity_descriptions import _EntityDescriptionsType
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ class HCData:
 
     appliance: HomeAppliance
     device_info: DeviceInfo
-    available_entity_descriptions: dict[str, list[HCEntityDescription]]
+    available_entity_descriptions: _EntityDescriptionsType
 
 
 @dataclass
