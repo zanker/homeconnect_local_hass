@@ -121,6 +121,9 @@
       },
       "switch_oven_fast_pre_heat": {
         "name": "Fast Preheat"
+      },
+      "switch_oven_button_tones": {
+        "name": "Button tones"
       }
     },
     "binary_sensor": {
