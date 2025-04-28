@@ -125,8 +125,11 @@
       "switch_oven_button_tones": {
         "name": "Button tones"
       },
-      "switch_oven_oven_light_during_operation": {
+      "switch_oven_light_during_operation": {
         "name": "Oven Light during Operation"
+      },
+      "switch_oven_sabbathMode": {
+        "name": "Sabbath mode"
       }
     },
     "binary_sensor": {
