@@ -63,6 +63,13 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
     }
     appliance_entities = set(appliance.entities)
     for description_type, descriptions in get_all_entity_description().items():
+        # dynamic descriptions
+        if description_type == "dynamic":
+            for descriptions_fn in descriptions:
+                dynamic_descriptions: _EntityDescriptionsType = descriptions_fn(appliance)
+                for key, value in dynamic_descriptions.items():
+                    available_entities[key].extend(value)
+            continue
         for description in descriptions:
             if callable(description):
                 if dynamic_description := description(appliance):
