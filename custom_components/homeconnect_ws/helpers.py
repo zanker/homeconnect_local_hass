@@ -65,3 +65,12 @@ def get_entities_from_regex(appliance: HomeAppliance, pattern: re.Pattern) -> li
         for entity in appliance.entities
         if (match := pattern.match(entity))
     ]
+
+
+def get_groups_from_regex(appliance: HomeAppliance, pattern: re.Pattern) -> set[tuple[str]]:
+    """Get all regex groups matching the pattern."""
+    groups = set()
+    for entity in appliance.entities:
+        if (match := pattern.match(entity)) and match.groups() not in groups:
+            groups.add(match.groups())
+    return groups
