@@ -875,6 +875,15 @@
           "medium": "Medium",
           "long": "Long"
         }
+      },
+      "select_oven_cooling_fan_runtime": {
+        "name": "Coolingfan runtime",
+        "state": {
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long",
+          "verylong": "Very long"
+        }
       }
     },
     "button": {
