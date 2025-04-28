@@ -867,6 +867,14 @@
           "activated": "Activated",
           "activatedwithdoorlock": "Activated with Doorlock"
         }
+      },
+      "select_oven_switch_on_delay": {
+        "name": "Switch on delay",
+        "state": {
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long"
+        }
       }
     },
     "button": {

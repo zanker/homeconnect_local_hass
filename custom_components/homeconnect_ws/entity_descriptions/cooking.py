@@ -132,6 +132,12 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             has_state_translation=True,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSelectEntityDescription(
+            key="select_oven_switch_on_delay",
+            entity="Cooking.Oven.Setting.SwitchOnDelay",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
