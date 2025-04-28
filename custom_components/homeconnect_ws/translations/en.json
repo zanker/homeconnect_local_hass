@@ -435,7 +435,7 @@
         "name": "Estimated total program time"
       },
       "sensor_oven_water_tank": {
-        "name": "Water Tank {group_name}",
+        "name": "Water Tank{group_name}",
         "state": {
           "ok": "Ok",
           "empty": "Empty",
@@ -443,7 +443,7 @@
         }
       },
       "sensor_oven_current_temperature": {
-        "name": "Current Temperature {group_name}"
+        "name": "Current Temperature{group_name}"
       }
     },
     "select": {

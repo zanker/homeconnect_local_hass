@@ -25,7 +25,7 @@ def generate_oven_status(appliance: HomeAppliance) -> EntityDescriptions:
     groups = get_groups_from_regex(appliance, pattern)
     descriptions = EntityDescriptions(event_sensor=[], sensor=[])
     for group in groups:
-        group_name = int(group[0])
+        group_name = f" {int(group[0])}"
         if len(groups) == 1:
             group_name = ""
 
