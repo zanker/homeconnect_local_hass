@@ -19,7 +19,15 @@ from homeassistant.helpers.device_registry import (
 from homeassistant.util.hass_dict import HassKey
 from homeconnect_websocket import HomeAppliance
 
-from .const import CONF_AES_IV, CONF_PSK, CONF_SETUP_FROM_DUMP, DOMAIN, PLATFORMS
+from .const import (
+    CONF_AES_IV,
+    CONF_DEV_OVERRIDE_HOST,
+    CONF_DEV_OVERRIDE_PSK,
+    CONF_DEV_SETUP_FROM_DUMP,
+    CONF_PSK,
+    DOMAIN,
+    PLATFORMS,
+)
 from .entity_descriptions import get_available_entities
 
 if TYPE_CHECKING:
@@ -31,7 +39,13 @@ if TYPE_CHECKING:
 _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = vol.Schema(
-    {DOMAIN: {vol.Optional(CONF_SETUP_FROM_DUMP, default=False): vol.Boolean()}},
+    {
+        DOMAIN: {
+            vol.Optional(CONF_DEV_SETUP_FROM_DUMP, default=False): vol.Boolean(),
+            vol.Optional(CONF_DEV_OVERRIDE_HOST): str,
+            vol.Optional(CONF_DEV_OVERRIDE_PSK): str,
+        }
+    },
     extra=vol.ALLOW_EXTRA,
 )
 
@@ -50,6 +64,8 @@ class HCConfig:
     """Dataclass for hass.data."""
 
     setup_from_dump: bool = False
+    override_host: str | None = None
+    override_psk: str | None = None
 
 
 type HCConfigEntry = ConfigEntry[HCData]
@@ -61,7 +77,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up integration global config."""
     hass.data.setdefault(DOMAIN, HCConfig())
     if DOMAIN in config:
-        hass.data[HC_KEY].setup_from_dump = config[DOMAIN].get(CONF_SETUP_FROM_DUMP, False)
+        hass.data[HC_KEY].setup_from_dump = config[DOMAIN].get(CONF_DEV_SETUP_FROM_DUMP, False)
+        hass.data[HC_KEY].override_host = config[DOMAIN].get(CONF_DEV_OVERRIDE_HOST)
+        hass.data[HC_KEY].override_psk = config[DOMAIN].get(CONF_DEV_OVERRIDE_PSK)
     return True
 
 
