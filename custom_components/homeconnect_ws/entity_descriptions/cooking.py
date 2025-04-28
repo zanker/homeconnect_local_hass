@@ -115,6 +115,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Oven.Option.UsedHeatingMode",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_pyrolysis_level",
+            entity="Cooking.Oven.Option.PyrolysisLevel",
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
