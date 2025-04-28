@@ -14,6 +14,7 @@ from custom_components.homeconnect_ws.helpers import get_groups_from_regex
 from .descriptions_definitions import (
     EntityDescriptions,
     HCNumberEntityDescription,
+    HCSelectEntityDescription,
     HCSensorEntityDescription,
     _EntityDescriptionsDefinitionsType,
 )
@@ -94,6 +95,13 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=NumberDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             mode=NumberMode.AUTO,
+        ),
+    ],
+    "select": [
+        HCSelectEntityDescription(
+            key="select_oven_level",
+            entity="Cooking.Oven.Option.Level",
+            has_state_translation=True,
         ),
     ],
 }
