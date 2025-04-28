@@ -157,5 +157,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSwitchEntityDescription(
+            key="switch_oven_oven_light_during_operation",
+            entity="Cooking.Oven.Setting.OvenLightDuringOperation",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
 }

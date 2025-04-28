@@ -124,6 +124,9 @@
       },
       "switch_oven_button_tones": {
         "name": "Button tones"
+      },
+      "switch_oven_oven_light_during_operation": {
+        "name": "Oven Light during Operation"
       }
     },
     "binary_sensor": {
