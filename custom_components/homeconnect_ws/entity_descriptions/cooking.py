@@ -103,5 +103,10 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Oven.Option.Level",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_oven_used_heating_mode",
+            entity="Cooking.Oven.Option.UsedHeatingMode",
+            has_state_translation=True,
+        ),
     ],
 }
