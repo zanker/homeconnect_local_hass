@@ -6,7 +6,7 @@ import re
 from typing import TYPE_CHECKING
 
 from homeassistant.components.sensor import SensorDeviceClass
-from homeassistant.const import UnitOfTime
+from homeassistant.const import UnitOfTemperature, UnitOfTime
 
 from custom_components.homeconnect_ws.helpers import get_groups_from_regex
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 def generate_oven_status(appliance: HomeAppliance) -> EntityDescriptions:
     pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.(.*)\..*$")
     groups = get_groups_from_regex(appliance, pattern)
-    descriptions = EntityDescriptions(event_sensor=[])
+    descriptions = EntityDescriptions(event_sensor=[], sensor=[])
     for group in groups:
         group_name = int(group[0])
         if len(groups) == 1:
@@ -43,6 +43,20 @@ def generate_oven_status(appliance: HomeAppliance) -> EntityDescriptions:
                     entities=entities,
                     device_class=SensorDeviceClass.ENUM,
                     options=["unplugged", "empty", "ok"],
+                )
+            )
+
+        # Temperatur
+        entity = f"Cooking.Oven.Status.Cavity.{group[0]}.CurrentTemperature"
+        if entity in appliance.entities:
+            descriptions["sensor"].append(
+                HCSensorEntityDescription(
+                    key=f"sensor_oven_current_temperature_{group[0]}",
+                    translation_key="sensor_oven_current_temperature",
+                    translation_placeholders={"group_name": group_name},
+                    entity=entity,
+                    device_class=SensorDeviceClass.TEMPERATURE,
+                    native_unit_of_measurement=UnitOfTemperature.CELSIUS,
                 )
             )
 

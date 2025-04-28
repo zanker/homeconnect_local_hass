@@ -441,6 +441,9 @@
           "empty": "Empty",
           "unplugged": "Unplugged"
         }
+      },
+      "sensor_oven_current_temperature": {
+        "name": "Current Temperature {group_name}"
       }
     },
     "select": {
