@@ -186,6 +186,9 @@
       },
       "binary_sensor_temperature_alarm_freezer": {
         "name": "Temperature alarm Freezer"
+      },
+      "binary_sensor_interior_illumination": {
+        "name": "Interior Illumination"
       }
     },
     "sensor": {

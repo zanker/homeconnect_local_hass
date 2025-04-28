@@ -146,6 +146,11 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_interior_illumination",
+            entity="BSH.Common.Status.InteriorIlluminationActive",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
     ],
     "program": [
         HCSelectEntityDescription(
