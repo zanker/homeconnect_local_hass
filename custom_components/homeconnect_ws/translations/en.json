@@ -433,6 +433,14 @@
       },
       "sensor_estimated_remaining_program_time": {
         "name": "Estimated total program time"
+      },
+      "sensor_oven_water_tank": {
+        "name": "Water Tank {group_name}",
+        "state": {
+          "ok": "Ok",
+          "empty": "Empty",
+          "unplugged": "Unplugged"
+        }
       }
     },
     "select": {
