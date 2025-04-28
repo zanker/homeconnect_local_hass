@@ -126,6 +126,12 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Oven.Option.PyrolysisLevel",
             has_state_translation=True,
         ),
+        HCSelectEntityDescription(
+            key="select_oven_child_lock_setting",
+            entity="Cooking.Oven.Setting.ConfigureChildLock",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(

@@ -859,6 +859,14 @@
           "level02": "Level 2",
           "level03": "Level 3"
         }
+      },
+      "select_oven_child_lock_setting": {
+        "name": "Child lock setting",
+        "state": {
+          "deactivated": "Deactivated",
+          "activated": "Activated",
+          "activatedwithdoorlock": "Activated with Doorlock"
+        }
       }
     },
     "button": {
