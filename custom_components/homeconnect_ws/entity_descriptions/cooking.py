@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
-from homeassistant.const import UnitOfTemperature, UnitOfTime
+from homeassistant.const import PERCENTAGE, UnitOfTemperature, UnitOfTime
 
 from custom_components.homeconnect_ws.helpers import get_groups_from_regex
 
@@ -87,6 +87,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Hood.Setting.DelayedShutOffTime",
             device_class=SensorDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
+        ),
+        HCSensorEntityDescription(
+            key="sensor_heatup_progress",
+            entity="Cooking.Oven.Option.HeatupProgress",
+            native_unit_of_measurement=PERCENTAGE,
         ),
     ],
     "dynamic": [generate_oven_status],

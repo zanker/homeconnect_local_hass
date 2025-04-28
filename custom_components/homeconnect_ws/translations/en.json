@@ -447,6 +447,9 @@
       },
       "sensor_oven_current_temperature": {
         "name": "Current Temperature{group_name}"
+      },
+      "sensor_heatup_progress": {
+        "name": "Heatup progress"
       }
     },
     "select": {
