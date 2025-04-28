@@ -118,6 +118,18 @@
       },
       "switch_laundry_idos2_active": {
         "name": "i-DOS Liquid Detergent (Container 2)"
+      },
+      "switch_oven_fast_pre_heat": {
+        "name": "Fast Preheat"
+      },
+      "switch_oven_button_tones": {
+        "name": "Button tones"
+      },
+      "switch_oven_light_during_operation": {
+        "name": "Oven Light during Operation"
+      },
+      "switch_oven_sabbath_mode": {
+        "name": "Sabbath mode"
       }
     },
     "binary_sensor": {
@@ -186,6 +198,9 @@
       },
       "binary_sensor_temperature_alarm_freezer": {
         "name": "Temperature alarm Freezer"
+      },
+      "binary_sensor_interior_illumination": {
+        "name": "Interior Illumination"
       }
     },
     "sensor": {
@@ -430,6 +445,23 @@
       },
       "sensor_estimated_remaining_program_time": {
         "name": "Estimated total program time"
+      },
+      "sensor_oven_water_tank": {
+        "name": "Water Tank{group_name}",
+        "state": {
+          "ok": "Ok",
+          "empty": "Empty",
+          "unplugged": "Unplugged"
+        }
+      },
+      "sensor_oven_current_temperature": {
+        "name": "Current Temperature{group_name}"
+      },
+      "sensor_heatup_progress": {
+        "name": "Heatup progress"
+      },
+      "sensor_wifi_signal_strength": {
+        "name": "WiFi Signal strength"
       }
     },
     "select": {
@@ -789,6 +821,86 @@
           "shirt5": "Shirt 5",
           "business": "Business"
         }
+      },
+      "select_oven_level": {
+        "name": "Level",
+        "state": {
+          "level01": "Level 1",
+          "level02": "Level 2",
+          "level03": "Level 3"
+        }
+      },
+      "select_oven_used_heating_mode": {
+        "name": "Used Heating mode",
+        "state": {
+          "automaticoperation": "Automatic Operation",
+          "automaticoperationwithmicrowave": "Automatic Operation with Microwave",
+          "bakingsensoroperation": "Baking Sensor Operation",
+          "bottomheating": "Bottom Heating",
+          "defrosting": "Defrosting",
+          "desiccation": "Desiccation",
+          "doughproving": "Dough Proving",
+          "frozenheatupspecial": "Frozen Heatup Special",
+          "grilllargearea": "Grill large area",
+          "grillsmallarea": "Grill small area",
+          "hotair": "HotAir",
+          "hotaireco": "HotAir Eco",
+          "hotairgrilling": "HotAir grilling",
+          "intensiveheat": "Intensive heat",
+          "keepwarm": "Keep warm",
+          "microwave": "Microwave",
+          "pizzasetting": "Pizza setting",
+          "preheatovenware": "Preheat Ovenware",
+          "reheat": "Reheat",
+          "sabbathprogramme": "Sabbath Programme",
+          "slowcook": "Slow Cook",
+          "steam": "Steam",
+          "topbottomheating": "Top/Bottom Heating",
+          "topbottomheatingeco": "Top/Bottom Heating Eco",
+          "breadbaking": "Bread baking",
+          "steamwithsteamset": "Steam with Steamset"
+        }
+      },
+      "select_pyrolysis_level": {
+        "name": "Pyrolysis level",
+        "state": {
+          "level01": "Level 1",
+          "level02": "Level 2",
+          "level03": "Level 3"
+        }
+      },
+      "select_oven_child_lock_setting": {
+        "name": "Child lock setting",
+        "state": {
+          "deactivated": "Deactivated",
+          "activated": "Activated",
+          "activatedwithdoorlock": "Activated with Doorlock"
+        }
+      },
+      "select_oven_switch_on_delay": {
+        "name": "Switch on delay",
+        "state": {
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long"
+        }
+      },
+      "select_oven_cooling_fan_runtime": {
+        "name": "Coolingfan runtime",
+        "state": {
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long",
+          "verylong": "Very long"
+        }
+      },
+      "select_oven_signal_duration": {
+        "name": "Signal duration",
+        "state": {
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long"
+        }
       }
     },
     "button": {
@@ -826,6 +938,12 @@
       },
       "number_idos2_base_level": {
         "name": "i-DOS dosing volume: detergent or softener"
+      },
+      "number_oven_setpoint_temperature": {
+        "name": "Setpoint Temperature"
+      },
+      "number_oven_display_brightness": {
+        "name": "Display brightness"
       }
     }
   }

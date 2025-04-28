@@ -61,6 +61,12 @@
                     "on": "mdi:remote",
                     "off": "mdi:remote-off"
                 }
+            },
+            "binary_sensor_interior_illumination": {
+                "state": {
+                    "on": "mdi:lightbulb-on",
+                    "off": "mdi:lightbulb-off"
+                }
             }
         },
         "sensor": {

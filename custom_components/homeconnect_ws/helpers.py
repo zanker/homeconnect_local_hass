@@ -3,9 +3,14 @@
 from __future__ import annotations
 
 import logging
+from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    import re
+
+    from homeconnect_websocket import HomeAppliance
+
     from . import HCData
     from .entity import HCEntity
 
@@ -43,3 +48,29 @@ def merge_dicts(*args: dict[str, list]) -> dict[str, list]:
             else:
                 out_dict[key].extend(value)
     return out_dict
+
+
+@dataclass
+class EntityMatch:
+    """Returned by get_entities_from_regex."""
+
+    entity: str
+    groups: tuple[str]
+
+
+def get_entities_from_regex(appliance: HomeAppliance, pattern: re.Pattern) -> list[EntityMatch]:
+    """Get all entities matching the pattern."""
+    return [
+        EntityMatch(entity=entity, groups=match.groups())
+        for entity in appliance.entities
+        if (match := pattern.match(entity))
+    ]
+
+
+def get_groups_from_regex(appliance: HomeAppliance, pattern: re.Pattern) -> set[tuple[str]]:
+    """Get all regex groups matching the pattern."""
+    groups = set()
+    for entity in appliance.entities:
+        if (match := pattern.match(entity)) and match.groups() not in groups:
+            groups.add(match.groups())
+    return groups
