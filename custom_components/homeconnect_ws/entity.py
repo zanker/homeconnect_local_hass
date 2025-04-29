@@ -66,7 +66,11 @@ class HCEntity(Entity):
 
     @property
     def available(self) -> bool:
-        available = self._appliance.session.connected
+        available = (
+            self._appliance.session.connected
+            # Hide first reconnect
+            or (not self._appliance.session.connected and self._appliance.session.retry_count == 1)
+        )
 
         if hasattr(self._entity, "available"):
             available &= self._entity.available
