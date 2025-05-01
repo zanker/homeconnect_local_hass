@@ -14,8 +14,6 @@ if TYPE_CHECKING:
     from homeassistant.helpers.device_registry import DeviceInfo
     from homeassistant.helpers.entity_platform import AddEntitiesCallback
     from homeconnect_websocket import HomeAppliance
-    from homeconnect_websocket.entities import Entity as HcEntity
-    from homeconnect_websocket.entities import Option as Program_Option
     from homeconnect_websocket.entities import SelectedProgram
 
     from . import HCConfigEntry
