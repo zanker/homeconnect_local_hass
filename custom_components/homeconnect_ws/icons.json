@@ -160,9 +160,6 @@
                 }
             },
             "select_program": {},
-            "select_start_in": {
-                "default": "mdi:progress-clock"
-            },
             "select_sensitivity_turbidity": {
                 "default": "mdi:water-opacity"
             },

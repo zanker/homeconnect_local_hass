@@ -516,9 +516,6 @@
           "001": "Favorite 1"
         }
       },
-      "select_start_in": {
-        "name": "Start in"
-      },
       "select_sensitivity_turbidity": {
         "name": "Turbidity Sensor Sensitivity",
         "state": {
