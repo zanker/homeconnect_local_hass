@@ -37,7 +37,7 @@ from homeconnect_websocket import (
     parse_device_description,
 )
 
-from . import HC_KEY
+from . import HC_KEY, HCConfig
 from .const import CONF_AES_IV, CONF_FILE, CONF_MANUAL_HOST, CONF_PSK, DOMAIN
 
 if TYPE_CHECKING:
@@ -109,6 +109,7 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
         self.data = {}
         self.appliances: dict[str, dict[str, dict | DeviceDescription]] = {}
         self.reauth_entry: HCConfigEntry = None
+        self.global_config: HCConfig | None = None
 
     def _process_profile_file(
         self, uploaded_file_id: str
@@ -138,9 +139,23 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
             self.data[CONF_AES_IV] = appliance_info["iv"]
         _LOGGER.debug("Set Keys for %s Appliance", self.data[CONF_MODE])
 
+        if self.global_config:
+            if self.global_config.override_host is not None:
+                # Dev mode host override
+                self.data[CONF_HOST] = self.global_config.override_host
+                self.data[CONF_MANUAL_HOST] = True
+                _LOGGER.info("Host override: %s", self.data[CONF_HOST])
+            if self.global_config.override_psk is not None:
+                # Dev mode psk override
+                self.data[CONF_PSK] = self.global_config.override_psk
+                self.data[CONF_MODE] = "TLS"
+                self.data[CONF_AES_IV] = None
+                _LOGGER.info("PSK override")
+
     async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
         """Handle a flow initialized by the user."""
         _LOGGER.debug("Config flow initialized by user")
+        self.global_config = self.hass.data.get(HC_KEY)
         return await self.async_step_upload()
 
     async def async_step_upload(self, user_input: dict[str, Any] | None = None) -> FlowResult:
