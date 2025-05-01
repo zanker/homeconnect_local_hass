@@ -1,0 +1,11 @@
+start_program:
+  target:
+    device:
+      integration: homeconnect_ws
+    entity:
+      integration: homeconnect_ws
+  fields:
+    start_in:
+      required: false
+      selector:
+        duration:

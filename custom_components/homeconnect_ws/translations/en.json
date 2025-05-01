@@ -946,5 +946,16 @@
         "name": "Display brightness"
       }
     }
+  },
+  "services": {
+    "start_program": {
+      "name": "Start Program",
+      "description": "Start the selected Program",
+      "fields": {
+        "start_in": {
+          "name": "Start in"
+        }
+      }
+    }
   }
 }

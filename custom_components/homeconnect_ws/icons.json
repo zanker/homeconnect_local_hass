@@ -197,5 +197,10 @@
                 "default": "mdi:tune"
             }
         }
+    },
+    "services": {
+        "start_program": {
+            "service": "mdi:play"
+        }
     }
 }
