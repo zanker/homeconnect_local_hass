@@ -103,12 +103,12 @@ class HCActiveProgram(HCSensor):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        self._attr_options = [name.split(".")[-1].lower() for name in self._appliance.programs]
+        self._attr_options = list(entity_description.mapping.values())
 
     @property
-    def native_value(self) -> int | float | str | None:
-        return (
-            self._appliance.active_program.name.split(".")[-1].lower()
-            if self._appliance.active_program
-            else None
-        )
+    def native_value(self) -> str | None:
+        if self._appliance.active_program:
+            if self._appliance.active_program.name in self.entity_description.mapping:
+                return self.entity_description.mapping[self._appliance.active_program.name]
+            return self._appliance.active_program.name
+        return None

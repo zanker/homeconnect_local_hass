@@ -8,12 +8,18 @@ from unittest.mock import Mock
 from custom_components.homeconnect_ws import entity_descriptions
 from custom_components.homeconnect_ws.entity_descriptions import (
     HCBinarySensorEntityDescription,
+    HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
 )
-from custom_components.homeconnect_ws.entity_descriptions.common import generate_power_switch
+from custom_components.homeconnect_ws.entity_descriptions.common import (
+    generate_power_switch,
+    generate_program,
+)
 from custom_components.homeconnect_ws.helpers import merge_dicts
+from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
+from homeconnect_websocket.entities import Access, DeviceDescription, EntityDescription
 
 if TYPE_CHECKING:
     import pytest
@@ -141,3 +147,72 @@ async def test_power_switch(mock_homeconnect_appliance: MockApplianceType) -> No
         device_class=SwitchDeviceClass.SWITCH,
         value_mapping=("Standby", "Off"),
     )
+
+
+PROGRAM = DeviceDescription(
+    setting=[
+        EntityDescription(
+            uid=101,
+            name="BSH.Common.Setting.Favorite.001.Name",
+            access=Access.READ_WRITE,
+            available=True,
+            max=30,
+            min=0,
+            default="Named Favorite",
+        ),
+        EntityDescription(
+            uid=102,
+            name="BSH.Common.Setting.Favorite.002.Name",
+            access=Access.READ_WRITE,
+            available=True,
+            max=30,
+            min=0,
+            default="",
+        ),
+    ],
+    program=[
+        EntityDescription(
+            uid=201,
+            name="BSH.Common.Program.Favorite.001",
+            available=True,
+        ),
+        EntityDescription(
+            uid=202,
+            name="BSH.Common.Program.Favorite.002",
+            available=True,
+        ),
+        EntityDescription(
+            uid=500,
+            name="BSH.Common.Program.Program1",
+        ),
+    ],
+)
+
+
+async def test_program(mock_homeconnect_appliance: MockApplianceType) -> None:
+    """Test dynamic Program."""
+    appliance = await mock_homeconnect_appliance(description=PROGRAM)
+    program_description = generate_program(appliance)
+    assert program_description["program"][0] == HCSelectEntityDescription(
+        key="select_program",
+        entity="BSH.Common.Root.SelectedProgram",
+        has_state_translation=False,
+        mapping={
+            "BSH.Common.Program.Favorite.001": "Named Favorite",
+            "BSH.Common.Program.Favorite.002": "favorite_002",
+            "BSH.Common.Program.Program1": "BSH.Common.Program.Program1",
+        },
+    )
+    assert program_description["active_program"][0] == HCSensorEntityDescription(
+        key="sensor_active_program",
+        entity="BSH.Common.Root.ActiveProgram",
+        has_state_translation=False,
+        device_class=SensorDeviceClass.ENUM,
+        mapping={
+            "BSH.Common.Program.Favorite.001": "Named Favorite",
+            "BSH.Common.Program.Favorite.002": "favorite_002",
+            "BSH.Common.Program.Program1": "BSH.Common.Program.Program1",
+        },
+    )
+
+    appliance = await mock_homeconnect_appliance(description={})

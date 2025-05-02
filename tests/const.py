@@ -81,7 +81,14 @@ ENTITY_DESCRIPTIONS = {
             key="Test.ActiveProgram",
             name="ActiveProgram",
             entity="Test.ActiveProgram",
+            has_state_translation=False,
             device_class=SensorDeviceClass.ENUM,
+            mapping={
+                "BSH.Common.Program.Favorite.001": "Named Favorite",
+                "BSH.Common.Program.Favorite.002": "favorite_002",
+                "Test.Program.Program1": "Test.Program.Program1",
+                "Test.Program.Program2": "Test.Program.Program2",
+            },
         )
     ],
     "binary_sensor": [
@@ -111,7 +118,15 @@ ENTITY_DESCRIPTIONS = {
     "number": [HCNumberEntityDescription(key="Test.Number", name="Number", entity="Test.Number")],
     "program": [
         HCSelectEntityDescription(
-            key="Test.SelectedProgram", name="SelectedProgram", entity="Test.SelectedProgram"
+            key="Test.SelectedProgram",
+            name="SelectedProgram",
+            entity="Test.SelectedProgram",
+            mapping={
+                "BSH.Common.Program.Favorite.001": "Named Favorite",
+                "BSH.Common.Program.Favorite.002": "favorite_002",
+                "Test.Program.Program1": "Test.Program.Program1",
+                "Test.Program.Program2": "Test.Program.Program2",
+            },
         )
     ],
     "select": [
@@ -247,6 +262,20 @@ DEVICE_DESCRIPTION = DeviceDescription(
             available=True,
             access=Access.READ_WRITE,
         ),
+        EntityDescription(
+            uid=106,
+            name="BSH.Common.Setting.Favorite.001.Name",
+            access=Access.READ_WRITE,
+            available=True,
+            default="Named Favorite",
+        ),
+        EntityDescription(
+            uid=107,
+            name="BSH.Common.Setting.Favorite.002.Name",
+            access=Access.READ_WRITE,
+            available=True,
+            default="",
+        ),
     ],
     event=[
         EntityDescription(
@@ -298,6 +327,16 @@ DEVICE_DESCRIPTION = DeviceDescription(
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=401),
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=402),
             ],
+        ),
+        EntityDescription(
+            uid=502,
+            name="BSH.Common.Program.Favorite.001",
+            available=True,
+        ),
+        EntityDescription(
+            uid=503,
+            name="BSH.Common.Program.Favorite.002",
+            available=True,
         ),
     ],
     selectedProgram=EntityDescription(

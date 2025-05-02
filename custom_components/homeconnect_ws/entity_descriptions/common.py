@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import (
@@ -96,19 +97,53 @@ def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription |
     return None
 
 
+def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
+    """Get Door program select and sensor description."""
+    pattern = re.compile(r"^BSH\.Common\.Program\.Favorite\.(.*)$")
+
+    programs = {}
+
+    for program in appliance.programs:
+        program_name = program
+        if match := pattern.match(program):
+            favorite_name_entity = appliance.settings.get(
+                f"BSH.Common.Setting.Favorite.{match.groups()[0]}.Name"
+            )
+            if favorite_name_entity and favorite_name_entity.value:
+                program_name = favorite_name_entity.value
+            else:
+                program_name = f"favorite_{match.groups()[0]}"
+
+        programs[program] = program_name
+
+    descriptions = EntityDescriptions()
+    if programs:
+        descriptions["active_program"] = [
+            HCSensorEntityDescription(
+                key="sensor_active_program",
+                entity="BSH.Common.Root.ActiveProgram",
+                device_class=SensorDeviceClass.ENUM,
+                has_state_translation=False,
+                mapping=programs,
+            )
+        ]
+        descriptions["program"] = [
+            HCSelectEntityDescription(
+                key="select_program",
+                entity="BSH.Common.Root.SelectedProgram",
+                has_state_translation=False,
+                mapping=programs,
+            )
+        ]
+
+    return descriptions
+
+
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "abort_button": [
         HCButtonEntityDescription(
             key="button_abort_program",
             entity="BSH.Common.Command.AbortProgram",
-        )
-    ],
-    "active_program": [
-        HCSensorEntityDescription(
-            key="sensor_active_program",
-            entity="BSH.Common.Root.ActiveProgram",
-            device_class=SensorDeviceClass.ENUM,
-            has_state_translation=True,
         )
     ],
     "binary_sensor": [
@@ -156,13 +191,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="BSH.Common.Status.InteriorIlluminationActive",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
-    ],
-    "program": [
-        HCSelectEntityDescription(
-            key="select_program",
-            entity="BSH.Common.Root.SelectedProgram",
-            has_state_translation=True,
-        )
     ],
     "select": [
         HCSelectEntityDescription(
@@ -307,5 +335,5 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             mode=NumberMode.AUTO,
         ),
     ],
-    "dynamic": [generate_power_switch],
+    "dynamic": [generate_power_switch, generate_program],
 }
