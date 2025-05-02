@@ -104,7 +104,6 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
     programs = {}
 
     for program in appliance.programs:
-        program_name = program
         if match := pattern.match(program):
             favorite_name_entity = appliance.settings.get(
                 f"BSH.Common.Setting.Favorite.{match.groups()[0]}.Name"
@@ -113,6 +112,8 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
                 program_name = favorite_name_entity.value
             else:
                 program_name = f"favorite_{match.groups()[0]}"
+        else:
+            program_name = program.lower().replace(".", "_")
 
         programs[program] = program_name
 

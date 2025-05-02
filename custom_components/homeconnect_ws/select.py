@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 from typing import TYPE_CHECKING
 
 from homeassistant.components.select import SelectEntity
@@ -84,9 +83,6 @@ class HCSelect(HCEntity, SelectEntity):
         await self._entity.set_value(option)
 
 
-FAVORITE_PROGRAM_REGEX = re.compile(r"^BSH\.Common\.Program\.Favorite\.(.*)$")
-
-
 class HCProgram(HCSelect):
     """Program select Entity."""
 
@@ -99,36 +95,23 @@ class HCProgram(HCSelect):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        self._programs = {}
-        self._rev_programs = {}
-        for program in self._appliance.programs:
-            program_name = program
-            if match := FAVORITE_PROGRAM_REGEX.match(program):
-                favorite_name_entity = appliance.settings.get(
-                    f"BSH.Common.Setting.Favorite.{match.groups()[0]}.Name"
-                )
-                if favorite_name_entity and favorite_name_entity.value:
-                    program_name = favorite_name_entity.value
-                else:
-                    program_name = f"favorite_{match.groups()[0]}"
-
-            self._programs[program_name] = program
-            self._rev_programs[program] = program_name
+        self._programs = entity_description.mapping
+        self._rev_programs = {value: key for key, value in self._programs.items()}
 
     @property
     def options(self) -> list[str] | None:
-        return list(self._programs.keys())
+        return list(self._programs.values())
 
     @property
     def current_option(self) -> list[str] | None:
         if self._appliance.selected_program:
-            if self._appliance.selected_program.name in self.entity_description.mapping:
-                return self.entity_description.mapping[self._appliance.selected_program.name]
+            if self._appliance.selected_program.name in self._programs:
+                return self._programs[self._appliance.selected_program.name]
             return self._appliance.selected_program.name
         return None
 
     async def async_select_option(self, option: str) -> None:
-        await self._appliance.programs[self._programs[option]].select()
+        await self._appliance.programs[self._rev_programs[option]].select()
 
 
 class HCStartIn(HCSelect):

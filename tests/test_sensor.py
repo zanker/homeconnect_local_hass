@@ -47,8 +47,8 @@ async def test_setup(
     assert state.attributes[ATTR_OPTIONS] == [
         "Named Favorite",
         "favorite_002",
-        "Test.Program.Program1",
-        "Test.Program.Program2",
+        "test_program_program1",
+        "test_program_program2",
     ]
 
 
@@ -138,7 +138,7 @@ async def test_update_active_program(
     await hass.async_block_till_done()
 
     state = hass.states.get(entity_id)
-    assert state.state == "Test.Program.Program1"
+    assert state.state == "test_program_program1"
 
     await mock_appliance.entities["Test.ActiveProgram"].update({"value": 502})
     await hass.async_block_till_done()

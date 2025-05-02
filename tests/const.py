@@ -86,8 +86,8 @@ ENTITY_DESCRIPTIONS = {
             mapping={
                 "BSH.Common.Program.Favorite.001": "Named Favorite",
                 "BSH.Common.Program.Favorite.002": "favorite_002",
-                "Test.Program.Program1": "Test.Program.Program1",
-                "Test.Program.Program2": "Test.Program.Program2",
+                "Test.Program.Program1": "test_program_program1",
+                "Test.Program.Program2": "test_program_program2",
             },
         )
     ],
@@ -124,8 +124,8 @@ ENTITY_DESCRIPTIONS = {
             mapping={
                 "BSH.Common.Program.Favorite.001": "Named Favorite",
                 "BSH.Common.Program.Favorite.002": "favorite_002",
-                "Test.Program.Program1": "Test.Program.Program1",
-                "Test.Program.Program2": "Test.Program.Program2",
+                "Test.Program.Program1": "test_program_program1",
+                "Test.Program.Program2": "test_program_program2",
             },
         )
     ],

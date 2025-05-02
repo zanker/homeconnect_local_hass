@@ -200,7 +200,7 @@ async def test_program(mock_homeconnect_appliance: MockApplianceType) -> None:
         mapping={
             "BSH.Common.Program.Favorite.001": "Named Favorite",
             "BSH.Common.Program.Favorite.002": "favorite_002",
-            "BSH.Common.Program.Program1": "BSH.Common.Program.Program1",
+            "BSH.Common.Program.Program1": "bsh_common_program_program1",
         },
     )
     assert program_description["active_program"][0] == HCSensorEntityDescription(
@@ -211,7 +211,7 @@ async def test_program(mock_homeconnect_appliance: MockApplianceType) -> None:
         mapping={
             "BSH.Common.Program.Favorite.001": "Named Favorite",
             "BSH.Common.Program.Favorite.002": "favorite_002",
-            "BSH.Common.Program.Program1": "BSH.Common.Program.Program1",
+            "BSH.Common.Program.Program1": "bsh_common_program_program1",
         },
     )
 
