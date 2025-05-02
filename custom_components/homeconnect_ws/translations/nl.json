@@ -235,9 +235,6 @@
           "favorite_010": "Favoriet 10"
         }
       },
-      "select_start_in": {
-        "name": "Start over"
-      },
       "select_sensitivity_turbidity": {
         "name": "Gevoeligheid van troebelheidssensor",
         "state": {

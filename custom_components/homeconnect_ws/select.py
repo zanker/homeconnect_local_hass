@@ -14,8 +14,6 @@ if TYPE_CHECKING:
     from homeassistant.helpers.device_registry import DeviceInfo
     from homeassistant.helpers.entity_platform import AddEntitiesCallback
     from homeconnect_websocket import HomeAppliance
-    from homeconnect_websocket.entities import Entity as HcEntity
-    from homeconnect_websocket.entities import Option as Program_Option
     from homeconnect_websocket.entities import SelectedProgram
 
     from . import HCConfigEntry
@@ -30,7 +28,7 @@ async def async_setup_entry(
 ) -> None:
     """Set up select platform."""
     entities = create_entities(
-        {"select": HCSelect, "program": HCProgram, "start_in": HCStartIn},
+        {"select": HCSelect, "program": HCProgram},
         config_entry.runtime_data,
     )
     async_add_entites(entities)
@@ -112,38 +110,3 @@ class HCProgram(HCSelect):
 
     async def async_select_option(self, option: str) -> None:
         await self._appliance.programs[self._rev_programs[option]].select()
-
-
-class HCStartIn(HCSelect):
-    """Start_in select Entity."""
-
-    _entity: Program_Option
-
-    def __init__(
-        self,
-        entity_description: HCSelectEntityDescription,
-        appliance: HomeAppliance,
-        device_info: DeviceInfo,
-    ) -> None:
-        super().__init__(entity_description, appliance, device_info)
-        self._set_options()
-
-    @property
-    def current_option(self) -> str:
-        t = self._entity.value
-        return f"{int(t / 3600)}:{int((t % 3600) / 60):02}"
-
-    async def async_select_option(self, option: str) -> None:
-        parts = option.split(":")
-        delay = int(parts[0]) * 3600 + int(parts[1]) * 60
-        await self._entity.set_value(delay)
-
-    def _set_options(self) -> None:
-        self._attr_options = []
-        if self._entity.min and self._entity.max:
-            for t in range(int(self._entity.min), int(self._entity.max), 900):
-                self._options.append(f"{int(t / 3600)}:{int((t % 3600) / 60):02}")
-
-    async def callback(self, entity: HcEntity) -> None:
-        self._set_options()
-        await super().callback(entity)

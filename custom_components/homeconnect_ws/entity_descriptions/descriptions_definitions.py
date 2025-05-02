@@ -106,7 +106,6 @@ class EntityDescriptions(TypedDict):
     select: list[HCSelectEntityDescription]
     sensor: list[HCSensorEntityDescription]
     start_button: list[HCButtonEntityDescription]
-    start_in: list[HCSelectEntityDescription]
     switch: list[HCSwitchEntityDescription]
 
 
@@ -121,7 +120,6 @@ _EntityDescriptionsDefinitionsType = dict[
         "select",
         "sensor",
         "start_button",
-        "start_in",
         "switch",
         "dynamic",
     ],
@@ -142,7 +140,6 @@ _EntityDescriptionsType = dict[
         "select",
         "sensor",
         "start_button",
-        "start_in",
         "switch",
     ],
     list[HCEntityDescription],

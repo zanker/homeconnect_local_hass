@@ -229,9 +229,6 @@
           "favorite_010": "Favorit 10"
         }
       },
-      "select_start_in": {
-        "name": "Start in"
-      },
       "select_sensitivity_turbidity": {
         "name": "Trübungssensor-Empfindlichkeit",
         "state": {

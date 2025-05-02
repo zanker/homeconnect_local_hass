@@ -10,14 +10,22 @@ import voluptuous as vol
 from aiohttp import ClientConnectionError, ClientConnectorSSLError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DESCRIPTION, CONF_DEVICE_ID, CONF_HOST
-from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryError, ConfigEntryNotReady
+from homeassistant.exceptions import (
+    ConfigEntryAuthFailed,
+    ConfigEntryError,
+    ConfigEntryNotReady,
+    HomeAssistantError,
+    ServiceValidationError,
+)
 from homeassistant.helpers.device_registry import (
     CONNECTION_NETWORK_MAC,
     DeviceInfo,
     format_mac,
 )
+from homeassistant.helpers.service import async_extract_config_entry_ids
 from homeassistant.util.hass_dict import HassKey
 from homeconnect_websocket import HomeAppliance
+from homeconnect_websocket.errors import AccessError, HomeConnectError
 
 from .const import (
     CONF_AES_IV,
@@ -31,7 +39,7 @@ from .const import (
 from .entity_descriptions import get_available_entities
 
 if TYPE_CHECKING:
-    from homeassistant.core import HomeAssistant
+    from homeassistant.core import HomeAssistant, ServiceCall, ServiceResponse
     from homeassistant.helpers.typing import ConfigType
 
     from .entity_descriptions import _EntityDescriptionsType
@@ -80,6 +88,37 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         hass.data[HC_KEY].setup_from_dump = config[DOMAIN].get(CONF_DEV_SETUP_FROM_DUMP, False)
         hass.data[HC_KEY].override_host = config[DOMAIN].get(CONF_DEV_OVERRIDE_HOST)
         hass.data[HC_KEY].override_psk = config[DOMAIN].get(CONF_DEV_OVERRIDE_PSK)
+
+    async def handle_start_program(call: ServiceCall) -> ServiceResponse:
+        config_entry_ids = await async_extract_config_entry_ids(hass, call)
+        for config_entry_id in config_entry_ids:
+            config_entry: HCConfigEntry = hass.config_entries.async_get_entry(config_entry_id)
+            appliance = config_entry.runtime_data.appliance
+            if "start_in" in call.data:
+                if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
+                    relative_time_in_seconds = (
+                        call.data["start_in"]["hours"] * 3600
+                        + call.data["start_in"]["minutes"] * 60
+                        + call.data["start_in"]["seconds"]
+                    )
+                    try:
+                        await start_in_entity.set_value(relative_time_in_seconds)
+                    except AccessError as exc:
+                        msg = "'Start in' is not available right now"
+                        raise ServiceValidationError(msg) from exc
+                    except HomeConnectError as exc:
+                        msg = "Error applying 'Start in' setting"
+                        raise HomeAssistantError(msg) from exc
+                else:
+                    msg = "'Start in' is not available on this Appliance"
+                    raise ServiceValidationError(msg)
+            if appliance.selected_program:
+                await appliance.selected_program.start()
+            else:
+                msg = "No Program selected"
+                raise ServiceValidationError(msg)
+
+    hass.services.async_register(DOMAIN, "start_program", handle_start_program)
     return True
 
 
