@@ -93,21 +93,20 @@ class HCProgram(HCSelect):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        self._programs = {}
-        for name in self._appliance.programs:
-            self._programs[name.split(".")[-1].lower()] = name
+        self._programs = entity_description.mapping
+        self._rev_programs = {value: key for key, value in self._programs.items()}
 
     @property
     def options(self) -> list[str] | None:
-        return list(self._programs.keys())
+        return list(self._programs.values())
 
     @property
     def current_option(self) -> list[str] | None:
-        return (
-            self._appliance.selected_program.name.split(".")[-1].lower()
-            if self._appliance.selected_program
-            else None
-        )
+        if self._appliance.selected_program:
+            if self._appliance.selected_program.name in self._programs:
+                return self._programs[self._appliance.selected_program.name]
+            return self._appliance.selected_program.name
+        return None
 
     async def async_select_option(self, option: str) -> None:
-        await self._appliance.programs[self._programs[option]].select()
+        await self._appliance.programs[self._rev_programs[option]].select()

@@ -44,7 +44,12 @@ async def test_setup(
     assert state
     assert state.name == "Fake_brand HomeAppliance ActiveProgram"
     assert state.attributes[ATTR_FRIENDLY_NAME] == "Fake_brand HomeAppliance ActiveProgram"
-    assert state.attributes[ATTR_OPTIONS] == ["program1", "program2"]
+    assert state.attributes[ATTR_OPTIONS] == [
+        "Named Favorite",
+        "favorite_002",
+        "test_program_program1",
+        "test_program_program2",
+    ]
 
 
 async def test_update(
@@ -133,4 +138,10 @@ async def test_update_active_program(
     await hass.async_block_till_done()
 
     state = hass.states.get(entity_id)
-    assert state.state == "program1"
+    assert state.state == "test_program_program1"
+
+    await mock_appliance.entities["Test.ActiveProgram"].update({"value": 502})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.state == "Named Favorite"
