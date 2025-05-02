@@ -105,14 +105,23 @@
       "sensor_active_program": {
         "name": "Actief Programma",
         "state": {
-          "intensiv70": "Intensief 70",
-          "auto2": "Auto 45-65",
-          "eco50": "Eco 50",
-          "quick45": "Snel 45",
-          "prerinse": "Spoelen",
-          "quick65": "Snel 65",
-          "machinecare": "Machinereiniging",
-          "001": "Favoriet 1"
+          "Dishcare.Dishwasher.Program.Intensiv70": "Intensief 70",
+          "Dishcare.Dishwasher.Program.Auto2": "Auto 45-65",
+          "Dishcare.Dishwasher.Program.Eco50": "Eco 50",
+          "Dishcare.Dishwasher.Program.Quick45": "Snel 45",
+          "Dishcare.Dishwasher.Program.PreRinse": "Spoelen",
+          "Dishcare.Dishwasher.Program.Quick65": "Snel 65",
+          "Dishcare.Dishwasher.Program.MachineCare": "Machinereiniging",
+          "favorite_001": "Favoriet 1",
+          "favorite_002": "Favoriet 2",
+          "favorite_003": "Favoriet 3",
+          "favorite_004": "Favoriet 4",
+          "favorite_005": "Favoriet 5",
+          "favorite_006": "Favoriet 6",
+          "favorite_007": "Favoriet 7",
+          "favorite_008": "Favoriet 8",
+          "favorite_009": "Favoriet 9",
+          "favorite_010": "Favoriet 10"
         }
       },
       "sensor_rinse_aid": {
@@ -207,14 +216,23 @@
       "select_program": {
         "name": "Geselecteerd programma",
         "state": {
-          "intensiv70": "Intensief 70",
-          "auto2": "Auto 45-65",
-          "eco50": "Eco 50",
-          "quick45": "Snel 45",
-          "prerinse": "Spoelen",
-          "quick65": "Snale 65",
-          "machinecare": "Machinereiniging",
-          "001": "Favoriet 1"
+          "Dishcare.Dishwasher.Program.Intensiv70": "Intensief 70",
+          "Dishcare.Dishwasher.Program.Auto2": "Auto 45-65",
+          "Dishcare.Dishwasher.Program.Eco50": "Eco 50",
+          "Dishcare.Dishwasher.Program.Quick45": "Snel 45",
+          "Dishcare.Dishwasher.Program.PreRinse": "Spoelen",
+          "Dishcare.Dishwasher.Program.Quick65": "Snel 65",
+          "Dishcare.Dishwasher.Program.MachineCare": "Machinereiniging",
+          "favorite_001": "Favoriet 1",
+          "favorite_002": "Favoriet 2",
+          "favorite_003": "Favoriet 3",
+          "favorite_004": "Favoriet 4",
+          "favorite_005": "Favoriet 5",
+          "favorite_006": "Favoriet 6",
+          "favorite_007": "Favoriet 7",
+          "favorite_008": "Favoriet 8",
+          "favorite_009": "Favoriet 9",
+          "favorite_010": "Favoriet 10"
         }
       },
       "select_start_in": {
