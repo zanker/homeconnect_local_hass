@@ -516,9 +516,6 @@
           "001": "Favorite 1"
         }
       },
-      "select_start_in": {
-        "name": "Start in"
-      },
       "select_sensitivity_turbidity": {
         "name": "Turbidity Sensor Sensitivity",
         "state": {
@@ -944,6 +941,22 @@
       },
       "number_oven_display_brightness": {
         "name": "Display brightness"
+      }
+    }
+  },
+  "services": {
+    "start_program": {
+      "name": "Start Program",
+      "description": "Start the selected Program",
+      "fields": {
+        "device_id": {
+          "name": "Appliance",
+          "description": "The Appliance to start the Program on"
+        },
+        "start_in": {
+          "name": "Start in",
+          "description": "Delay the Program start"
+        }
       }
     }
   }

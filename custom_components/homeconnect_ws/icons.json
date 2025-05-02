@@ -160,9 +160,6 @@
                 }
             },
             "select_program": {},
-            "select_start_in": {
-                "default": "mdi:progress-clock"
-            },
             "select_sensitivity_turbidity": {
                 "default": "mdi:water-opacity"
             },
@@ -196,6 +193,11 @@
             "number_idos2_base_level": {
                 "default": "mdi:tune"
             }
+        }
+    },
+    "services": {
+        "start_program": {
+            "service": "mdi:play"
         }
     }
 }

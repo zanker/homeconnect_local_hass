@@ -285,12 +285,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="BSH.Common.Root.ActiveProgram",
         )
     ],
-    "start_in": [
-        HCSelectEntityDescription(
-            key="select_start_in",
-            entity="BSH.Common.Option.StartInRelative",
-        )
-    ],
     "switch": [
         HCSwitchEntityDescription(
             key="switch_child_lock",

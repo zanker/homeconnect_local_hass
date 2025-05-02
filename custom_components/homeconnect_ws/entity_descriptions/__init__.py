@@ -58,7 +58,6 @@ def get_available_entities(appliance: HomeAppliance) -> EntityDescriptions:
         "select": [],
         "sensor": [],
         "start_button": [],
-        "start_in": [],
         "switch": [],
     }
     appliance_entities = set(appliance.entities)
