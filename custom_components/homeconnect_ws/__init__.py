@@ -14,7 +14,6 @@ from homeassistant.exceptions import (
     ConfigEntryAuthFailed,
     ConfigEntryError,
     ConfigEntryNotReady,
-    HomeAssistantError,
     ServiceValidationError,
 )
 from homeassistant.helpers.device_registry import (
@@ -25,7 +24,6 @@ from homeassistant.helpers.device_registry import (
 from homeassistant.helpers.service import async_extract_config_entry_ids
 from homeassistant.util.hass_dict import HassKey
 from homeconnect_websocket import HomeAppliance
-from homeconnect_websocket.errors import AccessError, HomeConnectError
 
 from .const import (
     CONF_AES_IV,
