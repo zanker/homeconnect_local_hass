@@ -117,6 +117,11 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
 
         programs[program] = program_name
 
+    # sort programs
+    programs_keys = list(programs.keys())
+    programs_keys.sort()
+    sorted_programs = {i: programs[i] for i in programs_keys}
+
     descriptions = EntityDescriptions()
     if programs:
         descriptions["active_program"] = [
@@ -125,7 +130,7 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
                 entity="BSH.Common.Root.ActiveProgram",
                 device_class=SensorDeviceClass.ENUM,
                 has_state_translation=False,
-                mapping=programs,
+                mapping=sorted_programs,
             )
         ]
         descriptions["program"] = [
@@ -133,7 +138,7 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
                 key="select_program",
                 entity="BSH.Common.Root.SelectedProgram",
                 has_state_translation=False,
-                mapping=programs,
+                mapping=sorted_programs,
             )
         ]
 
