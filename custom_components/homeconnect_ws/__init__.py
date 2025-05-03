@@ -92,28 +92,24 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     async def handle_start_program(call: ServiceCall) -> ServiceResponse:
         config_entry_ids = await async_extract_config_entry_ids(hass, call)
         for config_entry_id in config_entry_ids:
+            options = {}
             config_entry: HCConfigEntry = hass.config_entries.async_get_entry(config_entry_id)
+            if config_entry.domain != DOMAIN:
+                continue
             appliance = config_entry.runtime_data.appliance
             if "start_in" in call.data:
                 if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
                     relative_time_in_seconds = (
-                        call.data["start_in"]["hours"] * 3600
-                        + call.data["start_in"]["minutes"] * 60
-                        + call.data["start_in"]["seconds"]
+                        int(call.data["start_in"]["hours"]) * 3600
+                        + int(call.data["start_in"]["minutes"]) * 60
+                        + int(call.data["start_in"]["seconds"])
                     )
-                    try:
-                        await start_in_entity.set_value(relative_time_in_seconds)
-                    except AccessError as exc:
-                        msg = "'Start in' is not available right now"
-                        raise ServiceValidationError(msg) from exc
-                    except HomeConnectError as exc:
-                        msg = "Error applying 'Start in' setting"
-                        raise HomeAssistantError(msg) from exc
+                    options[start_in_entity.uid] = relative_time_in_seconds
                 else:
                     msg = "'Start in' is not available on this Appliance"
                     raise ServiceValidationError(msg)
             if appliance.selected_program:
-                await appliance.selected_program.start()
+                await appliance.selected_program.start(options)
             else:
                 msg = "No Program selected"
                 raise ServiceValidationError(msg)
