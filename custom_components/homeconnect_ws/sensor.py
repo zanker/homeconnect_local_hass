@@ -68,14 +68,6 @@ class HCEventSensor(HCEntity, SensorEntity):
 
     entity_description: HCSensorEntityDescription
 
-    async def async_added_to_hass(self) -> None:
-        for entity in self._entities:
-            entity.register_callback(self.callback)
-
-    async def async_will_remove_from_hass(self) -> None:
-        for entity in self._entities:
-            entity.unregister_callback(self.callback)
-
     @property
     def native_value(self) -> str:
         if self.entity_description.options:
