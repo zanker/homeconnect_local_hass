@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+import contextlib
 import logging
 from typing import TYPE_CHECKING
 
@@ -28,6 +30,7 @@ class HCEntity(Entity):
     _entity: HcEntity | None = None
     _entities: list[HcEntity]
     _extra_attributes: list[ExtraAttributeDict]
+    _has_callback: bool = False
 
     def __init__(
         self,
@@ -69,7 +72,7 @@ class HCEntity(Entity):
         available = (
             self._appliance.session.connected
             # Hide first reconnect
-            or (not self._appliance.session.connected and self._appliance.session.retry_count == 1)
+            or (not self._appliance.session.connected and self._appliance.session.retry_count <= 2)
         )
 
         if hasattr(self._entity, "available"):
@@ -92,4 +95,10 @@ class HCEntity(Entity):
         return extra_state_attributes
 
     async def callback(self, _: HcEntity) -> None:
-        self.async_write_ha_state()
+        if not self._has_callback:
+            self._has_callback = True
+            if not self._appliance.session.connected:
+                with contextlib.suppress(TimeoutError):
+                    await asyncio.wait_for(self._appliance.session.connected_event.wait(), 10)
+            self.async_write_ha_state()
+            self._has_callback = False
