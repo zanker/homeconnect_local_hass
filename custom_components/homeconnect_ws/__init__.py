@@ -98,9 +98,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             if "start_in" in call.data:
                 if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
                     relative_time_in_seconds = (
-                        int(call.data["start_in"]["hours"]) * 3600
-                        + int(call.data["start_in"]["minutes"]) * 60
-                        + int(call.data["start_in"]["seconds"])
+                        int(call.data["start_in"].get("hours", 0)) * 3600
+                        + int(call.data["start_in"].get("minutes", 0)) * 60
+                        + int(call.data["start_in"].get("seconds", 0))
                     )
                     options[start_in_entity.uid] = relative_time_in_seconds
                 else:
