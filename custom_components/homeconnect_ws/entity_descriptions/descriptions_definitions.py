@@ -107,6 +107,7 @@ class EntityDescriptions(TypedDict):
     sensor: list[HCSensorEntityDescription]
     start_button: list[HCButtonEntityDescription]
     switch: list[HCSwitchEntityDescription]
+    wifi: list[HCSensorEntityDescription]
 
 
 _EntityDescriptionsDefinitionsType = dict[
@@ -121,6 +122,7 @@ _EntityDescriptionsDefinitionsType = dict[
         "sensor",
         "start_button",
         "switch",
+        "wifi",
         "dynamic",
     ],
     list[
@@ -141,6 +143,7 @@ _EntityDescriptionsType = dict[
         "sensor",
         "start_button",
         "switch",
+        "wifi",
     ],
     list[HCEntityDescription],
 ]
