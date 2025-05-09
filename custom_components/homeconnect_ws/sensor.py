@@ -30,7 +30,12 @@ async def async_setup_entry(
 ) -> None:
     """Set up sensor platform."""
     entities = create_entities(
-        {"sensor": HCSensor, "event_sensor": HCEventSensor, "active_program": HCActiveProgram},
+        {
+            "sensor": HCSensor,
+            "event_sensor": HCEventSensor,
+            "active_program": HCActiveProgram,
+            "wifi": HCWiFI,
+        },
         config_entry.runtime_data,
     )
     async_add_entites(entities)
@@ -48,6 +53,7 @@ class HCSensor(HCEntity, SensorEntity):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
+
         if self._entity.enum:
             if self.entity_description.has_state_translation:
                 self._attr_options = [str(value).lower() for value in self._entity.enum.values()]
@@ -104,3 +110,21 @@ class HCActiveProgram(HCSensor):
                 return self.entity_description.mapping[self._appliance.active_program.name]
             return self._appliance.active_program.name
         return None
+
+
+class HCWiFI(HCEntity, SensorEntity):
+    """WiFi signal Sensor Entity."""
+
+    _attr_should_poll = True
+
+    def __init__(
+        self,
+        entity_description: HCSensorEntityDescription,
+        appliance: HomeAppliance,
+        device_info: DeviceInfo,
+    ) -> None:
+        super().__init__(entity_description, appliance, device_info)
+
+    async def async_update(self) -> None:
+        network_info = await self._appliance.get_network_config()
+        self._attr_native_value = network_info[0]["rssi"]

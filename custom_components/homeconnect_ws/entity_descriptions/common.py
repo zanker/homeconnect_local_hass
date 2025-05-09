@@ -145,6 +145,20 @@ def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
     return descriptions
 
 
+def generate_wifi(appliance: HomeAppliance) -> EntityDescriptions:
+    """Get WiFi sensor description."""
+    entity = appliance.entities.get("BSH.Common.Status.WiFiSignalStrength")
+    if entity is None:
+        return HCSensorEntityDescription(
+            key="sensor_wifi_signal_strength",
+            device_class=SensorDeviceClass.SIGNAL_STRENGTH,
+            native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+        )
+    return None
+
+
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "abort_button": [
         HCButtonEntityDescription(
@@ -335,5 +349,6 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             mode=NumberMode.AUTO,
         ),
     ],
+    "wifi": [generate_wifi],
     "dynamic": [generate_power_switch, generate_program],
 }

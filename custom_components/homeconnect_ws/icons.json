@@ -133,6 +133,9 @@
             },
             "sensor_estimated_remaining_program_time": {
                 "default": "mdi:progress-clock"
+            },
+            "sensor_wifi_signal_strength": {
+                "default": "mdi:wifi"
             }
         },
         "select": {
