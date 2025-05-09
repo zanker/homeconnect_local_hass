@@ -14,7 +14,7 @@ import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from aiohttp import ClientConnectionError, ClientConnectorSSLError
 from homeassistant.components.file_upload import process_uploaded_file
-from homeassistant.config_entries import ConfigFlow
+from homeassistant.config_entries import SOURCE_IGNORE, ConfigFlow
 from homeassistant.const import (
     CONF_DESCRIPTION,
     CONF_DEVICE,
@@ -203,9 +203,11 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
         appliance_options: list[SelectOptionDict] = []
         try:
             for appliance_id, appliance_info in self.appliances.items():
-                if not self.hass.config_entries.async_entry_for_domain_unique_id(
+                existing_entry = self.hass.config_entries.async_entry_for_domain_unique_id(
                     self.handler, appliance_id
-                ):
+                )
+
+                if not existing_entry or existing_entry.source == SOURCE_IGNORE:
                     brand = appliance_info["info"]["brand"]
                     appliance_type = appliance_info["info"]["type"]
                     vib = appliance_info["info"]["vib"]
