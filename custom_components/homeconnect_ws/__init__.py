@@ -21,7 +21,6 @@ from homeassistant.helpers.device_registry import (
     DeviceInfo,
     format_mac,
 )
-from homeassistant.helpers.service import async_extract_config_entry_ids
 from homeassistant.util.hass_dict import HassKey
 from homeconnect_websocket import HomeAppliance
 
@@ -35,6 +34,7 @@ from .const import (
     PLATFORMS,
 )
 from .entity_descriptions import get_available_entities
+from .helpers import get_config_entry_from_call
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant, ServiceCall, ServiceResponse
@@ -88,31 +88,43 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         hass.data[HC_KEY].override_psk = config[DOMAIN].get(CONF_DEV_OVERRIDE_PSK)
 
     async def handle_start_program(call: ServiceCall) -> ServiceResponse:
-        config_entry_ids = await async_extract_config_entry_ids(hass, call)
-        for config_entry_id in config_entry_ids:
-            options = {}
-            config_entry: HCConfigEntry = hass.config_entries.async_get_entry(config_entry_id)
-            if config_entry.domain != DOMAIN:
-                continue
-            appliance = config_entry.runtime_data.appliance
-            if "start_in" in call.data:
-                if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
-                    relative_time_in_seconds = (
-                        int(call.data["start_in"].get("hours", 0)) * 3600
-                        + int(call.data["start_in"].get("minutes", 0)) * 60
-                        + int(call.data["start_in"].get("seconds", 0))
-                    )
-                    options[start_in_entity.uid] = relative_time_in_seconds
-                else:
-                    msg = "'Start in' is not available on this Appliance"
-                    raise ServiceValidationError(msg)
-            if appliance.selected_program:
-                await appliance.selected_program.start(options)
+        config_entry = await get_config_entry_from_call(hass, call)
+
+        options = {}
+        appliance = config_entry.runtime_data.appliance
+        if "start_in" in call.data:
+            if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
+                relative_time_in_seconds = (
+                    int(call.data["start_in"].get("hours", 0)) * 3600
+                    + int(call.data["start_in"].get("minutes", 0)) * 60
+                    + int(call.data["start_in"].get("seconds", 0))
+                )
+                options[start_in_entity.uid] = relative_time_in_seconds
             else:
-                msg = "No Program selected"
+                msg = "'Start in' is not available on this Appliance"
                 raise ServiceValidationError(msg)
+        if appliance.selected_program:
+            await appliance.selected_program.start(options)
+        else:
+            msg = "No Program selected"
+            raise ServiceValidationError(msg)
+
+    async def handle_set_start_in(call: ServiceCall) -> ServiceResponse:
+        config_entry = await get_config_entry_from_call(hass, call)
+        appliance = config_entry.runtime_data.appliance
+        if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
+            relative_time_in_seconds = (
+                int(call.data["start_in"].get("hours", 0)) * 3600
+                + int(call.data["start_in"].get("minutes", 0)) * 60
+                + int(call.data["start_in"].get("seconds", 0))
+            )
+            await start_in_entity.set_value(relative_time_in_seconds)
+        else:
+            msg = "'Start in' is not available on this Appliance"
+            raise ServiceValidationError(msg)
 
     hass.services.async_register(DOMAIN, "start_program", handle_start_program)
+    hass.services.async_register(DOMAIN, "set_start_in", handle_set_start_in)
     return True
 
 

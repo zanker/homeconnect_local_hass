@@ -9,3 +9,15 @@ start_program:
       required: false
       selector:
         duration:
+
+set_start_in:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: homeconnect_ws
+    start_in:
+      required: true
+      selector:
+        duration:
