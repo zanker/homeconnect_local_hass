@@ -341,6 +341,13 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
             self.data[CONF_NAME] = (
                 f"{discovery_info.properties['brand']} {discovery_info.properties['type']}"
             )
+
+            self.context.update(
+                {
+                    "title_placeholders": {"name": discovery_info.name.split(".")[0]},
+                }
+            )
+
             return await self.async_step_upload()
         except KeyError:
             return self.async_abort(reason="invalid_discovery_info")
