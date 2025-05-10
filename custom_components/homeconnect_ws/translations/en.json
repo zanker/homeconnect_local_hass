@@ -976,6 +976,20 @@
           "description": "Delay the Program start"
         }
       }
+    },
+    "set_start_in": {
+      "name": "Set start delay",
+      "description": "Set the start delay",
+      "fields": {
+        "device_id": {
+          "name": "Appliance",
+          "description": "The Appliance to set the start delay on"
+        },
+        "start_in": {
+          "name": "Delay",
+          "description": "Set the start delay"
+        }
+      }
     }
   }
 }

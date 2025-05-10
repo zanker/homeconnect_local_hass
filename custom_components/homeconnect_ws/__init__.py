@@ -109,7 +109,22 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             msg = "No Program selected"
             raise ServiceValidationError(msg)
 
+    async def handle_set_start_in(call: ServiceCall) -> ServiceResponse:
+        config_entry = await get_config_entry_from_call(hass, call)
+        appliance = config_entry.runtime_data.appliance
+        if start_in_entity := appliance.entities.get("BSH.Common.Option.StartInRelative"):
+            relative_time_in_seconds = (
+                int(call.data["start_in"].get("hours", 0)) * 3600
+                + int(call.data["start_in"].get("minutes", 0)) * 60
+                + int(call.data["start_in"].get("seconds", 0))
+            )
+            await start_in_entity.set_value(relative_time_in_seconds)
+        else:
+            msg = "'Start in' is not available on this Appliance"
+            raise ServiceValidationError(msg)
+
     hass.services.async_register(DOMAIN, "start_program", handle_start_program)
+    hass.services.async_register(DOMAIN, "set_start_in", handle_set_start_in)
     return True
 
 
