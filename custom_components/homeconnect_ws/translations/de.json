@@ -164,7 +164,7 @@
           "laundrycare_washer_program_spin_spin_spindrain": "Schleudern/Abpumpen", 
           "laundrycare_washer_program_steaming_steaming_steaming": "Bedampfen/Iron Assist", 
           "laundrycare_washer_program_super153045_super1530_super1530": "Extra Kurz 15min/30min", 
-          "laundrycare_washer_program_wool_wool_wool,: "Wolle"
+          "laundrycare_washer_program_wool_wool_wool": "Wolle"
         }
       },
       "sensor_rinse_aid": {
