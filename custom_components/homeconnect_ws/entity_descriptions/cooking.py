@@ -27,7 +27,7 @@ if TYPE_CHECKING:
 
 def generate_oven_status(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Oven status descriptions."""
-    pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.(.*)\..*$")
+    pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.([0-9]*)\..*$")
     groups = get_groups_from_regex(appliance, pattern)
     descriptions = EntityDescriptions(event_sensor=[], sensor=[])
     for group in groups:
