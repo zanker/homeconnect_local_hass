@@ -62,10 +62,10 @@
       "switch_info_light": {
         "name": "Info-Licht"
       },
-	  "switch_multiple_beverages": {
+      "switch_multiple_beverages": {
         "name": "Mehrere Getränke"
       },
-	  "switch_half_load": {
+      "switch_half_load": {
         "name": "Halbe Ladung"
       },
       "switch_child_lock": {
@@ -74,7 +74,7 @@
       "switch_door_light_ring": {
         "name": "Tür Ringlicht"
       },
-	  "switch_drum_light": {
+      "switch_drum_light": {
         "name": "Trommellicht"
       },
       "switch_laundry_end_signal": {
@@ -83,7 +83,7 @@
       "switch_laundry_sound_mute": {
         "name": "Stummschaltung"
       },
-	  "switch_laundry_time_light": {
+      "switch_laundry_time_light": {
         "name": "Zeit Licht"
       },
       "switch_laundry_wrinkle_guard": {
@@ -95,7 +95,7 @@
       "switch_laundry_speed_perfect": {
         "name": "SpeedPerfect"
       },
-	  "switch_laundry_gentle": {
+      "switch_laundry_gentle": {
         "name": "Sanft"
       },
       "switch_laundry_hygiene": {
@@ -151,7 +151,7 @@
       "binary_sensor_bean_container_empty": {
         "name": "Bohnenbehälter Leer"
       },
-	  "binary_remote_start_allowed": {
+      "binary_remote_start_allowed": {
         "name": "Fernstart erlaubt"
       },
       "binary_sensor_refresher_level": {
@@ -210,7 +210,7 @@
       "sensor_program_progress": {
         "name": "Programmfortschritt"
       },
-	   "sensor_water_forecast": {
+      "sensor_water_forecast": {
         "name": "Wasserverbrauch Schätzung"
       },
       "sensor_energy_forecast": {
@@ -252,26 +252,26 @@
           "favorite_008": "Favorit 8",
           "favorite_009": "Favorit 9",
           "favorite_010": "Favorit 10",
-          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatik sanft/30", 
-          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatik 40-60", 
-          "laundrycare_washer_program_cotton_cotton_cotton": "Baumwolle", 
-          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Jeans/Dunkle Wäsche", 
-          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fein/Seide", 
-          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Anti Mikroplastik", 
-          "laundrycare_washer_program_downduvet_down_down": "Daunen", 
-          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Drum Clean (alt)", 
-          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Drum Clean", 
-          "laundrycare_washer_program_easycare_easycare_easycare": "Pflegeleicht", 
-          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60", 
-          "laundrycare_washer_program_mix_mix_mix": "Schnell/Mix", 
-          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Funktionswäsche", 
-          "laundrycare_washer_program_rinse_rinse_rinse": "Spülen", 
-          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Sensitiv", 
-          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Hemden/Blusen", 
-          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportswear", 
-          "laundrycare_washer_program_spin_spin_spindrain": "Schleudern/Abpumpen", 
-          "laundrycare_washer_program_steaming_steaming_steaming": "Bedampfen/Iron Assist", 
-          "laundrycare_washer_program_super153045_super1530_super1530": "Extra Kurz 15min/30min", 
+          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatik sanft/30",
+          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatik 40-60",
+          "laundrycare_washer_program_cotton_cotton_cotton": "Baumwolle",
+          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Jeans/Dunkle Wäsche",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fein/Seide",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Anti Mikroplastik",
+          "laundrycare_washer_program_downduvet_down_down": "Daunen",
+          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Drum Clean (alt)",
+          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Drum Clean",
+          "laundrycare_washer_program_easycare_easycare_easycare": "Pflegeleicht",
+          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60",
+          "laundrycare_washer_program_mix_mix_mix": "Schnell/Mix",
+          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Funktionswäsche",
+          "laundrycare_washer_program_rinse_rinse_rinse": "Spülen",
+          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Sensitiv",
+          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Hemden/Blusen",
+          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportswear",
+          "laundrycare_washer_program_spin_spin_spindrain": "Schleudern/Abpumpen",
+          "laundrycare_washer_program_steaming_steaming_steaming": "Bedampfen/Iron Assist",
+          "laundrycare_washer_program_super153045_super1530_super1530": "Extra Kurz 15min/30min",
           "laundrycare_washer_program_wool_wool_wool": "Wolle"
         }
       },
@@ -300,7 +300,7 @@
           "full": "Voll"
         }
       },
-	  "sensor_drip_tray": {
+      "sensor_drip_tray": {
         "name": "Auffangschale",
         "state": {
           "ok": "Ok",
@@ -332,7 +332,7 @@
       "sensor_delayed_shutoff_time": {
         "name": "Verzögerte Abschaltung"
       },
-	  "sensor_power_state": {
+      "sensor_power_state": {
         "name": "Betriebszustand",
         "state": {
           "mainsoff": "Strom getrennt",
@@ -341,13 +341,13 @@
           "standby": "Standby"
         }
       },
-	  "sensor_door_state": {
+      "sensor_door_state": {
         "name": "Tür",
         "state": {
           "open": "Offen",
           "closed": "Geschlossen",
           "locked": "Abgeschlossen",
-          "ajar": "Angelehnt"			
+          "ajar": "Angelehnt"
         }
       },
       "sensor_laundry_reload": {
@@ -428,7 +428,7 @@
           "anyphase": "Beliebige Phase"
         }
       },
-	  "sensor_count_completed": {
+      "sensor_count_completed": {
         "name": "Beendet-Zähler"
       },
       "sensor_flex_start": {
@@ -465,7 +465,7 @@
       "sensor_temperature_ambient": {
         "name": "Umgebungstemperatur"
       },
-	        "sensor_laundry_spin_speed": {
+      "sensor_laundry_spin_speed": {
         "name": "Schleuderdrehzahl",
         "state": {
           "off": "Aus",
@@ -483,7 +483,7 @@
           "auto": "Auto"
         }
       },
-	  "sensor_estimated_remaining_program_time": {
+      "sensor_estimated_remaining_program_time": {
         "name": "Geschätzte Verbleibende Programmlaufzeit"
       },
       "sensor_oven_water_tank": {
@@ -563,26 +563,26 @@
           "favorite_008": "Favorit 8",
           "favorite_009": "Favorit 9",
           "favorite_010": "Favorit 10",
-          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatik sanft/30", 
-          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatik 40-60", 
-          "laundrycare_washer_program_cotton_cotton_cotton": "Baumwolle", 
-          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Jeans/Dunkle Wäsche", 
-          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fein/Seide", 
-          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Anti Mikroplastik", 
-          "laundrycare_washer_program_downduvet_down_down": "Daunen", 
-          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Drum Clean (alt)", 
-          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Drum Clean", 
-          "laundrycare_washer_program_easycare_easycare_easycare": "Pflegeleicht", 
-          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60", 
-          "laundrycare_washer_program_mix_mix_mix": "Schnell/Mix", 
-          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Funktionswäsche", 
-          "laundrycare_washer_program_rinse_rinse_rinse": "Spülen", 
-          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Sensitiv", 
-          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Hemden/Blusen", 
-          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportswear", 
-          "laundrycare_washer_program_spin_spin_spindrain": "Schleudern/Abpumpen", 
-          "laundrycare_washer_program_steaming_steaming_steaming": "Bedampfen/Iron Assist", 
-          "laundrycare_washer_program_super153045_super1530_super1530": "Extra Kurz 15min/30min", 
+          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatik sanft/30",
+          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatik 40-60",
+          "laundrycare_washer_program_cotton_cotton_cotton": "Baumwolle",
+          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Jeans/Dunkle Wäsche",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fein/Seide",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Anti Mikroplastik",
+          "laundrycare_washer_program_downduvet_down_down": "Daunen",
+          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Drum Clean (alt)",
+          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Drum Clean",
+          "laundrycare_washer_program_easycare_easycare_easycare": "Pflegeleicht",
+          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60",
+          "laundrycare_washer_program_mix_mix_mix": "Schnell/Mix",
+          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Funktionswäsche",
+          "laundrycare_washer_program_rinse_rinse_rinse": "Spülen",
+          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Sensitiv",
+          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Hemden/Blusen",
+          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportswear",
+          "laundrycare_washer_program_spin_spin_spindrain": "Schleudern/Abpumpen",
+          "laundrycare_washer_program_steaming_steaming_steaming": "Bedampfen/Iron Assist",
+          "laundrycare_washer_program_super153045_super1530_super1530": "Extra Kurz 15min/30min",
           "laundrycare_washer_program_wool_wool_wool": "Wolle"
         }
       },
@@ -601,7 +601,7 @@
           "ecoasdefault": "Eco 50"
         }
       },
-	  "select_power_state": {
+      "select_power_state": {
         "name": "Betriebszustand",
         "state": {
           "mainsoff": "Strom abgeschaltet",
@@ -970,7 +970,6 @@
         }
       }
     },
-	
     "button": {
       "button_abort_program": {
         "name": "Abbrechen"
@@ -992,7 +991,7 @@
       "number_duration": {
         "name": "Dauer"
       },
-	  "number_laundry_spin_class": {
+      "number_laundry_spin_class": {
         "name": "Schleuderklasse"
       },
       "number_setpoint_freezer": {
