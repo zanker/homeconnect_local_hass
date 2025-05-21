@@ -225,16 +225,16 @@
       "sensor_active_program": {
         "name": "Programma attivo",
         "state": {
-          "intensiv70": "Intensivo 70°",
+          "intensiv70": "Intensivo 70°C",
           "auto2": "Auto 2",
-          "eco50": "Eco 50°",
-          "quick45": "Veloce 45°",
+          "eco50": "Eco 50°C",
+          "quick45": "Veloce 45°C",
           "prerinse": "Prerisciacquo",
-          "quick65": "Veloce 65°",
+          "quick65": "Veloce 65°C",
           "machinecare": "Cura lavastoviglie",
           "001": "Preferito 1",
-          "glas40": "Bicchieri 40°",
-          "kurz60": "Express 60°",
+          "glas40": "Bicchieri 40°C",
+          "kurz60": "Express 60°C",
           "learningdishwasher": "Intelligente",
         }
       },
@@ -509,16 +509,16 @@
       "select_program": {
         "name": "Programma selezionato",
         "state": {
-          "intensiv70": "Intensivo 70°",
+          "intensiv70": "Intensivo 70°C",
           "auto2": "Auto 2",
-          "eco50": "Eco 50°",
-          "quick45": "Veloce 45°",
+          "eco50": "Eco 50°C",
+          "quick45": "Veloce 45°C",
           "prerinse": "Prerisciacquo",
-          "quick65": "Veloce 65°",
+          "quick65": "Veloce 65°C",
           "machinecare": "Cura lavastoviglie",
           "001": "Preferito 1",
-          "glas40": "Bicchieri 40°",
-          "kurz60": "Express 60°",
+          "glas40": "Bicchieri 40°C",
+          "kurz60": "Express 60°C",
           "learningdishwasher": "Intelligente",
         }
       },
@@ -537,7 +537,7 @@
         "name": "Programma predefinito",
         "state": {
           "lastprogram": "Ultimo programma",
-          "ecoasdefault": "Eco 50"
+          "ecoasdefault": "Eco 50°C"
         }
       },
       "select_power_state": {
