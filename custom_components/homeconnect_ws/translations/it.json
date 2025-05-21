@@ -473,7 +473,7 @@
         "state": {
           "off": "Spento",
           "allprograms": "Tutti i programmi",
-          "ecoasdefault": "Eco 50°"
+          "ecoasdefault": "Eco 50°C"
         }
       },
       "select_hot_water": {
