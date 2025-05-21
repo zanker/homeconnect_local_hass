@@ -227,7 +227,7 @@
           "ActionRequired": "Azione Richiesta",
           "Finished": "Finito",
           "Error": "Errore",
-          "Aborting": "Interruzione",
+          "Aborting": "Interruzione"
       },
       "sensor_program_phase": {
         "name": "Fase programma"
