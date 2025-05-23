@@ -217,7 +217,7 @@
         "name": "Previsione energia"
       },
       "sensor_operation_state": {
-        "name": "Stato funzionamento"
+        "name": "Stato funzionamento",
         "state": {
           "Inactive": "Inattivo",
           "Ready": "Pronto",
@@ -228,14 +228,16 @@
           "Finished": "Finito",
           "Error": "Errore",
           "Aborting": "Interruzione"
+        }
       },
       "sensor_program_phase": {
-        "name": "Fase programma"
+        "name": "Fase programma",
         "state": {
           "PreRinse": "Prelavaggio",
           "MainWash": "Lavaggio",
           "FinalRinse": "Risciacquo",
           "Drying": "Asciugatura"
+        }
       },
       "sensor_active_program": {
         "name": "Programma attivo",
