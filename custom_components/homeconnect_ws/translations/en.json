@@ -136,6 +136,9 @@
       },
       "switch_refrigerator_dispenser_enabled": {
         "name": "Dispenser"
+      },
+      "switch_refrigerator_door_assistant_freezer": {
+        "name": "Freezer Door Assistant"
       }
     },
     "binary_sensor": {
@@ -991,6 +994,22 @@
           "short": "Short",
           "medium": "Medium",
           "long": "Long"
+        }
+      },
+      "select_refrigerator_door_assistant_freezer_trigger": {
+        "name": "Freezer Door Assistant trigger",
+        "state": {
+          "push": "Push",
+          "pull": "Pull",
+          "pushpull": "PushPull"
+        }
+      },
+      "select_refrigerator_door_assistant_freezer_force": {
+        "name": "Freezer Door Assistant force",
+        "state": {
+          "lowforce": "Low",
+          "middleforce": "Middle",
+          "highforce": "High"
         }
       }
     },

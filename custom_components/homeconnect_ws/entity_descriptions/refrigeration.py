@@ -11,6 +11,7 @@ from homeassistant.const import EntityCategory, UnitOfTemperature
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
     HCNumberEntityDescription,
+    HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
     _EntityDescriptionsDefinitionsType,
@@ -148,6 +149,26 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.Common.Setting.SabbathMode",
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_door_assistant_freezer",
+            entity="Refrigeration.Common.Setting.Door.AssistantFreezer",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ],
+    "select": [
+        HCSelectEntityDescription(
+            key="select_refrigerator_door_assistant_freezer_trigger",
+            entity="Refrigeration.Common.Setting.Door.AssistantTriggerFreezer",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_refrigerator_door_assistant_freezer_force",
+            entity="Refrigeration.Common.Setting.Door.AssistantForceFreezer",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
         ),
     ],
 }
