@@ -77,7 +77,13 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.FridgeFreezer.Status.TemperatureAmbient",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        )
+        ),
+        HCSensorEntityDescription(
+            key="sensor_temperature_ambient",
+            entity="Refrigeration.Common.Status.TemperatureAmbient",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(
