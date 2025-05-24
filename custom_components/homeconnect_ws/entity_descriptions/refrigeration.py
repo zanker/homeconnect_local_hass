@@ -64,6 +64,14 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_off={"Off"},
         ),
         HCBinarySensorEntityDescription(
+            key="binary_sensor_door_alarm_freezer",
+            entity="Refrigeration.Common.Event.Door.AlarmFreezer",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
             key="binary_sensor_temperature_alarm_freezer",
             entity="Refrigeration.FridgeFreezer.Event.TemperatureAlarmFreezer",
             entity_category=EntityCategory.DIAGNOSTIC,
