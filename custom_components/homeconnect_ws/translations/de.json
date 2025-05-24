@@ -219,14 +219,14 @@
       "sensor_operation_state": {
         "name": "Betriebszustand",
         "state": {
-          "Inactive": "Inaktiv",
-          "Ready": "Bereit",
-          "DelayedStart": "zeitverzögerter Start",
-          "Run": "Läuft",
-          "ActionRequired": "Aufmerksamkeit Erforderlich",
-          "Finished": "Fertig",
-          "Error": "Fehler",
-          "Aborting": "Abbrechen"
+          "inactive": "Inaktiv",
+          "ready": "Bereit",
+          "delayedstart": "zeitverzögerter Start",
+          "run": "Läuft",
+          "actionrequired": "Aufmerksamkeit Erforderlich",
+          "finished": "Fertig",
+          "error": "Fehler",
+          "aborting": "Abbrechen"
         }
       },
       "sensor_program_phase": {
