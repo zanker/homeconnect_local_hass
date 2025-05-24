@@ -75,6 +75,14 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.Common.Status.Freezer.Defrost",
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_water_filter_full",
+            entity="Refrigeration.Common.Event.Dispenser.WaterFilterFull",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
     ],
     "sensor": [
         HCSensorEntityDescription(

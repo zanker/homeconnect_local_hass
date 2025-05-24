@@ -213,6 +213,9 @@
       },
       "binary_sensor_refrigerator_defrost": {
         "name": "Defrost"
+      },
+      "binary_sensor_water_filter_full": {
+        "name": "Water filter full"
       }
     },
     "sensor": {
