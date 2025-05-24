@@ -67,6 +67,12 @@
                     "on": "mdi:lightbulb-on",
                     "off": "mdi:lightbulb-off"
                 }
+            },
+            "binary_sensor_refrigerator_defrost": {
+                "state": {
+                    "off": "mdi:snowflake-off",
+                    "on": "mdi:snowflake-melt"
+                }
             }
         },
         "sensor": {

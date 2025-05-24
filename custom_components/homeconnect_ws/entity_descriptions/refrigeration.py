@@ -70,6 +70,10 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_refrigerator_defrost",
+            entity="Refrigeration.Common.Status.Freezer.Defrost",
+        ),
     ],
     "sensor": [
         HCSensorEntityDescription(

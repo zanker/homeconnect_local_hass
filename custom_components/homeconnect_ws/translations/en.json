@@ -201,6 +201,9 @@
       },
       "binary_sensor_interior_illumination": {
         "name": "Interior Illumination"
+      },
+      "binary_sensor_refrigerator_defrost": {
+        "name": "Defrost"
       }
     },
     "sensor": {
