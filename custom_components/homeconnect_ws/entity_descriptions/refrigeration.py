@@ -128,5 +128,10 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.FridgeFreezer.Setting.VacationMode",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_dispenser_enabled",
+            entity="Refrigeration.Common.Setting.Dispenser.Enabled",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
 }

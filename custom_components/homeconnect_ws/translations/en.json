@@ -130,6 +130,9 @@
       },
       "switch_oven_sabbath_mode": {
         "name": "Sabbath mode"
+      },
+      "switch_refrigerator_dispenser_enabled": {
+        "name": "Dispenser"
       }
     },
     "binary_sensor": {
