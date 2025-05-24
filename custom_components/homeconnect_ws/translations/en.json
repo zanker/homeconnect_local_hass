@@ -219,24 +219,24 @@
       "sensor_operation_state": {
         "name": "Operation State",
         "state": {
-          "Inactive": "Inactive",
-          "Ready": "Ready",
-          "DelayedStart": "Delayed Start",
-          "Run": "Running",
-          "Pause": "Paused",
-          "ActionRequired": "Action Required",
-          "Finished": "Finished",
-          "Error": "Error",
-          "Aborting": "Aborting"
+          "inactive": "Inactive",
+          "ready": "Ready",
+          "delayedstart": "Delayed Start",
+          "run": "Running",
+          "pause": "Paused",
+          "actionrequired": "Action Required",
+          "finished": "Finished",
+          "error": "Error",
+          "aborting": "Aborting"
         }
       },
       "sensor_program_phase": {
         "name": "Program phase",
         "state": {
-          "PreRinse": "Pre Rinse",
-          "MainWash": "Main Wash",
-          "FinalRinse": "Final Rinse",
-          "Drying": "Drying"
+          "prerinse": "Pre Rinse",
+          "mainwash": "Main Wash",
+          "finalrinse": "Final Rinse",
+          "drying": "Drying"
         }
       },
       "sensor_active_program": {

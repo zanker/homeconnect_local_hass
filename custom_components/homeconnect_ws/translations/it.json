@@ -219,24 +219,24 @@
       "sensor_operation_state": {
         "name": "Stato funzionamento",
         "state": {
-          "Inactive": "Inattivo",
-          "Ready": "Pronto",
-          "DelayedStart": "Avvio Ritardato",
-          "Run": "In Funzione",
-          "Pause": "Pausa",
-          "ActionRequired": "Azione Richiesta",
-          "Finished": "Finito",
-          "Error": "Errore",
-          "Aborting": "Interruzione"
+          "inactive": "Inattivo",
+          "ready": "Pronto",
+          "delayedstart": "Avvio Ritardato",
+          "run": "In Funzione",
+          "pause": "Pausa",
+          "actionrequired": "Azione Richiesta",
+          "finished": "Finito",
+          "error": "Errore",
+          "aborting": "Interruzione"
         }
       },
       "sensor_program_phase": {
         "name": "Fase programma",
         "state": {
-          "PreRinse": "Prelavaggio",
-          "MainWash": "Lavaggio",
-          "FinalRinse": "Risciacquo",
-          "Drying": "Asciugatura"
+          "prerinse": "Prelavaggio",
+          "mainwash": "Lavaggio",
+          "finalrinse": "Risciacquo",
+          "drying": "Asciugatura"
         }
       },
       "sensor_active_program": {

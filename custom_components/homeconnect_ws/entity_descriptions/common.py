@@ -256,6 +256,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="sensor_operation_state",
             entity="BSH.Common.Status.OperationState",
             device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
         ),
         HCSensorEntityDescription(
             key="sensor_start_in",

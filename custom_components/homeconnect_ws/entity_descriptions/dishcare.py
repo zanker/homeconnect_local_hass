@@ -98,6 +98,7 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="sensor_program_phase",
             entity="Dishcare.Dishwasher.Status.ProgramPhase",
             device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
         ),
     ],
     "switch": [
