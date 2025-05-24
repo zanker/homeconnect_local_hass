@@ -170,6 +170,19 @@ class HomeConnectConfigFlow(ConfigFlow, domain=DOMAIN):
                 if "config_entry" in self.appliances:
                     _LOGGER.debug("Setting up form config entry")
                     self.data = self.appliances["config_entry"]
+                    if self.global_config:
+                        if self.global_config.override_host is not None:
+                            # Dev mode host override
+                            self.data[CONF_HOST] = self.global_config.override_host
+                            self.data[CONF_MANUAL_HOST] = True
+                            _LOGGER.info("Host override: %s", self.data[CONF_HOST])
+                        if self.global_config.override_psk is not None:
+                            # Dev mode psk override
+                            self.data[CONF_PSK] = self.global_config.override_psk
+                            self.data[CONF_MODE] = "TLS"
+                            self.data[CONF_AES_IV] = None
+                            _LOGGER.info("PSK override")
+
             except ParserError as exc:
                 return self.async_abort(
                     reason="profile_file_parser_error",
