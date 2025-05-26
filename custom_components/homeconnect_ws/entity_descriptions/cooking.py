@@ -14,6 +14,7 @@ from custom_components.homeconnect_ws.helpers import get_groups_from_regex
 
 from .descriptions_definitions import (
     EntityDescriptions,
+    HCLightEntityDescription,
     HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
@@ -176,5 +177,12 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),
+    ],
+    "light": [
+        HCLightEntityDescription(
+            key="light_cooking_lighting",
+            entity="Cooking.Common.Setting.Lighting",
+            brightness_entity="Cooking.Common.Setting.LightingBrightness",
+        )
     ],
 }
