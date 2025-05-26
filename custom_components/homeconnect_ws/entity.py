@@ -9,6 +9,8 @@ from typing import TYPE_CHECKING
 
 from homeassistant.helpers.entity import Entity
 
+from .helpers import entity_is_available
+
 if TYPE_CHECKING:
     from homeassistant.helpers.device_registry import DeviceInfo
     from homeconnect_websocket import HomeAppliance
@@ -74,13 +76,7 @@ class HCEntity(Entity):
             # Hide first reconnect
             or (not self._appliance.session.connected and self._appliance.session.retry_count <= 2)
         )
-
-        if hasattr(self._entity, "available"):
-            available &= self._entity.available
-
-        if hasattr(self._entity, "access"):
-            available &= self._entity.access in self.entity_description.available_access
-
+        available &= entity_is_available(self._entity, self.entity_description.available_access)
         return available
 
     @property
