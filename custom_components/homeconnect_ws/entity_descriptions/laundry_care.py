@@ -12,6 +12,7 @@ from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCatego
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCLightEntityDescription,
     HCNumberEntityDescription,
     HCSelectEntityDescription,
     HCSensorEntityDescription,
@@ -216,11 +217,13 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="switch_door_light_ring",
             entity="LaundryCare.Common.Setting.DoorLightRing.Active",
             device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
         ),
         HCSwitchEntityDescription(
             key="switch_drum_light",
             entity="LaundryCare.Common.Setting.DrumLight.Active",
             device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
         ),
         HCSwitchEntityDescription(
             key="switch_laundry_end_signal",
@@ -280,6 +283,16 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="switch_laundry_idos2_active",
             entity="LaundryCare.Washer.Option.IDos2Active",
             device_class=SwitchDeviceClass.SWITCH,
+        ),
+    ],
+    "light": [
+        HCLightEntityDescription(
+            key="light_door_ring",
+            entity="LaundryCare.Common.Setting.DoorLightRing.Active",
+        ),
+        HCLightEntityDescription(
+            key="light_drum_light",
+            entity="LaundryCare.Common.Setting.DrumLight.Active",
         ),
     ],
 }

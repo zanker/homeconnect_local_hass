@@ -1064,6 +1064,17 @@
       "number_oven_display_brightness": {
         "name": "Display brightness"
       }
+    },
+    "light": {
+      "light_door_ring": {
+        "name": "Door Ring light"
+      },
+      "light_drum_light": {
+        "name": "Drum light"
+      },
+      "light_internal": {
+        "name": "Internal Light"
+      }
     }
   },
   "services": {
