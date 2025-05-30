@@ -97,7 +97,7 @@ async def get_config_entry_from_call(
     raise ServiceValidationError(msg)
 
 
-async def entity_is_available(entity: HcEntity, available_access: tuple[Access]) -> bool:
+def entity_is_available(entity: HcEntity, available_access: tuple[Access]) -> bool:
     """Check is HC entity is available."""
     available = True
     if hasattr(entity, "available"):
