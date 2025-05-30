@@ -164,7 +164,15 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCButtonEntityDescription(
             key="button_abort_program",
             entity="BSH.Common.Command.AbortProgram",
-        )
+        ),
+        HCButtonEntityDescription(
+            key="button_pause_program",
+            entity="BSH.Common.Command.PauseProgram",
+        ),
+        HCButtonEntityDescription(
+            key="button_resume_program",
+            entity="BSH.Common.Command.ResumeProgram",
+        ),
     ],
     "binary_sensor": [
         HCBinarySensorEntityDescription(

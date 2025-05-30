@@ -192,6 +192,12 @@
             },
             "button_start_program": {
                 "default": "mdi:play"
+            },
+            "button_pause_program": {
+                "default": "mdi:pause"
+            },
+            "button_resume_program": {
+                "default": "mdi:play"
             }
         },
         "number": {

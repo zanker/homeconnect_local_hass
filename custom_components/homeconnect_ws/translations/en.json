@@ -1028,6 +1028,12 @@
       },
       "button_start_program": {
         "name": "Start"
+      },
+      "button_pause_program": {
+        "name": "Pause"
+      },
+      "button_resume_program": {
+        "name": "Resume"
       }
     },
     "number": {
