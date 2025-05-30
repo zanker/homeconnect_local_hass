@@ -792,6 +792,14 @@
       },
       "sensor_wifi_signal_strength": {
         "name": "WLAN Signalstärke"
+      },
+      "sensor_MachineCareReminder": {
+          "name": "Maschinenreinigung",
+          "state": {
+              "Off": "Aus",
+              "Present": "Aktuell",
+              "Confirmed": "Bestätigt"
+          }
       }
     },
     "select": {
