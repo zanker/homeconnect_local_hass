@@ -10,7 +10,9 @@ from homeassistant.const import EntityCategory, UnitOfTemperature
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
+    HCLightEntityDescription,
     HCNumberEntityDescription,
+    HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
     _EntityDescriptionsDefinitionsType,
@@ -63,8 +65,36 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_off={"Off"},
         ),
         HCBinarySensorEntityDescription(
+            key="binary_sensor_door_alarm_freezer",
+            entity="Refrigeration.Common.Event.Door.AlarmFreezer",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
             key="binary_sensor_temperature_alarm_freezer",
             entity="Refrigeration.FridgeFreezer.Event.TemperatureAlarmFreezer",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_temperature_alarm_freezer",
+            entity="Refrigeration.Common.Event.Freezer.TemperatureAlarm",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_refrigerator_defrost",
+            entity="Refrigeration.Common.Status.Freezer.Defrost",
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_water_filter_full",
+            entity="Refrigeration.Common.Event.Dispenser.WaterFilterFull",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
             value_on={"Present", "Confirmed"},
@@ -77,7 +107,13 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.FridgeFreezer.Status.TemperatureAmbient",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        )
+        ),
+        HCSensorEntityDescription(
+            key="sensor_temperature_ambient",
+            entity="Refrigeration.Common.Status.TemperatureAmbient",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        ),
     ],
     "number": [
         HCNumberEntityDescription(
@@ -104,6 +140,11 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
         ),
         HCSwitchEntityDescription(
+            key="switch_super_freezer",
+            entity="Refrigeration.Common.Setting.Freezer.SuperMode",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
             key="switch_super_refrigerator",
             entity="Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator",
             device_class=SwitchDeviceClass.SWITCH,
@@ -114,9 +155,62 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
         ),
         HCSwitchEntityDescription(
+            key="switch_refrigerator_eco",
+            entity="Refrigeration.Common.Setting.EcoMode",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
             key="switch_refrigerator_vacation",
             entity="Refrigeration.FridgeFreezer.Setting.VacationMode",
             device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_dispenser_enabled",
+            entity="Refrigeration.Common.Setting.Dispenser.Enabled",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_sabbath_mode",
+            entity="Refrigeration.Common.Setting.SabbathMode",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_door_assistant_freezer",
+            entity="Refrigeration.Common.Setting.Door.AssistantFreezer",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigeration_light_internal",
+            entity="Refrigeration.Common.Setting.Light.Internal.Power",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_refrigeration_light_theater_mode",
+            entity="Refrigeration.Common.Setting.Light.Internal.EnableTheaterMode",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+    ],
+    "select": [
+        HCSelectEntityDescription(
+            key="select_refrigerator_door_assistant_freezer_trigger",
+            entity="Refrigeration.Common.Setting.Door.AssistantTriggerFreezer",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_refrigerator_door_assistant_freezer_force",
+            entity="Refrigeration.Common.Setting.Door.AssistantForceFreezer",
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
+        ),
+    ],
+    "light": [
+        HCLightEntityDescription(
+            key="light_internal",
+            entity="Refrigeration.Common.Setting.Light.Internal.Power",
         ),
     ],
 }

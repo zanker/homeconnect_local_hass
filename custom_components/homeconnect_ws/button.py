@@ -27,12 +27,12 @@ async def async_setup_entry(
 ) -> None:
     """Set up button platform."""
     entities = create_entities(
-        {"abort_button": HCAbortButton, "start_button": HCStartButton}, config_entry.runtime_data
+        {"button": HCButton, "start_button": HCStartButton}, config_entry.runtime_data
     )
     async_add_entites(entities)
 
 
-class HCAbortButton(HCEntity, ButtonEntity):
+class HCButton(HCEntity, ButtonEntity):
     """Abort Button Entity."""
 
     _entity: Command

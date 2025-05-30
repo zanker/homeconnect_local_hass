@@ -1027,6 +1027,14 @@
       "number_oven_display_brightness": {
         "name": "Display Helligkeit"
       }
+    },
+    "light": {
+      "light_door_ring": {
+        "name": "Tür Ringlicht"
+      },
+      "light_drum_light": {
+        "name": "Trommellicht"
+      }
     }
   },
   "services": {
