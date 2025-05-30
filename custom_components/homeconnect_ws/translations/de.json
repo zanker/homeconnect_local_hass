@@ -794,12 +794,12 @@
         "name": "WLAN Signalstärke"
       },
       "sensor_MachineCareReminder": {
-          "name": "Maschinenreinigung",
-          "state": {
-              "Off": "Aus",
-              "Present": "Aktuell",
-              "Confirmed": "Bestätigt"
-          }
+        "name": "Maschinenreinigung",
+        "state": {
+            "Off": "Aus",
+            "Present": "Aktuell",
+            "Confirmed": "Bestätigt"
+        }
       }
     },
     "select": {
