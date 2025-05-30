@@ -105,7 +105,7 @@ class HCLightEntityDescription(HCEntityDescription, LightEntityDescription, froz
 class EntityDescriptions(TypedDict):
     """Entity descriptions by type."""
 
-    abort_button: list[HCButtonEntityDescription]
+    button: list[HCButtonEntityDescription]
     active_program: list[HCSensorEntityDescription]
     binary_sensor: list[HCBinarySensorEntityDescription]
     event_sensor: list[HCSensorEntityDescription]
@@ -121,7 +121,7 @@ class EntityDescriptions(TypedDict):
 
 _EntityDescriptionsDefinitionsType = dict[
     Literal[
-        "abort_button",
+        "button",
         "active_program",
         "binary_sensor",
         "event_sensor",
@@ -143,7 +143,7 @@ _EntityDescriptionsDefinitionsType = dict[
 
 _EntityDescriptionsType = dict[
     Literal[
-        "abort_button",
+        "button",
         "active_program",
         "binary_sensor",
         "event_sensor",

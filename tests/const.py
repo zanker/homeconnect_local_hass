@@ -71,7 +71,7 @@ MOCK_AES_DEVICE_INFO = {
 }
 
 ENTITY_DESCRIPTIONS = {
-    "abort_button": [
+    "button": [
         HCButtonEntityDescription(
             key="Test.AbortProgram", name="AbortProgram", entity="Test.AbortProgram"
         )

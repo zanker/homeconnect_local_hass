@@ -160,7 +160,7 @@ def generate_wifi(appliance: HomeAppliance) -> EntityDescriptions:
 
 
 COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
-    "abort_button": [
+    "button": [
         HCButtonEntityDescription(
             key="button_abort_program",
             entity="BSH.Common.Command.AbortProgram",
