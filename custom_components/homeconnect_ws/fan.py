@@ -59,7 +59,7 @@ class HCFan(HCEntity, FanEntity):
         device_info: DeviceInfo,
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
-        self._attr_supported_features = FanEntityFeature.SET_SPEED | FanEntityFeature.TURN_OFF
+        self._attr_supported_features = FanEntityFeature.SET_SPEED
         self._speed_mapping = []
         self._speed_entities = {}
         self._attr_speed_count = 0
