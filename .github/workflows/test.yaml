@@ -25,5 +25,5 @@ jobs:
           sudo pip install uv
           sudo uv sync --no-install-project --prerelease=allow --no-dev --group test
           sudo uv pip install --prerelease=allow ${{ matrix.ha-version }} pytest-homeassistant-custom-component
-      - run: |
-          sudo uv run pytest tests/
+      - run: sudo uv pip show homeassistant
+      - run: sudo uv run pytest tests/
