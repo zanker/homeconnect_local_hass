@@ -537,6 +537,12 @@
       },
       "sensor_wifi_signal_strength": {
         "name": "WiFi Signal strength"
+      },
+      "sensor_grease_filter_saturation": {
+        "name": "Grease Filter Saturation"
+      },
+      "sensor_carbon_filter_saturation": {
+        "name": "Carbon Filter Saturation"
       }
     },
     "select": {

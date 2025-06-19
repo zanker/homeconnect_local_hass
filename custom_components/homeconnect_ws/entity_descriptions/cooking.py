@@ -113,6 +113,16 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Oven.Option.HeatupProgress",
             native_unit_of_measurement=PERCENTAGE,
         ),
+        HCSensorEntityDescription(
+            key="sensor_grease_filter_saturation",
+            entity="Cooking.Hood.Status.GreaseFilterSaturation",
+            native_unit_of_measurement=PERCENTAGE,
+        ),
+        HCSensorEntityDescription(
+            key="sensor_carbon_filter_saturation",
+            entity="Cooking.Hood.Status.CarbonFilterSaturation",
+            native_unit_of_measurement=PERCENTAGE,
+        ),
     ],
     "dynamic": [generate_oven_status],
     "number": [
