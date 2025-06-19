@@ -1023,6 +1023,15 @@
           "middleforce": "Middle",
           "highforce": "High"
         }
+      },
+      "select_hood_interval_stage": {
+        "name": "Interval stage",
+        "state": {
+          "FanOff": "Off",
+          "fanstage01": "1",
+          "fanstage02": "2",
+          "fanstage03": "3"
+        }
       }
     },
     "button": {
@@ -1072,6 +1081,12 @@
       },
       "number_oven_display_brightness": {
         "name": "Display brightness"
+      },
+      "number_hood_interval_off": {
+        "name": "Interval time off"
+      },
+      "number_hood_interval_on": {
+        "name": "Interval time on"
       }
     },
     "light": {

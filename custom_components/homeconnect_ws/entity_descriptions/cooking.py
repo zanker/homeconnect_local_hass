@@ -92,18 +92,21 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Hood.Setting.IntervalTimeOff",
             device_class=SensorDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
+            entity_registry_enabled_default=False,
         ),
         HCSensorEntityDescription(
             key="sensor_interval_time_on",
             entity="Cooking.Hood.Setting.IntervalTimeOn",
             device_class=SensorDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
+            entity_registry_enabled_default=False,
         ),
         HCSensorEntityDescription(
             key="sensor_delayed_shutoff_time",
             entity="Cooking.Hood.Setting.DelayedShutOffTime",
             device_class=SensorDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
+            entity_registry_enabled_default=False,
         ),
         HCSensorEntityDescription(
             key="sensor_heatup_progress",
@@ -124,6 +127,18 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="number_oven_display_brightness",
             entity="Cooking.Oven.Setting.DisplayBrightness",
             entity_category=EntityCategory.CONFIG,
+            mode=NumberMode.AUTO,
+        ),
+        HCNumberEntityDescription(
+            key="number_hood_interval_off",
+            entity="Cooking.Hood.Setting.IntervalTimeOn",
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+        ),
+        HCNumberEntityDescription(
+            key="number_hood_interval_on",
+            entity="Cooking.Hood.Setting.IntervalTimeOff",
+            native_unit_of_measurement=UnitOfTime.SECONDS,
             mode=NumberMode.AUTO,
         ),
     ],
@@ -166,6 +181,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Oven.Setting.SignalDuration",
             has_state_translation=True,
             entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_hood_interval_stage",
+            entity="Cooking.Hood.Setting.IntervalStage",
+            has_state_translation=True,
         ),
     ],
     "switch": [
