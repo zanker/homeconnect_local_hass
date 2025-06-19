@@ -145,6 +145,9 @@
       },
       "switch_refrigeration_light_theater_mode": {
         "name": "Internal Light TheaterMode"
+      },
+      "switch_hood_boost": {
+        "name": "Boost"
       }
     },
     "binary_sensor": {
