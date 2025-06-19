@@ -1033,7 +1033,7 @@
       "select_hood_interval_stage": {
         "name": "Interval stage",
         "state": {
-          "FanOff": "Off",
+          "fanoff": "Off",
           "fanstage01": "1",
           "fanstage02": "2",
           "fanstage03": "3"
