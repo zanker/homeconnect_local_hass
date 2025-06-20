@@ -145,6 +145,9 @@
       },
       "switch_refrigeration_light_theater_mode": {
         "name": "Internal Light TheaterMode"
+      },
+      "switch_hood_boost": {
+        "name": "Boost"
       }
     },
     "binary_sensor": {
@@ -534,6 +537,96 @@
       },
       "sensor_wifi_signal_strength": {
         "name": "WiFi Signal strength"
+      },
+      "sensor_grease_filter_saturation": {
+        "name": "Grease Filter Saturation"
+      },
+      "sensor_carbon_filter_saturation": {
+        "name": "Carbon Filter Saturation"
+      },
+      "sensor_hob_zone_state": {
+        "name": "Zone {group_name} State",
+        "state": {
+          "notselectable": "Not Selectable",
+          "off": "Off",
+          "active": "Active",
+          "residuelheat": "ResiduelHeat"
+        }
+      },
+      "sensor_hob_zone_operationstate": {
+        "name": "Zone {group_name} Operation State",
+        "state": {
+          "inactive": "Inactive",
+          "ready": "Ready",
+          "delayedstart": "Delayed Start",
+          "run": "Running",
+          "pause": "Paused",
+          "actionrequired": "Action Required",
+          "finished": "Finished",
+          "error": "Error",
+          "aborting": "Aborting"
+        }
+      },
+      "sensor_hob_zone_power_level": {
+        "name": "Zone {group_name} Power Level",
+        "state": {
+          "off": "Off",
+          "keepwarm": "KeepWarm",
+          "10": "10",
+          "15": "15",
+          "20": "20",
+          "25": "25",
+          "30": "30",
+          "35": "35",
+          "40": "40",
+          "45": "45",
+          "50": "50",
+          "55": "55",
+          "60": "60",
+          "65": "65",
+          "70": "70",
+          "75": "75",
+          "80": "80",
+          "85": "85",
+          "90": "90",
+          "boost1": "Boost 1",
+          "boost2": "Boost 2"
+        }
+      },
+      "sensor_hob_zone_frying_sensor_level": {
+        "name": "Zone {group_name} Frying Sensor level",
+        "state": {
+          "off": "Off",
+          "70dc": "70 °C",
+          "80dc": "80 °C",
+          "90dc": "90 °C",
+          "100dc": "100 °C",
+          "110dc": "110 °C",
+          "120dc": "120 °C",
+          "140dc": "140 °C",
+          "160dc": "160 °C",
+          "180dc": "180 °C",
+          "200dc": "200 °C",
+          "220dc": "220 °C"
+        }
+      },
+      "sensor_hob_zone_current_temperature": {
+        "name": "Zone {group_name} Current Temperature"
+      },
+      "sensor_hob_zone_heatup_progress": {
+        "name": "Zone {group_name} Heatup Progress"
+      },
+      "sensor_hob_zone_duration": {
+        "name": "Zone {group_name} Duration"
+      },
+      "sensor_hob_zone_elapsed_program_time": {
+        "name": "Zone {group_name} Elapsed Program Time"
+      },
+      "sensor_hob_zone_remaining_program_time": {
+        "name": "Zone {group_name} Remaining Program Time"
+      },
+      "sensor_hob_zone_program_progress": {
+        "name": "Zone {group_name} Program Progress"
       }
     },
     "select": {
@@ -1020,6 +1113,15 @@
           "middleforce": "Middle",
           "highforce": "High"
         }
+      },
+      "select_hood_interval_stage": {
+        "name": "Interval stage",
+        "state": {
+          "fanoff": "Off",
+          "fanstage01": "1",
+          "fanstage02": "2",
+          "fanstage03": "3"
+        }
       }
     },
     "button": {
@@ -1069,6 +1171,12 @@
       },
       "number_oven_display_brightness": {
         "name": "Display brightness"
+      },
+      "number_hood_interval_off": {
+        "name": "Interval time off"
+      },
+      "number_hood_interval_on": {
+        "name": "Interval time on"
       }
     },
     "light": {
@@ -1083,6 +1191,11 @@
       },
       "light_cooking_lighting": {
         "name": "Light"
+      }
+    },
+    "fan": {
+      "fan_hood": {
+        "name": "Fan"
       }
     }
   },
