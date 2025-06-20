@@ -141,20 +141,6 @@ def generate_hob_zones(appliance: HomeAppliance) -> HCFanEntityDescription:
                 )
             )
 
-        # PowerLevel
-        entity = f"Cooking.Hob.Status.Zone.{group[0]}.PowerLevel"
-        if entity in appliance.entities:
-            descriptions["sensor"].append(
-                HCSensorEntityDescription(
-                    key=f"sensor_hob_zone_{group[0]}_power_level",
-                    translation_key="sensor_hob_zone_power_level",
-                    translation_placeholders={"group_name": group_name},
-                    entity=entity,
-                    device_class=SensorDeviceClass.ENUM,
-                    has_state_translation=True,
-                )
-            )
-
         # FryingSensorLevel
         entity = f"Cooking.Hob.Status.Zone.{group[0]}.FryingSensorLevel"
         if entity in appliance.entities:
