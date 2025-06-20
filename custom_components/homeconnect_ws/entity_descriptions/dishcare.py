@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import (
     SensorDeviceClass,
 )
@@ -22,6 +23,14 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="binary_sensor_eco_dry_active",
             entity="Dishcare.Dishwasher.Status.EcoDryActive",
             entity_registry_enabled_default=False,
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_machinecarereminder",
+            entity="Dishcare.Dishwasher.Event.MachineCareReminder",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
         ),
     ],
     "event_sensor": [
