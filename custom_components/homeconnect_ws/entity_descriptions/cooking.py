@@ -140,6 +140,19 @@ def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
             appliance,
             descriptions["sensor"],
             HCSensorEntityDescription(
+                key=f"sensor_oven_{group_key}_power_state",
+                translation_key="sensor_specific_power_state",
+                translation_placeholders={"group_name": group_name},
+                entity="BSH.Common.Setting.PowerState",
+                device_class=SensorDeviceClass.ENUM,
+                has_state_translation=True,
+            )
+        )
+
+        add_if_entity_exists(
+            appliance,
+            descriptions["sensor"],
+            HCSensorEntityDescription(
                 key=f"sensor_oven_{group_key}_setpoint_temperature",
                 translation_key="sensor_oven_setpoint_temperature",
                 translation_placeholders={"group_name": group_name},
