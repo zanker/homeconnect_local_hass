@@ -43,15 +43,15 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SensorDeviceClass.ENUM,
             options=["empty", "nearly_empty", "full"],
         ),
-        HCSensorEntityDescription(
-            key="sensor_salt",
-            entities=[
-                "Dishcare.Dishwasher.Event.SaltLack",
-                "Dishcare.Dishwasher.Event.SaltNearlyEmpty",
-            ],
-            device_class=SensorDeviceClass.ENUM,
-            options=["empty", "nearly_empty", "full"],
-        ),
+        # HCSensorEntityDescription(
+        #     key="sensor_salt",
+        #     entities=[
+        #         "Dishcare.Dishwasher.Event.SaltLack",
+        #         "Dishcare.Dishwasher.Event.SaltNearlyEmpty",
+        #     ],
+        #     device_class=SensorDeviceClass.ENUM,
+        #     options=["empty", "nearly_empty", "full"],
+        # ),
     ],
     "select": [
         HCSelectEntityDescription(
