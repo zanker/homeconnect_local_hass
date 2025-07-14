@@ -84,9 +84,7 @@ def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
                 translation_key="binary_sensor_oven_meatprobe_plugged",
                 translation_placeholders={"group_name": group_name},
                 entity=f"Cooking.Oven.Status.Cavity.{group[0]}.MeatprobePlugged",
-                device_class=BinarySensorDeviceClass.PLUG,
-                value_on={"Plugged"},
-                value_off={"Unplugged"},
+                entity_category=EntityCategory.DIAGNOSTIC
             )
         )
 
