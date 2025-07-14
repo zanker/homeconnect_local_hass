@@ -942,7 +942,9 @@
           "cooking_oven_program_heatingmode_rotisserie": "Rotisserie",
           "cooking_oven_program_heatingmode_sabbathprogramme": "Sabbath Programme",
           "cooking_oven_program_heatingmode_slowcook": "Slow Cook",
-          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating"          
+          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating",
+          "cooking_oven_program_cleaning_easyclean": "Easy Clean",
+          "cooking_oven_program_cleaning_pyrolysis": "Pyrolysis"
         }
       },
       "select_sensitivity_turbidity": {
