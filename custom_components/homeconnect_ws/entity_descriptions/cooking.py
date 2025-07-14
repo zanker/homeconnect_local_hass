@@ -5,6 +5,11 @@ from __future__ import annotations
 import re
 from typing import TYPE_CHECKING
 
+from homeassistant.components.binary_sensor import (
+    BinarySensorDeviceClass,
+    BinarySensorEntity,
+)
+
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
@@ -20,6 +25,7 @@ from .descriptions_definitions import (
     HCSelectEntityDescription,
     HCSensorEntityDescription,
     HCSwitchEntityDescription,
+    HCBinarySensorEntityDescription,
     _EntityDescriptionsDefinitionsType,
 )
 
@@ -35,7 +41,7 @@ def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
     pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.([0-9]*)\..*$")
     groups = get_groups_from_regex(appliance, pattern)
     
-    descriptions = EntityDescriptions(event_sensor=[], sensor=[], number=[], switch=[],select=[])
+    descriptions = EntityDescriptions(event_sensor=[], sensor=[], number=[], switch=[], select=[], binary_sensor=[])
     add_if_entity_exists(
         appliance,
         descriptions["select"],
@@ -69,6 +75,46 @@ def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
         if int(group[0]) == 140:
             group_key = "lower"
             group_name = "Lower "
+
+        add_if_entity_exists(
+            appliance,
+            descriptions["binary_sensor"],
+            HCBinarySensorEntityDescription(
+                key=f"binary_sensor_oven_{group_key}_meatprobe_plugged",
+                translation_key="binary_sensor_oven_meatprobe_plugged",
+                translation_placeholders={"group_name": group_name},
+                entity=f"Cooking.Oven.Status.Cavity.{group[0]}.MeatprobePlugged",
+                device_class=BinarySensorDeviceClass.PLUG,
+                value_on={"Plugged"},
+                value_off={"Unplugged"},
+            )
+        )
+
+        add_if_entity_exists(
+            appliance,
+            descriptions["sensor"],
+            HCSensorEntityDescription(
+                key=f"sensor_oven_{group_key}_current_meatprobe_temperature",
+                translation_key="sensor_oven_current_meatprobe_temperature",
+                translation_placeholders={"group_name": group_name},
+                entity=f"Cooking.Oven.Status.Cavity.{group[0]}.CurrentMeatprobeTemperatureFahrenheit",
+                device_class=SensorDeviceClass.TEMPERATURE,
+                native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
+            )
+        )
+
+        add_if_entity_exists(
+            appliance,
+            descriptions["sensor"],
+            HCSensorEntityDescription(
+                key=f"sensor_oven_{group_key}_setpoint_meatprobe_temperature",
+                translation_key="sensor_oven_setpoint_meatprobe_temperature",
+                translation_placeholders={"group_name": group_name},
+                entity=f"Cooking.Oven.Status.Cavity.{group[0]}.MeatProbeTemperatureFahrenheit",
+                device_class=SensorDeviceClass.TEMPERATURE,
+                native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
+            )
+        )
 
         add_if_entity_exists(
             appliance,
