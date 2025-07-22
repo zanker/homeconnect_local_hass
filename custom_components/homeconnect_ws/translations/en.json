@@ -1122,6 +1122,15 @@
           "fanstage02": "2",
           "fanstage03": "3"
         }
+      },
+      "select_hob_delaye_shutoff_stage": {
+        "name": "Delayed ShutOff Stage",
+        "state": {
+          "fanoff": "Off",
+          "fanstage01": "1",
+          "fanstage02": "2",
+          "fanstage03": "3"
+        }
       }
     },
     "button": {
@@ -1177,6 +1186,9 @@
       },
       "number_hood_interval_on": {
         "name": "Interval time on"
+      },
+      "number_hood_delayed_shutoff_time": {
+        "name": "Delayed Shutoff Time"
       }
     },
     "light": {

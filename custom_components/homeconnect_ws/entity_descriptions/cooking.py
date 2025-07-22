@@ -313,6 +313,12 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             native_unit_of_measurement=UnitOfTime.SECONDS,
             mode=NumberMode.AUTO,
         ),
+        HCNumberEntityDescription(
+            key="number_hood_delayed_shutoff_time",
+            entity="Cooking.Hood.Setting.DelayedShutOffTime",
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+        ),
     ],
     "select": [
         HCSelectEntityDescription(
@@ -364,6 +370,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Hob.Setting.Ventilation",
             has_state_translation=True,
             entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_hob_delaye_shutoff_stage",
+            entity="Cooking.Hood.Setting.DelayedShutOffStage",
+            has_state_translation=True,
         ),
     ],
     "switch": [
