@@ -406,6 +406,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Cooking.Common.Option.Hood.Boost",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_hood_silence_mode",
+            entity="Cooking.Hood.Setting.NoiseReduction",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
     ],
     "light": [
         HCLightEntityDescription(
