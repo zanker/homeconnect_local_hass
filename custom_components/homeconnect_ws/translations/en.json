@@ -231,6 +231,9 @@
       },
       "binary_sensor_water_filter_full": {
         "name": "Water filter full"
+      },
+      "binary_sensor_freezer_appliance_error": {
+        "name": "Appliance Error"
       }
     },
     "sensor": {

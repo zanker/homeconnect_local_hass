@@ -104,6 +104,14 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.FridgeFreezer.Status.DefrostFreezer",
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_freezer_appliance_error",
+            entity="Refrigeration.FridgeFreezer.Event.ApplianceError",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
     ],
     "sensor": [
         HCSensorEntityDescription(
