@@ -293,12 +293,16 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
                 {
                     "name": "Last Start",
                     "entity": "BSH.Common.Status.ProgramSessionSummary.Latest",
-                    "value_fn": lambda entity: entity.value["start"],
+                    "value_fn": lambda entity: entity.value["start"]
+                    if entity.value is not None
+                    else None,
                 },
                 {
                     "name": "Last End",
                     "entity": "BSH.Common.Status.ProgramSessionSummary.Latest",
-                    "value_fn": lambda entity: entity.value["end"],
+                    "value_fn": lambda entity: entity.value["end"]
+                    if entity.value is not None
+                    else None,
                 },
             ],
         ),
