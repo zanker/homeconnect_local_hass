@@ -196,6 +196,12 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.Common.Setting.Light.Internal.EnableTheaterMode",
             device_class=SwitchDeviceClass.SWITCH,
         ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_sabbath_mode",
+            entity="Refrigeration.FridgeFreezer.Setting.SabbathMode",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "select": [
         HCSelectEntityDescription(
