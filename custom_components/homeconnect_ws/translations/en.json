@@ -639,6 +639,30 @@
       },
       "sensor_hob_zone_program_progress": {
         "name": "Zone {group_name} Program Progress"
+      },
+      "sensor_count_ristretto_espresso": {
+        "name": "Ristretto Espresso count"
+      },
+      "sensor_count_coffee": {
+        "name": "Coffee count"
+      },
+      "sensor_count_coffee_milk": {
+        "name": "Coffee & Milk count"
+      },
+      "sensor_count_frothy_milk": {
+        "name": "Frothy Milk count"
+      },
+      "sensor_count_hot_milk": {
+        "name": "Hot Milk count"
+      },
+      "sensor_count_hot_water": {
+        "name": "Hot Water count"
+      },
+      "sensor_count_hot_water_cups": {
+        "name": "Hot Water Cups count"
+      },
+      "sensor_count_powder_coffee": {
+        "name": "Powder Coffee count"
       }
     },
     "select": {
