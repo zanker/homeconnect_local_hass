@@ -45,6 +45,16 @@ POWER_SWITCH_VALUE_MAPINGS = (
 )
 
 
+def generate_start_button(appliance: HomeAppliance) -> EntityDescriptions:
+    """Get Start Button description."""
+    if len(appliance.programs) > 0:
+        return HCButtonEntityDescription(
+            key="button_start_program",
+            entity="BSH.Common.Root.ActiveProgram",
+        )
+    return None
+
+
 def generate_power_switch(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Power switch description."""
     entity_descriptions = EntityDescriptions()
@@ -336,12 +346,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         ),
         generate_door_state,
     ],
-    "start_button": [
-        HCButtonEntityDescription(
-            key="button_start_program",
-            entity="BSH.Common.Root.ActiveProgram",
-        )
-    ],
+    "start_button": [generate_start_button],
     "switch": [
         HCSwitchEntityDescription(
             key="switch_child_lock",
