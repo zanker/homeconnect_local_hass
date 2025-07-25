@@ -234,6 +234,9 @@
       },
       "binary_sensor_freezer_appliance_error": {
         "name": "Appliance Error"
+      },
+      "binary_sensor_freezer_low_voltage": {
+        "name": "Low Voltage"
       }
     },
     "sensor": {
