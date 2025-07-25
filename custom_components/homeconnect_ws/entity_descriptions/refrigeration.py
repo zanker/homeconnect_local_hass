@@ -202,6 +202,12 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSwitchEntityDescription(
+            key="switch_refrigerator_fresh_mode",
+            entity="Refrigeration.FridgeFreezer.Setting.FreshMode",
+            device_class=SwitchDeviceClass.SWITCH,
+            entity_category=EntityCategory.CONFIG,
+        ),
     ],
     "select": [
         HCSelectEntityDescription(

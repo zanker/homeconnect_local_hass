@@ -151,6 +151,9 @@
       },
       "switch_hood_silence_mode": {
         "name": "Silence Mode"
+      },
+      "switch_refrigerator_fresh_mode": {
+        "name": "Fresh Mode"
       }
     },
     "binary_sensor": {
