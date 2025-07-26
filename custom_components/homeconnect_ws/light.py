@@ -13,6 +13,8 @@ from homeassistant.components.light import (
 from homeassistant.components.light.const import DEFAULT_MAX_KELVIN, DEFAULT_MIN_KELVIN
 from homeassistant.util.color import brightness_to_value, value_to_brightness
 from homeassistant.util.scaling import scale_ranged_value_to_int_range
+from homeconnect_websocket.message import Action
+from homeconnect_websocket.message import Message as HC_Message
 
 from .entity import HCEntity
 from .helpers import create_entities, entity_is_available
@@ -106,6 +108,11 @@ class HCLight(HCEntity, LightEntity):
         )
 
     async def async_turn_on(self, **kwargs: Any) -> None:
+        message = HC_Message(
+            resource="/ro/values",
+            action=Action.POST,
+            data=[],
+        )
         if ATTR_BRIGHTNESS in kwargs:
             value_in_range = int(
                 max(
@@ -113,7 +120,7 @@ class HCLight(HCEntity, LightEntity):
                     self._brightness_entity.min,
                 )
             )
-            await self._brightness_entity.set_value(value_in_range)
+            message.data.append({"uid": self._brightness_entity.uid, "value": value_in_range})
         if ATTR_COLOR_TEMP_KELVIN in kwargs:
             value_in_range = int(
                 scale_ranged_value_to_int_range(
@@ -122,8 +129,12 @@ class HCLight(HCEntity, LightEntity):
                     kwargs[ATTR_COLOR_TEMP_KELVIN],
                 )
             )
-            await self._color_temperature_entity.set_value(value_in_range)
-        await self._entity.set_value(True)
+            message.data.append(
+                {"uid": self._color_temperature_entity.uid, "value": value_in_range}
+            )
+        if self._entity.value is not True:
+            message.data.append({"uid": self._entity.uid, "value": True})
+        await self._appliance.session.send_sync(message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         await self._entity.set_value(False)

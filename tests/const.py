@@ -311,6 +311,7 @@ DEVICE_DESCRIPTION = DeviceDescription(
             name="Test.Lighting",
             access=Access.READ_WRITE,
             available=True,
+            protocolType="Boolean",
         ),
         EntityDescription(
             uid=109,
@@ -320,6 +321,7 @@ DEVICE_DESCRIPTION = DeviceDescription(
             default=0,
             min=2,
             max=100,
+            protocolType="Float",
         ),
         EntityDescription(
             uid=110,
@@ -329,6 +331,7 @@ DEVICE_DESCRIPTION = DeviceDescription(
             default=0,
             min=0,
             max=100,
+            protocolType="Float",
         ),
     ],
     event=[
