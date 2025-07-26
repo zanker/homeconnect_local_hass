@@ -343,6 +343,9 @@
           "full": "Full"
         }
       },
+      "sensor_start_in": {
+        "name": "Start in"
+      },
       "sensor_count_started": {
         "name": "Start count"
       },

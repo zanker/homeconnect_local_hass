@@ -319,6 +319,9 @@
           "full": "Pieno"
         }
       },
+      "sensor_start_in": {
+        "name": "Avvio tra"
+      },
       "sensor_count_started": {
         "name": "Contatore partenze"
       },
@@ -1026,7 +1029,7 @@
       },
       "number_oven_display_brightness": {
         "name": "Luminosità display"
-      }
+      },
       "number_start_in": {
         "name": "Avvio tra"
       }
