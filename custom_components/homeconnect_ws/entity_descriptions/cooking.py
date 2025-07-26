@@ -329,6 +329,17 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             native_unit_of_measurement=UnitOfTime.SECONDS,
             mode=NumberMode.AUTO,
         ),
+        HCNumberEntityDescription(
+            key="number_hood_delayed_shutoff_time",
+            entity="Cooking.Hood.Setting.DelayedShutOffTime",
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+        ),
+        HCNumberEntityDescription(
+            key="number_hood_sensor_sensitivity",
+            entity="Cooking.Hood.Setting.SensorSensitivity",
+            mode=NumberMode.AUTO,
+        ),
     ],
     "select": [
         HCSelectEntityDescription(
@@ -381,6 +392,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             has_state_translation=True,
             entity_category=EntityCategory.CONFIG,
         ),
+        HCSelectEntityDescription(
+            key="select_hob_delaye_shutoff_stage",
+            entity="Cooking.Hood.Setting.DelayedShutOffStage",
+            has_state_translation=True,
+        ),
     ],
     "switch": [
         HCSwitchEntityDescription(
@@ -409,6 +425,11 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCSwitchEntityDescription(
             key="switch_hood_boost",
             entity="Cooking.Common.Option.Hood.Boost",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
+            key="switch_hood_silence_mode",
+            entity="Cooking.Hood.Setting.NoiseReduction",
             device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
