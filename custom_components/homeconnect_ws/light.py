@@ -6,10 +6,13 @@ from typing import TYPE_CHECKING, Any
 
 from homeassistant.components.light import (
     ATTR_BRIGHTNESS,
+    ATTR_COLOR_TEMP_KELVIN,
     ColorMode,
     LightEntity,
 )
+from homeassistant.components.light.const import DEFAULT_MAX_KELVIN, DEFAULT_MIN_KELVIN
 from homeassistant.util.color import brightness_to_value, value_to_brightness
+from homeassistant.util.scaling import scale_ranged_value_to_int_range
 
 from .entity import HCEntity
 from .helpers import create_entities, entity_is_available
@@ -42,7 +45,7 @@ class HCLight(HCEntity, LightEntity):
 
     entity_description: HCLightEntityDescription
     _brightness_entity: HcEntity | None = None
-    _brightness_scale: tuple[float, float] | None = None
+    _color_temperature_entity: HcEntity | None = None
 
     def __init__(
         self,
@@ -55,6 +58,18 @@ class HCLight(HCEntity, LightEntity):
             self._brightness_entity = self._appliance.entities[entity_description.brightness_entity]
             self._entities.append(self._brightness_entity)
 
+        if entity_description.color_temperature_entity is not None:
+            self._color_temperature_entity = self._appliance.entities[
+                entity_description.color_temperature_entity
+            ]
+            self._entities.append(self._color_temperature_entity)
+
+        if self._color_temperature_entity and self._brightness_entity:
+            self._attr_supported_color_modes = {ColorMode.COLOR_TEMP}
+            self._attr_color_mode = ColorMode.COLOR_TEMP
+            self._attr_max_color_temp_kelvin = DEFAULT_MAX_KELVIN
+            self._attr_min_color_temp_kelvin = DEFAULT_MIN_KELVIN
+        elif self._brightness_entity:
             self._attr_supported_color_modes = {ColorMode.BRIGHTNESS}
             self._attr_color_mode = ColorMode.BRIGHTNESS
         else:
@@ -68,6 +83,10 @@ class HCLight(HCEntity, LightEntity):
             available &= entity_is_available(
                 self._brightness_entity, self.entity_description.available_access
             )
+        if self._color_temperature_entity:
+            available &= entity_is_available(
+                self._color_temperature_entity, self.entity_description.available_access
+            )
         return available
 
     @property
@@ -78,6 +97,14 @@ class HCLight(HCEntity, LightEntity):
     def brightness(self) -> int | None:
         return value_to_brightness((1, 100), self._brightness_entity.value)
 
+    @property
+    def color_temp_kelvin(self) -> int | None:
+        return scale_ranged_value_to_int_range(
+            (1, 100),
+            (DEFAULT_MIN_KELVIN + 1, DEFAULT_MAX_KELVIN),
+            self._color_temperature_entity.value,
+        )
+
     async def async_turn_on(self, **kwargs: Any) -> None:
         if ATTR_BRIGHTNESS in kwargs:
             value_in_range = int(
@@ -87,6 +114,15 @@ class HCLight(HCEntity, LightEntity):
                 )
             )
             await self._brightness_entity.set_value(value_in_range)
+        if ATTR_COLOR_TEMP_KELVIN in kwargs:
+            value_in_range = int(
+                scale_ranged_value_to_int_range(
+                    (DEFAULT_MIN_KELVIN + 1, DEFAULT_MAX_KELVIN),
+                    (1, 100),
+                    kwargs[ATTR_COLOR_TEMP_KELVIN],
+                )
+            )
+            await self._color_temperature_entity.set_value(value_in_range)
         await self._entity.set_value(True)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
