@@ -363,6 +363,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=NumberDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
             mode=NumberMode.AUTO,
+            entity_registry_enabled_default=False,
         ),
     ],
     "wifi": [generate_wifi],
