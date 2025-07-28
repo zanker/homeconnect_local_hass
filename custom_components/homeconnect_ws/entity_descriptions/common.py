@@ -20,6 +20,7 @@ from homeassistant.const import (
     EntityCategory,
     UnitOfTime,
 )
+from custom_components.homeconnect_ws.helpers import get_all_programs
 
 from .descriptions_definitions import (
     EntityDescriptions,
@@ -109,28 +110,7 @@ def generate_door_state(appliance: HomeAppliance) -> HCSensorEntityDescription |
 
 def generate_program(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Door program select and sensor description."""
-    pattern = re.compile(r"^BSH\.Common\.Program\.Favorite\.(.*)$")
-
-    programs = {}
-
-    for program in appliance.programs:
-        if match := pattern.match(program):
-            favorite_name_entity = appliance.settings.get(
-                f"BSH.Common.Setting.Favorite.{match.groups()[0]}.Name"
-            )
-            if favorite_name_entity and favorite_name_entity.value:
-                program_name = favorite_name_entity.value
-            else:
-                program_name = f"favorite_{match.groups()[0]}"
-        else:
-            program_name = program.lower().replace(".", "_")
-
-        programs[program] = program_name
-
-    # sort programs
-    programs_keys = list(programs.keys())
-    programs_keys.sort()
-    sorted_programs = {i: programs[i] for i in programs_keys}
+    programs, sorted_programs = get_all_programs(appliance)
 
     descriptions = EntityDescriptions()
     if programs:

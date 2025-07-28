@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import logging
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
@@ -83,6 +84,32 @@ def get_groups_from_regex(appliance: HomeAppliance, pattern: re.Pattern) -> set[
         if (match := pattern.match(entity)) and match.groups() not in groups:
             groups.add(match.groups())
     return groups
+
+def get_all_programs(appliance: HomeAppliance) -> Any:
+    pattern = re.compile(r"^BSH\.Common\.Program\.Favorite\.(.*)$")
+
+    programs = {}
+
+    for program in appliance.programs:
+        if match := pattern.match(program):
+            favorite_name_entity = appliance.settings.get(
+                f"BSH.Common.Setting.Favorite.{match.groups()[0]}.Name"
+            )
+            if favorite_name_entity and favorite_name_entity.value:
+                program_name = favorite_name_entity.value
+            else:
+                program_name = f"favorite_{match.groups()[0]}"
+        else:
+            program_name = program.lower().replace(".", "_")
+
+        programs[program] = program_name
+
+    # sort programs
+    programs_keys = list(programs.keys())
+    programs_keys.sort()
+    sorted_programs = {i: programs[i] for i in programs_keys}
+
+    return programs, sorted_programs
 
 
 async def get_config_entry_from_call(

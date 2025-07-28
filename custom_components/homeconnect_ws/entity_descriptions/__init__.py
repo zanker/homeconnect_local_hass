@@ -39,11 +39,8 @@ def get_all_entity_description() -> _EntityDescriptionsDefinitionsType:
     if ALL_ENTITY_DESCRIPTIONS is None:
         ALL_ENTITY_DESCRIPTIONS = merge_dicts(
             COMMON_ENTITY_DESCRIPTIONS,
-            CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS,
             COOKING_ENTITY_DESCRIPTIONS,
             DISHCARE_ENTITY_DESCRIPTIONS,
-            LAUNDRY_ENTITY_DESCRIPTIONS,
-            REFRIGERATION_ENTITY_DESCRIPTIONS,
         )
     return ALL_ENTITY_DESCRIPTIONS
 

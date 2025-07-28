@@ -38,6 +38,9 @@
       "switch_power_state": {
         "name": "Power"
       },
+      "switch_power_state_light": {
+        "name": "{group_name}Light"
+      },
       "switch_hygiene_plus": {
         "name": "Hygiene Plus"
       },
@@ -240,6 +243,12 @@
       }
     },
     "sensor": {
+      "sensor_oven_elapsed_program_time": {
+        "name": "{group_name}Elapsed Program Time"
+      },
+      "sensor_oven_remaining_program_time": {
+        "name": "{group_name}Remaining Program Time"
+      },
       "sensor_remaining_program_time": {
         "name": "Remaining Program Time"
       },
@@ -252,6 +261,22 @@
       "sensor_energy_forecast": {
         "name": "Energy Forecast"
       },
+      "sensor_regular_preheat_finished": {
+        "name": "{group_name}Regular Preheat Finished",
+        "state": {
+          "off": "Off",
+          "present": "Present",
+          "confirmed": "Confirmed"
+        }
+      },
+      "sensor_fast_preheat_finished": {
+        "name": "{group_name}Fast Preheat Finished",
+        "state": {
+          "off": "Off",
+          "present": "Present",
+          "confirmed": "Confirmed"
+        }
+      },      
       "sensor_operation_state": {
         "name": "Operation State",
         "state": {
@@ -266,6 +291,20 @@
           "aborting": "Aborting"
         }
       },
+      "sensor_operation_state_specific": {
+        "name": "{group_name}Operation State",
+        "state": {
+          "inactive": "Inactive",
+          "ready": "Ready",
+          "delayedstart": "Delayed Start",
+          "run": "Running",
+          "pause": "Paused",
+          "actionrequired": "Action Required",
+          "finished": "Finished",
+          "error": "Error",
+          "aborting": "Aborting"
+        }
+      },      
       "sensor_program_phase": {
         "name": "Program phase",
         "state": {
@@ -273,6 +312,52 @@
           "mainwash": "Main Wash",
           "finalrinse": "Final Rinse",
           "drying": "Drying"
+        }
+      },
+      "sensor_selected_program_specific": {
+        "name": "{group_name}Selected Program",
+        "state": {
+          "cooking_oven_program_heatingmode_airfry": "Air Fry",
+          "cooking_oven_program_heatingmode_convectionbake": "Convection Bake",
+          "cooking_oven_program_heatingmode_convectionroast": "Convection Roast",
+          "cooking_oven_program_heatingmode_desiccation": "Desiccation",
+          "cooking_oven_program_heatingmode_frozenheatupspecial": "Frozen Heatup Special",
+          "cooking_oven_program_heatingmode_grilllargearea": "Grill Large Area",
+          "cooking_oven_program_heatingmode_hotair": "Hot Air",
+          "cooking_oven_program_heatingmode_hotairgrilling": "Hot Air Grilling",
+          "cooking_oven_program_heatingmode_intensiveheat": "Intensive Heat",
+          "cooking_oven_program_heatingmode_keepwarm": "Keep Warm",
+          "cooking_oven_program_heatingmode_maxbroil": "Max Broil",
+          "cooking_oven_program_heatingmode_maxconvectionbroil": "Max Convection Broil",
+          "cooking_oven_program_heatingmode_pizzasetting": "Pizza Setting",
+          "cooking_oven_program_heatingmode_proof": "Proof",
+          "cooking_oven_program_heatingmode_rotisserie": "Rotisserie",
+          "cooking_oven_program_heatingmode_sabbathprogramme": "Sabbath Programme",
+          "cooking_oven_program_heatingmode_slowcook": "Slow Cook",
+          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating"
+        }
+      },      
+      "sensor_active_program_specific": {
+        "name": "{group_name}Active Program",
+        "state": {
+          "cooking_oven_program_heatingmode_airfry": "Air Fry",
+          "cooking_oven_program_heatingmode_convectionbake": "Convection Bake",
+          "cooking_oven_program_heatingmode_convectionroast": "Convection Roast",
+          "cooking_oven_program_heatingmode_desiccation": "Desiccation",
+          "cooking_oven_program_heatingmode_frozenheatupspecial": "Frozen Heatup Special",
+          "cooking_oven_program_heatingmode_grilllargearea": "Grill Large Area",
+          "cooking_oven_program_heatingmode_hotair": "Hot Air",
+          "cooking_oven_program_heatingmode_hotairgrilling": "Hot Air Grilling",
+          "cooking_oven_program_heatingmode_intensiveheat": "Intensive Heat",
+          "cooking_oven_program_heatingmode_keepwarm": "Keep Warm",
+          "cooking_oven_program_heatingmode_maxbroil": "Max Broil",
+          "cooking_oven_program_heatingmode_maxconvectionbroil": "Max Convection Broil",
+          "cooking_oven_program_heatingmode_pizzasetting": "Pizza Setting",
+          "cooking_oven_program_heatingmode_proof": "Proof",
+          "cooking_oven_program_heatingmode_rotisserie": "Rotisserie",
+          "cooking_oven_program_heatingmode_sabbathprogramme": "Sabbath Programme",
+          "cooking_oven_program_heatingmode_slowcook": "Slow Cook",
+          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating"
         }
       },
       "sensor_active_program": {
@@ -336,7 +421,25 @@
           "laundrycare_dryer_program_synthetic": "Easy-Care",
           "laundrycare_dryer_program_timecold": "Time Progr. Cold",
           "laundrycare_dryer_program_timewarm": "Time Progr. Warm",
-          "laundrycare_dryer_program_towels": "Towels"
+          "laundrycare_dryer_program_towels": "Towels",
+          "cooking_oven_program_heatingmode_airfry": "Air Fry",
+          "cooking_oven_program_heatingmode_convectionbake": "Convection Bake",
+          "cooking_oven_program_heatingmode_convectionroast": "Convection Roast",
+          "cooking_oven_program_heatingmode_desiccation": "Desiccation",
+          "cooking_oven_program_heatingmode_frozenheatupspecial": "Frozen Heatup Special",
+          "cooking_oven_program_heatingmode_grilllargearea": "Grill Large Area",
+          "cooking_oven_program_heatingmode_hotair": "Hot Air",
+          "cooking_oven_program_heatingmode_hotairgrilling": "Hot Air Grilling",
+          "cooking_oven_program_heatingmode_intensiveheat": "Intensive Heat",
+          "cooking_oven_program_heatingmode_keepwarm": "Keep Warm",
+          "cooking_oven_program_heatingmode_maxbroil": "Max Broil",
+          "cooking_oven_program_heatingmode_maxconvectionbroil": "Max Convection Broil",
+          "cooking_oven_program_heatingmode_pizzasetting": "Pizza Setting",
+          "cooking_oven_program_heatingmode_proof": "Proof",
+          "cooking_oven_program_heatingmode_rotisserie": "Rotisserie",
+          "cooking_oven_program_heatingmode_sabbathprogramme": "Sabbath Programme",
+          "cooking_oven_program_heatingmode_slowcook": "Slow Cook",
+          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating"
         }
       },
       "sensor_rinse_aid": {
@@ -414,6 +517,15 @@
           "ajar": "Ajar"
         }
       },
+      "sensor_door_state_specific": {
+        "name": "{group_name}Door",
+        "state": {
+          "open": "Open",
+          "closed": "Closed",
+          "locked": "Locked",
+          "ajar": "Ajar"
+        }
+      },      
       "sensor_laundry_reload": {
         "name": "Laundry reload",
         "state": {
@@ -551,7 +663,7 @@
         "name": "Estimated total program time"
       },
       "sensor_oven_water_tank": {
-        "name": "Water Tank{group_name}",
+        "name": "{group_name}Water Tank",
         "state": {
           "ok": "Ok",
           "empty": "Empty",
@@ -559,11 +671,25 @@
         }
       },
       "sensor_oven_current_temperature": {
-        "name": "Current Temperature{group_name}"
+        "name": "{group_name}Current Temperature"
+      },
+      "sensor_oven_cavity_state": {
+        "name": "{group_name}Cavity State",
+        "state": {
+          "off": "Off",
+          "active": "Active",
+          "residualheat": "Residual Heat"
+        }
+      },
+      "sensor_oven_setpoint_temperature": {
+        "name": "{group_name}Setpoint Temperature"
       },
       "sensor_heatup_progress": {
         "name": "Heatup progress"
       },
+      "sensor_heatup_progress_specific": {
+        "name": "{group_name}Heatup progress"
+      },      
       "sensor_wifi_signal_strength": {
         "name": "WiFi Signal strength"
       },
@@ -683,6 +809,13 @@
       }
     },
     "select": {
+      "select_oven_cavity": {
+        "name": "Oven Cavity",
+        "state": {
+          "bottom": "Bottom",
+          "top": "Top"
+        }
+      },
       "select_drying_assistant_all_programs": {
         "name": "Drying Assistant All Programs",
         "state": {
@@ -782,7 +915,25 @@
           "laundrycare_dryer_program_synthetic": "Easy-Care",
           "laundrycare_dryer_program_timecold": "Time Progr. Cold",
           "laundrycare_dryer_program_timewarm": "Time Progr. Warm",
-          "laundrycare_dryer_program_towels": "Towels"
+          "laundrycare_dryer_program_towels": "Towels",
+          "cooking_oven_program_heatingmode_airfry": "Air Fry",
+          "cooking_oven_program_heatingmode_convectionbake": "Convection Bake",
+          "cooking_oven_program_heatingmode_convectionroast": "Convection Roast",
+          "cooking_oven_program_heatingmode_desiccation": "Desiccation",
+          "cooking_oven_program_heatingmode_frozenheatupspecial": "Frozen Heatup Special",
+          "cooking_oven_program_heatingmode_grilllargearea": "Grill Large Area",
+          "cooking_oven_program_heatingmode_hotair": "Hot Air",
+          "cooking_oven_program_heatingmode_hotairgrilling": "Hot Air Grilling",
+          "cooking_oven_program_heatingmode_intensiveheat": "Intensive Heat",
+          "cooking_oven_program_heatingmode_keepwarm": "Keep Warm",
+          "cooking_oven_program_heatingmode_maxbroil": "Max Broil",
+          "cooking_oven_program_heatingmode_maxconvectionbroil": "Max Convection Broil",
+          "cooking_oven_program_heatingmode_pizzasetting": "Pizza Setting",
+          "cooking_oven_program_heatingmode_proof": "Proof",
+          "cooking_oven_program_heatingmode_rotisserie": "Rotisserie",
+          "cooking_oven_program_heatingmode_sabbathprogramme": "Sabbath Programme",
+          "cooking_oven_program_heatingmode_slowcook": "Slow Cook",
+          "cooking_oven_program_heatingmode_topbottomheating": "Top Bottom Heating"          
         }
       },
       "select_sensitivity_turbidity": {
@@ -809,6 +960,9 @@
           "standby": "Standby"
         }
       },
+      "select_light_specific": {
+        "name": "{group_name}Light"
+      },      
       "select_coffee_temperature": {
         "name": "Coffee temperature",
         "state": {
