@@ -630,7 +630,7 @@
         "name": "Verzögerte Abschaltung"
       },
       "sensor_power_state": {
-        "name": "Betriebszustand",
+        "name": "Status",
         "state": {
           "mainsoff": "Strom getrennt",
           "off": "Aus",
@@ -799,6 +799,30 @@
       },
       "sensor_wifi_signal_strength": {
         "name": "WLAN Signalstärke"
+      },
+      "sensor_count_ristretto_espresso": {
+        "name": "Anzahl Ristretto"
+      },
+      "sensor_count_coffee": {
+        "name": "Anzahl Kaffeegetränke"
+      },
+      "sensor_count_coffee_milk": {
+        "name": "Anzahl Kaffee-Milch-Spezialitäten"
+      },
+      "sensor_count_frothy_milk": {
+        "name": "Anzahl Milchschaum"
+      },
+      "sensor_count_hot_milk": {
+        "name": "Anzahl Milchgetränke"
+      },
+      "sensor_count_hot_water": {
+        "name": "Menge Heißwasser"
+      },
+      "sensor_count_hot_water_cups": {
+        "name": "Anzahl Heißwasser"
+      },
+      "sensor_count_powder_coffee": {
+        "name": "Anzahl Pulverkaffee"
       }
     },
     "select": {
@@ -1582,6 +1606,9 @@
       },
       "button_start_program": {
         "name": "Start"
+      },
+      "button_resume_program": {
+        "name": "Fortsetzen"
       }
     },
     "number": {
