@@ -884,10 +884,10 @@
         "name": "calc'nClean notwendig"
       },
       "sensor_countdown_cleaning": {
-        "name": "Reinigen notwendig"
+        "name": "Reinigung notwendig"
       },
       "sensor_countdown_descaling": {
-        "name": "Entkalken notwendig"
+        "name": "Entkalkung notwendig"
       },
       "sensor_countdown_water_filter": {
         "name": "Wasserfilter austauschen"
