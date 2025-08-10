@@ -738,6 +738,41 @@
       },
       "sensor_count_powder_coffee": {
         "name": "Powder Coffee count"
+      },
+      "sensor_coffeemaker_process_phase": {
+        "name": "Process Phase",
+        "state": {
+          "none": "Idle",
+          "beverageaborting": "Cancelling Beverage",
+          "grinding": "Grinding Beans",
+          "brewingunitmovesup": "Preparing Brewing Unit",
+          "coffeebrewing": "Brewing Coffee",
+          "brewingunitmovesdown": "Finishing Brew",
+          "milkfroth": "Frothing Milk",
+          "cleaningmilksystem": "Cleaning Milk System",
+          "hotwaterdispensing": "Dispensing Hot Water",
+          "cleaningmode": "Cleaning Mode",
+          "descalephase": "Descaling",
+          "rinsephase": "Rinsing",
+          "cleanphase": "Cleaning",
+          "warmmilk": "Warming Milk",
+          "frostprotection": "Frost Protection Active",
+          "specialrinsing": "Special Rinse",
+          "waterfilteractivation": "Activating Water Filter",
+          "lattemacpause": "Latte Macchiato Pause",
+          "startphase": "Starting Up",
+          "skipphase": "Skipping Step",
+          "preliminary": "Preliminary Step",
+          "autodescalephase": "Auto Descaling",
+          "autocleanphase": "Auto Cleaning",
+          "drainingdescalephase": "Draining After Descaling",
+          "milkdescalephase": "Milk System Descaling",
+          "coldbrew": "Brewing Cold Brew",
+          "dripbrew": "Drip Brewing",
+          "emptypowdersources": "Emptying Powder Sources",
+          "roundrobinflush": "Flushing System",
+          "initializenewcartridge": "Initializing Cartridge"
+        }
       }
     },
     "select": {
