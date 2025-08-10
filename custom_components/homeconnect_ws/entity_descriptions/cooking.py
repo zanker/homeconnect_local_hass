@@ -71,6 +71,32 @@ def generate_oven_status(appliance: HomeAppliance) -> EntityDescriptions:
 
     return descriptions
 
+def generate_oven_event(appliance: HomeAppliance) -> EntityDescriptions:
+    """Get Oven event descriptions."""
+    pattern = re.compile(r"^Cooking\.Oven\.Event\.Cavity\.([0-9]*)\..*$")
+    groups = get_groups_from_regex(appliance, pattern)
+    descriptions = EntityDescriptions(event_sensor=[])
+    for group in groups:
+        group_name = f" {int(group[0])}"
+        if len(groups) == 1:
+            group_name = ""
+
+        # AlarmClockElapsed
+        entity = f"Cooking.Oven.Event.Cavity.{group[0]}.AlarmClockElapsed"
+        if entity in appliance.entities:
+            descriptions["event_sensor"].append(
+                HCSensorEntityDescription(
+                    key=f"sensor_oven_alarm_clock_elapsed_{group[0]}",
+                    translation_key="sensor_oven_alarm_clock_elapsed",
+                    translation_placeholders={"group_name": group_name},
+                    entity=entity,
+                    device_class=SensorDeviceClass.ENUM,
+                    options=["Off", "Present", "Confirmed"],
+                )
+            )
+
+    return descriptions
+
 def generate_oven_settings(appliance: HomeAppliance) -> HCFanEntityDescription:
     """Get Oven status descriptions."""
     pattern = re.compile(r"^Cooking\.Oven\.Setting\.Cavity\.([0-9]*)\..*$")
@@ -338,7 +364,7 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             native_unit_of_measurement=PERCENTAGE,
         ),
     ],
-    "dynamic": [generate_oven_status, generate_hob_zones, generate_oven_settings],
+    "dynamic": [generate_oven_status, generate_hob_zones, generate_oven_event, generate_oven_settings],
     "number": [
         HCNumberEntityDescription(
             key="number_oven_setpoint_temperature",
