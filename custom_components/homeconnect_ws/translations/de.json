@@ -1710,6 +1710,9 @@
       },
       "number_start_in": {
         "name": "Start in"
+      },
+      "sensor_oven_setting_alarm_clock": {
+        "name": "Alarm"
       }
     },
     "light": {
