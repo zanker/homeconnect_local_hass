@@ -187,6 +187,21 @@
             "sensor_count_powder_coffee": {
                 "default": "mdi:coffee"
             },
+            "sensor_countdown_calc_n_clean": {
+                "default": "mdi:broom"
+            },
+            "sensor_countdown_cleaning": {
+                "default": "mdi:broom"
+            },
+            "sensor_countdown_descaling": {
+                "default": "mdi:broom"
+            },
+            "sensor_countdown_water_filter": {
+                "default": "mdi:swap-horizontal-bold"
+            },
+            "sensor_coffeemaker_process_phase": {
+                "default": "mdi:state-machine"
+            },
         },
         "select": {
             "select_drying_assistant_all_programs": {},
