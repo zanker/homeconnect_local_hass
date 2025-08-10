@@ -203,5 +203,10 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="ConsumerProducts.CoffeeMaker.Status.BeverageCounterPowderCoffee",
             entity_registry_enabled_default=False,
         ),
+        HCSensorEntityDescription(
+            key="sensor_coffeemaker_process_phase",
+            entity="ConsumerProducts.CoffeeMaker.Status.ProcessPhase",
+            entity_registry_enabled_default=False,
+        ),
     ],
 }

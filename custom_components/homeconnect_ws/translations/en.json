@@ -189,14 +189,14 @@
         "name": "Condensate Container",
         "state": {
           "on": "Full",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_lint_filter_full": {
         "name": "Lint Filter",
         "state": {
           "on": "Full",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_maintenance_reminder": {
@@ -425,7 +425,7 @@
       "sensor_drip_tray": {
         "name": "Drip tray",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "not_inserted": "Not Inserted",
           "full": "Full"
         }
@@ -611,7 +611,7 @@
       "sensor_oven_water_tank": {
         "name": "Water Tank{group_name}",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "empty": "Empty",
           "unplugged": "Unplugged"
         }
@@ -750,6 +750,41 @@
       },
       "sensor_countdown_water_filter": {
         "name": "Water Filter replacement"
+      },
+      "sensor_coffeemaker_process_phase": {
+        "name": "Process Phase",
+        "state": {
+          "none": "Idle",
+          "beverageaborting": "Cancelling Beverage",
+          "grinding": "Grinding Beans",
+          "brewingunitmovesup": "Preparing Brewing Unit",
+          "coffeebrewing": "Brewing Coffee",
+          "brewingunitmovesdown": "Finishing Brew",
+          "milkfroth": "Frothing Milk",
+          "cleaningmilksystem": "Cleaning Milk System",
+          "hotwaterdispensing": "Dispensing Hot Water",
+          "cleaningmode": "Cleaning Mode",
+          "descalephase": "Descaling",
+          "rinsephase": "Rinsing",
+          "cleanphase": "Cleaning",
+          "warmmilk": "Warming Milk",
+          "frostprotection": "Frost Protection Active",
+          "specialrinsing": "Special Rinse",
+          "waterfilteractivation": "Activating Water Filter",
+          "lattemacpause": "Latte Macchiato Pause",
+          "startphase": "Starting Up",
+          "skipphase": "Skipping Step",
+          "preliminary": "Preliminary Step",
+          "autodescalephase": "Auto Descaling",
+          "autocleanphase": "Auto Cleaning",
+          "drainingdescalephase": "Draining After Descaling",
+          "milkdescalephase": "Milk System Descaling",
+          "coldbrew": "Brewing Cold Brew",
+          "dripbrew": "Drip Brewing",
+          "emptypowdersources": "Emptying Powder Sources",
+          "roundrobinflush": "Flushing System",
+          "initializenewcartridge": "Initializing Cartridge"
+        }
       }
     },
     "select": {
@@ -1400,4 +1435,5 @@
       }
     }
   }
+
 }

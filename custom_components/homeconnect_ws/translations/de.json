@@ -165,21 +165,21 @@
         "name": "Kondensatbehälter Füllstand",
         "state": {
           "on": "Voll",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_machinecarereminder": {
         "name": "Maschinenreinigung",
         "state": {
           "on": "Wartung nötig",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_lint_filter_full": {
         "name": "Flusenfilter",
         "state": {
           "on": "Filter reinigen",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_maintenance_reminder": {
@@ -656,7 +656,7 @@
       "sensor_drip_tray": {
         "name": "Auffangschale",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "not_inserted": "Nicht eingesetzt",
           "full": "Voll"
         }
@@ -842,7 +842,7 @@
       "sensor_oven_water_tank": {
         "name": "Wassertank{group_name}",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "empty": "Leer",
           "unplugged": "Ausgesteckt"
         }
@@ -891,6 +891,41 @@
       },
       "sensor_countdown_water_filter": {
         "name": "Wasserfilter austauschen"
+      },
+      "sensor_coffeemaker_process_phase": {
+        "name": "Prozessphase",
+        "state": {
+          "none": "Bereit",
+          "beverageaborting": "Ausgabe wird abgebrochen",
+          "grinding": "Bohnen werden gemahlen",
+          "brewingunitmovesup": "Brüheinheit fährt hoch",
+          "coffeebrewing": "Kaffee wird gebrüht",
+          "brewingunitmovesdown": "Brüheinheit fährt herunter",
+          "milkfroth": "Milch wird aufgeschäumt",
+          "cleaningmilksystem": "Milchsystem wird gereinigt",
+          "hotwaterdispensing": "Heißwasser wird ausgegeben",
+          "cleaningmode": "Reinigungsmodus aktiv",
+          "descalephase": "Entkalkung läuft",
+          "rinsephase": "Spülvorgang läuft",
+          "cleanphase": "Reinigung läuft",
+          "warmmilk": "Milch wird erwärmt",
+          "frostprotection": "Frostschutz aktiv",
+          "specialrinsing": "Spezialspülung",
+          "waterfilteractivation": "Wasserfilter wird aktiviert",
+          "lattemacpause": "Latte Macchiato Pause",
+          "startphase": "Startvorgang",
+          "skipphase": "Phase wird übersprungen",
+          "preliminary": "Vorbereitungsphase",
+          "autodescalephase": "Automatische Entkalkung",
+          "autocleanphase": "Automatische Reinigung",
+          "drainingdescalephase": "Entleerung nach Entkalkung",
+          "milkdescalephase": "Milchsystem-Entkalkung",
+          "coldbrew": "Cold Brew Zubereitung",
+          "dripbrew": "Drip Brew Zubereitung",
+          "emptypowdersources": "Pulverquellen werden geleert",
+          "roundrobinflush": "Systemspülung",
+          "initializenewcartridge": "Kartusche wird initialisiert"
+        }
       }
     },
     "select": {
