@@ -79,7 +79,7 @@ class HCLight(HCEntity, LightEntity):
             self._attr_color_mode = ColorMode.ONOFF
 
     @property
-    def available(self) -> set[ColorMode] | None:
+    def available(self) -> bool:
         available = super().available
         if self._brightness_entity:
             available &= entity_is_available(

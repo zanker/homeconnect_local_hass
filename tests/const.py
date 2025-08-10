@@ -23,6 +23,7 @@ from homeconnect_websocket.entities import (
     Access,
     DeviceDescription,
     EntityDescription,
+    Execution,
     OptionDescription,
 )
 
@@ -129,6 +130,7 @@ ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
                 "BSH.Common.Program.Favorite.002": "favorite_002",
                 "Test.Program.Program1": "test_program_program1",
                 "Test.Program.Program2": "test_program_program2",
+                "Test.Program.Program3": "test_program_program3",
             },
         )
     ],
@@ -400,6 +402,15 @@ DEVICE_DESCRIPTION = DeviceDescription(
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=401),
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=402),
             ],
+        ),
+        EntityDescription(
+            uid=502,
+            name="Test.Program.Program3",
+            options=[
+                OptionDescription(access=Access.READ_WRITE, available=True, refUID=401),
+                OptionDescription(access=Access.READ_WRITE, available=True, refUID=402),
+            ],
+            execution=Execution.START_ONLY,
         ),
         EntityDescription(
             uid=502,

@@ -56,6 +56,7 @@ async def test_setup(
         "favorite_002",
         "test_program_program1",
         "test_program_program2",
+        "test_program_program3",
     ]
 
 
@@ -210,6 +211,29 @@ async def test_select_program(
             data={
                 "program": 501,
                 "options": [],
+            },
+        )
+    )
+
+    mock_appliance.session.send_sync.reset_mock()
+
+    await hass.services.async_call(
+        SELECT_DOMAIN,
+        SERVICE_SELECT_OPTION,
+        {
+            ATTR_ENTITY_ID: entity_id,
+            ATTR_OPTION: "test_program_program3",
+        },
+        blocking=True,
+    )
+
+    mock_appliance.session.send_sync.assert_awaited_once_with(
+        Message(
+            resource="/ro/activeProgram",
+            action=Action.POST,
+            data={
+                "program": 502,
+                "options": [{"uid": 401, "value": None}, {"uid": 402, "value": None}],
             },
         )
     )
