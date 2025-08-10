@@ -144,6 +144,26 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     ],
     "sensor": [
         HCSensorEntityDescription(
+            key="sensor_countdown_calc_n_clean",
+            entity="ConsumerProducts.CoffeeMaker.Status.BeverageCountdownCalcNClean",
+            entity_registry_enabled_default=False,
+        ),
+        HCSensorEntityDescription(
+            key="sensor_countdown_cleaning",
+            entity="ConsumerProducts.CoffeeMaker.Status.BeverageCountdownCleaning",
+            entity_registry_enabled_default=False,
+        ),
+        HCSensorEntityDescription(
+            key="sensor_countdown_descaling",
+            entity="ConsumerProducts.CoffeeMaker.Status.BeverageCountdownDescaling",
+            entity_registry_enabled_default=False,
+        ),
+        HCSensorEntityDescription(
+            key="sensor_countdown_water_filter",
+            entity="ConsumerProducts.CoffeeMaker.Status.BeverageCountdownWaterfilter",
+            entity_registry_enabled_default=False,
+        ),
+        HCSensorEntityDescription(
             key="sensor_count_ristretto_espresso",
             entity="ConsumerProducts.CoffeeMaker.Status.BeverageCounterRistrettoEspresso",
             entity_registry_enabled_default=False,
@@ -187,6 +207,8 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="sensor_coffeemaker_process_phase",
             entity="ConsumerProducts.CoffeeMaker.Status.ProcessPhase",
             entity_registry_enabled_default=False,
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
         ),
     ],
 }

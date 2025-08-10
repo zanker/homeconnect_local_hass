@@ -880,6 +880,18 @@
       "sensor_count_powder_coffee": {
         "name": "Anzahl Pulverkaffee"
       },
+      "sensor_countdown_calc_n_clean": {
+        "name": "calc'nClean notwendig"
+      },
+      "sensor_countdown_cleaning": {
+        "name": "Reinigung notwendig"
+      },
+      "sensor_countdown_descaling": {
+        "name": "Entkalkung notwendig"
+      },
+      "sensor_countdown_water_filter": {
+        "name": "Wasserfilter austauschen"
+      },
       "sensor_coffeemaker_process_phase": {
         "name": "Prozessphase",
         "state": {
