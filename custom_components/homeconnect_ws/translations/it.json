@@ -165,14 +165,14 @@
         "name": "Contenitore condensa",
         "state": {
           "on": "Pieno",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_lint_filter_full": {
         "name": "Filtro",
         "state": {
           "on": "Pieno",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_maintenance_reminder": {
@@ -314,7 +314,7 @@
       "sensor_drip_tray": {
         "name": "Gocciolatoio",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "not_inserted": "Non inserito",
           "full": "Pieno"
         }
@@ -500,7 +500,7 @@
       "sensor_oven_water_tank": {
         "name": "Serbatoio acqua{group_name}",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "empty": "Vuoto",
           "unplugged": "Scollegato"
         }
@@ -1035,4 +1035,5 @@
       }
     }
   }
+
 }

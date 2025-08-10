@@ -189,14 +189,14 @@
         "name": "Condensate Container",
         "state": {
           "on": "Full",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_lint_filter_full": {
         "name": "Lint Filter",
         "state": {
           "on": "Full",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_maintenance_reminder": {
@@ -425,7 +425,7 @@
       "sensor_drip_tray": {
         "name": "Drip tray",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "not_inserted": "Not Inserted",
           "full": "Full"
         }
@@ -611,7 +611,7 @@
       "sensor_oven_water_tank": {
         "name": "Water Tank{group_name}",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "empty": "Empty",
           "unplugged": "Unplugged"
         }
@@ -1423,4 +1423,5 @@
       }
     }
   }
+
 }
