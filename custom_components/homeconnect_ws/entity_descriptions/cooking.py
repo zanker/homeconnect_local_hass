@@ -272,6 +272,35 @@ def generate_hood_light(appliance: HomeAppliance) -> HCFanEntityDescription:
     return None
 
 
+def generate_hood_ambient_light(appliance: HomeAppliance) -> HCFanEntityDescription:
+    """Get Hood light descriptions."""
+    if (
+        "BSH.Common.Setting.AmbientLightCustomColor" in appliance.entities
+        and "BSH.Common.Setting.AmbientLightColor" in appliance.entities
+    ):
+        return HCLightEntityDescription(
+            key="light_cooking_ambient_lighting",
+            entity="BSH.Common.Setting.AmbientLightEnabled",
+            brightness_entity="BSH.Common.Setting.AmbientLightBrightness",
+            color_entity="BSH.Common.Setting.AmbientLightCustomColor",
+            color_mode_entity="BSH.Common.Setting.AmbientLightColor",
+        )
+
+    if "BSH.Common.Setting.AmbientLightBrightness" in appliance.entities:
+        return HCLightEntityDescription(
+            key="light_cooking_ambient_lighting",
+            entity="BSH.Common.Setting.AmbientLightEnabled",
+            brightness_entity="BSH.Common.Setting.AmbientLightBrightness",
+        )
+
+    if "BSH.Common.Setting.AmbientLightEnabled" in appliance.entities:
+        return HCLightEntityDescription(
+            key="light_cooking_ambient_lighting",
+            entity="BSH.Common.Setting.AmbientLightEnabled",
+        )
+    return None
+
+
 COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "sensor": [
         HCSensorEntityDescription(
@@ -442,6 +471,6 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=SwitchDeviceClass.SWITCH,
         ),
     ],
-    "light": [generate_hood_light],
+    "light": [generate_hood_light, generate_hood_ambient_light],
     "fan": [generate_hood_fan],
 }
