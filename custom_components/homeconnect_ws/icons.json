@@ -22,7 +22,9 @@
             "switch_brilliance_dry": {
                 "default": "mdi:shimmer"
             },
-            "switch_multiple_beverages": {},
+            "switch_multiple_beverages": {
+                "default": "mdi:select-multiple"
+            },
             "switch_half_load": {
                 "default": "mdi:fraction-one-half"
             },
@@ -88,7 +90,9 @@
             "sensor_energy_forecast": {
                 "default": "mdi:lightning-bolt"
             },
-            "sensor_operation_state": {},
+            "sensor_operation_state": {
+                "default": "mdi:state-machine"
+            },
             "sensor_program_phase": {
                 "default": "mdi:progress-check"
             },
@@ -103,7 +107,14 @@
                     "not_inserted": "mdi:water-remove"
                 }
             },
-            "sensor_drip_tray": {},
+            "sensor_drip_tray": {
+                "default": "mdi:tray",
+                "state": {
+                    "ok": "mdi:tray",
+                    "not_inserted": "mdi:tray-remove",
+                    "full": "mdi:tray-alert"
+                }
+            },
             "sensor_start_in": {},
             "sensor_count_started": {},
             "sensor_end_trigger": {},
@@ -148,7 +159,34 @@
             },
             "sensor_carbon_filter_saturation": {
                 "default": "mdi:air-filter"
-            }
+            },
+            "sensor_count_ristretto_espresso": {
+                "default": "mdi:coffee"
+            },
+            "sensor_count_coffee": {
+                "default": "mdi:coffee"
+            },
+            "sensor_count_coffee_milk": {
+                "default": "mdi:coffee"
+            },
+            "sensor_count_frothy_milk": {
+                "default": "mdi:cup"
+            },
+            "sensor_count_frothy_milk": {
+                "default": "mdi:cup"
+            },
+            "sensor_count_hot_milk": {
+                "default": "mdi:cup"
+            },
+            "sensor_count_hot_water": {
+                "default": "mdi:cup"
+            },
+            "sensor_count_hot_water_cups": {
+                "default": "mdi:cup"
+            },
+            "sensor_count_powder_coffee": {
+                "default": "mdi:coffee"
+            },
         },
         "select": {
             "select_drying_assistant_all_programs": {},
@@ -166,6 +204,12 @@
                 }
             },
             "select_water_hardness": {},
+            "select_shot_count": {
+                "default": "mdi:coffee"
+            },
+            "select_cups": {
+                "default": "mdi:coffee"
+            },
             "select_remote_control_level": {
                 "default": "mdi:remote",
                 "state": {
@@ -186,8 +230,12 @@
                 "default": "mdi:thermometer"
             },
             "select_bean_amount": {},
-            "select_beverage_size": {},
-            "select_coffee_milk_ratio": {},
+            "select_beverage_size": {
+                "default": "mdi:resize"
+            },
+            "select_coffee_milk_ratio": {
+                "default": "mdi:fraction-one-half"
+            },
             "select_hot_water_temperature": {
                 "default": "mdi:water-thermometer-outline"
             }
