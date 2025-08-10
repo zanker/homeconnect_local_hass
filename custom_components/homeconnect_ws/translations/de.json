@@ -810,7 +810,7 @@
         "name": "Anzahl Kaffee-Milch-Spezialitäten"
       },
       "sensor_count_frothy_milk": {
-        "name": "Anzahl Milchschau"
+        "name": "Anzahl Milchschaum"
       },
       "sensor_count_hot_milk": {
         "name": "Anzahl Milchgetränke"
