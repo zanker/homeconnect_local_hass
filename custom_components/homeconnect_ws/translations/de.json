@@ -879,6 +879,18 @@
       },
       "sensor_count_powder_coffee": {
         "name": "Anzahl Pulverkaffee"
+      },
+      "sensor_countdown_calc_n_clean": {
+        "name": "calc'nClean notwendig"
+      },
+      "sensor_countdown_cleaning": {
+        "name": "Reinigen notwendig"
+      },
+      "sensor_countdown_descaling": {
+        "name": "Entkalken notwendig"
+      },
+      "sensor_countdown_water_filter": {
+        "name": "Wasserfilter austauschen"
       }
     },
     "select": {
