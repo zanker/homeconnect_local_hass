@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.components.button import ButtonEntity
+from homeconnect_websocket.entities import Execution
 
 from .entity import HCEntity
 from .helpers import create_entities
@@ -47,6 +48,14 @@ class HCStartButton(HCEntity, ButtonEntity):
 
     _entity: ActiveProgram
     entity_description: HCButtonEntityDescription
+
+    @property
+    def available(self) -> bool:
+        available = super().available
+        available &= self._appliance.selected_program is not None
+        if self._appliance.selected_program is not None:
+            available &= self._appliance.selected_program.execution == Execution.SELECT_AND_START
+        return available
 
     async def async_press(self) -> None:
         await self._appliance.selected_program.start()
