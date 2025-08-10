@@ -739,6 +739,18 @@
       "sensor_count_powder_coffee": {
         "name": "Powder Coffee count"
       },
+      "sensor_countdown_calc_n_clean": {
+        "name": "calc'nClean required"
+      },
+      "sensor_countdown_cleaning": {
+        "name": "Cleaning required"
+      },
+      "sensor_countdown_descaling": {
+        "name": "Descaling required"
+      },
+      "sensor_countdown_water_filter": {
+        "name": "Water Filter replacement"
+      },
       "sensor_coffeemaker_process_phase": {
         "name": "Process Phase",
         "state": {
