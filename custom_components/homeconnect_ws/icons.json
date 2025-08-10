@@ -201,7 +201,7 @@
             },
             "sensor_coffeemaker_process_phase": {
                 "default": "mdi:state-machine"
-            },
+            }
         },
         "select": {
             "select_drying_assistant_all_programs": {},
