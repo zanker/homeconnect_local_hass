@@ -207,6 +207,8 @@ CONSUMER_PRODUCTS_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="sensor_coffeemaker_process_phase",
             entity="ConsumerProducts.CoffeeMaker.Status.ProcessPhase",
             entity_registry_enabled_default=False,
+            device_class=SensorDeviceClass.ENUM,
+            has_state_translation=True,
         ),
     ],
 }
