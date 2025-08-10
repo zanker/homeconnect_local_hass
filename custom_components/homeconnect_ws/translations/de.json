@@ -165,21 +165,21 @@
         "name": "Kondensatbehälter Füllstand",
         "state": {
           "on": "Voll",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_machinecarereminder": {
         "name": "Maschinenreinigung",
         "state": {
           "on": "Wartung nötig",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_lint_filter_full": {
         "name": "Flusenfilter",
         "state": {
           "on": "Filter reinigen",
-          "off": "Ok"
+          "off": "OK"
         }
       },
       "binary_sensor_maintenance_reminder": {
@@ -600,7 +600,7 @@
       "sensor_drip_tray": {
         "name": "Auffangschale",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "not_inserted": "Nicht eingesetzt",
           "full": "Voll"
         }
@@ -786,7 +786,7 @@
       "sensor_oven_water_tank": {
         "name": "Wassertank{group_name}",
         "state": {
-          "ok": "Ok",
+          "ok": "OK",
           "empty": "Leer",
           "unplugged": "Ausgesteckt"
         }
