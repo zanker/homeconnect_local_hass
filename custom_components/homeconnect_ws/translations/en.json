@@ -1347,6 +1347,9 @@
       },
       "light_cooking_lighting": {
         "name": "Light"
+      },
+      "light_cooking_ambient_lighting": {
+        "name": "Ambient Light"
       }
     },
     "fan": {
