@@ -56,6 +56,7 @@ async def test_setup(
         "favorite_002",
         "test_program_program1",
         "test_program_program2",
+        "test_program_program3",
     ]
 
 
