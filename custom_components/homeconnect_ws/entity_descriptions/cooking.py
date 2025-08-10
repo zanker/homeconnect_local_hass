@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import sys
 from typing import TYPE_CHECKING
 
 from homeassistant.components.number import NumberDeviceClass, NumberMode
@@ -89,6 +90,7 @@ def generate_oven_settings(appliance: HomeAppliance) -> HCFanEntityDescription:
                     entity=entity,
                     device_class=NumberDeviceClass.DURATION,
                     native_unit_of_measurement=UnitOfTime.SECONDS,
+                    native_max_value=sys.float_info.max,
                     mode=NumberMode.BOX,
                 )
             )
