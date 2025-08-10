@@ -879,6 +879,41 @@
       },
       "sensor_count_powder_coffee": {
         "name": "Anzahl Pulverkaffee"
+      },
+      "sensor_coffeemaker_process_phase": {
+        "name": "Prozessphase",
+        "state": {
+          "none": "Bereit",
+          "beverageaborting": "Ausgabe wird abgebrochen",
+          "grinding": "Bohnen werden gemahlen",
+          "brewingunitmovesup": "Brüheinheit fährt hoch",
+          "coffeebrewing": "Kaffee wird gebrüht",
+          "brewingunitmovesdown": "Brüheinheit fährt herunter",
+          "milkfroth": "Milch wird aufgeschäumt",
+          "cleaningmilksystem": "Milchsystem wird gereinigt",
+          "hotwaterdispensing": "Heißwasser wird ausgegeben",
+          "cleaningmode": "Reinigungsmodus aktiv",
+          "descalephase": "Entkalkung läuft",
+          "rinsephase": "Spülvorgang läuft",
+          "cleanphase": "Reinigung läuft",
+          "warmmilk": "Milch wird erwärmt",
+          "frostprotection": "Frostschutz aktiv",
+          "specialrinsing": "Spezialspülung",
+          "waterfilteractivation": "Wasserfilter wird aktiviert",
+          "lattemacpause": "Latte Macchiato Pause",
+          "startphase": "Startvorgang",
+          "skipphase": "Phase wird übersprungen",
+          "preliminary": "Vorbereitungsphase",
+          "autodescalephase": "Automatische Entkalkung",
+          "autocleanphase": "Automatische Reinigung",
+          "drainingdescalephase": "Entleerung nach Entkalkung",
+          "milkdescalephase": "Milchsystem-Entkalkung",
+          "coldbrew": "Cold Brew Zubereitung",
+          "dripbrew": "Drip Brew Zubereitung",
+          "emptypowdersources": "Pulverquellen werden geleert",
+          "roundrobinflush": "Systemspülung",
+          "initializenewcartridge": "Kartusche wird initialisiert"
+        }
       }
     },
     "select": {
