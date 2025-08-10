@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.components.select import SelectEntity
+from homeconnect_websocket.entities import Execution
 
 from .entity import HCEntity
 from .helpers import create_entities
@@ -109,4 +110,8 @@ class HCProgram(HCSelect):
         return None
 
     async def async_select_option(self, option: str) -> None:
-        await self._appliance.programs[self._rev_programs[option]].select()
+        selected_program = self._appliance.programs[self._rev_programs[option]]
+        if selected_program.execution in (Execution.SELECT_ONLY, Execution.SELECT_AND_START):
+            await selected_program.select()
+        elif selected_program.execution == Execution.START_ONLY:
+            await selected_program.start()
