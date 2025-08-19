@@ -1,18 +1,18 @@
 [project]
-version = "1.0.5b9"
+version = "1.0.5b10"
 name = "homeconnect_ws"
 authors = [{ name = "chris-mc1" }]
 description = "Home Connect Local for Homeassistant"
 readme = "README.md"
 requires-python = ">=3.13.2"
-dependencies = ["homeconnect-websocket==1.4.1"]
+dependencies = ["homeconnect-websocket==1.4.3"]
 [project.urls]
 Homepage = "https://github.com/chris-mc1/homeconnect_local_hass"
 Issues = "https://github.com/chris-mc1/homeconnect_local_hass/issues"
 [dependency-groups]
 dev = [
     "colorlog",
-    "homeassistant>=2025.6",
+    "homeassistant>=2025.8",
     "pytest-homeassistant-custom-component",
     "voluptuous-stubs==0.1.1",
     "ruff>=0.9",

@@ -21,6 +21,7 @@ from homeassistant.const import (
     UnitOfTime,
 )
 from custom_components.homeconnect_ws.helpers import get_all_programs
+from homeconnect_websocket.entities import Execution
 
 from .descriptions_definitions import (
     EntityDescriptions,
@@ -48,7 +49,13 @@ POWER_SWITCH_VALUE_MAPINGS = (
 
 def generate_start_button(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Start Button description."""
-    if len(appliance.programs) > 0:
+    programs = list(
+        filter(
+            lambda program: program.execution == Execution.SELECT_AND_START,
+            appliance.programs.values(),
+        )
+    )
+    if len(programs) > 0:
         return HCButtonEntityDescription(
             key="button_start_program",
             entity="BSH.Common.Root.ActiveProgram",

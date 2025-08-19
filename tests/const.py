@@ -23,6 +23,7 @@ from homeconnect_websocket.entities import (
     Access,
     DeviceDescription,
     EntityDescription,
+    Execution,
     OptionDescription,
 )
 
@@ -129,6 +130,7 @@ ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
                 "BSH.Common.Program.Favorite.002": "favorite_002",
                 "Test.Program.Program1": "test_program_program1",
                 "Test.Program.Program2": "test_program_program2",
+                "Test.Program.Program3": "test_program_program3",
             },
         )
     ],
@@ -195,7 +197,14 @@ ENTITY_DESCRIPTIONS: _EntityDescriptionsType = {
             name="Light.3",
             entity="Test.Lighting",
             brightness_entity="Test.LightingBrightness",
-            color_temperature_entity="Test.LightingColor",
+            color_temperature_entity="Test.LightingColorTemp",
+        ),
+        HCLightEntityDescription(
+            key="Test.Light.4",
+            name="Light.4",
+            entity="Test.Lighting",
+            color_entity="Test.LightingCustomColor",
+            color_mode_entity="Test.LightingColor",
         ),
     ],
 }
@@ -325,13 +334,34 @@ DEVICE_DESCRIPTION = DeviceDescription(
         ),
         EntityDescription(
             uid=110,
-            name="Test.LightingColor",
+            name="Test.LightingColorTemp",
             access=Access.READ_WRITE,
             available=True,
             default=0,
             min=0,
             max=100,
             protocolType="Float",
+        ),
+        EntityDescription(
+            uid=111,
+            name="Test.LightingCustomColor",
+            access=Access.READ_WRITE,
+            available=True,
+            default="#000000",
+            protocolType="String",
+        ),
+        EntityDescription(
+            uid=112,
+            name="Test.LightingColor",
+            access=Access.READ_WRITE,
+            available=True,
+            default=0,
+            enumeration={
+                "1": "CustomColor",
+                "33": "Color32",
+                "34": "Color33",
+            },
+            protocolType="Integer",
         ),
     ],
     event=[
@@ -400,6 +430,15 @@ DEVICE_DESCRIPTION = DeviceDescription(
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=401),
                 OptionDescription(access=Access.READ_WRITE, available=True, refUID=402),
             ],
+        ),
+        EntityDescription(
+            uid=502,
+            name="Test.Program.Program3",
+            options=[
+                OptionDescription(access=Access.READ_WRITE, available=True, refUID=401),
+                OptionDescription(access=Access.READ_WRITE, available=True, refUID=402),
+            ],
+            execution=Execution.START_ONLY,
         ),
         EntityDescription(
             uid=502,
