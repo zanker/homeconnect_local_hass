@@ -746,7 +746,7 @@
           "brewingunitmovesdown": "Bereiding afronden",
           "milkfroth": "Melk opschuimen",
           "cleaningmilksystem": "Reinigen melksysteem",
-          "hotwaterdispensing": "Heet water toedienen,
+          "hotwaterdispensing": "Heet water toedienen",
           "cleaningmode": "Schoonmaak modus",
           "descalephase": "Ontkalking",
           "rinsephase": "Spoelen",
@@ -860,6 +860,7 @@
   }
 
 }
+
 
 
 
