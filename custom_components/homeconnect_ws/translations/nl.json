@@ -131,6 +131,9 @@
       "switch_oven_sabbath_mode": {
         "name": "Sabbat modus"
       },
+      "switch_refrigerator_sabbath_mode": {
+        "name": "Sabbat modus"
+      },
       "switch_refrigerator_dispenser_enabled": {
         "name": "Dispenser"
       },
@@ -275,13 +278,17 @@
       "sensor_active_program": {
         "name": "Actief Programma",
         "state": {
-          "dishcare_dishwasher_program_intensiv70": "Intensief 70",
-          "dishcare_dishwasher_program_auto2": "Auto 45-65",
-          "dishcare_dishwasher_program_eco50": "Eco 50",
-          "dishcare_dishwasher_program_quick45": "Snel 45",
-          "dishcare_dishwasher_program_prerinse": "Spoelen",
-          "dishcare_dishwasher_program_quick65": "Snel 65",
+          "dishcare_dishwasher_program_intensiv70": "Intensief 70°",
+          "dishcare_dishwasher_program_auto2": "Auto 45-65°",
+          "dishcare_dishwasher_program_eco50": "Eco 50°",
+          "dishcare_dishwasher_program_quick45": "Speed 45°",
+          "dishcare_dishwasher_program_prerinse": "Voorspoelen",
+          "dishcare_dishwasher_program_quick65": "Speed 65°",
           "dishcare_dishwasher_program_machinecare": "Machinereiniging",
+          "dishcare_dishwasher_program_nightwash": "Nachtwas",
+          "dishcare_dishwasher_program_glas40": "Glas 40°",
+          "dishcare_dishwasher_program_kurz60": "Speed 60°",
+          "dishcare_dishwasher_program_learningdishwasher": "Intelligent",
           "favorite_001": "Favoriet 1",
           "favorite_002": "Favoriet 2",
           "favorite_003": "Favoriet 3",
@@ -415,6 +422,14 @@
           "full": "Vol"
         }
       },
+      "sensor_drip_tray": {
+        "name": "Lekbakje",
+        "state": {
+          "ok": "OK",
+          "not_inserted": "Niet geplaatst",
+          "full": "Vol"
+        }
+      },
       "sensor_start_in": {
         "name": "Start over"
       },
@@ -453,7 +468,8 @@
         "state": {
           "open": "Open",
           "closed": "Gesloten",
-          "locked": "Vergrendeld"
+          "locked": "Vergrendeld",
+          "ajar": "Niet correct gesloten"
         }
       },
       "sensor_laundry_reload": {
@@ -469,7 +485,7 @@
         "state": {
           "nophase": "Geen fase",
           "prewash": "Voorwas",
-          "intermediatespin": "Centrifugeren tussentijds",
+          "intermediatespin": "Tussentijds centrifugeren",
           "fillingdetergent": "Wasverzachter toevoegen",
           "detectingload": "Belasting detecteren",
           "heating": "Opwarmen",
@@ -483,7 +499,7 @@
           "rinsingsoftener": "Spoelen wasverzachter",
           "holdafterrinse": "Wachten na het spoelen",
           "pumping": "Pompen",
-          "spinningfinal": "Centrifugeren afrondend",
+          "spinningfinal": "Centrifugeren",
           "lessironing": "Strijkdroog",
           "fluffing": "Stuiven",
           "soaking": "Natmaken",
@@ -565,27 +581,27 @@
           "quickcare": "QuickCare",
           "depthcarephase1": "Depth Care Phase 1",
           "depthcarephase2": "Depth Care Phase 2",
-          "spare": "reserve"
+          "spare": "Reserve"
         }
       },
       "sensor_temperature_ambient": {
         "name": "Omgevingstemperatuur"
       },
       "sensor_laundry_spin_speed": {
-        "name": "Toerental",
+        "name": "Centrifugetoerental",
         "state": {
           "off": "Uit",
-          "rpm400": "400 rpm",
-          "rpm600": "600 rpm",
-          "rpm700": "700 rpm",
-          "rpm800": "800 rpm",
-          "rpm900": "900 rpm",
-          "rpm1000": "1000 rpm",
-          "rpm1200": "1200 rpm",
-          "rpm1400": "1400 rpm",
-          "rpm1500": "1500 rpm",
-          "rpm1600": "1600 rpm",
-          "rinsehold": "Blijven spoelen",
+          "rpm400": "400 tpm",
+          "rpm600": "600 tpm",
+          "rpm700": "700 tpm",
+          "rpm800": "800 tpm",
+          "rpm900": "900 tpm",
+          "rpm1000": "1000 tpm",
+          "rpm1200": "1200 tpm",
+          "rpm1400": "1400 tpm",
+          "rpm1500": "1500 tpm",
+          "rpm1600": "1600 tpm",
+          "rinsehold": "Spoelen vasthouden",
           "auto": "Auto"
         }
       },
@@ -738,7 +754,7 @@
       "sensor_coffeemaker_process_phase": {
         "name": "Programmafase",
         "state": {
-          "none": "Idle",
+          "none": "Geen",
           "beverageaborting": "Drank annuleren",
           "grinding": "Bonen malen",
           "brewingunitmovesup": "Bereiding voorbereiden",
@@ -763,8 +779,8 @@
           "autocleanphase": "Auto reiniging",
           "drainingdescalephase": "Leeglaten na ontkalking",
           "milkdescalephase": "Ontkalken melksysteem",
-          "coldbrew": "Koud brouwen",
-          "dripbrew": "Druppelgewijs brouwen",
+          "coldbrew": "Koud zetten",
+          "dripbrew": "Druppelgewijs zetten",
           "emptypowdersources": "Leegmaken poederbronnen",
           "roundrobinflush": "Spoelsysteem",
           "initializenewcartridge": "Initiëren Cartridge"
@@ -788,7 +804,16 @@
         }
       },
       "select_rinse_aid": {
-        "name": "Glansspoelmiddel"
+        "name": "Glansspoelmiddelinstelling",
+        "state": {
+          "off": "Niveau 0",
+          "r01": "Niveau 1",
+          "r02": "Niveau 2",
+          "r03": "Niveau 3",
+          "r04": "Niveau 4",
+          "r05": "Niveau 5",
+          "r06": "Niveau 6"
+        }
       },
       "select_sound_level_signal": {
         "name": "Geluidssignaal volume",
@@ -800,14 +825,24 @@
         }
       },
       "select_water_hardness": {
-        "name": "Waterhardheid"
+        "name": "Waterhardheid",
+        "state": {
+          "h00": "°E 0-8 zacht (0-1.1 mmol/l)"
+          "h01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
+          "h02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
+          "h03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
+          "h04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
+          "h05": "°E 21-26 hard (3.0-3.7 mmol/l)",
+          "h06": "°E 27-38 hard (3.8-5.4 mmol/l)",
+          "h06": "°E 39-62 hard (5.5-8.9 mmol/l)"
+        }
       },
       "select_remote_control_level": {
-        "name": "Bediening op afstand",
+        "name": "Niveau van besturen op afstand",
         "state": {
-          "monitoring": "Uit",
-          "manualremotestart": "Handmatige Start op afstand",
-          "permanentremotestart": "Permanente Start op afstand"
+          "monitoring": "Monitoren",
+          "manualremotestart": "Handmatige starten op afstand",
+          "permanentremotestart": "Altijd starten op afstand"
         }
       },
       "select_program": {
@@ -820,6 +855,10 @@
           "dishcare_dishwasher_program_prerinse": "Voorspoelen",
           "dishcare_dishwasher_program_quick65": "Speed 65°",
           "dishcare_dishwasher_program_machinecare": "Machinereiniging",
+          "dishcare_dishwasher_program_nightwash": "Nachtwas",
+          "dishcare_dishwasher_program_glas40": "Glas 40°",
+          "dishcare_dishwasher_program_kurz60": "Speed 60°",
+          "dishcare_dishwasher_program_learningdishwasher": "Intelligent",
           "favorite_001": "Favoriet 1",
           "favorite_002": "Favoriet 2",
           "favorite_003": "Favoriet 3",
@@ -829,7 +868,55 @@
           "favorite_007": "Favoriet 7",
           "favorite_008": "Favoriet 8",
           "favorite_009": "Favoriet 9",
-          "favorite_010": "Favoriet 10"
+          "favorite_010": "Favoriet 10",
+          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatisch 30°C",
+          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatisch 40°C",
+          "laundrycare_washer_program_cotton_cotton_cotton": "Katoen",
+          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Donkere was",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fijne Was/Zijde",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Fijne Was/Zijde",
+          "laundrycare_washer_program_downduvet_down_down": "Ondergoed",
+          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Trommelreiniging",
+          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Trommelreiniging 70°C",
+          "laundrycare_washer_program_easycare_easycare_easycare": "Kreukherstellend",
+          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60°C",
+          "laundrycare_washer_program_mix_mix_mix": "Snel + Mix",
+          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Outdoor",
+          "laundrycare_washer_program_rinse_rinse_rinse": "Spoelen",
+          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Hygiëne",
+          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Overhemden/blouses",
+          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportkleding",
+          "laundrycare_washer_program_spin_spin_spindrain": "Centrifugeren/afpompen",
+          "laundrycare_washer_program_steaming_steaming_steaming": "Stomen/Kreukvrij",
+          "laundrycare_washer_program_super153045_super1530_super1530": "Supersnel 15'/30'",
+          "laundrycare_washer_program_wool_wool_wool": "Wol",
+          "laundrycare_washer_program_sportfitness": "Sportkleding",
+          "laundrycare_washer_program_towels": "Handdoeken",          
+          "laundrycare_common_program_juststart": "Direct starten",
+          "laundrycare_common_program_memory1": "Opgeslagen 1",
+          "laundrycare_common_program_memory2": "Opgeslagen 2",
+          "laundrycare_dryer_program_blankets": "Dekens",
+          "laundrycare_dryer_program_businessshirts": "Overhemden/blouses",
+          "laundrycare_dryer_program_cotton": "Katoen",
+          "laundrycare_dryer_program_dessous": "Lingerie",
+          "laundrycare_dryer_program_hygiene": "Hygiëne",
+          "laundrycare_dryer_program_inbasket": "Wol in de mand",
+          "laundrycare_dryer_program_mix": "Mix",
+          "laundrycare_dryer_program_outdoor": "Outdoor",
+          "laundrycare_dryer_program_pillow": "Hoofdkussen",
+          "laundrycare_dryer_program_super40": "Extra snel 40'",
+          "laundrycare_dryer_program_synthetic": "Syntetisch",
+          "laundrycare_dryer_program_timecold": "Tijdprogr. koud",
+          "laundrycare_dryer_program_timewarm": "Tijdprogr. warm",
+          "laundrycare_dryer_program_towels": "Handdoeken",
+          "laundrycare_dryer_program_shirtsblouses_sportfitness": "Sportkleding",
+          "laundrycare_washerdryer_program_towels_towels": "Handdoeken",
+          "laundrycare_washerdryer_program_cotton_cotton": "Katoen",
+          "laundrycare_washerdryer_program_mix_mix": "Mix",
+          "laundrycare_washerdryer_program_wool_wool": "Wol",
+          "laundrycare_washerdryer_program_sportfitness_sportfitness": "Sportkleding",
+          "laundrycare_washerdryer_program_washanddry_60": "Wassen & Drogen 60'",
+          "laundrycare_washerdryer_program_downduvet_down": "Ondergoed"
         }
       },
       "select_sensitivity_turbidity": {
@@ -841,22 +928,523 @@
         }
       },
       "select_eco_as_default": {
-        "name": "Standaard Programma",
+        "name": "Start programma",
         "state": {
           "lastprogram": "Laatste programma",
           "ecoasdefault": "Eco 50°"
+        }
+      },
+      "select_power_state": {
+        "name": "Power state",
+        "state": {
+          "mainsoff": "Mains off",
+          "off": "Off",
+          "on": "On",
+          "standby": "Standby"
+        }
+      },
+      "select_coffee_temperature": {
+        "name": "Koffietemperatuur",
+        "state": {
+          "88c": "88 °C",
+          "90c": "90 °C",
+          "92c": "92 °C",
+          "94c": "94 °C",
+          "95c": "95 °C",
+          "96c": "96 °C",
+          "98c": "98 °C"
+        }
+      },
+      "select_bean_amount": {
+        "name": "Hoeveelheid ",
+        "state": {
+          "verymild": "Slappe bak",
+          "mild": "Mild",
+          "mildplus": "Mild +",
+          "normal": "Normaal",
+          "normalplus": "Normaal +",
+          "strong": "Sterk",
+          "strongplus": "Strong +",
+          "verystrong": "Heel sterk",
+          "verystrongplus": "Heel sterk +",
+          "extrastrong": "Extra sterk",
+          "doubleshot": "Double shot",
+          "doubleshotplus": "Double shot +",
+          "doubleshotplusplus": "Double shot ++",
+          "tripleshot": "Triple Shot",
+          "tripleshotplus": "Triple Shot +",
+          "coffeeground": "Gemalen koffie"
+        }
+      },
+      "select_beverage_size": {
+        "name": "Beverage size",
+        "state": {
+          "small": "Klein",
+          "medium": "Middel",
+          "large": "Groot",
+          "verylarge": "Heel groot"
+        }
+      },
+      "select_coffee_milk_ratio": {
+        "name": "Koffie melkratio",
+        "state": {
+          "10percent": "10%",
+          "20percent": "20%",
+          "25percent": "25%",
+          "30percent": "30%",
+          "40percent": "40%",
+          "50percent": "50%",
+          "55percent": "55%",
+          "60percent": "60%",
+          "65percent": "65%",
+          "67percent": "67%",
+          "70percent": "70%",
+          "75percent": "75%",
+          "80percent": "80%",
+          "85percent": "85%",
+          "90percent": "90%"
+        }
+      },
+      "select_hot_water_temperature": {
+        "name": "Temperatuur heet water",
+        "state": {
+          "60c": "60 °C",
+          "70c": "70 °C",
+          "75c": "75 °C",
+          "80c": "80 °C",
+          "85c": "85 °C",
+          "90c": "90 °C",
+          "95c": "95 °C",
+          "97c": "97 °C"
+        }
+      },
+      "select_flow_rate": {
+        "name": "Flow snelheid",
+        "state": {
+          "normal": "Normal",
+          "intense": "Intens",
+          "intenseplus": "Intense +"
+        }
+      },
+      "select_coarsness": {
+        "name": "Grofheid",
+        "state": {
+          "coarsness1": "Niveau 1",
+          "coarsness2": "Niveau 2",
+          "coarsness3": "Niveau 3",
+          "coarsness4": "Niveau 4",
+          "coarsness5": "Niveau 5",
+          "coarsness6": "Niveau 6"
+        }
+      },
+      "select_coffee_strength": {
+        "name": "Sterkte koffie",
+        "state": {
+          "strength1": "Sterkte 1",
+          "strength2": "Sterkte 2",
+          "strength3": "Sterkte 3",
+          "strength4": "Sterkte 4",
+          "strength5": "Sterkte 5",
+          "strength6": "Sterkte 6",
+          "strength7": "Sterkte 7",
+          "strength8": "Sterkte 8",
+          "strength9": "Sterkte 9"
+        }
+      },
+      "select_aroma_select": {
+        "name": "Aroma keuze",
+        "state": {
+          "fine": "Fijn",
+          "balanced": "Gebalanceerd",
+          "distinctive": "Onderscheidend"
+        }
+      },
+      "select_bean_container": {
+        "name": "Bonencontainer",
+        "state": {
+          "right": "Rechts",
+          "left": "Links"
+        }
+      },
+      "select_shot_count": {
+        "name": "Aantal shots",
+        "state": {
+          "double": "Dubbel",
+          "triple": "Trippel"
+        }
+      },
+      "select_cups": {
+        "name": "Kopjes",
+        "state": {
+          "two": "Twee",
+          "four": "Vier",
+          "six": "Zes"
+        }
+      },
+      "select_auto_power_off": {
+        "name": "Automatisch uitschakelen",
+        "state": {
+          "off": "Uit",
+          "15min": "15 min",
+          "30min": "30 min",
+          "60min": "60 min"
+        }
+      },
+      "select_laundry_brightness": {
+        "name": "Helderheid",
+        "state": {
+          "low": "Laag",
+          "medium": "Gemiddeld",
+          "high": "Hoog",
+          "veryhigh": "Zeer hoog"
+        }
+      },
+      "select_door_light_ring_mode": {
+        "name": "Deurlicht modus",
+        "state": {
+          "off": "Uit",
+          "on": "Aan",
+          "auto": "Auto"
+        }
+      },
+      "select_door_light_ring_brightness": {
+        "name": "Deurlicht helderheid",
+        "state": {
+          "low": "Laag",
+          "medium": "Gemiddeld",
+          "high": "Hoog",
+          "veryhigh": "Zeer hoog"
+        }
+      },
+      "select_laundry_end_signal_volume": {
+        "name": "Volume eindsignaal",
+        "state": {
+          "off": "Uit",
+          "low": "Stil",
+          "medium": "Gemiddeld",
+          "loud": "Luid",
+          "veryloud": "Zeer luid"
+        }
+      },
+      "select_laundry_key_signal_volume": {
+        "name": "Volume knop signaal",
+        "state": {
+          "off": "Uit",
+          "low": "Stil",
+          "medium": "Gemiddeld",
+          "loud": "Luid",
+          "veryloud": "Zeer luid"
+        }
+      },
+      "select_laundry_sound_volume": {
+        "name": "Volume signaal",
+        "state": {
+          "off": "Uit",
+          "volume1": "Stil",
+          "volume2": "Gemiddeld",
+          "volume3": "Luid",
+          "volume4": "Zeer luid"
+        }
+      },
+      "select_laundry_power_rating": {
+        "name": "Voedingsspanningswaarde"
+      },
+      "select_laundry_wrinkle_guard": {
+        "name": "Anti-kreuk",
+        "state": {
+          "off": "Uit",
+          "min30": "30 min",
+          "min60": "60 min",
+          "min90": "90 min",
+          "min120": "120 min",
+          "min180": "180 min"
+        }
+      },
+      "select_laundry_cupboard_dry_fine_adjust": {
+        "name": "Kastdroog instelling",
+        "state": {
+          "off": "Uit",
+          "plus1": "+1",
+          "plus2": "+2",
+          "plus3": "+3"
+        }
+      },
+      "select_laundry_cupboard_dry_plus_fine_adjust": {
+        "name": "Kastdroog+ instelling",
+        "state": {
+          "off": "Uit",
+          "plus1": "+1",
+          "plus2": "+2",
+          "plus3": "+3"
+        }
+      },
+      "select_laundry_iron_dry_fine_adjust": {
+        "name": "Strijkdroog instelling",
+        "state": {
+          "off": "Uit",
+          "plus1": "+1",
+          "plus2": "+2",
+          "plus3": "+3"
+        }
+      },
+      "select_laundry_spin_speed_before_drying": {
+        "name": "Centrifugetoerental vóór drogen",
+        "state": {
+          "off": "Uit",
+          "rpm400": "400 tpm",
+          "rpm600": "600 tpm",
+          "rpm700": "700 tpm",
+          "rpm800": "800 tpm",
+          "rpm900": "900 tpm",
+          "rpm1000": "1000 tpm",
+          "rpm1200": "1200 tpm",
+          "rpm1400": "1400 tpm",
+          "rpm1500": "1500 tpm",
+          "rpm1600": "1600 tpm",
+          "auto": "Auto"
+        }
+      },
+      "select_laundry_drying_target": {
+        "name": "Droogdoel",
+        "state": {
+          "irondry": "Strijkdroog",
+          "gentledry": "Zachtdroog",
+          "cupboarddry": "Kastdroog",
+          "cupboarddryplus": "Kastdroog+",
+          "extradry": "Extra droog"
+        }
+      },
+      "select_laundry_refresher": {
+        "name": "Opfrissen",
+        "state": {
+          "shirt1": "Shirt 1'",
+          "shirt5": "Shirt 5' ",
+          "business": "Overhemd"
+        }
+      },
+      "select_oven_level": {
+        "name": "Niveau",
+        "state": {
+          "level01": "Niveau 1",
+          "level02": "Niveau 2",
+          "level03": "Niveau 3"
+        }
+      },
+      "select_oven_used_heating_mode": {
+        "name": "Verwarmingsmodus",
+        "state": {
+          "automaticoperation": "Automatisch bedrijf",
+          "automaticoperationwithmicrowave": "Automatisch bedrijf met magnetron",
+          "bakingsensoroperation": "Baksensor",
+          "bottomheating": "Onderverwarming",
+          "defrosting": "Ontdooien",
+          "desiccation": "Uitdrogen",
+          "doughproving": "Deeg laten rijzen",
+          "frozenheatupspecial": "CoolStart functie",
+          "grilllargearea": "Grill, groot gebied",
+          "grillsmallarea": "Grill, klein gebied",
+          "hotair": "Hetelucht",
+          "hotaireco": "Hetelucht eco",
+          "hotairgrilling": "Hetelucht grillen",
+          "intensiveheat": "Intensief verwarmen",
+          "keepwarm": "Warmhouden",
+          "microwave": "Magnetron",
+          "pizzasetting": "Pizzastand",
+          "preheatovenware": "Voorverwarmen van ovenschalen",
+          "reheat": "Her-verwarmen",
+          "sabbathprogramme": "Sabbat Programma",
+          "slowcook": "Langzaam garen",
+          "steam": "Stomen",
+          "topbottomheating": "Boven/onderverwarming",
+          "topbottomheatingeco": "Boven/onderverwarming eco",
+          "breadbaking": "Broodbakken",
+          "steamwithsteamset": "Stomen met stoomset"
+        }
+      },
+      "select_pyrolysis_level": {
+        "name": "Pyrolyse niveau",
+        "state": {
+          "level01": "Niveau 1",
+          "level02": "Niveau 2",
+          "level03": "Niveau 3"
+        }
+      },
+      "select_oven_child_lock_setting": {
+        "name": "Kinderslot",
+        "state": {
+          "deactivated": "Uit",
+          "activated": "Aan",
+          "activatedwithdoorlock": "Aan + deurvergrendeling"
+        }
+      },
+      "select_oven_switch_on_delay": {
+        "name": "Inschakelvertraging",
+        "state": {
+          "short": "Kort",
+          "medium": "Gemiddeld",
+          "long": "Lang"
+        }
+      },
+      "select_oven_cooling_fan_runtime": {
+        "name": "Ventilator nalooptijd",
+        "state": {
+          "short": "Kort",
+          "recommended": "Aanbevolen"
+        }
+      },
+      "select_oven_signal_duration": {
+        "name": "Akoestisch signaal",
+        "state": {
+          "short": "Kort",
+          "medium": "Medium",
+          "long": "Lang"
+        }
+      },
+      "select_refrigerator_door_assistant_freezer_trigger": {
+        "name": "Assistent vriezerdeur trigger",
+        "state": {
+          "push": "Duwen",
+          "pull": "Trekken",
+          "pushpull": "Duwen & Trekken"
+        }
+      },
+      "select_refrigerator_door_assistant_freezer_force": {
+        "name": "Assistent vriezerdeur kracht",
+        "state": {
+          "lowforce": "Laag",
+          "middleforce": "Gemiddeld",
+          "highforce": "Hoog"
+        }
+      },
+      "select_hood_interval_stage": {
+        "name": "Interval",
+        "state": {
+          "fanoff": "Uit",
+          "fanstage01": "1",
+          "fanstage02": "2",
+          "fanstage03": "3"
+        }
+      },
+      "select_hob_delaye_shutoff_stage": {
+        "name": "Vertraagde uitschakeling niveau",
+        "state": {
+          "fanoff": "Uit",
+          "fanstage01": "1",
+          "fanstage02": "2",
+          "fanstage03": "3"
         }
       }
     },
     "button": {
       "button_abort_program": {
-        "name": "Afbreken"
+        "name": "Stop"
       },
       "button_start_program": {
         "name": "Start"
       }
     },
-    "number": {}
+    "number": {
+      "number_fill_quantity": {
+        "name": "Vul hoeveelheid"
+      },
+      "number_laundry_brightness": {
+        "name": "Helderheid"
+      },
+      "number_door_light_ring_brightness": {
+        "name": "Deurlicht helderheid"
+      },
+      "number_duration": {
+        "name": "Tijd"
+      },
+      "number_laundry_spin_class": {
+        "name": "Centrifuge klasse"
+      },
+      "number_setpoint_freezer": {
+        "name": "Temperatuur vriezer"
+      },
+      "number_setpoint_refrigerator": {
+        "name": "Temperatuur koelkast"
+      },
+      "number_idos1_base_level": {
+        "name": "i-DOS doseervolume: wasmiddel"
+      },
+      "number_idos2_base_level": {
+        "name": "i-DOS doseervolume: wasmiddel of wasverzachter"
+      },
+      "number_oven_setpoint_temperature": {
+        "name": "Temperatuurinstelling"
+      },
+      "number_oven_display_brightness": {
+        "name": "Display-helderheid"
+      },
+      "number_hood_interval_off": {
+        "name": "Tijdsinterval uitschakelen"
+      },
+      "number_hood_interval_on": {
+        "name": "Tijdsinterval inschakelen"
+      },
+      "number_hood_delayed_shutoff_time": {
+        "name": "Vertragd uitschakelen"
+      },
+      "number_hood_sensor_sensitivity": {
+        "name": "Auto Sensorgevoeligheid"
+      },
+      "number_start_in": {
+        "name": "Start over"
+      }
+    },
+    "light": {
+      "light_door_ring": {
+        "name": "Deurring licht"
+      },
+      "light_drum_light": {
+        "name": "Trommellight"
+      },
+      "light_internal": {
+        "name": "Binnenverlichting"
+      },
+      "light_cooking_lighting": {
+        "name": "Kookverlichting"
+      },
+      "light_cooking_ambient_lighting": {
+        "name": "Bladverlichting"
+      }
+    },
+    "fan": {
+      "fan_hood": {
+        "name": "Afzuigentilator"
+      }
+    }
+  },
+  "services": {
+    "start_program": {
+      "name": "Start programma",
+      "description": "Start het geselecteerde programma",
+      "fields": {
+        "device_id": {
+          "name": "Apparaat",
+          "description": "Het apparaat waarop het programma gestart wordt"
+        },
+        "start_in": {
+          "name": "Start over",
+          "description": "Stel de start van het programma uit"
+        }
+      }
+    },
+    "set_start_in": {
+      "name": "Stel vertraging in",
+      "description": "Stel de startvertraging in",
+      "fields": {
+        "device_id": {
+          "name": "Apparaat",
+          "description": "Het apparaat waarop de vertraging ingesteld wordt"
+        },
+        "start_in": {
+          "name": "Vertraging",
+          "description": "Stel startvertraging in"
+        }
+      }
+    }
   }
 
 }
