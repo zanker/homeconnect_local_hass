@@ -36,31 +36,121 @@
   "entity": {
     "switch": {
       "switch_power_state": {
-        "name": "Aan/Uit"
+        "name": "Voedingsstatus"
       },
       "switch_hygiene_plus": {
         "name": "Hygiene Plus"
       },
       "switch_intensiv_zone": {
-        "name": "Intensiv Zone"
+        "name": "IntensiveZone"
       },
       "switch_vario_speed_plus": {
-        "name": "VariospeedPlus"
+        "name": "VarioSpeedPlus"
       },
       "switch_silence_on_demand": {
-        "name": "Silence On Demand"
+        "name": "Geluid dempen"
       },
       "switch_brilliance_dry": {
         "name": "Brilliance Dry"
       },
       "switch_extra_dry": {
-        "name": "Extra Dry"
+        "name": "Extra droog"
       },
       "switch_speed_on_demand": {
         "name": "Speed On Demand"
       },
       "switch_info_light": {
-        "name": "Info Light"
+        "name": "Infolicht"
+      },
+      "switch_multiple_beverages": {
+        "name": "Multiple Beverages"
+      },
+      "switch_half_load": {
+        "name": "Halve belading"
+      },
+      "switch_child_lock": {
+        "name": "Kinderslot"
+      },
+      "switch_door_light_ring": {
+        "name": "Door Light Ring"
+      },
+      "switch_drum_light": {
+        "name": "Trommelverlichting"
+      },
+      "switch_laundry_end_signal": {
+        "name": "Eindsignaal"
+      },
+      "switch_laundry_sound_mute": {
+        "name": "Stil"
+      },
+      "switch_laundry_time_light": {
+        "name": "Time light"
+      },
+      "switch_laundry_wrinkle_guard": {
+        "name": "Minder strijken"
+      },
+      "switch_laundry_silent_mode": {
+        "name": "Stille modus"
+      },
+      "switch_laundry_speed_perfect": {
+        "name": "SpeedPerfect"
+      },
+      "switch_laundry_gentle": {
+        "name": "Voorzichtig"
+      },
+      "switch_laundry_hygiene": {
+        "name": "Hygiene"
+      },
+      "switch_super_freezer": {
+        "name": "Super mode vriezer"
+      },
+      "switch_super_refrigerator": {
+        "name": "Super mode koelkast"
+      },
+      "switch_refrigerator_eco": {
+        "name": "Eco modus"
+      },
+      "switch_refrigerator_vacation": {
+        "name": "Vakantiemodus"
+      },
+      "switch_laundry_idos1_active": {
+        "name": "i-DOS Wasmiddel (Lade 1)"
+      },
+      "switch_laundry_idos2_active": {
+        "name": "i-DOS Wasmiddel (Lade 2)"
+      },
+      "switch_oven_fast_pre_heat": {
+        "name": "Snel voorverwarmen"
+      },
+      "switch_oven_button_tones": {
+        "name": "Geluid van knop"
+      },
+      "switch_oven_light_during_operation": {
+        "name": "Verlichting tijdens werking"
+      },
+      "switch_oven_sabbath_mode": {
+        "name": "Sabbat modus"
+      },
+      "switch_refrigerator_dispenser_enabled": {
+        "name": "Dispenser"
+      },
+      "switch_refrigerator_door_assistant_freezer": {
+        "name": "Vriezer deurassistent"
+      },
+      "switch_refrigeration_light_internal": {
+        "name": "Binnenverlichting"
+      },
+      "switch_refrigeration_light_theater_mode": {
+        "name": "Binnenverlichting TheaterMode"
+      },
+      "switch_hood_boost": {
+        "name": "Boost"
+      },
+      "switch_hood_silence_mode": {
+        "name": "Stille modus"
+      },
+      "switch_refrigerator_fresh_mode": {
+        "name": "Opfris modus"
       }
     },
     "binary_sensor": {
@@ -81,26 +171,106 @@
       },
       "binary_sensor_bean_container_empty": {
         "name": "Bonenreservoir leeg"
+      },
+      "binary_remote_start_allowed": {
+        "name": "Start op afstand"
+      },
+      "binary_sensor_refresher_level": {
+        "name": "Verfrisser vulniveau",
+        "state": {
+          "on": "Leeg",
+          "off": "Vol"
+        }
+      },
+      "binary_sensor_condensate_container_full": {
+        "name": "Condenswaterreservoir",
+        "state": {
+          "on": "Vol",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_lint_filter_full": {
+        "name": "Pluizenfilter",
+        "state": {
+          "on": "Vol",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_maintenance_reminder": {
+        "name": "Machinereiniging aanbevolen"
+      },
+      "binary_sensor_program_aborted": {
+        "name": "Programma afgebroken"
+      },
+      "binary_sensor_foam_detection": {
+        "name": "Schuimdetectie"
+      },
+      "binary_sensor_freezer_door_state": {
+        "name": "Deur vriezer"
+      },
+      "binary_sensor_fridge_door_state": {
+        "name": "Koelkast deur"
+      },
+      "binary_sensor_door_alarm_freezer": {
+        "name": "Vriezer deuralarm"
+      },
+      "binary_sensor_door_alarm_fridge": {
+        "name": "Koelkast deuralarm"
+      },
+      "binary_sensor_temperature_alarm_freezer": {
+        "name": "Vriezer temperatuuralarm"
+      },
+      "binary_sensor_interior_illumination": {
+        "name": "Binnenverlichting"
+      },
+      "binary_sensor_refrigerator_defrost": {
+        "name": "Ontdooien"
+      },
+      "binary_sensor_water_filter_full": {
+        "name": "Waterfilter vol"
+      },
+      "binary_sensor_freezer_appliance_error": {
+        "name": "Apparaatfout"
+      },
+      "binary_sensor_freezer_low_voltage": {
+        "name": "Lage voedingsspanning"
       }
     },
     "sensor": {
       "sensor_remaining_program_time": {
-        "name": "Resterende programmaduur"
+        "name": "Resterende tijd"
       },
       "sensor_program_progress": {
         "name": "Programmavoortgang"
       },
       "sensor_water_forecast": {
-        "name": "Watervoorspelling"
+        "name": "Waterprognose"
       },
       "sensor_energy_forecast": {
         "name": "Energieprognose"
       },
       "sensor_operation_state": {
-        "name": "Bedrijfsstatus"
+        "name": "Bedrijfsstatus",
+        "state": {
+          "inactive": "Inactief",
+          "ready": "Paraat",
+          "delayedstart": "Uitgestelde start",
+          "run": "Loopt",
+          "pause": "Gepauzeerd",
+          "actionrequired": "Aandacht benodigd",
+          "finished": "Afgerond",
+          "error": "Fout",
+          "aborting": "Afbreken"
+        }
       },
       "sensor_program_phase": {
-        "name": "Programmafase"
+        "name": "Programmafase",
+        "state": {
+          "prerinse": "Voorwas",
+          "mainwash": "Hoofdwas",
+          "finalrinse": "Spoelen",
+          "drying": "Drogen"
+        }
       },
       "sensor_active_program": {
         "name": "Actief Programma",
@@ -121,7 +291,103 @@
           "favorite_007": "Favoriet 7",
           "favorite_008": "Favoriet 8",
           "favorite_009": "Favoriet 9",
-          "favorite_010": "Favoriet 10"
+          "favorite_010": "Favoriet 10",
+          "laundrycare_washer_program_automatic30_auto30_auto30": "Automatisch zacht 30",
+          "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatisch 40-60",
+          "laundrycare_washer_program_cotton_cotton_cotton": "Katoen",
+          "laundrycare_washer_program_darkwash_darkwash_darkwash": "Donkere was",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fijne Was/Zijde",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Fijne Was/Zijde microplastic",
+          "laundrycare_washer_program_downduvet_down_down": "Laag",
+          "laundrycare_washer_program_drumclean_drumclean_drumclean": "Trommelreiniging (oud)",
+          "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Trommelreiniging",
+          "laundrycare_washer_program_easycare_easycare_easycare": "EaseCare",
+          "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60",
+          "laundrycare_washer_program_mix_mix_mix": "Snel/Mix",
+          "laundrycare_washer_program_outdoor_outdoor_outdoor": "Outdoor",
+          "laundrycare_washer_program_rinse_rinse_rinse": "Spoelen",
+          "laundrycare_washer_program_sensitive_sensitive_sensitive": "Sensitive",
+          "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Overhemden/blouses",
+          "laundrycare_washer_program_shirtsblouses_sportfitness_sportfitness": "Sportkleding",
+          "laundrycare_washer_program_spin_spin_spindrain": "Centrifugeren/afpompen",
+          "laundrycare_washer_program_steaming_steaming_steaming": "Stomen/Kreukvrij",
+          "laundrycare_washer_program_super153045_super1530_super1530": "Supersnel 15/30",
+          "laundrycare_washer_program_wool_wool_wool": "Wol",
+          "laundrycare_washer_program_sportfitness": "Sportkleding",
+          "laundrycare_common_program_juststart": "Direct starten",
+          "laundrycare_common_program_memory1": "Geheugen 1",
+          "laundrycare_common_program_memory2": "Geheugen 2",
+          "laundrycare_dryer_program_blankets": "Dry - Down Wear",
+          "laundrycare_dryer_program_businessshirts": "Shirts",
+          "laundrycare_dryer_program_cotton": "Dry - Cottons",
+          "laundrycare_dryer_program_dessous": "Dry - Lingerie",
+          "laundrycare_dryer_program_hygiene": "Dry - Hygiene",
+          "laundrycare_dryer_program_inbasket": "Dry - Wool in Basket",
+          "laundrycare_dryer_program_mix": "Dry - Mixed Fabrics",
+          "laundrycare_dryer_program_outdoor": "Dry - Outdoor",
+          "laundrycare_dryer_program_pillow": "Dry - Duvet",
+          "laundrycare_dryer_program_super40": "Dry - Rapid 40min",
+          "laundrycare_dryer_program_synthetic": "Dry -  Easy-Care",
+          "laundrycare_dryer_program_timecold": "Time Progr. Cold",
+          "laundrycare_dryer_program_timewarm": "Time Progr. Warm",
+          "laundrycare_dryer_program_towels": "Dry - Towels",
+          "laundrycare_dryer_program_shirtsblouses_sportfitness": "Dry - Sportswear",
+          "laundrycare_washerdryer_program_towels_towels": "Wash & Dry - Towels",
+          "laundrycare_washerdryer_program_cotton_cotton": "Wash & Dry - Cotton",
+          "laundrycare_washerdryer_program_mix_mix": "Wash & Dry - Mix",
+          "laundrycare_washerdryer_program_wool_wool": "Wash & Dry - Wool",
+          "laundrycare_washerdryer_program_sportfitness_sportfitness": "Wash & Dry - Sportswear",
+          "laundrycare_washerdryer_program_washanddry_60": "Wash & Dry - 60'",
+          "laundrycare_washerdryer_program_downduvet_down": "Wash & Dry - Down",
+          "consumerproducts_coffeemaker_program_beverage_caffegrande": "Caffè Grande",
+          "consumerproducts_coffeemaker_program_beverage_caffelatte": "Caffè Latte",
+          "consumerproducts_coffeemaker_program_beverage_cappuccino": "Cappuccino",
+          "consumerproducts_coffeemaker_program_beverage_coffee": "Coffee",
+          "consumerproducts_coffeemaker_program_beverage_espresso": "Espresso",
+          "consumerproducts_coffeemaker_program_beverage_espressodoppio": "Espresso Doppio",
+          "consumerproducts_coffeemaker_program_beverage_espressomacchiato": "Espresso Macchiato",
+          "consumerproducts_coffeemaker_program_beverage_hotwater": "Hot Water",
+          "consumerproducts_coffeemaker_program_beverage_lattemacchiato": "Latte Macchiato",
+          "consumerproducts_coffeemaker_program_beverage_milkfroth": "Milk Froth",
+          "consumerproducts_coffeemaker_program_beverage_ristretto": "Ristretto",
+          "consumerproducts_coffeemaker_program_beverage_warmmilk": "Warm Milk",
+          "consumerproducts_coffeemaker_program_beverage_xlcoffee": "Coffee XL",
+          "consumerproducts_coffeemaker_program_coffeeworld_americano": "Americano",
+          "consumerproducts_coffeemaker_program_coffeeworld_blackeye": "Blackeye",
+          "consumerproducts_coffeemaker_program_coffeeworld_cafeaulait": "Café au Lait",
+          "consumerproducts_coffeemaker_program_coffeeworld_cafeconleche": "Café Conleche",
+          "consumerproducts_coffeemaker_program_coffeeworld_cafecortado": "Café Cortado",
+          "consumerproducts_coffeemaker_program_coffeeworld_coldbrew": "Cold Brew",
+          "consumerproducts_coffeemaker_program_coffeeworld_coldbrewmacchiato": "Cold Brew macchiato",
+          "consumerproducts_coffeemaker_program_coffeeworld_cortado": "Cortado",
+          "consumerproducts_coffeemaker_program_coffeeworld_deadeye": "Deadeye",
+          "consumerproducts_coffeemaker_program_coffeeworld_doppio": "Doppio",
+          "consumerproducts_coffeemaker_program_coffeeworld_flatwhite": "Flatwhite",
+          "consumerproducts_coffeemaker_program_coffeeworld_galao": "Galão",
+          "consumerproducts_coffeemaker_program_coffeeworld_garoto": "Garoto",
+          "consumerproducts_coffeemaker_program_coffeeworld_grosserbrauner": "Großer Brauner",
+          "consumerproducts_coffeemaker_program_coffeeworld_kaapi": "Kaapi",
+          "consumerproducts_coffeemaker_program_coffeeworld_kleinerbrauner": "Kleiner Brauner",
+          "consumerproducts_coffeemaker_program_coffeeworld_koffieverkeerd": "Koffie Verkeerd",
+          "consumerproducts_coffeemaker_program_coffeeworld_redeye": "Redeye",
+          "consumerproducts_coffeemaker_program_coffeeworld_slowbrew": "Slow Brew",
+          "consumerproducts_coffeemaker_program_coffeeworld_verlaengerter": "Verlängerter",
+          "consumerproducts_coffeemaker_program_coffeeworld_verlaengerterbraun": "Verlängerter Braun",
+          "consumerproducts_coffeemaker_program_coffeeworld_wienermelange": "Wiener Melange",
+          "consumerproducts_coffeemaker_program_cleaningmodes_applianceoffrinsing": "Rinse while turn off",
+          "consumerproducts_coffeemaker_program_cleaningmodes_applianceonrinsing": "Rinse while turn on",
+          "consumerproducts_coffeemaker_program_cleaningmodes_calcnclean": "Calc'n'clean",
+          "consumerproducts_coffeemaker_program_cleaningmodes_clean": "Clean",
+          "consumerproducts_coffeemaker_program_cleaningmodes_cleanbrewingunitmanually": "Clean Brewing Unit",
+          "consumerproducts_coffeemaker_program_cleaningmodes_cleanbrewingunitmanuallydetailed": "Clean Brewing Unit (detailed)",
+          "consumerproducts_coffeemaker_program_cleaningmodes_cleanoutletmanually": "Clean Beverage Dispenser",
+          "consumerproducts_coffeemaker_program_cleaningmodes_descale": "Descale",
+          "consumerproducts_coffeemaker_program_cleaningmodes_frostprotection": "Frost Protection",
+          "consumerproducts_coffeemaker_program_cleaningmodes_removewaterfilter": "Remove Water Filter",
+          "consumerproducts_coffeemaker_program_cleaningmodes_replacewaterfilter": "Replace Water Filter",
+          "consumerproducts_coffeemaker_program_cleaningmodes_rinsemilksystem": "Rinse Milk System",
+          "consumerproducts_coffeemaker_program_cleaningmodes_rinsewaterfilter": "Rinse Water Filter",
+          "consumerproducts_coffeemaker_program_cleaningmodes_specialrinsing": "Special Rinsing"
         }
       },
       "sensor_rinse_aid": {
@@ -263,3 +529,4 @@
   }
 
 }
+
