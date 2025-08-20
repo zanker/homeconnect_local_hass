@@ -394,7 +394,7 @@
         "name": "Glansspoelmiddel",
         "state": {
           "empty": "Leeg",
-          "nearly_empty": "Bijna Leeg",
+          "nearly_empty": "Bijna leeg",
           "full": "Vol"
         }
       },
@@ -402,7 +402,7 @@
         "name": "Zout",
         "state": {
           "empty": "Leeg",
-          "nearly_empty": "Bijna Leeg",
+          "nearly_empty": "Bijna leeg",
           "full": "Vol"
         }
       },
@@ -410,8 +410,8 @@
         "name": "Waterreservoir",
         "state": {
           "empty": "Leeg",
-          "nearly_empty": "Bijna Leeg",
-          "not_inserted": "Niet Geplaatst",
+          "nearly_empty": "Bijna leeg",
+          "not_inserted": "Niet geplaatst",
           "full": "Vol"
         }
       },
@@ -419,7 +419,7 @@
         "name": "Start over"
       },
       "sensor_count_started": {
-        "name": "Start aantal"
+        "name": "Gestarte programma's"
       },
       "sensor_end_trigger": {
         "name": "Programma afrondingsstatus",
@@ -438,6 +438,337 @@
       },
       "sensor_delayed_shutoff_time": {
         "name": "Vertraagde uitschakeling"
+      },
+      "sensor_power_state": {
+        "name": "Voedingsstatus",
+        "state": {
+          "mainsoff": "Voeding uit",
+          "off": "Uit",
+          "on": "Aan",
+          "standby": "Standby"
+        }
+      },
+      "sensor_door_state": {
+        "name": "Deur",
+        "state": {
+          "open": "Open",
+          "closed": "Gesloten",
+          "locked": "Vergrendeld"
+        }
+      },
+      "sensor_laundry_reload": {
+        "name": "Was toevoegen",
+        "state": {
+          "impossible": "Niet mogelijk",
+          "possiblepauseprogram": "Mogelijk, pauzeer programma",
+          "possibleopendoor": "Mogelijk, open de deur"
+        }
+      },
+      "sensor_laundry_process_phase": {
+        "name": "Programmafase",
+        "state": {
+          "nophase": "Geen fase",
+          "prewash": "Voorwas",
+          "intermediatespin": "Centrifugeren tussentijds",
+          "fillingdetergent": "Wasverzachter toevoegen",
+          "detectingload": "Belasting detecteren",
+          "heating": "Opwarmen",
+          "washing": "Wassen",
+          "cooldown": "Afkoelen",
+          "rinsingfoam": "Spoelen schuim",
+          "rinsing": "Spoelen",
+          "rinsingaquasensor": "Spoelen vochtsensor",
+          "rinseonly": "Alleen spoelen",
+          "waterproofing": "Water proofing",
+          "rinsingsoftener": "Spoelen wasverzachter",
+          "holdafterrinse": "Wachten na het spoelen",
+          "pumping": "Pompen",
+          "spinningfinal": "Centrifugeren afrondend",
+          "lessironing": "Strijkdroog",
+          "fluffing": "Stuiven",
+          "soaking": "Natmaken",
+          "hygienicsteamfogging": "Hygienic Steam Fogging",
+          "guardingoxy": "Guarding Oxy",
+          "generatingozone": "Ozone genereren",
+          "degradingozone": "Ozone degenereren",
+          "drying": "Drogen",
+          "coolingdown": "Afkoelen",
+          "additionalcoolingdown": "Aanvullend afkoelen",
+          "guardingwrinkle": "Guarding Wrinkle",
+          "detectingtextile": "Textiel detecteren",
+          "detectingsoil": "Natheid detecteren",
+          "disinfecting": "Disinfecteren",
+          "lowtemperaturehygiene": "Lage temperatuur hygiëne",
+          "steamingactive": "Stomen actief",
+          "irondryreached": "Strijkdroog bereikt",
+          "cupboarddryreached": "Kastdroog bedreikt",
+          "cupboarddryplusreached": "KastdroogPlus bereikt",
+          "cleaningheatexchanger": "Reinigen warmtewisselaar",
+          "slightlydampreached": "Lichtvochtig bereikt",
+          "extradryreached": "Extra droog bereikt",
+          "gentlydryreached": "Geleidelijk droog bereikt",
+          "quickcare": "QuickCare",
+          "depthcarephase1": "Depth Care phase 1",
+          "depthcarephase2": "Depth Care phase 2",
+          "coldrefreshing": "Koed verfrissen",
+          "steaming": "Stomen",
+          "foam": "Schuim",
+          "testprogramdummytextfinalspeedreached": "Testprogramma dummy text final speed reached",
+          "rinsingfoamf21": "Schuimspoeling 21'",
+          "handsoak": "Handwassen",
+          "vacant": "Leeg",
+          "spinning": "Centrifugeren",
+          "displayspinabortnospin": "Display Spin Abort no Spin",
+          "multiplesoak": "Meerdere wassen",
+          "laundryrefreshing": "Was verfrissen",
+          "reload": "Herladen",
+          "hotmoistheatingwetting": "Hete bevochtiging",
+          "hotmoistheatingheating": "Hete bevochtiging opwarmen",
+          "hotmoistheatingwashing": "Hete bevochtiging wassen",
+          "moistureremoval": "Vocht verwijderen",
+          "selfcleaning": "Zelfreiniging",
+          "hygiene": "Hygiëne",
+          "smartsoak": "Smart weken",
+          "soakpause": "Weken gepauzeerd",
+          "soakfinished": "Weken afgerond",
+          "anyphase": "Willekeurige fase"
+        }
+      },
+      "sensor_count_completed": {
+        "name": "Afgeronde programma's"
+      },
+      "sensor_flex_start": {
+        "name": "Flex start",
+        "state": {
+          "disabled": "Uitgeschakeld",
+          "enabled": "Ingeschakeld",
+          "pending": "Wachten",
+          "scheduled": "Uitgesteld",
+          "started": "Gestart",
+          "finished": "Afgerond"
+        }
+      },
+      "sensor_dryer_process_phase": {
+        "name": "Process Phase",
+        "state": {
+          "steamactive": "Stomen actief",
+          "progstarted": "Programma gestart",
+          "drying": "Drogen",
+          "irondryreached": "Strijkdroog bereikt",
+          "cupboarddryreached": "Kastdroog bereikt",
+          "cubboarddryplusreached": "KastdroogPlus bereikt",
+          "cooling": "Afkoelen",
+          "finishedanticrease": "Anti-kreuk afgrond",
+          "heatexchangercleaning": "Reinigen warmtewisselaar",
+          "slightlydampreached": "Lichtvochtig bereikt",
+          "extradryreached": "Extra droog bereikt",
+          "quickcare": "QuickCare",
+          "depthcarephase1": "Depth Care Phase 1",
+          "depthcarephase2": "Depth Care Phase 2",
+          "spare": "reserve"
+        }
+      },
+      "sensor_temperature_ambient": {
+        "name": "Omgevingstemperatuur"
+      },
+      "sensor_laundry_spin_speed": {
+        "name": "Toerental",
+        "state": {
+          "off": "Uit",
+          "rpm400": "400 rpm",
+          "rpm600": "600 rpm",
+          "rpm700": "700 rpm",
+          "rpm800": "800 rpm",
+          "rpm900": "900 rpm",
+          "rpm1000": "1000 rpm",
+          "rpm1200": "1200 rpm",
+          "rpm1400": "1400 rpm",
+          "rpm1500": "1500 rpm",
+          "rpm1600": "1600 rpm",
+          "rinsehold": "Blijven spoelen",
+          "auto": "Auto"
+        }
+      },
+      "sensor_estimated_remaining_program_time": {
+        "name": "Geschatte resterende tijd"
+      },
+      "sensor_oven_water_tank": {
+        "name": "Watertank {group_name}",
+        "state": {
+          "ok": "OK",
+          "empty": "Leeg",
+          "unplugged": "Niet geplaatst"
+        }
+      },
+      "sensor_oven_current_temperature": {
+        "name": "Huidige temperatuur {group_name}"
+      },
+      "sensor_heatup_progress": {
+        "name": "Voortgang opwarmen"
+      },
+      "sensor_wifi_signal_strength": {
+        "name": "Wifi Signaalsterkte"
+      },
+      "sensor_grease_filter_saturation": {
+        "name": "Verzadiging vetfilter"
+      },
+      "sensor_carbon_filter_saturation": {
+        "name": "Verzadiging koolstoffilter"
+      },
+      "sensor_hob_zone_state": {
+        "name": "Status zone {group_name}",
+        "state": {
+          "notselectable": "Niet selecteerbaar",
+          "off": "Uit",
+          "active": "Actief",
+          "residuelheat": "Restwarmte"
+        }
+      },
+      "sensor_hob_zone_operationstate": {
+        "name": "Bedrijfsstatus zone {group_name}",
+        "state": {
+          "inactive": "Inactief",
+          "ready": "Paraat",
+          "delayedstart": "Uitgestelde start",
+          "run": "Loopt",
+          "pause": "Gepauzeerd",
+          "actionrequired": "Aandacht benodigd",
+          "finished": "Afgerond",
+          "error": "Fout",
+          "aborting": "Afbreken"
+        }
+      },
+      "sensor_hob_zone_power_level": {
+        "name": "Vermogensinstelling zone {group_name}",
+        "state": {
+          "off": "Uit",
+          "keepwarm": "Warmhouden",
+          "10": "10",
+          "15": "15",
+          "20": "20",
+          "25": "25",
+          "30": "30",
+          "35": "35",
+          "40": "40",
+          "45": "45",
+          "50": "50",
+          "55": "55",
+          "60": "60",
+          "65": "65",
+          "70": "70",
+          "75": "75",
+          "80": "80",
+          "85": "85",
+          "90": "90",
+          "boost1": "Boost 1",
+          "boost2": "Boost 2"
+        }
+      },
+      "sensor_hob_zone_frying_sensor_level": {
+        "name": "Temperatuurinstelling zone {group_name}",
+        "state": {
+          "off": "Uit",
+          "70dc": "70 °C",
+          "80dc": "80 °C",
+          "90dc": "90 °C",
+          "100dc": "100 °C",
+          "110dc": "110 °C",
+          "120dc": "120 °C",
+          "140dc": "140 °C",
+          "160dc": "160 °C",
+          "180dc": "180 °C",
+          "200dc": "200 °C",
+          "220dc": "220 °C"
+        }
+      },
+      "sensor_hob_zone_current_temperature": {
+        "name": "Huidige temperatuur zone {group_name}"
+      },
+      "sensor_hob_zone_heatup_progress": {
+        "name": "Voortgang opwarming zone {group_name}"
+      },
+      "sensor_hob_zone_duration": {
+        "name": "Tijdsduur zone {group_name}"
+      },
+      "sensor_hob_zone_elapsed_program_time": {
+        "name": "Gelopen programmatijd zone {group_name}"
+      },
+      "sensor_hob_zone_remaining_program_time": {
+        "name": "Resterende programmatijd zone {group_name}"
+      },
+      "sensor_hob_zone_program_progress": {
+        "name": "Programmavoortgang zone {group_name}"
+      },
+      "sensor_count_ristretto_espresso": {
+        "name": "Aantal Ristretto Espresso"
+      },
+      "sensor_count_coffee": {
+        "name": "Aantal Koffie"
+      },
+      "sensor_count_coffee_milk": {
+        "name": "Aantal Koffie & Melk"
+      },
+      "sensor_count_frothy_milk": {
+        "name": "Aantal Melkschuim"
+      },
+      "sensor_count_hot_milk": {
+        "name": "Aantal Warme Melk"
+      },
+      "sensor_count_hot_water": {
+        "name": "Aantal Heet water"
+      },
+      "sensor_count_hot_water_cups": {
+        "name": "Aantal Heet water kopjes"
+      },
+      "sensor_count_powder_coffee": {
+        "name": "Aantal Poederkoffie"
+      },
+      "sensor_countdown_calc_n_clean": {
+        "name": "Aantal Calc & Clean benodigd"
+      },
+      "sensor_countdown_cleaning": {
+        "name": "Machinereiniging benodigd"
+      },
+      "sensor_countdown_descaling": {
+        "name": "Ontkalking benodigd"
+      },
+      "sensor_countdown_water_filter": {
+        "name": "Waterfilter vervangen"
+      },
+      "sensor_coffeemaker_process_phase": {
+        "name": "Programmafase",
+        "state": {
+          "none": "Idle",
+          "beverageaborting": "Drank annuleren",
+          "grinding": "Bonen malen",
+          "brewingunitmovesup": "Bereiding voorbereiden",
+          "coffeebrewing": "Koffie bereiden",
+          "brewingunitmovesdown": "Bereiding afronden",
+          "milkfroth": "Melk opschuimen",
+          "cleaningmilksystem": "Reinigen melksysteem",
+          "hotwaterdispensing": "Heet water toedienen,
+          "cleaningmode": "Schoonmaak modus",
+          "descalephase": "Ontkalking",
+          "rinsephase": "Spoelen",
+          "cleanphase": "Reinigen",
+          "warmmilk": "Melk opwarmen",
+          "frostprotection": "Vriesbeveiliging",
+          "specialrinsing": "Speciale spoeling",
+          "waterfilteractivation": "Waterfilter activeren",
+          "lattemacpause": "Latte Macchiato Pauzeren",
+          "startphase": "Opstarten",
+          "skipphase": "Stap overslaan",
+          "preliminary": "Voorbereidende stap",
+          "autodescalephase": "Auto ontkalking",
+          "autocleanphase": "Auto reiniging",
+          "drainingdescalephase": "Leeglaten na ontkalking",
+          "milkdescalephase": "Ontkalken melksysteem",
+          "coldbrew": "Koud brouwen",
+          "dripbrew": "Druppelgewijs brouwen",
+          "emptypowdersources": "Leegmaken poederbronnen",
+          "roundrobinflush": "Spoelsysteem",
+          "initializenewcartridge": "Initiëren Cartridge"
+        }
       }
     },
     "select": {
@@ -529,5 +860,6 @@
   }
 
 }
+
 
 
