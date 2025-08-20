@@ -72,7 +72,7 @@
         "name": "Kinderslot"
       },
       "switch_door_light_ring": {
-        "name": "Door Light Ring"
+        "name": "Deurverlichting"
       },
       "switch_drum_light": {
         "name": "Trommelverlichting"
@@ -84,7 +84,7 @@
         "name": "Stil"
       },
       "switch_laundry_time_light": {
-        "name": "Time light"
+        "name": "TimeLight"
       },
       "switch_laundry_wrinkle_guard": {
         "name": "Minder strijken"
@@ -167,7 +167,7 @@
         "name": "EcoDry Actief"
       },
       "binary_sensor_aqua_stop": {
-        "name": "AquaStop plaatsgevonden"
+        "name": "AquaStop"
       },
       "binary_sensor_low_water_pressure": {
         "name": "Lage waterdruk"
@@ -255,15 +255,15 @@
       "sensor_operation_state": {
         "name": "Bedrijfsstatus",
         "state": {
-          "inactive": "Inactief",
-          "ready": "Paraat",
-          "delayedstart": "Uitgestelde start",
-          "run": "Loopt",
-          "pause": "Gepauzeerd",
-          "actionrequired": "Aandacht benodigd",
-          "finished": "Afgerond",
-          "error": "Fout",
-          "aborting": "Afbreken"
+          "Inactive": "Inactief",
+          "Ready": "Paraat",
+          "DelayedStart": "Uitgestelde start",
+          "Run": "Loopt",
+          "Pause": "Gepauzeerd",
+          "ActionRequired": "Actie benodigd",
+          "Finished": "Afgerond",
+          "Error": "Fout",
+          "Aborting": "Afbreken"
         }
       },
       "sensor_program_phase": {
@@ -464,7 +464,7 @@
         }
       },
       "sensor_door_state": {
-        "name": "Deur",
+        "name": "Deurstatus",
         "state": {
           "open": "Open",
           "closed": "Gesloten",
@@ -789,10 +789,10 @@
     },
     "select": {
       "select_drying_assistant_all_programs": {
-        "name": "Droogassistent Alle Programma's",
+        "name": "Automatische deuropening",
         "state": {
           "off": "Uit",
-          "allprograms": "Alle Programma's",
+          "allprograms": "Alle programma's",
           "ecoasdefault": "Eco 50"
         }
       },
@@ -806,13 +806,13 @@
       "select_rinse_aid": {
         "name": "Glansspoelmiddelinstelling",
         "state": {
-          "off": "Niveau 0",
-          "r01": "Niveau 1",
-          "r02": "Niveau 2",
-          "r03": "Niveau 3",
-          "r04": "Niveau 4",
-          "r05": "Niveau 5",
-          "r06": "Niveau 6"
+          "Off": "Niveau 0",
+          "R01": "Niveau 1",
+          "R02": "Niveau 2",
+          "R03": "Niveau 3",
+          "R04": "Niveau 4",
+          "R05": "Niveau 5",
+          "R06": "Niveau 6"
         }
       },
       "select_sound_level_signal": {
@@ -827,14 +827,14 @@
       "select_water_hardness": {
         "name": "Waterhardheid",
         "state": {
-          "h00": "°E 0-8 zacht (0-1.1 mmol/l)",
-          "h01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
-          "h02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
-          "h03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
-          "h04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
-          "h05": "°E 21-26 hard (3.0-3.7 mmol/l)",
-          "h06": "°E 27-38 hard (3.8-5.4 mmol/l)",
-          "h07": "°E 39-62 hard (5.5-8.9 mmol/l)"
+          "H00": "°E 0-8 zacht (0-1.1 mmol/l)",
+          "H01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
+          "H02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
+          "H03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
+          "H04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
+          "H05": "°E 21-26 hard (3.0-3.7 mmol/l)",
+          "H06": "°E 27-38 hard (3.8-5.4 mmol/l)",
+          "H07": "°E 39-62 hard (5.5-8.9 mmol/l)"
         }
       },
       "select_remote_control_level": {
@@ -869,6 +869,7 @@
           "favorite_008": "Favoriet 8",
           "favorite_009": "Favoriet 9",
           "favorite_010": "Favoriet 10",
+          "cooking_oven_program_cleaning_drying": "Reinigen en Drogen",
           "laundrycare_washer_program_automatic30_auto30_auto30": "Automatisch 30°C",
           "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatisch 40°C",
           "laundrycare_washer_program_cotton_cotton_cotton": "Katoen",
@@ -922,7 +923,7 @@
       "select_sensitivity_turbidity": {
         "name": "Sensorinstelling",
         "state": {
-          "standard": "Standard",
+          "standard": "Standaard",
           "sensitive": "Gevoelig",
           "verysensitive": "Zeer gevoelig"
         }
@@ -935,11 +936,11 @@
         }
       },
       "select_power_state": {
-        "name": "Power state",
+        "name": "Voedingsstatus",
         "state": {
-          "mainsoff": "Mains off",
-          "off": "Off",
-          "on": "On",
+          "mainsoff": "Voeding uit",
+          "off": "Uit",
+          "on": "Aan",
           "standby": "Standby"
         }
       },
@@ -1395,7 +1396,7 @@
     },
     "light": {
       "light_door_ring": {
-        "name": "Deurring licht"
+        "name": "Deurverlichting"
       },
       "light_drum_light": {
         "name": "Trommellight"
