@@ -773,7 +773,7 @@
     },
     "select": {
       "select_drying_assistant_all_programs": {
-        "name": "Drying Assistant All Programs",
+        "name": "Droogassistent Alle Programma's",
         "state": {
           "off": "Uit",
           "allprograms": "Alle Programma's",
@@ -781,7 +781,7 @@
         }
       },
       "select_hot_water": {
-        "name": "Watertemperatuur",
+        "name": "Wateraansluiting",
         "state": {
           "coldwater": "Koud water",
           "hotwater": "Heet water"
@@ -791,10 +791,10 @@
         "name": "Glansspoelmiddel"
       },
       "select_sound_level_signal": {
-        "name": "Geluidsniveau signaal",
+        "name": "Geluidssignaal volume",
         "state": {
           "high": "Hoog",
-          "low": "Laag",
+          "low": "Zacht",
           "medium": "Gemiddeld",
           "off": "Uit"
         }
@@ -813,12 +813,12 @@
       "select_program": {
         "name": "Geselecteerd programma",
         "state": {
-          "dishcare_dishwasher_program_intensiv70": "Intensief 70",
-          "dishcare_dishwasher_program_auto2": "Auto 45-65",
-          "dishcare_dishwasher_program_eco50": "Eco 50",
-          "dishcare_dishwasher_program_quick45": "Snel 45",
-          "dishcare_dishwasher_program_prerinse": "Spoelen",
-          "dishcare_dishwasher_program_quick65": "Snel 65",
+          "dishcare_dishwasher_program_intensiv70": "Intensief 70°",
+          "dishcare_dishwasher_program_auto2": "Auto 45-65°",
+          "dishcare_dishwasher_program_eco50": "Eco 50°",
+          "dishcare_dishwasher_program_quick45": "Speed 45°",
+          "dishcare_dishwasher_program_prerinse": "Voorspoelen",
+          "dishcare_dishwasher_program_quick65": "Speed 65°",
           "dishcare_dishwasher_program_machinecare": "Machinereiniging",
           "favorite_001": "Favoriet 1",
           "favorite_002": "Favoriet 2",
@@ -833,18 +833,18 @@
         }
       },
       "select_sensitivity_turbidity": {
-        "name": "Gevoeligheid van troebelheidssensor",
+        "name": "Sensorinstelling",
         "state": {
           "standard": "Standard",
           "sensitive": "Gevoelig",
-          "verysensitive": "Zeer Gevoelig"
+          "verysensitive": "Zeer gevoelig"
         }
       },
       "select_eco_as_default": {
         "name": "Standaard Programma",
         "state": {
-          "lastprogram": "Last Program",
-          "ecoasdefault": "Eco 50"
+          "lastprogram": "Laatste programma",
+          "ecoasdefault": "Eco 50°"
         }
       }
     },
@@ -860,6 +860,7 @@
   }
 
 }
+
 
 
 
