@@ -277,7 +277,7 @@
         }
       },
       "sensor_active_program": {
-        "name": "Actief Programma",
+        "name": "Actief programma",
         "state": {
           "dishcare_dishwasher_program_intensiv70": "Intensief 70°",
           "dishcare_dishwasher_program_auto2": "Auto 45-65°",
@@ -324,8 +324,9 @@
           "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatisch 40°C",
           "laundrycare_washer_program_cotton_cotton_cotton": "Katoen",
           "laundrycare_washer_program_darkwash_darkwash_darkwash": "Donkere was",
+          "laundrycare_washer_program_darkwash_curtains_curtains": "Gordijnen",
           "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fijne Was/Zijde",
-          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Fijne Was/Zijde",
+          "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Fijne Was/Zijde (mp)",
           "laundrycare_washer_program_downduvet_down_down": "Ondergoed",
           "laundrycare_washer_program_drumclean_drumclean_drumclean": "Trommelreiniging",
           "laundrycare_washer_program_drumclean_drumclean70_drumclean70": "Trommelreiniging 70°C",
@@ -333,6 +334,7 @@
           "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60°C",
           "laundrycare_washer_program_mix_mix_mix": "Snel + Mix",
           "laundrycare_washer_program_outdoor_outdoor_outdoor": "Outdoor",
+          "laundrycare_washer_program_powerspeed59_powerspeed59_powerspeed59": "powerSpeed 59'",
           "laundrycare_washer_program_rinse_rinse_rinse": "Spoelen",
           "laundrycare_washer_program_sensitive_sensitive_sensitive": "Hygiëne",
           "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Overhemden/blouses",
@@ -340,6 +342,7 @@
           "laundrycare_washer_program_spin_spin_spindrain": "Centrifugeren/afpompen",
           "laundrycare_washer_program_steaming_steaming_steaming": "Stomen/Kreukvrij",
           "laundrycare_washer_program_super153045_super1530_super1530": "Supersnel 15'/30'",
+          "laundrycare_washer_program_towels_towels_towels": "Handdoeken",
           "laundrycare_washer_program_wool_wool_wool": "Wol",
           "laundrycare_washer_program_sportfitness": "Sportkleding",
           "laundrycare_common_program_juststart": "Direct starten",
@@ -914,6 +917,7 @@
           "laundrycare_washer_program_automatic4060_auto40_auto40": "Automatisch 40°C",
           "laundrycare_washer_program_cotton_cotton_cotton": "Katoen",
           "laundrycare_washer_program_darkwash_darkwash_darkwash": "Donkere was",
+          "laundrycare_washer_program_darkwash_curtains_curtains": "Gordijnen",
           "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilk": "Fijne Was/Zijde",
           "laundrycare_washer_program_delicatessilk_delicatessilk_delicatessilkmp": "Fijne Was/Zijde",
           "laundrycare_washer_program_downduvet_down_down": "Ondergoed",
@@ -923,6 +927,7 @@
           "laundrycare_washer_program_labeleu19_labeleu19_eco4060": "Eco 40-60°C",
           "laundrycare_washer_program_mix_mix_mix": "Snel + Mix",
           "laundrycare_washer_program_outdoor_outdoor_outdoor": "Outdoor",
+          "laundrycare_washer_program_powerspeed59_powerspeed59_powerspeed59": "powerSpeed 59'",
           "laundrycare_washer_program_rinse_rinse_rinse": "Spoelen",
           "laundrycare_washer_program_sensitive_sensitive_sensitive": "Hygiëne",
           "laundrycare_washer_program_shirtsblouses_shirtsblouses_shirtsblouses": "Overhemden/blouses",
@@ -930,6 +935,7 @@
           "laundrycare_washer_program_spin_spin_spindrain": "Centrifugeren/afpompen",
           "laundrycare_washer_program_steaming_steaming_steaming": "Stomen/Kreukvrij",
           "laundrycare_washer_program_super153045_super1530_super1530": "Supersnel 15'/30'",
+          "laundrycare_washer_program_towels_towels_towels": "Handdoeken",
           "laundrycare_washer_program_wool_wool_wool": "Wol",
           "laundrycare_washer_program_sportfitness": "Sportkleding",
           "laundrycare_washer_program_towels": "Handdoeken",          
@@ -1392,7 +1398,7 @@
         "name": "Helderheid"
       },
       "number_door_light_ring_brightness": {
-        "name": "Deurlicht helderheid"
+        "name": "Helderheid deurverlichting"
       },
       "number_duration": {
         "name": "Tijd"
@@ -1416,7 +1422,7 @@
         "name": "Temperatuurinstelling"
       },
       "number_oven_display_brightness": {
-        "name": "Display-helderheid"
+        "name": "Helderheid display"
       },
       "number_hood_interval_off": {
         "name": "Tijdsinterval uitschakelen"
@@ -1428,7 +1434,7 @@
         "name": "Vertragd uitschakelen"
       },
       "number_hood_sensor_sensitivity": {
-        "name": "Auto Sensorgevoeligheid"
+        "name": "Sensorgevoeligheid"
       },
       "number_start_in": {
         "name": "Start over"
