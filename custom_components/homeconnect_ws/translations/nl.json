@@ -827,14 +827,14 @@
       "select_water_hardness": {
         "name": "Waterhardheid",
         "state": {
-          "h00": "°E 0-8 zacht (0-1.1 mmol/l)"
+          "h00": "°E 0-8 zacht (0-1.1 mmol/l)",
           "h01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
           "h02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
           "h03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
           "h04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
           "h05": "°E 21-26 hard (3.0-3.7 mmol/l)",
           "h06": "°E 27-38 hard (3.8-5.4 mmol/l)",
-          "h06": "°E 39-62 hard (5.5-8.9 mmol/l)"
+          "h07": "°E 39-62 hard (5.5-8.9 mmol/l)"
         }
       },
       "select_remote_control_level": {
