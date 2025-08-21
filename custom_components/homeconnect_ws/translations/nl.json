@@ -938,7 +938,7 @@
           "laundrycare_washer_program_towels_towels_towels": "Handdoeken",
           "laundrycare_washer_program_wool_wool_wool": "Wol",
           "laundrycare_washer_program_sportfitness": "Sportkleding",
-          "laundrycare_washer_program_towels": "Handdoeken",          
+          "laundrycare_washer_program_towels": "Handdoeken",
           "laundrycare_common_program_juststart": "Direct starten",
           "laundrycare_common_program_memory1": "Opgeslagen 1",
           "laundrycare_common_program_memory2": "Opgeslagen 2",
@@ -1388,6 +1388,12 @@
       },
       "button_start_program": {
         "name": "Start"
+      },
+      "button_pause_program": {
+        "name": "Pauzeren"
+      },
+      "button_resume_program": {
+        "name": "Hervatten"
       }
     },
     "number": {
@@ -1493,10 +1499,5 @@
       }
     }
   }
-
+  
 }
-
-
-
-
-
