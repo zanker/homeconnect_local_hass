@@ -192,13 +192,6 @@
           "off": "OK"
         }
       },
-      "binary_sensor_machinecarereminder": {
-        "name": "Machinereiniging",
-        "state": {
-          "on": "Reiniging nodig",
-          "off": "OK"
-        }
-      },
       "binary_sensor_lint_filter_full": {
         "name": "Pluizenfilter",
         "state": {
@@ -207,7 +200,11 @@
         }
       },
       "binary_sensor_maintenance_reminder": {
-        "name": "Machinereiniging aanbevolen"
+        "name": "Machinereiniging",
+        "state": {
+          "on": "Reiniging nodig",
+          "off": "OK"
+        }
       },
       "binary_sensor_program_aborted": {
         "name": "Programma afgebroken"
