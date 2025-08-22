@@ -488,7 +488,7 @@
         }
       },
       "sensor_door_state": {
-        "name": "Door state",
+        "name": "Door",
         "state": {
           "open": "Open",
           "closed": "Closed",
@@ -821,7 +821,7 @@
         }
       },
       "select_hot_water": {
-        "name": "Waterconnection",
+        "name": "Water Connection",
         "state": {
           "coldwater": "Cold Water",
           "hotwater": "Hot Water"
@@ -938,7 +938,6 @@
           "laundrycare_washer_program_towels_towels_towels": "Towels",
           "laundrycare_washer_program_wool_wool_wool": "Wash - Wool",
           "laundrycare_washer_program_sportfitness": "Wash - Sportswear",
-          "laundrycare_washer_program_towels": "Towels",
           "laundrycare_common_program_juststart": "Just Start",
           "laundrycare_common_program_memory1": "Memory 1",
           "laundrycare_common_program_memory2": "Memory 2",
