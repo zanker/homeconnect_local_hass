@@ -270,10 +270,10 @@
         "name": "Program phase",
         "state": {
           "None": "None",
-          "prerinse": "Pre Rinse",
-          "mainwash": "Main Wash",
-          "finalrinse": "Final Rinse",
-          "drying": "Drying"
+          "PreRinse": "Pre Rinse",
+          "MainWash": "Main Wash",
+          "FinalRinse": "Final Rinse",
+          "Drying": "Drying"
         }
       },
       "sensor_active_program": {
