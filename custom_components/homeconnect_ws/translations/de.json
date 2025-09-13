@@ -175,13 +175,12 @@
           "off": "OK"
         }
       },
-      "binary_sensor_machinecarefiltercleaningreminder": {
-        "name": "Maschinenreinigung",
+      "binary_sensor_machinecareandfiltercleaningreminder": {
+        "name": "Maschinenreinigung Filter",
         "state": {
           "on": "Wartung nötig",
           "off": "Ok"
         }
-      },
       "binary_sensor_lint_filter_full": {
         "name": "Flusenfilter",
         "state": {
