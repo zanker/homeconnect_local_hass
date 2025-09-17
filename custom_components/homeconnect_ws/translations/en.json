@@ -272,6 +272,7 @@
       "sensor_program_phase": {
         "name": "Program phase",
         "state": {
+          "none": "None",
           "prerinse": "Pre Rinse",
           "mainwash": "Main Wash",
           "finalrinse": "Final Rinse",
@@ -589,6 +590,9 @@
       },
       "sensor_temperature_ambient": {
         "name": "Ambient Temperature"
+      },
+      "sensor_temperature_memory_freezer": {
+        "name": "Memory Temperature Freezer"
       },
       "sensor_laundry_spin_speed": {
         "name": "Spin Speed",
@@ -1357,6 +1361,9 @@
       "number_setpoint_refrigerator": {
         "name": "Temperature Fridge"
       },
+      "number_light_internal_brightness": {
+        "name": "Internal Light Brightness"
+      },
       "number_idos1_base_level": {
         "name": "i-DOS dosing volume: detergent"
       },
@@ -1394,6 +1401,9 @@
       },
       "light_internal": {
         "name": "Internal Light"
+      },
+      "light_logo": {
+        "name": "Logo Light"
       },
       "light_cooking_lighting": {
         "name": "Light"
