@@ -7,6 +7,9 @@
             "switch_hygiene_plus": {
                 "default": "mdi:thermometer-plus"
             },
+            "switch_extra_dry_option": {
+                "default": "mdi:heat-wave"
+            },
             "switch_intensiv_zone": {},
             "switch_vario_speed_plus": {
                 "default": "mdi:timer-play-outline"
