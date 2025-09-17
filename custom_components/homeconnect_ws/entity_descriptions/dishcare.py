@@ -112,6 +112,11 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     ],
     "switch": [
         HCSwitchEntityDescription(
+            key="switch_extra_dry_option",
+            entity="Dishcare.Dishwasher.Option.ExtraDry",
+            device_class=SwitchDeviceClass.SWITCH,
+        ),
+        HCSwitchEntityDescription(
             key="switch_hygiene_plus",
             entity="Dishcare.Dishwasher.Option.HygienePlus",
             device_class=SwitchDeviceClass.SWITCH,
