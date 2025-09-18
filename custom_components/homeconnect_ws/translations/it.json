@@ -1143,8 +1143,8 @@
       "select_laundry_idos2_content": {
         "name": "i-DOS 2 contenuto",
         "state": {
-          "Softener": "Ammorbidente",
-          "Detergent": "Detergente"
+          "softener": "Ammorbidente",
+          "detergent": "Detergente"
         }
       },
       "select_laundry_idos2_level": {
