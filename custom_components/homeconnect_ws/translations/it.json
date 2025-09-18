@@ -1199,7 +1199,7 @@
         }
       },
       "select_laundry_spin_speed": {
-        "name": "Spin Speed",
+        "name": "Centrifuga",
         "state": {
           "off": "Off",
           "uloff": "Ultra Off",
