@@ -81,6 +81,9 @@
             }
         },
         "sensor": {
+            "sensor_laundry_load_recommendation": {
+                "default": "mdi:weight-kilogram"
+            },
             "sensor_remaining_program_time": {
                 "default": "mdi:progress-clock"
             },

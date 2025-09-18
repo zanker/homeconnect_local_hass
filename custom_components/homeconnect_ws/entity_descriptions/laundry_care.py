@@ -8,7 +8,7 @@ from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.components.switch import SwitchDeviceClass
-from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCategory, UnitOfVolume
+from homeassistant.const import PERCENTAGE, REVOLUTIONS_PER_MINUTE, EntityCategory, UnitOfVolume, UnitOfMass
 
 from .descriptions_definitions import (
     HCBinarySensorEntityDescription,
@@ -51,18 +51,23 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCSensorEntityDescription(
             key="sensor_laundry_load_recommendation",
             entity="LaundryCare.Common.Option.LoadRecommendation",
+            device_class=SensorDeviceClass.WEIGHT,
+            native_unit_of_measurement=UnitOfMass.GRAMS,
+            suggested_unit_of_measurement=UnitOfMass.KILOGRAMS,
         ),
         HCSensorEntityDescription(
             key="sensor_laundry_status_idos1_fill_level",
             entity="LaundryCare.Washer.Status.IDos1FillLevel",
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
+            entity_registry_enabled_default=False,
         ),
         HCSensorEntityDescription(
             key="sensor_laundry_status_idos2_fill_level",
             entity="LaundryCare.Washer.Status.IDos2FillLevel",
             device_class=SensorDeviceClass.ENUM,
             has_state_translation=True,
+            entity_registry_enabled_default=False,
         ),
     ],
     "binary_sensor": [
@@ -334,6 +339,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="select_laundry_option_water_and_rinse_plus",
             entity="LaundryCare.Washer.Option.WaterAndRinsePlus",
             has_state_translation=True,
+            entity_registry_enabled_default=False,
         ),
     ],
     "number": [
@@ -483,6 +489,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="switch_laundry_soak",
             entity="LaundryCare.Washer.Option.Soak",
             device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
         ),
         HCSwitchEntityDescription(
             key="switch_laundry_prewash",
@@ -498,11 +505,13 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="switch_laundry_rinse_plus1",
             entity="LaundryCare.Washer.Option.RinsePlus1",
             device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
         ),
         HCSwitchEntityDescription(
             key="switch_laundry_rinse_plus3",
             entity="LaundryCare.Washer.Option.RinsePlus3",
             device_class=SwitchDeviceClass.SWITCH,
+            entity_registry_enabled_default=False,
         ),
         HCSwitchEntityDescription(
             key="switch_laundry_water_and_rinse_plus1",

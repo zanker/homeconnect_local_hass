@@ -120,10 +120,10 @@
         "name": "Vacation mode"
       },
       "switch_laundry_idos1_active": {
-        "name": "i-DOS 1 Liquid Detergent"
+        "name": "i-DOS 1 enable"
       },
       "switch_laundry_idos2_active": {
-        "name": "i-DOS 2 Liquid Detergent"
+        "name": "i-DOS 2 enable"
       },
       "switch_laundry_intensive_plus": {
         "name": "Intensive Plus"
@@ -288,7 +288,7 @@
         "name": "Foam Detection"
       },
       "binary_sensor_supply_voltage_too_low": {
-        "name": "Supply VoltageLow"
+        "name": "Supply Voltage Low"
       },
       "binary_sensor_water_level_too_high": {
         "name": "Water Level High"
@@ -320,7 +320,7 @@
       "binary_sensor_pump_error": {
         "name": "Pump Error"
       },
-      "binary_sensor_spin_aborted": {
+      "binary_sensor_spin_abort": {
         "name": "Spin Aborted"
       },
       "binary_sensor_fridge_door_state": {
@@ -1448,20 +1448,20 @@
         "name": "Washing Temperature",
         "state": {
           "cold": "Cold",
-          "gc20": "GC20",
-          "ulcold": "UlCold",
-          "ulwarm": "UlWarm",
-          "ulhot": "UlHot",
-          "ulextrahot": "UlExtraHot",
-          "gc30": "GC30",
+          "gc20": "20°C",
+          "ulcold": "Ultra Cold",
+          "ulwarm": "Ultra Warm",
+          "ulhot": "Ultra Hot",
+          "ulextrahot": "Ultra Extra Hot",
+          "gc30": "30°C",
           "auto": "Auto",
           "max": "Max",
-          "gc40": "GC40",
-          "gc50": "GC50",
-          "gc60": "GC60",
-          "gc70": "GC70",
-          "gc80": "GC80",
-          "gc90": "GC90"
+          "gc40": "40°C",
+          "gc50": "50°C",
+          "gc60": "60°C",
+          "gc70": "70°C",
+          "gc80": "80°C",
+          "gc90": "90°C"
         }
       },
       "select_laundry_option_water_and_rinse_plus": {
