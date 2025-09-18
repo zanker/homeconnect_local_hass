@@ -147,6 +147,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Refrigeration.Common.Status.Freezer.MemoryTemperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+            entity_registry_enabled_default=False,
         ),
     ],
     "number": [
@@ -299,6 +300,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCLightEntityDescription(
             key="light_logo",
             entity="Refrigeration.Common.Setting.Light.Logo.Power",
+            entity_category=EntityCategory.CONFIG,
         ),
     ],
 }

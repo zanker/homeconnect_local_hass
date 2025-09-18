@@ -178,8 +178,42 @@
           "off": "OK"
         }
       },
+      "binary_sensor_low_voltage": {
+        "name": "Tensione bassa"
+      },
       "binary_sensor_maintenance_reminder": {
         "name": "Ciclo di cura raccomandato"
+      },
+      "binary_sensor_machinecarereminder": {
+        "name": "Machine Care",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_machinecareandfilterreminder": {
+        "name": "Filtro",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_waterheatercalcified": {
+        "name": "Riscaldatore calcificato",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_smartfiltercleaningreminder": {
+        "name": "Filtro intelligente",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_program_finished": {
+        "name": "Programma terminato"
       },
       "binary_sensor_program_aborted": {
         "name": "Programma interrotto"
@@ -267,6 +301,25 @@
           "favorite_008": "Preferito 8",
           "favorite_009": "Preferito 9",
           "favorite_010": "Preferito 10",
+          "laundrycare_washer_program_auto30": "Auto 30°C",
+          "laundrycare_washer_program_auto40": "Auto 40°C",
+          "laundrycare_washer_program_cotton": "Cotone",
+          "laundrycare_washer_program_cotton_color": "Cotone colorati",
+          "laundrycare_washer_program_cotton_eco4060": "Eco 40-60°C",
+          "laundrycare_washer_program_darkwash": "Scuri",
+          "laundrycare_washer_program_delicatessilk": "Delicati/Seta",
+          "laundrycare_washer_program_delicatessilkmp": "Meno Microplastiche",
+          "laundrycare_washer_program_drain": "Scarico",
+          "laundrycare_washer_program_outdoor": "Outdoor",
+          "laundrycare_washer_program_super153045_super1530": "Super Rapido 15/30'",
+          "laundrycare_washer_program_wool": "Lana",
+          "laundrycare_washer_program_spin": "Centrifuga",
+          "laundrycare_washer_program_shirtsblouses": "Camicie",
+          "laundrycare_washer_program_sensitive": "Delicati",
+          "laundrycare_washer_program_rinse": "Risciacquo",
+          "laundrycare_washer_program_mix": "Mix",
+          "laundrycare_washer_program_easycare": "Sintetici",
+          "laundrycare_washer_program_drumclean": "Pulizia cestello",
           "laundrycare_washer_program_automatic30_auto30_auto30": "Auto 30°C",
           "laundrycare_washer_program_automatic4060_auto40_auto40": "Auto 40-60°C",
           "laundrycare_washer_program_cotton_cotton_cotton": "Cotone",
@@ -287,7 +340,23 @@
           "laundrycare_washer_program_spin_spin_spindrain": "Spin/Drain",
           "laundrycare_washer_program_steaming_steaming_steaming": "Steam/Iron Assist",
           "laundrycare_washer_program_super153045_super1530_super1530": "Rapido 15'/30'",
-          "laundrycare_washer_program_wool_wool_wool": "Lana"
+          "laundrycare_washer_program_wool_wool_wool": "Lana",
+          "laundrycare_dryer_program_delicates": "Delicati",
+          "laundrycare_dryer_program_blankets": "Trapunte",
+          "laundrycare_dryer_program_businessshirts": "Camicie",
+          "laundrycare_dryer_program_cotton": "Cotone",
+          "laundrycare_dryer_program_dessous": "Intimo",
+          "laundrycare_dryer_program_hygiene": "Hygiene",
+          "laundrycare_dryer_program_inbasket": "Lana con Cestello",
+          "laundrycare_dryer_program_mix": "Mix",
+          "laundrycare_dryer_program_outdoor": "Sport/Fitness",
+          "laundrycare_dryer_program_pillow": "Piumini",
+          "laundrycare_dryer_program_super40": "Rapido 40min",
+          "laundrycare_dryer_program_synthetic": "Sintetici",
+          "laundrycare_dryer_program_timecold": "Tempo Freddo",
+          "laundrycare_dryer_program_timewarm": "Tempo Caldo",
+          "laundrycare_dryer_program_towels": "Asciugamani",
+          "laundrycare_dryer_program_shirtsblouses_sportfitness": "Sportswear"
         }
       },
       "sensor_rinse_aid": {
@@ -585,6 +654,25 @@
           "favorite_008": "Preferito 8",
           "favorite_009": "Preferito 9",
           "favorite_010": "Preferito 10",
+          "laundrycare_washer_program_auto30": "Auto 30°C",
+          "laundrycare_washer_program_auto40": "Auto 40°C",
+          "laundrycare_washer_program_cotton": "Cotone",
+          "laundrycare_washer_program_cotton_color": "Cotone colorati",
+          "laundrycare_washer_program_cotton_eco4060": "Eco 40-60°C",
+          "laundrycare_washer_program_darkwash": "Scuri",
+          "laundrycare_washer_program_delicatessilk": "Delicati/Seta",
+          "laundrycare_washer_program_delicatessilkmp": "Meno Microplastiche",
+          "laundrycare_washer_program_drain": "Scarico",
+          "laundrycare_washer_program_outdoor": "Outdoor",
+          "laundrycare_washer_program_super153045_super1530": "Super Rapido 15/30'",
+          "laundrycare_washer_program_wool": "Lana",
+          "laundrycare_washer_program_spin": "Centrifuga",
+          "laundrycare_washer_program_shirtsblouses": "Camicie",
+          "laundrycare_washer_program_sensitive": "Delicati",
+          "laundrycare_washer_program_rinse": "Risciacquo",
+          "laundrycare_washer_program_mix": "Mix",
+          "laundrycare_washer_program_easycare": "Sintetici",
+          "laundrycare_washer_program_drumclean": "Pulizia cestello",
           "laundrycare_washer_program_automatic30_auto30_auto30": "Auto 30°C",
           "laundrycare_washer_program_automatic4060_auto40_auto40": "Auto 40-60°C",
           "laundrycare_washer_program_cotton_cotton_cotton": "Cotone",
@@ -606,16 +694,6 @@
           "laundrycare_washer_program_steaming_steaming_steaming": "Steam/Iron Assist",
           "laundrycare_washer_program_super153045_super1530_super1530": "Rapido 15'/30'",
           "laundrycare_washer_program_wool_wool_wool": "Lana",
-          "laundrycare_washer_program_outdoor": "Outdoor",
-          "laundrycare_washer_program_super153045_super1530": "Super Rapido 15/30'",
-          "laundrycare_washer_program_wool": "Lana",
-          "laundrycare_washer_program_spin": "Centrifuga",
-          "laundrycare_washer_program_shirtsblouses": "Camicie",
-          "laundrycare_washer_program_sensitive": "Delicati",
-          "laundrycare_washer_program_rinse": "Risciacquo",
-          "laundrycare_washer_program_mix": "Mix",
-          "laundrycare_washer_program_easycare": "Sintetici",
-          "laundrycare_washer_program_drumclean": "Pulizia cestello",
           "laundrycare_dryer_program_delicates": "Delicati",
           "laundrycare_dryer_program_blankets": "Trapunte",
           "laundrycare_dryer_program_businessshirts": "Camicie",
@@ -938,6 +1016,13 @@
           "shirt1": "Maglietta 1",
           "shirt5": "Maglietta 5",
           "business": "Affari"
+        }
+      },
+      "select_laundry_idos2_content": {
+        "name": "i-DOS 2 contenuto",
+        "state": {
+          "Softener": "Ammorbidente",
+          "Detergent": "Detergente"
         }
       },
       "select_oven_level": {

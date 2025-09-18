@@ -270,6 +270,9 @@
             },
             "button_resume_program": {
                 "default": "mdi:play"
+            },
+            "button_mains_power_off": {
+                "default": "mdi:power-plug-off"
             }
         },
         "number": {
@@ -279,6 +282,9 @@
             },
             "number_idos2_base_level": {
                 "default": "mdi:tune"
+            },
+            "number_light_internal_brightness": {
+                "default": "mdi:lightbulb"
             }
         }
     },
