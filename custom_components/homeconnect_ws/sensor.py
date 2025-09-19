@@ -11,6 +11,12 @@ from homeconnect_websocket import HomeAppliance
 from .entity import HCEntity
 from .helpers import create_entities
 
+import logging
+from aiohttp.client_exceptions import ClientConnectionResetError
+from datetime import timedelta
+
+_LOGGER = logging.getLogger(__name__)
+
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
     from homeassistant.helpers.entity import DeviceInfo
@@ -21,6 +27,7 @@ if TYPE_CHECKING:
     from .entity_descriptions.descriptions_definitions import HCSensorEntityDescription
 
 PARALLEL_UPDATES = 0
+SCAN_INTERVAL = timedelta(minutes=10)
 
 
 async def async_setup_entry(
@@ -113,9 +120,9 @@ class HCActiveProgram(HCSensor):
 
 
 class HCWiFI(HCEntity, SensorEntity):
-    """WiFi signal Sensor Entity."""
+    """WiFi signal Sensor Entity with push-like updates."""
 
-    _attr_should_poll = True
+    _attr_should_poll = False
 
     def __init__(
         self,
@@ -125,6 +132,54 @@ class HCWiFI(HCEntity, SensorEntity):
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
 
+    #async def async_update(self) -> None:
+    #    network_info = await self._appliance.get_network_config()
+    #    self._attr_native_value = network_info[0]["rssi"]
+
+        # Registration of the callback to be notified of events
+        self._appliance.register_event_callback(self._on_appliance_event)
+
+    async def _on_appliance_event(self, event: dict) -> None:
+        """Callback executed when an event is received via websocket."""
+        await self._update_signal(push=True)
+
     async def async_update(self) -> None:
-        network_info = await self._appliance.get_network_config()
-        self._attr_native_value = network_info[0]["rssi"]
+        """Called by Home Assistant every SCAN_INTERVAL for fallback polling."""
+        await self._update_signal(push=False)
+
+    async def _update_signal(self, push: bool) -> None:
+        """Retrieve WiFi RSSI with retry and exponential backoff."""
+        import asyncio
+
+        max_retries = 3
+        delay = 1
+        try_type = "push" if push else "polling"
+
+        for attempt in range(1, max_retries + 1):
+            try:
+                network_info = await self._appliance.get_network_config()
+                #if network_info and "rssi" in network_info[0]:
+                if network_info and isinstance(network_info, list) and "rssi" in network_info[0]:
+                    self._attr_native_value = network_info[0]["rssi"]
+                    self.async_write_ha_state()
+                return
+            except ClientConnectionResetError:
+                _LOGGER.debug(
+                    "[%s] Connection reset while fetching WiFi info for %s (attempt %s/%s)",
+                    try_type,
+                    self._appliance.name,
+                    attempt,
+                    max_retries,
+                )
+            except Exception as err:
+                _LOGGER.error(
+                    "[%s] Failed to update WiFi signal for %s on attempt %s/%s: %s",
+                    try_type,
+                    self._appliance.name,
+                    attempt,
+                    max_retries,
+                    err,
+                )
+            if attempt < max_retries:
+                await asyncio.sleep(delay)
+                delay *= 2  # Exponential backoff
