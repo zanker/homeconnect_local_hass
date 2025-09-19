@@ -13,7 +13,6 @@ from .helpers import create_entities
 
 import logging
 from aiohttp.client_exceptions import ClientConnectionResetError
-from datetime import timedelta
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -27,7 +26,6 @@ if TYPE_CHECKING:
     from .entity_descriptions.descriptions_definitions import HCSensorEntityDescription
 
 PARALLEL_UPDATES = 0
-SCAN_INTERVAL = timedelta(minutes=10)
 
 
 async def async_setup_entry(
