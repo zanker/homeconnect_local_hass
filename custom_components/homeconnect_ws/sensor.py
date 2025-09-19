@@ -150,21 +150,24 @@ class HCWiFI(HCEntity, SensorEntity):
                 else:
                     _LOGGER.warning(
                         "WiFi entity: unexpected response format while updating signal for %s: %s",
-                        self._appliance.name,
+                        self.entity_id,
+                        #self._appliance.info.get("name"),
                         network_info,
                     )
                     return
             except ClientConnectionResetError:
                 _LOGGER.debug(
                     "Polling: connection reset while fetching WiFi info for %s (attempt %s/%s)",
-                    self._appliance.name,
+                    self.entity_id,
+                    #self._appliance.info.get("name"),
                     attempt,
                     max_retries,
                 )
             except Exception as err:
                 _LOGGER.error(
                     "Polling: failed to update WiFi signal for %s on attempt %s/%s: %s",
-                    self._appliance.name,
+                    self.entity_id,
+                    #self._appliance.info.get("name"),
                     attempt,
                     max_retries,
                     err,
