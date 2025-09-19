@@ -122,7 +122,7 @@ class HCActiveProgram(HCSensor):
 class HCWiFI(HCEntity, SensorEntity):
     """WiFi signal Sensor Entity with push-like updates."""
 
-    _attr_should_poll = False
+    _attr_should_poll = True
 
     def __init__(
         self,
@@ -136,50 +136,42 @@ class HCWiFI(HCEntity, SensorEntity):
     #    network_info = await self._appliance.get_network_config()
     #    self._attr_native_value = network_info[0]["rssi"]
 
-        # Registration of the callback to be notified of events
-        self._appliance.register_event_callback(self._on_appliance_event)
-
-    async def _on_appliance_event(self, event: dict) -> None:
-        """Callback executed when an event is received via websocket."""
-        await self._update_signal(push=True)
-
     async def async_update(self) -> None:
-        """Called by Home Assistant every SCAN_INTERVAL for fallback polling."""
-        await self._update_signal(push=False)
-
-    async def _update_signal(self, push: bool) -> None:
-        """Retrieve WiFi RSSI with retry and exponential backoff."""
+        """Called by Home Assistant every SCAN_INTERVAL to refresh WiFi RSSI."""
         import asyncio
 
         max_retries = 3
         delay = 1
-        try_type = "push" if push else "polling"
 
         for attempt in range(1, max_retries + 1):
             try:
                 network_info = await self._appliance.get_network_config()
-                #if network_info and "rssi" in network_info[0]:
                 if network_info and isinstance(network_info, list) and "rssi" in network_info[0]:
                     self._attr_native_value = network_info[0]["rssi"]
-                    self.async_write_ha_state()
-                return
+                    return
+                else:
+                    _LOGGER.warning(
+                        "WiFi entity: unexpected response format while updating signal for %s: %s",
+                        self._appliance.name,
+                        network_info,
+                    )
+                    return
             except ClientConnectionResetError:
                 _LOGGER.debug(
-                    "[%s] Connection reset while fetching WiFi info for %s (attempt %s/%s)",
-                    try_type,
+                    "Polling: connection reset while fetching WiFi info for %s (attempt %s/%s)",
                     self._appliance.name,
                     attempt,
                     max_retries,
                 )
             except Exception as err:
                 _LOGGER.error(
-                    "[%s] Failed to update WiFi signal for %s on attempt %s/%s: %s",
-                    try_type,
+                    "Polling: failed to update WiFi signal for %s on attempt %s/%s: %s",
                     self._appliance.name,
                     attempt,
                     max_retries,
                     err,
                 )
+
             if attempt < max_retries:
                 await asyncio.sleep(delay)
-                delay *= 2  # Exponential backoff
+                delay *= 2  # exponential backoff
