@@ -214,6 +214,12 @@
           "off": "OK"
         }
       },
+      "binary_sensor_release_rinse_hold_pending": {
+        "name": "Ammollo a fine ciclo in sospeso"
+      },
+      "binary_sensor_idos_open_tray": {
+        "name": "Cassetto detersivo aperto"
+      },
       "binary_sensor_spin_abort": {
         "name": "Centrifuga annullata"
       },
@@ -1082,27 +1088,27 @@
         "name": "Asciugatura armadio regolazione fine",
         "state": {
           "off": "Spento",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_laundry_cupboard_dry_plus_fine_adjust": {
         "name": "Asciugatura armadio plus regolazione fine",
         "state": {
           "off": "Spento",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_laundry_iron_dry_fine_adjust": {
         "name": "Asciugatura per stiro regolazione fine",
         "state": {
           "off": "Spento",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_laundry_spin_speed_before_drying": {
@@ -1184,18 +1190,18 @@
         "name": "Ammollo multiplo",
         "state": {
           "off": "Off",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_laundry_RinsePlus": {
         "name": "Extra Risciacquo",
         "state": {
           "off": "Off",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_laundry_spin_speed": {
@@ -1266,9 +1272,9 @@
         "name": "Acqua e risciacquo plus",
         "state": {
           "off": "Off",
-          "plus1": "Plus 1",
-          "plus2": "Plus 2",
-          "plus3": "Plus 3"
+          "plus1": "+ 1",
+          "plus2": "+ 2",
+          "plus3": "+ 3"
         }
       },
       "select_oven_level": {

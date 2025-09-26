@@ -151,7 +151,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_drum_clean_reminder",
             entity="LaundryCare.Washer.Event.DrumCleanReminder",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -159,7 +159,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_idos1_fill_level_poor",
             entity="LaundryCare.Washer.Event.IDos1FillLevelPoor",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -167,7 +167,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_idos2_fill_level_poor",
             entity="LaundryCare.Washer.Event.IDos2FillLevelPoor",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -175,7 +175,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_idos_unit_defect",
             entity="LaundryCare.Washer.Event.IDosUnitDefect",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -183,7 +183,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_pump_error",
             entity="LaundryCare.Washer.Event.PumpError",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -191,7 +191,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
-         HCBinarySensorEntityDescription(
+        HCBinarySensorEntityDescription(
             key="binary_sensor_spin_abort",
             entity="LaundryCare.Washer.Event.Spin.SpinAbort",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -199,6 +199,23 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_release_rinse_hold_pending",
+            entity="LaundryCare.Washer.Event.ReleaseRinseHoldPending",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        HCBinarySensorEntityDescription(
+            key="binary_sensor_idos_open_tray",
+            entity="LaundryCare.Washer.Event.IDos.IDosOpenTray",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            value_on={"Present", "Confirmed"},
+            value_off={"Off"},
+        ),
+        
         
     ],
     "select": [
