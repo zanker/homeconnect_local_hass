@@ -278,6 +278,27 @@
           "off": "OK"
         }
       },
+      "binary_sensor_checkfiltersystem": {
+        "name": "Check Filter System",
+        "state": {
+          "on": "Maintenance Required",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_drainingnotpossible": {
+        "name": "Draining Not Possible",
+        "state": {
+          "on": "Maintenance Required",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_drainpumpblocked": {
+        "name": "Drain Pump Blocked",
+        "state": {
+          "on": "Maintenance Required",
+          "off": "OK"
+        }
+      },
       "binary_sensor_program_finished": {
         "name": "Program Finished"
       },

@@ -307,6 +307,27 @@
           "off": "OK"
         }
       },
+      "binary_sensor_checkfiltersystem": {
+        "name": "Filtro intasato",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_drainingnotpossible": {
+        "name": "Drenaggio non possibile",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
+      "binary_sensor_drainpumpblocked": {
+        "name": "Pompa di drenaggio bloccata",
+        "state": {
+          "on": "Manutenzione necessaria",
+          "off": "OK"
+        }
+      },
       "binary_sensor_program_finished": {
         "name": "Programma terminato"
       },
