@@ -257,7 +257,10 @@ def generate_hood_light(appliance: HomeAppliance) -> HCFanEntityDescription:
             color_temperature_entity="Cooking.Hood.Setting.ColorTemperaturePercent",
         )
 
-    if "Cooking.Hood.Setting.LightingBrightness" in appliance.entities:
+    if (
+        "Cooking.Hood.Setting.LightingBrightness" in appliance.entities
+        or "Cooking.Common.Setting.LightingBrightness" in appliance.entities
+    ):
         return HCLightEntityDescription(
             key="light_cooking_lighting",
             entity="Cooking.Common.Setting.Lighting",
