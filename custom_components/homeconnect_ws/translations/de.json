@@ -181,6 +181,7 @@
           "on": "Wartung nötig",
           "off": "Ok"
         }
+      },
       "binary_sensor_lint_filter_full": {
         "name": "Flusenfilter",
         "state": {

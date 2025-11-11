@@ -192,6 +192,12 @@
           "off": "OK"
         }
       },
+      "binary_sensor_machinecarereminder": {
+        "name": "MachineCare"
+      },
+      "binary_sensor_machinecareandfiltercleaningreminder": {
+        "name": "MachineCare and Filter"
+      },
       "binary_sensor_lint_filter_full": {
         "name": "Lint Filter",
         "state": {
@@ -1435,5 +1441,4 @@
       }
     }
   }
-
 }
