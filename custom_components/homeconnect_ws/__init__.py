@@ -103,6 +103,17 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             else:
                 msg = "'Start in' is not available on this Appliance"
                 raise ServiceValidationError(msg)
+        if "finish_in" in call.data:
+            if finish_in_entity := appliance.entities.get("BSH.Common.Option.FinishInRelative"):
+                relative_time_in_seconds = (
+                    int(call.data["finish_in"].get("hours", 0)) * 3600
+                    + int(call.data["finish_in"].get("minutes", 0)) * 60
+                    + int(call.data["finish_in"].get("seconds", 0))
+                )
+                options[finish_in_entity.uid] = relative_time_in_seconds
+            else:
+                msg = "'Finish in' is not available on this Appliance"
+                raise ServiceValidationError(msg)
         if appliance.selected_program:
             await appliance.selected_program.start(options)
         else:
@@ -123,8 +134,23 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             msg = "'Start in' is not available on this Appliance"
             raise ServiceValidationError(msg)
 
+    async def handle_set_finish_in(call: ServiceCall) -> ServiceResponse:
+        config_entry = await get_config_entry_from_call(hass, call)
+        appliance = config_entry.runtime_data.appliance
+        if finish_in_entity := appliance.entities.get("BSH.Common.Option.FinishInRelative"):
+            relative_time_in_seconds = (
+                int(call.data["finish_in"].get("hours", 0)) * 3600
+                + int(call.data["finish_in"].get("minutes", 0)) * 60
+                + int(call.data["finish_in"].get("seconds", 0))
+            )
+            await finish_in_entity.set_value(relative_time_in_seconds)
+        else:
+            msg = "'Finish in' is not available on this Appliance"
+            raise ServiceValidationError(msg)
+
     hass.services.async_register(DOMAIN, "start_program", handle_start_program)
     hass.services.async_register(DOMAIN, "set_start_in", handle_set_start_in)
+    hass.services.async_register(DOMAIN, "set_finish_in", handle_set_finish_in)
     return True
 
 

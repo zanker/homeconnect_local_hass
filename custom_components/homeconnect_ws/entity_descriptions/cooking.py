@@ -38,7 +38,7 @@ def add_if_entity_exists(appliance: HomeAppliance, list: Any, to_add: Any) -> No
 
 def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
     """Get Oven status descriptions."""
-    pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.([0-9]*)\..*$")
+    pattern = re.compile(r"^Cooking\.Oven\.Status\.Cavity\.(\d+)\..*$")
     groups = get_groups_from_regex(appliance, pattern)
     
     descriptions = EntityDescriptions(event_sensor=[], sensor=[], number=[], switch=[], select=[], binary_sensor=[])
@@ -473,7 +473,10 @@ def generate_hood_light(appliance: HomeAppliance) -> HCFanEntityDescription:
             color_temperature_entity="Cooking.Hood.Setting.ColorTemperaturePercent",
         )
 
-    if "Cooking.Hood.Setting.LightingBrightness" in appliance.entities:
+    if (
+        "Cooking.Hood.Setting.LightingBrightness" in appliance.entities
+        or "Cooking.Common.Setting.LightingBrightness" in appliance.entities
+    ):
         return HCLightEntityDescription(
             key="light_cooking_lighting",
             entity="Cooking.Common.Setting.Lighting",

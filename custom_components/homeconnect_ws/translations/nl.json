@@ -152,6 +152,9 @@
       "sensor_start_in": {
         "name": "Start over"
       },
+      "sensor_finish_in": {
+        "name": "Klaar in"
+      },
       "sensor_count_started": {
         "name": "Start aantal"
       },

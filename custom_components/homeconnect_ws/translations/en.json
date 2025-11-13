@@ -543,6 +543,9 @@
       "sensor_start_in": {
         "name": "Start in"
       },
+      "sensor_finish_in": {
+        "name": "Finish in"
+      },
       "sensor_count_started": {
         "name": "Start count"
       },
@@ -1594,6 +1597,10 @@
         "start_in": {
           "name": "Start in",
           "description": "Delay the Program start"
+        },
+        "finish_in": {
+          "name": "Finish in",
+          "description": "Time the Program should be finished in"
         }
       }
     },
@@ -1608,6 +1615,10 @@
         "start_in": {
           "name": "Delay",
           "description": "Set the start delay"
+        },
+        "finish_in": {
+          "name": "Finish in",
+          "description": "Set the time the Program should be finished in"
         }
       }
     }
