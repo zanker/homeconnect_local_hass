@@ -259,25 +259,25 @@
       "sensor_operation_state": {
         "name": "Bedrijfsstatus",
         "state": {
-          "Inactive": "Inactief",
-          "Ready": "Paraat",
-          "DelayedStart": "Uitgestelde start",
-          "Run": "Loopt",
-          "Pause": "Gepauzeerd",
-          "ActionRequired": "Actie benodigd",
-          "Finished": "Afgerond",
-          "Error": "Fout",
-          "Aborting": "Afbreken"
+          "inactive": "Inactief",
+          "ready": "Paraat",
+          "delayedstart": "Uitgestelde start",
+          "run": "Loopt",
+          "pause": "Gepauzeerd",
+          "actionrequired": "Actie benodigd",
+          "finished": "Afgerond",
+          "error": "Fout",
+          "aborting": "Afbreken"
         }
       },
       "sensor_program_phase": {
         "name": "Programmafase",
         "state": {
-          "None": "Geen",
-          "PreRinse": "Voorspoelen",
-          "MainWash": "Wassen",
-          "FinalRinse": "Naspoelen",
-          "Drying": "Drogen"
+          "none": "Geen",
+          "prerinse": "Voorspoelen",
+          "mainwash": "Wassen",
+          "finalrinse": "Naspoelen",
+          "drying": "Drogen"
         }
       },
       "sensor_active_program": {
@@ -1078,13 +1078,13 @@
       "select_rinse_aid": {
         "name": "Glansspoelmiddelinstelling",
         "state": {
-          "Off": "Niveau 0",
-          "R01": "Niveau 1",
-          "R02": "Niveau 2",
-          "R03": "Niveau 3",
-          "R04": "Niveau 4",
-          "R05": "Niveau 5",
-          "R06": "Niveau 6"
+          "off": "Niveau 0",
+          "r01": "Niveau 1",
+          "r02": "Niveau 2",
+          "r03": "Niveau 3",
+          "r04": "Niveau 4",
+          "r05": "Niveau 5",
+          "r06": "Niveau 6"
         }
       },
       "select_sound_level_signal": {
@@ -1099,14 +1099,14 @@
       "select_water_hardness": {
         "name": "Waterhardheid",
         "state": {
-          "H00": "°E 0-8 zacht (0-1.1 mmol/l)",
-          "H01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
-          "H02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
-          "H03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
-          "H04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
-          "H05": "°E 21-26 hard (3.0-3.7 mmol/l)",
-          "H06": "°E 27-38 hard (3.8-5.4 mmol/l)",
-          "H07": "°E 39-62 hard (5.5-8.9 mmol/l)"
+          "h00": "°E 0-8 zacht (0-1.1 mmol/l)",
+          "h01": "°E 9-10 zacht (1.2-1.4 mmol/l)",
+          "h02": "°E 11-12 gemiddeld (1.5-1.8 mmol/l)",
+          "h03": "°E 13-15 gemiddeld (1.9-2.1 mmol/l)",
+          "h04": "°E 16-20 gemiddeld (2.2-2.9 mmol/l)",
+          "h05": "°E 21-26 hard (3.0-3.7 mmol/l)",
+          "h06": "°E 27-38 hard (3.8-5.4 mmol/l)",
+          "h07": "°E 39-62 hard (5.5-8.9 mmol/l)"
         }
       },
       "select_remote_control_level": {
@@ -2064,5 +2064,4 @@
       }
     }
   }
-  
 }
