@@ -291,6 +291,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             suggested_unit_of_measurement=UnitOfTime.HOURS,
         ),
         HCSensorEntityDescription(
+            key="sensor_finish_in",
+            entity="BSH.Common.Option.FinishInRelative",
+            device_class=SensorDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            suggested_unit_of_measurement=UnitOfTime.HOURS,
+        ),
+        HCSensorEntityDescription(
             key="sensor_count_started",
             entity="BSH.Common.Status.Program.All.Count.Started",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -376,6 +383,14 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCNumberEntityDescription(
             key="number_start_in",
             entity="BSH.Common.Option.StartInRelative",
+            device_class=NumberDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.SECONDS,
+            mode=NumberMode.AUTO,
+            entity_registry_enabled_default=False,
+        ),
+        HCNumberEntityDescription(
+            key="number_finish_in",
+            entity="BSH.Common.Option.FinishInRelative",
             device_class=NumberDeviceClass.DURATION,
             native_unit_of_measurement=UnitOfTime.SECONDS,
             mode=NumberMode.AUTO,
