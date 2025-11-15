@@ -1216,7 +1216,7 @@
           "plus3": "+ 3"
         }
       },
-      "select_laundry_RinsePlus": {
+      "select_laundry_rinseplus": {
         "name": "Extra Risciacquo",
         "state": {
           "off": "Off",

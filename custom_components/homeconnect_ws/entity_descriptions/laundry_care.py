@@ -346,7 +346,7 @@ LAUNDRY_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             has_state_translation=True,
         ),
         HCSelectEntityDescription(
-            key="select_laundry_RinsePlus",
+            key="select_laundry_rinseplus",
             entity="LaundryCare.Washer.Option.RinsePlus",
             has_state_translation=True,
         ),

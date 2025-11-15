@@ -1488,7 +1488,7 @@
           "plus3": "Plus 3"
         }
       },
-      "select_laundry_RinsePlus": {
+      "select_laundry_rinseplus": {
         "name": "Rinse Plus",
         "state": {
           "off": "Off",
