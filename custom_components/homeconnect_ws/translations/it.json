@@ -235,7 +235,7 @@
       "binary_sensor_door_not_unlockable": {
         "name": "Porta non sbloccabile"
       },
-      "binary_sensor_fatal_error_occurred": {   
+      "binary_sensor_fatal_error_occurred": {
         "name": "Errore generale"
       },
       "binary_sensor_idos1_fill_level_poor": {
@@ -1429,5 +1429,4 @@
       }
     }
   }
-
 }
