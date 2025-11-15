@@ -42,7 +42,7 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             value_off={"Off"},
         ),
         HCBinarySensorEntityDescription(
-            key="binary_sensor_machinecareandfilterreminder",
+            key="binary_sensor_machinecareandfiltercleaningreminder",
             entity="Dishcare.Dishwasher.Event.MachineCareAndFilterCleaningReminder",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
@@ -133,6 +133,7 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Dishcare.Dishwasher.Setting.RinseAid",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
+            has_state_translation=True,
         ),
         HCSelectEntityDescription(
             key="select_sound_level_signal",
@@ -146,6 +147,7 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             entity="Dishcare.Dishwasher.Setting.WaterHardness",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
+            has_state_translation=True,
         ),
         HCSelectEntityDescription(
             key="select_sensitivity_turbidity",
