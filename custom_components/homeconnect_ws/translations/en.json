@@ -619,7 +619,7 @@
       "sensor_oven_current_temperature": {
         "name": "Current Temperature{group_name}"
       },
-      "sensor_oven_alarm_clock_elapsed": {
+      "binary_sensor_oven_alarm_clock_elapsed": {
         "name": "Alarm Clock Elapsed{group_name}"
       },
       "sensor_heatup_progress": {
@@ -1337,7 +1337,7 @@
       "number_start_in": {
         "name": "Start in"
       },
-      "sensor_oven_setting_alarm_clock": {
+      "number_oven_setting_alarm_clock": {
         "name": "Alarm Clock"
       }
     },
@@ -1391,5 +1391,4 @@
       }
     }
   }
-
 }
