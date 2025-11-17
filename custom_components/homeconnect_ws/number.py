@@ -44,16 +44,28 @@ class HCNumber(HCEntity, NumberEntity):
     ) -> None:
         super().__init__(entity_description, appliance, device_info)
         self._entity._type = int  # noqa: SLF001 Force integer type
-        if hasattr(self._entity, "min") and self._entity.min is not None:
-            self._attr_native_min_value = self._entity.min
-        if hasattr(self._entity, "max") and self._entity.max is not None:
-            self._attr_native_max_value = self._entity.max
-        if hasattr(self._entity, "step") and self._entity.step is not None:
-            self._attr_native_step = self._entity.step
 
     @property
     def native_value(self) -> int | float:
         return self._entity.value
+
+    @property
+    def native_min_value(self) -> float | None:
+        if hasattr(self._entity, "min") and self._entity.min is not None:
+            return self._entity.min
+        return None
+
+    @property
+    def native_max_value(self) -> float | None:
+        if hasattr(self._entity, "max") and self._entity.max is not None:
+            return self._entity.max
+        return None
+
+    @property
+    def native_step(self) -> float | None:
+        if hasattr(self._entity, "step") and self._entity.step is not None:
+            return self._entity.step
+        return None
 
     async def async_set_native_value(self, value: float) -> None:
         await self._entity.set_value(int(value))
