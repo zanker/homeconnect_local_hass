@@ -1681,6 +1681,13 @@
           "fanstage02": "2",
           "fanstage03": "3"
         }
+      },
+      "select_temperature_unit": {
+        "name": "Temperature unit",
+        "state": {
+          "celsius": "Celsius",
+          "fahrenheit": "Fahrenheit"
+        }
       }
     },
     "button": {

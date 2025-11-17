@@ -259,6 +259,13 @@
             },
             "select_hot_water_temperature": {
                 "default": "mdi:water-thermometer-outline"
+            },
+            "select_temperature_unit": {
+                "default": "mdi:thermometer",
+                "state": {
+                    "celsius": "mdi:temperature-celsius",
+                    "fahrenheit": "mdi:temperature-fahrenheit"
+                }
             }
         },
         "button": {
