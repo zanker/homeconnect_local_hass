@@ -1688,6 +1688,14 @@
           "celsius": "Celsius",
           "fahrenheit": "Fahrenheit"
         }
+      },
+      "select_hood_carbon_filter_type": {
+        "name": "Carbon filter type",
+        "state": {
+          "none": "None",
+          "fahrenheit": "Basic Carbon filter",
+          "regenerativecarbonfilter": "Regenerative Carbon filter"
+        }
       }
     },
     "button": {
@@ -1705,6 +1713,18 @@
       },
       "button_mains_power_off": {
         "name": "PowerOFF"
+      },
+      "button_hood_carbon_filter_reset": {
+        "name": "Carbon filter reset"
+      },
+      "button_hood_grease_filter_reset": {
+        "name": "Grease filter reset"
+      },
+      "button_hood_regenerative_carbon_filter_reset": {
+        "name": "Regenerative Carbon filter reset"
+      },
+      "button_hood_regenerative_carbon_filter_lifetime_reset": {
+        "name": "Regenerative Carbon filter lifetime reset"
       }
     },
     "number": {

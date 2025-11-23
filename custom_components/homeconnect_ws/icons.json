@@ -283,6 +283,18 @@
             },
             "button_mains_power_off": {
                 "default": "mdi:power-plug-off"
+            },
+            "button_hood_carbon_filter_reset": {
+                "default": "mdi:restore"
+            },
+            "button_hood_grease_filter_reset": {
+                "default": "mdi:restore"
+            },
+            "button_hood_regenerative_carbon_filter_reset": {
+                "default": "mdi:restore"
+            },
+            "button_hood_regenerative_carbon_filter_lifetime_reset": {
+                "default": "mdi:restore"
             }
         },
         "number": {
