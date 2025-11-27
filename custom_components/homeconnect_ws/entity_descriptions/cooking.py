@@ -78,7 +78,7 @@ def generate_oven_event(appliance: HomeAppliance) -> EntityDescriptions:
     """Get Oven event descriptions."""
     pattern = re.compile(r"^Cooking\.Oven\.Event\.Cavity\.([0-9]*)\..*$")
     groups = get_groups_from_regex(appliance, pattern)
-    descriptions = EntityDescriptions(event_sensor=[])
+    descriptions = EntityDescriptions(binary_sensor=[])
     for group in groups:
         group_name = f" {int(group[0])}"
         if len(groups) == 1:
@@ -87,7 +87,7 @@ def generate_oven_event(appliance: HomeAppliance) -> EntityDescriptions:
         # AlarmClockElapsed
         entity = f"Cooking.Oven.Event.Cavity.{group[0]}.AlarmClockElapsed"
         if entity in appliance.entities:
-            descriptions["event_sensor"].append(
+            descriptions["binary_sensor"].append(
                 HCBinarySensorEntityDescription(
                     key=f"binary_sensor_oven_alarm_clock_elapsed_{group[0]}",
                     translation_key="binary_sensor_oven_alarm_clock_elapsed",
