@@ -657,7 +657,6 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             has_state_translation=True,
             entity_category=EntityCategory.CONFIG,
         ),
->>>>>>> remote/main
     ],
     "switch": [
     ],
