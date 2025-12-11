@@ -62,6 +62,14 @@ async def test_update(
     state = hass.states.get(entity_id)
     assert state.state == "10"
 
+    await mock_appliance.entities["Test.Number"].update({"min": 10, "max": 50, "stepSize": 5})
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state.attributes[ATTR_MIN] == 10
+    assert state.attributes[ATTR_MAX] == 50
+    assert state.attributes[ATTR_STEP] == 5
+
 
 async def test_set_value(
     hass: HomeAssistant,

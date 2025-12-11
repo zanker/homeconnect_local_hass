@@ -41,6 +41,9 @@
       "switch_hygiene_plus": {
         "name": "Hygiene Plus"
       },
+      "switch_extra_dry_option": {
+        "name": "Extra Trocken"
+      },
       "switch_intensiv_zone": {
         "name": "Intensiv Zone"
       },
@@ -173,6 +176,13 @@
         "state": {
           "on": "Wartung nötig",
           "off": "OK"
+        }
+      },
+      "binary_sensor_machinecareandfiltercleaningreminder": {
+        "name": "Maschinenreinigung Filter",
+        "state": {
+          "on": "Wartung nötig",
+          "off": "Ok"
         }
       },
       "binary_sensor_lint_filter_full": {
@@ -849,6 +859,9 @@
       },
       "sensor_oven_current_temperature": {
         "name": "Aktuelle Temperatur{group_name}"
+      },
+      "binary_sensor_oven_alarm_clock_elapsed": {
+        "name": "Alarm abgelaufen{group_name}"
       },
       "sensor_heatup_progress": {
         "name": "Aufwärmprozess"
@@ -1757,6 +1770,9 @@
       },
       "number_start_in": {
         "name": "Start in"
+      },
+      "number_oven_setting_alarm_clock": {
+        "name": "Alarm"
       }
     },
     "light": {

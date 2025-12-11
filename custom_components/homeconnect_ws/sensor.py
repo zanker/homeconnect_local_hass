@@ -2,14 +2,18 @@
 
 from __future__ import annotations
 
+import logging
 from typing import TYPE_CHECKING
 
+from aiohttp.client_exceptions import ClientConnectionResetError
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.device_registry import DeviceInfo
-from homeconnect_websocket import HomeAppliance
+from homeconnect_websocket import HomeAppliance, NotConnectedError
 
 from .entity import HCEntity
 from .helpers import create_entities
+
+_LOGGER = logging.getLogger(__name__)
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
@@ -113,7 +117,7 @@ class HCActiveProgram(HCSensor):
 
 
 class HCWiFI(HCEntity, SensorEntity):
-    """WiFi signal Sensor Entity."""
+    """WiFi signal Sensor Entity with push-like updates."""
 
     _attr_should_poll = True
 
@@ -126,5 +130,13 @@ class HCWiFI(HCEntity, SensorEntity):
         super().__init__(entity_description, appliance, device_info)
 
     async def async_update(self) -> None:
-        network_info = await self._appliance.get_network_config()
-        self._attr_native_value = network_info[0]["rssi"]
+        try:
+            network_info = await self._appliance.get_network_config()
+            if network_info and isinstance(network_info, list) and "rssi" in network_info[0]:
+                self._attr_native_value = network_info[0]["rssi"]
+            else:
+                _LOGGER.debug("WiFi update failed: unexpected response format: %s", network_info)
+        except ClientConnectionResetError:
+            _LOGGER.debug("WiFi update failed: Connection reset")
+        except NotConnectedError:
+            _LOGGER.debug("WiFi update failed: Not connected")

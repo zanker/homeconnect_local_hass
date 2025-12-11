@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import sys
 from typing import TYPE_CHECKING
 
 from homeassistant.components.binary_sensor import (
@@ -19,6 +20,8 @@ from custom_components.homeconnect_ws.helpers import get_groups_from_regex, get_
 
 from .descriptions_definitions import (
     EntityDescriptions,
+    HCBinarySensorEntityDescription,
+    HCButtonEntityDescription,
     HCFanEntityDescription,
     HCLightEntityDescription,
     HCNumberEntityDescription,
@@ -287,6 +290,60 @@ def generate_oven_status(appliance: HomeAppliance) -> [EntityDescriptions]:
     return descriptions
 
 
+def generate_oven_event(appliance: HomeAppliance) -> EntityDescriptions:
+    """Get Oven event descriptions."""
+    pattern = re.compile(r"^Cooking\.Oven\.Event\.Cavity\.([0-9]*)\..*$")
+    groups = get_groups_from_regex(appliance, pattern)
+    descriptions = EntityDescriptions(binary_sensor=[])
+    for group in groups:
+        group_name = f" {int(group[0])}"
+        if len(groups) == 1:
+            group_name = ""
+
+        # AlarmClockElapsed
+        entity = f"Cooking.Oven.Event.Cavity.{group[0]}.AlarmClockElapsed"
+        if entity in appliance.entities:
+            descriptions["binary_sensor"].append(
+                HCBinarySensorEntityDescription(
+                    key=f"binary_sensor_oven_alarm_clock_elapsed_{group[0]}",
+                    translation_key="binary_sensor_oven_alarm_clock_elapsed",
+                    translation_placeholders={"group_name": group_name},
+                    entity=entity,
+                    value_on={"Present", "Confirmed"},
+                    value_off={"Off"},
+                )
+            )
+
+    return descriptions
+
+
+def generate_oven_settings(appliance: HomeAppliance) -> HCFanEntityDescription:
+    """Get Oven status descriptions."""
+    pattern = re.compile(r"^Cooking\.Oven\.Setting\.Cavity\.([0-9]*)\..*$")
+    groups = get_groups_from_regex(appliance, pattern)
+    descriptions = EntityDescriptions(number=[])
+    for group in groups:
+        group_name = f" {int(group[0])}"
+
+        # AlarmClock
+        entity = f"Cooking.Oven.Setting.Cavity.{group[0]}.AlarmClock"
+        if entity in appliance.entities:
+            descriptions["number"].append(
+                HCNumberEntityDescription(
+                    key=f"number_oven_setting_{group[0]}_alarm_clock",
+                    translation_key="number_oven_setting_alarm_clock",
+                    translation_placeholders={"group_name": group_name},
+                    entity=entity,
+                    device_class=NumberDeviceClass.DURATION,
+                    native_unit_of_measurement=UnitOfTime.SECONDS,
+                    native_max_value=sys.float_info.max,
+                    mode=NumberMode.BOX,
+                )
+            )
+
+    return descriptions
+
+
 HOOD_FAN_ENTITIES = [
     "Cooking.Common.Option.Hood.VentingLevel",
     "Cooking.Common.Option.Hood.IntensiveLevel",
@@ -523,7 +580,12 @@ def generate_hood_ambient_light(appliance: HomeAppliance) -> HCFanEntityDescript
 COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "sensor": [
     ],
-    "dynamic": [generate_oven_status],
+    "dynamic": [
+        generate_oven_status,
+        generate_hob_zones,
+        generate_oven_event,
+        generate_oven_settings,
+    ],
     "number": [
         HCNumberEntityDescription(
             key="number_oven_setpoint_temperature",
@@ -534,9 +596,93 @@ COOKING_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         ),
     ],
     "select": [
+        HCSelectEntityDescription(
+            key="select_oven_level",
+            entity="Cooking.Oven.Option.Level",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_oven_used_heating_mode",
+            entity="Cooking.Oven.Option.UsedHeatingMode",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_pyrolysis_level",
+            entity="Cooking.Oven.Option.PyrolysisLevel",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_oven_child_lock_setting",
+            entity="Cooking.Oven.Setting.ConfigureChildLock",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_oven_switch_on_delay",
+            entity="Cooking.Oven.Setting.SwitchOnDelay",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_oven_cooling_fan_runtime",
+            entity="Cooking.Oven.Setting.CoolingFanRunOnTime",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_oven_signal_duration",
+            entity="Cooking.Oven.Setting.SignalDuration",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_hood_interval_stage",
+            entity="Cooking.Hood.Setting.IntervalStage",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_hob_ventilation",
+            entity="Cooking.Hob.Setting.Ventilation",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCSelectEntityDescription(
+            key="select_hob_delaye_shutoff_stage",
+            entity="Cooking.Hood.Setting.DelayedShutOffStage",
+            has_state_translation=True,
+        ),
+        HCSelectEntityDescription(
+            key="select_hood_carbon_filter_type",
+            entity="Cooking.Hood.Setting.CarbonFilterType",
+            has_state_translation=True,
+            entity_category=EntityCategory.CONFIG,
+        ),
+>>>>>>> remote/main
     ],
     "switch": [
     ],
     "light": [generate_hood_light, generate_hood_ambient_light],
     "fan": [generate_hood_fan],
+    "button": [
+        HCButtonEntityDescription(
+            key="button_hood_carbon_filter_reset",
+            entity="Cooking.Common.Command.Hood.CarbonFilterReset ",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCButtonEntityDescription(
+            key="button_hood_grease_filter_reset",
+            entity="Cooking.Common.Command.Hood.GreaseFilterReset ",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCButtonEntityDescription(
+            key="button_hood_regenerative_carbon_filter_reset",
+            entity="Cooking.Common.Command.Hood.RegenerativeCarbonFilterReset ",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        HCButtonEntityDescription(
+            key="button_hood_regenerative_carbon_filter_lifetime_reset",
+            entity="Cooking.Common.Command.Hood.RegenerativeCarbonFilterLifeTimeReset ",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ],
 }
