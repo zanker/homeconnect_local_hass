@@ -233,6 +233,6 @@ DISHCARE_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="switch_extra_rinse",
             entity="Dishcare.Dishwasher.Option.ExtraRinse",
             device_class=SwitchDeviceClass.SWITCH,
-        )
+        ),
     ],
 }
